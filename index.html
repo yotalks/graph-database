@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Graph Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="sidebar__header">
+          <div class="title">Graph Gallery</div>
+          <div class="subtitle">Click a graph to view. Scroll to zoom, drag to pan.</div>
+          <input id="search" class="search" type="search" placeholder="Search graphs..." />
+        </div>
+        <div class="sidebar__content">
+          <div id="empty" class="empty hidden">
+            No graphs found. Add images to <code>graph_gallery/graphs</code> and run
+            <code>graph_gallery/scripts/refresh_manifest.ps1</code>.
+          </div>
+          <ul id="graphList" class="graph-list"></ul>
+        </div>
+        <div class="sidebar__footer">
+          <div id="manifestInfo" class="manifest-info"></div>
+        </div>
+      </aside>
+
+      <main class="viewer">
+          <div class="toolbar">
+          <button id="btnFit" class="btn">Fit</button>
+          <button id="btn100" class="btn">100%</button>
+          <button id="btnReset" class="btn">Reset</button>
+          <div class="spacer"></div>
+          <div id="status" class="status"></div>
+          <a id="btnOpenFile" class="btn btn--link" download>Download</a>
+        </div>
+
+        <div id="stage" class="stage" tabindex="0">
+          <div id="hint" class="hint">
+            Select a graph from the left.
+          </div>
+          <div id="imgWrap" class="img-wrap hidden">
+            <img id="img" alt="Graph" draggable="false" />
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="manifest.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

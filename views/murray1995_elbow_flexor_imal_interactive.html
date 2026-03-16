@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Elbow flexor IMAL (interactive)</title>
+    <style>
+      :root {
+        --bg: #0b0f17;
+        --panel: rgba(17, 24, 39, 0.55);
+        --panel2: rgba(15, 23, 42, 0.65);
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: rgba(255, 255, 255, 0.08);
+        --btn: rgba(255, 255, 255, 0.08);
+        --btnHover: rgba(255, 255, 255, 0.12);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+        background: radial-gradient(1200px 900px at 20% 10%, rgba(96,165,250,0.15), transparent 45%),
+                    radial-gradient(900px 700px at 80% 15%, rgba(34,197,94,0.12), transparent 45%),
+                    var(--bg);
+        color: var(--text);
+        overflow: hidden;
+      }
+      .wrap { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+      .top {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        align-items: center;
+      }
+      .title { font-weight: 750; font-size: 13px; }
+      .subtitle { color: var(--muted); font-size: 12px; margin-top: 2px; }
+      .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+      .btn {
+        border: 1px solid var(--border);
+        background: var(--btn);
+        color: var(--text);
+        padding: 7px 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 650;
+        font-size: 12px;
+      }
+      .btn:hover { background: var(--btnHover); }
+      .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
+      .main { position: relative; display: grid; grid-template-columns: 320px 1fr; min-height: 0; }
+      .left {
+        border-right: 1px solid var(--border);
+        background: var(--panel2);
+        backdrop-filter: blur(12px);
+        padding: 10px 10px 12px;
+        overflow: auto;
+      }
+      .sectionTitle { font-weight: 750; font-size: 12px; margin: 4px 4px 10px; color: var(--muted); letter-spacing: 0.2px; }
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 8px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        margin: 8px 4px;
+        background: rgba(0,0,0,0.14);
+      }
+      .swatch { width: 12px; height: 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25); }
+      .check label { font-size: 12px; font-weight: 650; }
+      .hint { margin: 8px 4px 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
+      .stage { position: relative; overflow: hidden; min-width: 0; }
+      canvas { width: 100%; height: 100%; display: block; }
+      .overlay {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        background: rgba(0,0,0,0.35);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 8px 10px;
+        color: var(--muted);
+        font-size: 12px;
+        backdrop-filter: blur(8px);
+      }
+      .small {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 10px 4px 0;
+      }
+      .small .btn { padding: 6px 8px; font-size: 11px; }
+      a.link { color: #93c5fd; text-decoration: none; }
+      a.link:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Murray et al. (1995) - Elbow flexor internal moment arms (female specimen)</div>
+          <div class="subtitle">Wheel = zoom | Drag = pan | Solid = digitized points spline | Dashed = estimated prefix to 0 deg</div>
+        </div>
+        <div class="controls">
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle series</div>
+          <div id="checks"></div>
+          <div class="small">
+            <button id="toggleEst" class="btn">Toggle estimates</button>
+            <button id="togglePts" class="btn">Toggle points</button>
+          </div>
+          <div class="hint">
+            Data source: <code>murray1995_momentarms/data/female_digitized_points.csv</code> in this repo.
+            This view reproduces the same linear-prefix estimate used in the static plot script.
+            <div style="margin-top:8px;">
+              Download static PNG: <a class="link" href="../graphs/murray1995_female_elbow_flexors.png" download>murray1995_female_elbow_flexors.png</a>
+            </div>
+          </div>
+        </div>
+        <div class="stage" id="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Measured: solid | Estimated prefix: dashed</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const palette = {
+        "Brachioradialis (Neutral)": "#000000",
+        "Biceps (Neutral)": "#0066cc",
+        "Brachialis (Neutral)": "#009966",
+        "Pronator teres (Neutral)": "#cc6600",
+        "Biceps (Pronated)": "#aaaaaa",
+        "Biceps (Supinated)": "#222222",
+      };
+
+      // Transcribed from murray1995_momentarms/data/female_digitized_points.csv
+      const points = [
+        { series: "Brachioradialis (Neutral)", x: 20, y: 0.6 }, { series: "Brachioradialis (Neutral)", x: 30, y: 1.1 },
+        { series: "Brachioradialis (Neutral)", x: 40, y: 1.8 }, { series: "Brachioradialis (Neutral)", x: 50, y: 2.6 },
+        { series: "Brachioradialis (Neutral)", x: 60, y: 3.3 }, { series: "Brachioradialis (Neutral)", x: 70, y: 3.9 },
+        { series: "Brachioradialis (Neutral)", x: 80, y: 4.5 }, { series: "Brachioradialis (Neutral)", x: 90, y: 4.8 },
+        { series: "Brachioradialis (Neutral)", x: 100, y: 5.1 }, { series: "Brachioradialis (Neutral)", x: 110, y: 5.2 },
+        { series: "Brachioradialis (Neutral)", x: 120, y: 4.9 },
+
+        { series: "Biceps (Neutral)", x: 20, y: 1.9 }, { series: "Biceps (Neutral)", x: 30, y: 2.3 },
+        { series: "Biceps (Neutral)", x: 40, y: 2.8 }, { series: "Biceps (Neutral)", x: 50, y: 3.2 },
+        { series: "Biceps (Neutral)", x: 60, y: 3.6 }, { series: "Biceps (Neutral)", x: 70, y: 3.9 },
+        { series: "Biceps (Neutral)", x: 80, y: 4.0 }, { series: "Biceps (Neutral)", x: 90, y: 3.9 },
+        { series: "Biceps (Neutral)", x: 100, y: 3.6 }, { series: "Biceps (Neutral)", x: 110, y: 3.2 },
+        { series: "Biceps (Neutral)", x: 120, y: 2.8 },
+
+        { series: "Brachialis (Neutral)", x: 25, y: 1.6 }, { series: "Brachialis (Neutral)", x: 35, y: 1.8 },
+        { series: "Brachialis (Neutral)", x: 45, y: 2.0 }, { series: "Brachialis (Neutral)", x: 55, y: 2.2 },
+        { series: "Brachialis (Neutral)", x: 65, y: 2.4 }, { series: "Brachialis (Neutral)", x: 75, y: 2.5 },
+        { series: "Brachialis (Neutral)", x: 85, y: 2.6 }, { series: "Brachialis (Neutral)", x: 95, y: 2.5 },
+        { series: "Brachialis (Neutral)", x: 105, y: 2.3 }, { series: "Brachialis (Neutral)", x: 115, y: 2.1 },
+        { series: "Brachialis (Neutral)", x: 120, y: 2.0 },
+
+        { series: "Pronator teres (Neutral)", x: 20, y: 0.2 }, { series: "Pronator teres (Neutral)", x: 30, y: 0.3 },
+        { series: "Pronator teres (Neutral)", x: 40, y: 0.4 }, { series: "Pronator teres (Neutral)", x: 50, y: 0.5 },
+        { series: "Pronator teres (Neutral)", x: 60, y: 0.6 }, { series: "Pronator teres (Neutral)", x: 70, y: 0.7 },
+        { series: "Pronator teres (Neutral)", x: 80, y: 0.8 }, { series: "Pronator teres (Neutral)", x: 90, y: 0.9 },
+        { series: "Pronator teres (Neutral)", x: 100, y: 1.0 }, { series: "Pronator teres (Neutral)", x: 110, y: 1.1 },
+        { series: "Pronator teres (Neutral)", x: 120, y: 1.2 },
+
+        { series: "Biceps (Pronated)", x: 20, y: 1.8 }, { series: "Biceps (Pronated)", x: 30, y: 2.2 },
+        { series: "Biceps (Pronated)", x: 40, y: 2.6 }, { series: "Biceps (Pronated)", x: 50, y: 3.0 },
+        { series: "Biceps (Pronated)", x: 60, y: 3.3 }, { series: "Biceps (Pronated)", x: 70, y: 3.5 },
+        { series: "Biceps (Pronated)", x: 80, y: 3.6 }, { series: "Biceps (Pronated)", x: 90, y: 3.6 },
+        { series: "Biceps (Pronated)", x: 100, y: 3.4 }, { series: "Biceps (Pronated)", x: 110, y: 3.0 },
+        { series: "Biceps (Pronated)", x: 120, y: 2.6 },
+
+        { series: "Biceps (Supinated)", x: 20, y: 1.9 }, { series: "Biceps (Supinated)", x: 30, y: 2.5 },
+        { series: "Biceps (Supinated)", x: 40, y: 3.0 }, { series: "Biceps (Supinated)", x: 50, y: 3.5 },
+        { series: "Biceps (Supinated)", x: 60, y: 3.9 }, { series: "Biceps (Supinated)", x: 70, y: 4.2 },
+        { series: "Biceps (Supinated)", x: 80, y: 4.4 }, { series: "Biceps (Supinated)", x: 90, y: 4.3 },
+        { series: "Biceps (Supinated)", x: 100, y: 4.0 }, { series: "Biceps (Supinated)", x: 110, y: 3.4 },
+        { series: "Biceps (Supinated)", x: 120, y: 2.7 },
+      ];
+
+      const seriesNames = Array.from(new Set(points.map(p => p.series)));
+      const series = seriesNames.map(name => ({
+        name,
+        color: palette[name] || "#93c5fd",
+        visible: true,
+        measured: points.filter(p => p.series === name).sort((a,b) => a.x - b.x)
+      }));
+
+      function estimatePrefix(measured, stepDeg = 5) {
+        if (measured.length < 2) return [];
+        const x1 = measured[0].x, y1 = measured[0].y;
+        const x2 = measured[1].x, y2 = measured[1].y;
+        const slope = (y2 - y1) / (x2 - x1);
+        const out = [];
+        for (let d = 0; d <= Math.floor(x1); d += stepDeg) {
+          let yHat = y1 + slope * (d - x1);
+          if (yHat < 0) yHat = 0;
+          out.push({ x: d, y: yHat });
+        }
+        out.push({ x: x1, y: y1 });
+        return out;
+      }
+
+      for (const s of series) {
+        s.estimate = estimatePrefix(s.measured);
+      }
+
+      let showEst = true;
+      let showPts = true;
+
+      const checksEl = document.getElementById("checks");
+      for (const s of series) {
+        const row = document.createElement("div");
+        row.className = "check";
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = true;
+        cb.addEventListener("change", () => { s.visible = cb.checked; draw(); });
+        const sw = document.createElement("div");
+        sw.className = "swatch";
+        sw.style.background = s.color;
+        const lab = document.createElement("label");
+        lab.textContent = s.name;
+        row.append(cb, sw, lab);
+        checksEl.appendChild(row);
+      }
+
+      const canvas = document.getElementById("c");
+      const stage = document.getElementById("stage");
+      const status = document.getElementById("status");
+      const ctx = canvas.getContext("2d");
+
+      document.getElementById("toggleEst").addEventListener("click", () => { showEst = !showEst; draw(); });
+      document.getElementById("togglePts").addEventListener("click", () => { showPts = !showPts; draw(); });
+
+      document.getElementById("all").addEventListener("click", () => {
+        for (const s of series) s.visible = true;
+        [...checksEl.querySelectorAll("input[type=checkbox]")].forEach(cb => cb.checked = true);
+        draw();
+      });
+      document.getElementById("none").addEventListener("click", () => {
+        for (const s of series) s.visible = false;
+        [...checksEl.querySelectorAll("input[type=checkbox]")].forEach(cb => cb.checked = false);
+        draw();
+      });
+
+      let view = { xMin: 0, xMax: 120, yMin: 0, yMax: 6 };
+      function fit() {
+        const visible = series.filter(s => s.visible);
+        const all = [];
+        for (const s of visible) {
+          if (showEst) all.push(...s.estimate);
+          all.push(...s.measured);
+        }
+        const yMin = all.length ? Math.min(...all.map(p => p.y)) : 0;
+        const yMax = all.length ? Math.max(...all.map(p => p.y)) : 6;
+        const pad = 0.08 * (yMax - yMin || 1);
+        view = { xMin: 0, xMax: 120, yMin: Math.max(0, yMin - pad), yMax: yMax + pad };
+        draw();
+      }
+      function reset() { view = { xMin: 0, xMax: 120, yMin: 0, yMax: 6 }; draw(); }
+      document.getElementById("fit").addEventListener("click", fit);
+      document.getElementById("reset").addEventListener("click", reset);
+
+      function resize() {
+        const r = stage.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = Math.max(1, Math.floor(r.width * dpr));
+        canvas.height = Math.max(1, Math.floor(r.height * dpr));
+        canvas.style.width = `${r.width}px`;
+        canvas.style.height = `${r.height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        draw();
+      }
+      window.addEventListener("resize", resize);
+
+      function xToPx(x, w, padL) { return padL + (x - view.xMin) * (w / (view.xMax - view.xMin)); }
+      function yToPx(y, h, padT) { return padT + (view.yMax - y) * (h / (view.yMax - view.yMin)); }
+      function pxToX(px, w, padL) { return view.xMin + (px - padL) * (view.xMax - view.xMin) / w; }
+      function pxToY(py, h, padT) { return view.yMax - (py - padT) * (view.yMax - view.yMin) / h; }
+
+      function niceStep(range) {
+        const rough = range / 6;
+        const pow = 10 ** Math.floor(Math.log10(Math.max(rough, 1e-9)));
+        const mult = rough / pow;
+        const niceMult = mult < 1.5 ? 1 : mult < 3 ? 2 : mult < 7 ? 5 : 10;
+        return niceMult * pow;
+      }
+
+      function drawAxes(padL, padT, w, h) {
+        ctx.save();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "rgba(255,255,255,0.08)";
+        for (let x = 0; x <= 120; x += 20) {
+          if (x < view.xMin || x > view.xMax) continue;
+          const px = xToPx(x, w, padL);
+          ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
+        }
+        const yStep = niceStep(view.yMax - view.yMin);
+        for (let y = Math.ceil(view.yMin / yStep) * yStep; y <= view.yMax; y += yStep) {
+          const py = yToPx(y, h, padT);
+          ctx.beginPath(); ctx.moveTo(padL, py); ctx.lineTo(padL + w, py); ctx.stroke();
+        }
+        ctx.strokeStyle = "rgba(255,255,255,0.28)";
+        ctx.beginPath(); ctx.rect(padL, padT, w, h); ctx.stroke();
+
+        ctx.fillStyle = "rgba(229,231,235,0.9)";
+        ctx.font = "12px Segoe UI, system-ui";
+        ctx.textAlign = "center";
+        for (let x = 0; x <= 120; x += 20) {
+          if (x < view.xMin || x > view.xMax) continue;
+          const px = xToPx(x, w, padL);
+          ctx.fillText(String(x), px, padT + h + 18);
+        }
+        ctx.textAlign = "right";
+        for (let y = Math.ceil(view.yMin / yStep) * yStep; y <= view.yMax; y += yStep) {
+          const py = yToPx(y, h, padT);
+          ctx.fillText(String(Math.round(y * 10) / 10), padL - 8, py + 4);
+        }
+        ctx.textAlign = "center";
+        ctx.fillStyle = "rgba(156,163,175,0.95)";
+        ctx.fillText("Elbow flexion (deg)", padL + w / 2, padT + h + 42);
+        ctx.save();
+        ctx.translate(16, padT + h / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText("Moment arm (cm)", 0, 0);
+        ctx.restore();
+        ctx.restore();
+      }
+
+      function strokeSpline(points, color, width, dash) {
+        if (points.length < 2) return;
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.lineJoin = "round";
+        ctx.lineCap = "round";
+        ctx.setLineDash(dash || []);
+        ctx.beginPath();
+        ctx.moveTo(points[0].px, points[0].py);
+        for (let i = 1; i < points.length - 1; i++) {
+          const cx = points[i].px, cy = points[i].py;
+          const nx = (points[i].px + points[i + 1].px) / 2;
+          const ny = (points[i].py + points[i + 1].py) / 2;
+          ctx.quadraticCurveTo(cx, cy, nx, ny);
+        }
+        ctx.lineTo(points[points.length - 1].px, points[points.length - 1].py);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function draw() {
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width;
+        const H = rect.height;
+        ctx.clearRect(0, 0, W, H);
+
+        const padL = 60, padT = 20, padR = 20, padB = 60;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+        drawAxes(padL, padT, w, h);
+
+        for (const s of series) {
+          if (!s.visible) continue;
+          const color = s.color;
+          const measPts = s.measured
+            .filter(p => p.x >= view.xMin && p.x <= view.xMax)
+            .map(p => ({ px: xToPx(p.x, w, padL), py: yToPx(p.y, h, padT) }));
+          strokeSpline(measPts, color, 4, []);
+
+          if (showEst) {
+            const estPts = s.estimate
+              .filter(p => p.x >= view.xMin && p.x <= view.xMax)
+              .map(p => ({ px: xToPx(p.x, w, padL), py: yToPx(p.y, h, padT) }));
+            strokeSpline(estPts, color, 3, [10, 7]);
+          }
+
+          if (showPts) {
+            ctx.save();
+            ctx.fillStyle = color;
+            for (const p of s.measured) {
+              if (p.x < view.xMin || p.x > view.xMax) continue;
+              const px = xToPx(p.x, w, padL);
+              const py = yToPx(p.y, h, padT);
+              ctx.beginPath();
+              ctx.arc(px, py, 3.2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            ctx.restore();
+          }
+        }
+
+        const sx = Math.round((120 / (view.xMax - view.xMin)) * 100);
+        status.textContent = `${sx}% zoom`;
+      }
+
+      let dragging = false;
+      let lastX = 0, lastY = 0;
+      stage.addEventListener("pointerdown", (e) => {
+        dragging = true;
+        stage.setPointerCapture(e.pointerId);
+        lastX = e.clientX; lastY = e.clientY;
+      });
+      stage.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - lastX;
+        const dy = e.clientY - lastY;
+        lastX = e.clientX; lastY = e.clientY;
+
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width, H = rect.height;
+        const padL = 60, padT = 20, padR = 20, padB = 60;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
+        const xRange = (view.xMax - view.xMin);
+        const yRange = (view.yMax - view.yMin);
+        const xShift = -dx * xRange / w;
+        const yShift = dy * yRange / h;
+        view.xMin += xShift; view.xMax += xShift;
+        view.yMin += yShift; view.yMax += yShift;
+        draw();
+      });
+      stage.addEventListener("pointerup", () => { dragging = false; });
+      stage.addEventListener("pointercancel", () => { dragging = false; });
+
+      stage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width, H = rect.height;
+        const padL = 60, padT = 20, padR = 20, padB = 60;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const x0 = pxToX(mx, w, padL);
+        const y0 = pxToY(my, h, padT);
+
+        const zoom = e.deltaY > 0 ? 1.12 : 1 / 1.12;
+        const xMin = x0 + (view.xMin - x0) * zoom;
+        const xMax = x0 + (view.xMax - x0) * zoom;
+        const yMin = y0 + (view.yMin - y0) * zoom;
+        const yMax = y0 + (view.yMax - y0) * zoom;
+        if ((xMax - xMin) < 5) return;
+        if ((yMax - yMin) < 0.4) return;
+        view = { xMin, xMax, yMin, yMax };
+        draw();
+      }, { passive: false });
+
+      resize();
+      reset();
+    </script>
+  </body>
+</html>
+

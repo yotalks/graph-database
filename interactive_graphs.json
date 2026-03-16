@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ackland2008_shoulder_adductors_interactive",
+    "title": "Adduction IMALs",
+    "file": "views/ackland2008_shoulder_adductors_interactive.html",
+    "kind": "interactive",
+    "replacesFiles": [
+      "ackland2008_shoulder_adductors_coronal_extrapolated_to_180.png"
+    ]
+  },
+  {
+    "id": "murray1995_elbow_flexor_imal_interactive",
+    "title": "Elbow flexor IMAL",
+    "file": "views/murray1995_elbow_flexor_imal_interactive.html",
+    "kind": "interactive",
+    "replacesFiles": [
+      "murray1995_female_elbow_flexors.png"
+    ]
+  },
+  {
+    "id": "ackland2011_neck_imal_interactive",
+    "title": "Neck IMAL",
+    "file": "views/ackland2011_neck_imal_interactive.html",
+    "kind": "interactive",
+    "replacesFiles": [
+      "ackland2011_leverage_rankings.png"
+    ]
+  },
+  {
+    "id": "digitizer",
+    "title": "Digitizer",
+    "file": "views/digitizer.html",
+    "kind": "interactive"
+  }
+]

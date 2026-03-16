@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ackland 2008 Shoulder Adductors (Interactive)</title>
+    <style>
+      :root {
+        --bg: #0b0f17;
+        --panel: rgba(17, 24, 39, 0.55);
+        --panel2: rgba(15, 23, 42, 0.65);
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: rgba(255, 255, 255, 0.08);
+        --btn: rgba(255, 255, 255, 0.08);
+        --btnHover: rgba(255, 255, 255, 0.12);
+        --shadow: rgba(0, 0, 0, 0.35);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+        background: radial-gradient(1200px 900px at 20% 10%, rgba(96,165,250,0.15), transparent 45%),
+                    radial-gradient(900px 700px at 80% 15%, rgba(34,197,94,0.12), transparent 45%),
+                    var(--bg);
+        color: var(--text);
+        overflow: hidden;
+      }
+      .wrap {
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+      .top {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        align-items: center;
+      }
+      .title { font-weight: 750; font-size: 13px; }
+      .subtitle { color: var(--muted); font-size: 12px; margin-top: 2px; }
+      .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+      .btn {
+        border: 1px solid var(--border);
+        background: var(--btn);
+        color: var(--text);
+        padding: 7px 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 650;
+        font-size: 12px;
+      }
+      .btn:hover { background: var(--btnHover); }
+      .btn:active { transform: translateY(1px); }
+      .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
+      .main {
+        position: relative;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        min-height: 0;
+      }
+      .left {
+        border-right: 1px solid var(--border);
+        background: var(--panel2);
+        backdrop-filter: blur(12px);
+        padding: 10px 10px 12px;
+        overflow: auto;
+      }
+      .sectionTitle { font-weight: 750; font-size: 12px; margin: 4px 4px 10px; color: var(--muted); letter-spacing: 0.2px; }
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 8px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        margin: 8px 4px;
+        background: rgba(0,0,0,0.14);
+      }
+      .swatch { width: 12px; height: 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25); }
+      .check label { font-size: 12px; font-weight: 650; }
+      .hint { margin: 8px 4px 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
+      .stage {
+        position: relative;
+        overflow: hidden;
+        min-width: 0;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .overlay {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        background: rgba(0,0,0,0.35);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 8px 10px;
+        color: var(--muted);
+        font-size: 12px;
+        backdrop-filter: blur(8px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Ackland et al. (PMC2644775) - Shoulder adductors (coronal plane)</div>
+          <div class="subtitle">Wheel = zoom | Drag = pan | Solid = reported domain (<=120 deg) | Dashed = extrapolated (120-180 deg)</div>
+        </div>
+        <div class="controls">
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle lines</div>
+          <div id="checks"></div>
+          <div class="hint">
+            Sign convention: abduction is negative, adduction is positive.
+            This interactive view uses a quadratic fit constrained by Table 1 extrema and is intended for visualization/extrapolation only.
+          </div>
+        </div>
+        <div class="stage" id="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Measured region shaded green | Extrapolated region shaded red</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const palette = [
+        "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+        "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22"
+      ];
+
+      // If true, flip moment-arm sign (mm -> -mm) for all non-pec curves.
+      // Must be defined before any curve computation.
+      const flipNonPec = true;
+
+      const muscles = [
+        { name: "Subscapularis (sup)", maxMm: -9.5,  maxDeg: 94, minMm: 7.2,   minDeg: 2.5,  measuredMin: 2.5 },
+        { name: "Subscapularis (mid)", maxMm: -12.7, maxDeg: 94, minMm: 1.3,   minDeg: 2.5,  measuredMin: 2.5 },
+        { name: "Subscapularis (inf)", maxMm: -16.6, maxDeg: 90, minMm: -2.2,  minDeg: 15,   measuredMin: 2.5 },
+        { name: "Teres major",         maxMm: -46.1, maxDeg: 83, minMm: -12.1, minDeg: 10,   measuredMin: 10 },
+        // Pectoralis major subregions: anchor-point fits (approx read from the paper figure).
+        { name: "Pectoralis major (sup)", anchors: [[0, -2], [40, 0], [120, 10]], measuredMin: 0 },
+        { name: "Pectoralis major (mid)", anchors: [[0, -22], [50, -33], [120, -18]], measuredMin: 0 },
+        { name: "Pectoralis major (inf)", anchors: [[0, -20], [40, -35], [120, -18]], measuredMin: 0 },
+        { name: "Latissimus dorsi (sup)", maxMm: -29.9, maxDeg: 71, minMm: -4.4,  minDeg: 10,  measuredMin: 10 },
+        { name: "Latissimus dorsi (mid)", maxMm: -38.6, maxDeg: 64, minMm: -16.9, minDeg: 10,  measuredMin: 10 },
+        { name: "Latissimus dorsi (inf)", maxMm: -38.1, maxDeg: 71, minMm: -3.3,  minDeg: 10,  measuredMin: 10 },
+      ].map((m, i) => ({ ...m, color: palette[i % palette.length], visible: true, measuredMax: 120 }));
+
+      function coeffsFrom3(anchors) {
+        const [x1, y1] = anchors[0];
+        const [x2, y2] = anchors[1];
+        const [x3, y3] = anchors[2];
+        const den = (x1 - x2) * (x1 - x3) * (x2 - x3);
+        const a = (y1 * (x2 - x3) + y2 * (x3 - x1) + y3 * (x1 - x2)) / den;
+        const b = (y1 * (x3 * x3 - x2 * x2) + y2 * (x1 * x1 - x3 * x3) + y3 * (x2 * x2 - x1 * x1)) / den;
+        const c = (y1 * x2 * x3 * (x2 - x3) + y2 * x3 * x1 * (x3 - x1) + y3 * x1 * x2 * (x1 - x2)) / den;
+        return { a, b, c };
+      }
+
+      for (const m of muscles) {
+        if (m.anchors) m.coeffs = coeffsFrom3(m.anchors);
+      }
+
+      function quad(m, deg) {
+        const denom = (m.minDeg - m.maxDeg) ** 2;
+        const a = (m.minMm - m.maxMm) / denom;
+        // Sign convention (per paper figure): abduction negative, adduction positive.
+        // Extrema were transcribed with the opposite sign; flip here.
+        return -1 * (a * (deg - m.maxDeg) ** 2 + m.maxMm);
+      }
+
+      function momentArm(m, deg) {
+        let y = m.coeffs ? (m.coeffs.a * deg * deg + m.coeffs.b * deg + m.coeffs.c) : quad(m, deg);
+        if (flipNonPec && !m.name.toLowerCase().includes("pectoralis major")) y = -y;
+        return y;
+      }
+
+      // Precompute points 0..180
+      const degs = Array.from({ length: 181 }, (_, i) => i);
+      function recompute() {
+        for (const m of muscles) m.y = degs.map(d => momentArm(m, d));
+      }
+      recompute();
+
+      const checksEl = document.getElementById("checks");
+
+      function renderChecks() {
+        checksEl.innerHTML = "";
+        for (const m of muscles) {
+          const row = document.createElement("div");
+          row.className = "check";
+          const cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.checked = !!m.visible;
+          cb.addEventListener("change", () => { m.visible = cb.checked; draw(); });
+          const sw = document.createElement("div");
+          sw.className = "swatch";
+          sw.style.background = m.color;
+          const lab = document.createElement("label");
+          lab.textContent = m.name;
+          row.append(cb, sw, lab);
+          checksEl.appendChild(row);
+        }
+      }
+      renderChecks();
+
+      const canvas = document.getElementById("c");
+      const stage = document.getElementById("stage");
+      const status = document.getElementById("status");
+      const ctx = canvas.getContext("2d");
+
+      const btnFit = document.getElementById("fit");
+      const btnReset = document.getElementById("reset");
+      const btnAll = document.getElementById("all");
+      const btnNone = document.getElementById("none");
+
+      // View transform in plot-space (deg/mm) -> screen
+      let view = {
+        xMin: 0,
+        xMax: 180,
+        yMin: -45,
+        yMax: 60,
+      };
+
+      function fit() {
+        const visible = muscles.filter(m => m.visible);
+        const yAll = [];
+        for (const m of visible) yAll.push(...m.y);
+        const yMin = yAll.length ? Math.min(...yAll) : -45;
+        const yMax = yAll.length ? Math.max(...yAll) : 60;
+        const pad = 0.08 * (yMax - yMin || 1);
+        view = { xMin: 0, xMax: 180, yMin: yMin - pad, yMax: yMax + pad };
+        draw();
+      }
+
+      function reset() {
+        view = { xMin: 0, xMax: 180, yMin: -45, yMax: 60 };
+        draw();
+      }
+
+      btnFit.addEventListener("click", fit);
+      btnReset.addEventListener("click", reset);
+      btnAll.addEventListener("click", () => {
+        for (const m of muscles) m.visible = true;
+        [...checksEl.querySelectorAll("input[type=checkbox]")].forEach(cb => cb.checked = true);
+        draw();
+      });
+      btnNone.addEventListener("click", () => {
+        for (const m of muscles) m.visible = false;
+        [...checksEl.querySelectorAll("input[type=checkbox]")].forEach(cb => cb.checked = false);
+        draw();
+      });
+
+      function resize() {
+        const r = stage.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = Math.max(1, Math.floor(r.width * dpr));
+        canvas.height = Math.max(1, Math.floor(r.height * dpr));
+        canvas.style.width = `${r.width}px`;
+        canvas.style.height = `${r.height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        draw();
+      }
+      window.addEventListener("resize", resize);
+
+      function xToPx(x, w, padL) {
+        return padL + (x - view.xMin) * (w / (view.xMax - view.xMin));
+      }
+      function yToPx(y, h, padT) {
+        return padT + (view.yMax - y) * (h / (view.yMax - view.yMin));
+      }
+      function pxToX(px, w, padL) {
+        return view.xMin + (px - padL) * (view.xMax - view.xMin) / w;
+      }
+      function pxToY(py, h, padT) {
+        return view.yMax - (py - padT) * (view.yMax - view.yMin) / h;
+      }
+
+      function niceStep(range) {
+        const rough = range / 8;
+        const pow = 10 ** Math.floor(Math.log10(Math.max(rough, 1e-9)));
+        const mult = rough / pow;
+        const niceMult = mult < 1.5 ? 1 : mult < 3 ? 2 : mult < 7 ? 5 : 10;
+        return niceMult * pow;
+      }
+
+      function drawAxes(padL, padT, w, h) {
+        ctx.save();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "rgba(255,255,255,0.08)";
+
+        const xStep = 20;
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax; x += xStep) {
+          const px = xToPx(x, w, padL);
+          ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
+        }
+        const yStep = niceStep(view.yMax - view.yMin);
+        for (let y = Math.ceil(view.yMin / yStep) * yStep; y <= view.yMax; y += yStep) {
+          const py = yToPx(y, h, padT);
+          ctx.beginPath(); ctx.moveTo(padL, py); ctx.lineTo(padL + w, py); ctx.stroke();
+        }
+
+        // axes
+        ctx.strokeStyle = "rgba(255,255,255,0.28)";
+        ctx.beginPath(); ctx.rect(padL, padT, w, h); ctx.stroke();
+
+        // y=0 line
+        if (view.yMin < 0 && view.yMax > 0) {
+          const py0 = yToPx(0, h, padT);
+          ctx.strokeStyle = "rgba(255,255,255,0.35)";
+          ctx.beginPath(); ctx.moveTo(padL, py0); ctx.lineTo(padL + w, py0); ctx.stroke();
+        }
+
+        // x=120 line
+        if (view.xMin < 120 && view.xMax > 120) {
+          const px120 = xToPx(120, w, padL);
+          ctx.strokeStyle = "rgba(0,0,0,0.55)";
+          ctx.beginPath(); ctx.moveTo(px120, padT); ctx.lineTo(px120, padT + h); ctx.stroke();
+        }
+
+        // labels
+        ctx.fillStyle = "rgba(229,231,235,0.9)";
+        ctx.font = "12px Segoe UI, system-ui";
+        ctx.textAlign = "center";
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax; x += xStep) {
+          const px = xToPx(x, w, padL);
+          ctx.fillText(String(x), px, padT + h + 18);
+        }
+        ctx.textAlign = "right";
+        for (let y = Math.ceil(view.yMin / yStep) * yStep; y <= view.yMax; y += yStep) {
+          const py = yToPx(y, h, padT);
+          ctx.fillText(String(Math.round(y)), padL - 8, py + 4);
+        }
+
+        // axis titles
+        ctx.textAlign = "center";
+        ctx.fillStyle = "rgba(156,163,175,0.95)";
+        ctx.fillText("Shoulder abduction angle (deg)", padL + w / 2, padT + h + 42);
+        ctx.save();
+        ctx.translate(16, padT + h / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText("Moment arm (mm)  (negative = abduction; positive = adduction)", 0, 0);
+        ctx.restore();
+
+        ctx.restore();
+      }
+
+      function draw() {
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width;
+        const H = rect.height;
+        ctx.clearRect(0, 0, W, H);
+
+        const padL = 60, padT = 20, padR = 20, padB = 60;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
+        // Shading measured/extrapolated regions (based on x=120)
+        const px0 = xToPx(Math.max(view.xMin, 0), w, padL);
+        const px120 = xToPx(120, w, padL);
+        const px180 = xToPx(Math.min(view.xMax, 180), w, padL);
+        ctx.save();
+        // measured shade
+        ctx.fillStyle = "rgba(95, 180, 95, 0.10)";
+        const mLeft = Math.max(padL, px0);
+        const mRight = Math.min(padL + w, px120);
+        if (mRight > mLeft) ctx.fillRect(mLeft, padT, mRight - mLeft, h);
+        // extrap shade
+        ctx.fillStyle = "rgba(210, 85, 85, 0.10)";
+        const eLeft = Math.max(padL, px120);
+        const eRight = Math.min(padL + w, px180);
+        if (eRight > eLeft) ctx.fillRect(eLeft, padT, eRight - eLeft, h);
+        ctx.restore();
+
+        drawAxes(padL, padT, w, h);
+
+        // Lines
+        for (const m of muscles) {
+          if (!m.visible) continue;
+          const color = m.color;
+
+          // pre (dotted)
+          ctx.save();
+          ctx.strokeStyle = color;
+          ctx.globalAlpha = 0.35;
+          ctx.lineWidth = 2;
+          ctx.setLineDash([2, 5]);
+          ctx.beginPath();
+          let started = false;
+          for (let i = 0; i < degs.length; i++) {
+            const d = degs[i];
+            if (d >= m.measuredMin) break;
+            if (d < view.xMin || d > view.xMax) continue;
+            const x = xToPx(d, w, padL);
+            const y = yToPx(m.y[i], h, padT);
+            if (!started) { ctx.moveTo(x, y); started = true; } else { ctx.lineTo(x, y); }
+          }
+          ctx.stroke();
+          ctx.restore();
+
+          // measured (solid)
+          ctx.save();
+          ctx.strokeStyle = color;
+          ctx.globalAlpha = 0.95;
+          ctx.lineWidth = 4;
+          ctx.setLineDash([]);
+          ctx.beginPath();
+          started = false;
+          for (let i = 0; i < degs.length; i++) {
+            const d = degs[i];
+            if (d < m.measuredMin || d > m.measuredMax) continue;
+            if (d < view.xMin || d > view.xMax) continue;
+            const x = xToPx(d, w, padL);
+            const y = yToPx(m.y[i], h, padT);
+            if (!started) { ctx.moveTo(x, y); started = true; } else { ctx.lineTo(x, y); }
+          }
+          ctx.stroke();
+          ctx.restore();
+
+          // extrap (dashed)
+          ctx.save();
+          ctx.strokeStyle = color;
+          ctx.globalAlpha = 0.9;
+          ctx.lineWidth = 4;
+          ctx.setLineDash([10, 7]);
+          ctx.beginPath();
+          started = false;
+          for (let i = 0; i < degs.length; i++) {
+            const d = degs[i];
+            if (d <= m.measuredMax) continue;
+            if (d < view.xMin || d > view.xMax) continue;
+            const x = xToPx(d, w, padL);
+            const y = yToPx(m.y[i], h, padT);
+            if (!started) { ctx.moveTo(x, y); started = true; } else { ctx.lineTo(x, y); }
+          }
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        const sx = Math.round((180 / (view.xMax - view.xMin)) * 100);
+        status.textContent = `${sx}% zoom`;
+      }
+
+      // Pan + zoom
+      let dragging = false;
+      let lastX = 0, lastY = 0;
+      stage.addEventListener("pointerdown", (e) => {
+        dragging = true;
+        stage.setPointerCapture(e.pointerId);
+        lastX = e.clientX; lastY = e.clientY;
+      });
+      stage.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - lastX;
+        const dy = e.clientY - lastY;
+        lastX = e.clientX; lastY = e.clientY;
+
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width, H = rect.height;
+        const padL = 60, padT = 20, padR = 20, padB = 60;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
+        const xRange = (view.xMax - view.xMin);
+        const yRange = (view.yMax - view.yMin);
+        const xShift = -dx * xRange / w;
+        const yShift = dy * yRange / h;
+        view.xMin += xShift; view.xMax += xShift;
+        view.yMin += yShift; view.yMax += yShift;
+        draw();
+      });
+      stage.addEventListener("pointerup", () => { dragging = false; });
+      stage.addEventListener("pointercancel", () => { dragging = false; });
+
+      stage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width, H = rect.height;
+        const padL = 60, padT = 20, padR = 20, padB = 60;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const x0 = pxToX(mx, w, padL);
+        const y0 = pxToY(my, h, padT);
+
+        const zoom = e.deltaY > 0 ? 1.12 : 1 / 1.12;
+        const xMin = x0 + (view.xMin - x0) * zoom;
+        const xMax = x0 + (view.xMax - x0) * zoom;
+        const yMin = y0 + (view.yMin - y0) * zoom;
+        const yMax = y0 + (view.yMax - y0) * zoom;
+
+        // Keep some sanity bounds
+        if ((xMax - xMin) < 2) return;
+        if ((yMax - yMin) < 1) return;
+        view = { xMin, xMax, yMin, yMax };
+        draw();
+      }, { passive: false });
+
+      resize();
+      reset();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neck IMAL (interactive)</title>
+    <style>
+      :root {
+        --bg: #0b0f17;
+        --panel: rgba(17, 24, 39, 0.55);
+        --panel2: rgba(15, 23, 42, 0.65);
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: rgba(255, 255, 255, 0.08);
+        --btn: rgba(255, 255, 255, 0.08);
+        --btnHover: rgba(255, 255, 255, 0.12);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+        background: radial-gradient(1200px 900px at 20% 10%, rgba(96,165,250,0.15), transparent 45%),
+                    radial-gradient(900px 700px at 80% 15%, rgba(34,197,94,0.12), transparent 45%),
+                    var(--bg);
+        color: var(--text);
+        overflow: hidden;
+      }
+      .wrap { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+      .top {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        align-items: center;
+      }
+      .title { font-weight: 750; font-size: 13px; }
+      .subtitle { color: var(--muted); font-size: 12px; margin-top: 2px; }
+      .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+      .btn, select {
+        border: 1px solid var(--border);
+        background: var(--btn);
+        color: var(--text);
+        padding: 7px 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 650;
+        font-size: 12px;
+      }
+      select { cursor: default; }
+      .btn:hover { background: var(--btnHover); }
+      .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
+      .main { position: relative; display: grid; grid-template-columns: 330px 1fr; min-height: 0; }
+      .left {
+        border-right: 1px solid var(--border);
+        background: var(--panel2);
+        backdrop-filter: blur(12px);
+        padding: 10px 10px 12px;
+        overflow: auto;
+      }
+      .sectionTitle { font-weight: 750; font-size: 12px; margin: 4px 4px 10px; color: var(--muted); letter-spacing: 0.2px; }
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 8px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        margin: 8px 4px;
+        background: rgba(0,0,0,0.14);
+      }
+      .check label { font-size: 12px; font-weight: 650; }
+      .hint { margin: 8px 4px 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
+      .stage { position: relative; overflow: hidden; min-width: 0; }
+      canvas { width: 100%; height: 100%; display: block; }
+      .overlay {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        background: rgba(0,0,0,0.35);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 8px 10px;
+        color: var(--muted);
+        font-size: 12px;
+        backdrop-filter: blur(8px);
+      }
+      .tooltip {
+        position: absolute;
+        pointer-events: none;
+        background: rgba(0,0,0,0.78);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 8px 10px;
+        color: var(--text);
+        font-size: 12px;
+        max-width: 340px;
+        display: none;
+        backdrop-filter: blur(8px);
+      }
+      .tooltip .muted { color: var(--muted); font-weight: 650; }
+      a.link { color: #93c5fd; text-decoration: none; }
+      a.link:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Ackland et al. (2011) - Neck muscle moment arms (summary)</div>
+          <div class="subtitle">Wheel = zoom | Drag = pan | Choose task, toggle muscles, ranked bars</div>
+        </div>
+        <div class="controls">
+          <select id="task">
+            <option value="extension">Extension</option>
+            <option value="flexion">Flexion</option>
+            <option value="lateral">Lateral flexion</option>
+          </select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle muscles</div>
+          <div id="checks"></div>
+          <div class="hint">
+            Data source: <code>ackland2011/data/ackland2011_leverage_summary.csv</code> in this repo (best leverage per task).
+            <div style="margin-top:8px;">
+              Download static PNG: <a class="link" href="../graphs/ackland2011_leverage_rankings.png" download>ackland2011_leverage_rankings.png</a>
+            </div>
+          </div>
+        </div>
+        <div class="stage" id="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Horizontal bar chart (higher = more leverage)</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Transcribed from ackland2011/data/ackland2011_leverage_summary.csv
+      const muscles = [
+        // volumePct from ackland2011_leverage_summary.csv (blank where not provided by the size chart)
+        { name: "Levator scapulae", ext: 18.0, flex: 0.0, lat: 42.4, volumePct: 8 },
+        { name: "Obliquus capitis inferior", ext: 26.2, flex: 0.0, lat: 0.0, volumePct: null },
+        { name: "Obliquus capitis superior", ext: 20.3, flex: 0.0, lat: 0.0, volumePct: null },
+        { name: "Rectus capitis posterior major", ext: 18.6, flex: 0.0, lat: 28.6, volumePct: null },
+        { name: "Rectus capitis posterior minor", ext: 18.2, flex: 0.0, lat: 0.0, volumePct: null },
+        { name: "Scalenes (anterior)", ext: 0.0, flex: 6.5, lat: 49.2, volumePct: 6 },
+        { name: "Scalenes (middle)", ext: 0.0, flex: 5.4, lat: 33.7, volumePct: 6 },
+        { name: "Semispinalis capitis", ext: 50.7, flex: 0.0, lat: 25.3, volumePct: 9 },
+        { name: "Semispinalis cervicis", ext: 24.7, flex: 0.0, lat: 8.2, volumePct: 12 },
+        { name: "Splenius capitis", ext: 37.0, flex: 0.0, lat: 16.3, volumePct: 9 },
+        { name: "Splenius cervicis", ext: 16.2, flex: 0.0, lat: 17.3, volumePct: 9 },
+        { name: "Sternocleidomastoid", ext: 0.0, flex: 32.2, lat: 45.6, volumePct: 10 },
+        { name: "Trapezius (Inferior)", ext: 9.0, flex: 0.0, lat: 4.2, volumePct: 0 },
+        { name: "Trapezius (Middle)", ext: 44.5, flex: 0.0, lat: 23.5, volumePct: 0 },
+        { name: "Trapezius (Superior)", ext: 54.0, flex: 0.0, lat: 39.0, volumePct: 35 },
+      ].map((m, i) => ({ ...m, visible: true, color: `hsl(${(i * 37) % 360} 70% 60%)` }));
+
+      const canvas = document.getElementById("c");
+      const stage = document.getElementById("stage");
+      const ctx = canvas.getContext("2d");
+      const status = document.getElementById("status");
+      const taskEl = document.getElementById("task");
+      const tip = document.getElementById("tip");
+
+      const btnFit = document.getElementById("fit");
+      const btnReset = document.getElementById("reset");
+      const btnAll = document.getElementById("all");
+      const btnNone = document.getElementById("none");
+      const checksEl = document.getElementById("checks");
+
+      for (const m of muscles) {
+        const row = document.createElement("div");
+        row.className = "check";
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = true;
+        cb.addEventListener("change", () => { m.visible = cb.checked; draw(); });
+        const lab = document.createElement("label");
+        lab.textContent = m.name;
+        row.append(cb, lab);
+        checksEl.appendChild(row);
+      }
+
+      btnAll.addEventListener("click", () => {
+        for (const m of muscles) m.visible = true;
+        [...checksEl.querySelectorAll("input[type=checkbox]")].forEach(cb => cb.checked = true);
+        draw();
+      });
+      btnNone.addEventListener("click", () => {
+        for (const m of muscles) m.visible = false;
+        [...checksEl.querySelectorAll("input[type=checkbox]")].forEach(cb => cb.checked = false);
+        draw();
+      });
+
+      function valueFor(m) {
+        const t = taskEl.value;
+        if (t === "extension") return m.ext;
+        if (t === "flexion") return m.flex;
+        return m.lat;
+      }
+
+      let view = { xMin: 0, xMax: 60, yMin: 0, yMax: 16 };
+      function fit() {
+        const vis = muscles.filter(m => m.visible);
+        const max = vis.length ? Math.max(...vis.map(valueFor)) : 60;
+        view = { xMin: 0, xMax: Math.max(10, max * 1.12), yMin: 0, yMax: Math.max(8, vis.length + 1) };
+        draw();
+      }
+      function reset() { view = { xMin: 0, xMax: 60, yMin: 0, yMax: 16 }; draw(); }
+      btnFit.addEventListener("click", fit);
+      btnReset.addEventListener("click", reset);
+      taskEl.addEventListener("change", reset);
+
+      function resize() {
+        const r = stage.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = Math.max(1, Math.floor(r.width * dpr));
+        canvas.height = Math.max(1, Math.floor(r.height * dpr));
+        canvas.style.width = `${r.width}px`;
+        canvas.style.height = `${r.height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        draw();
+      }
+      window.addEventListener("resize", resize);
+
+      function xToPx(x, w, padL) { return padL + (x - view.xMin) * (w / (view.xMax - view.xMin)); }
+      function pxToX(px, w, padL) { return view.xMin + (px - padL) * (view.xMax - view.xMin) / w; }
+
+      let barHitboxes = [];
+
+      function draw() {
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width;
+        const H = rect.height;
+        ctx.clearRect(0, 0, W, H);
+
+        const padL = 220, padT = 20, padR = 20, padB = 40;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
+        const vis = muscles.filter(m => m.visible).slice().sort((a,b) => valueFor(b) - valueFor(a));
+        const rowH = h / Math.max(1, (view.yMax - view.yMin));
+
+        ctx.save();
+        ctx.strokeStyle = "rgba(255,255,255,0.08)";
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 6; i++) {
+          const x = view.xMin + (i / 6) * (view.xMax - view.xMin);
+          const px = xToPx(x, w, padL);
+          ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
+        }
+        ctx.strokeStyle = "rgba(255,255,255,0.28)";
+        ctx.beginPath(); ctx.rect(padL, padT, w, h); ctx.stroke();
+        ctx.restore();
+
+        barHitboxes = [];
+
+        ctx.save();
+        ctx.font = "12px Segoe UI, system-ui";
+        ctx.textBaseline = "middle";
+        for (let i = 0; i < vis.length; i++) {
+          const m = vis[i];
+          const v = valueFor(m);
+          const y = padT + (i + 0.5) * rowH;
+
+          ctx.fillStyle = "rgba(229,231,235,0.9)";
+          ctx.textAlign = "right";
+          ctx.fillText(m.name, padL - 10, y);
+
+          const barLen = (v - view.xMin) / (view.xMax - view.xMin) * w;
+          const barH = Math.max(10, rowH * 0.62);
+          ctx.fillStyle = m.color;
+          ctx.globalAlpha = 0.85;
+          ctx.fillRect(padL, y - barH / 2, Math.max(0, barLen), barH);
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = "rgba(229,231,235,0.85)";
+          ctx.textAlign = "left";
+          ctx.fillText(v.toFixed(1) + " mm", padL + Math.max(0, barLen) + 8, y);
+
+          barHitboxes.push({
+            name: m.name,
+            value: v,
+            volumePct: m.volumePct,
+            x: padL,
+            y: y - barH / 2,
+            w: Math.max(0, barLen),
+            h: barH,
+          });
+        }
+        ctx.restore();
+
+        ctx.save();
+        ctx.font = "12px Segoe UI, system-ui";
+        ctx.fillStyle = "rgba(156,163,175,0.95)";
+        ctx.textAlign = "center";
+        ctx.fillText("Moment arm (mm)", padL + w / 2, padT + h + 28);
+        ctx.restore();
+
+        const zx = Math.round((60 / (view.xMax - view.xMin)) * 100);
+        status.textContent = `${taskEl.options[taskEl.selectedIndex].text} | ${zx}% zoom`;
+      }
+
+      let dragging = false;
+      let lastX = 0;
+      stage.addEventListener("pointerdown", (e) => {
+        dragging = true;
+        stage.setPointerCapture(e.pointerId);
+        lastX = e.clientX;
+      });
+      stage.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - lastX;
+        lastX = e.clientX;
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width;
+        const padL = 220, padR = 20;
+        const w = Math.max(10, W - padL - padR);
+        const xRange = (view.xMax - view.xMin);
+        const xShift = -dx * xRange / w;
+        view.xMin += xShift; view.xMax += xShift;
+        if (view.xMin < 0) { view.xMax += -view.xMin; view.xMin = 0; }
+        draw();
+      });
+      stage.addEventListener("pointerup", () => { dragging = false; });
+      stage.addEventListener("pointercancel", () => { dragging = false; });
+
+      stage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const rect = stage.getBoundingClientRect();
+        const W = rect.width;
+        const padL = 220, padR = 20;
+        const w = Math.max(10, W - padL - padR);
+        const mx = e.clientX - rect.left;
+        const x0 = pxToX(mx, w, padL);
+        const zoom = e.deltaY > 0 ? 1.12 : 1 / 1.12;
+        const xMin = x0 + (view.xMin - x0) * zoom;
+        const xMax = x0 + (view.xMax - x0) * zoom;
+        if ((xMax - xMin) < 4) return;
+        view.xMin = Math.max(0, xMin);
+        view.xMax = xMax;
+        draw();
+      }, { passive: false });
+
+      stage.addEventListener("mousemove", (e) => {
+        const rect = stage.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const hit = barHitboxes.find(b => x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h);
+        if (!hit) {
+          tip.style.display = "none";
+          return;
+        }
+
+        const vol = (hit.volumePct === null || hit.volumePct === undefined) ? "n/a" : `${hit.volumePct}%`;
+        tip.innerHTML = `
+          <div><strong>${hit.name}</strong></div>
+          <div class="muted">Volume: ${vol} of total neck size</div>
+          <div class="muted">Leverage: ${hit.value.toFixed(1)} mm</div>
+        `;
+        tip.style.display = "block";
+
+        const pad = 14;
+        const tipRect = tip.getBoundingClientRect();
+        const left = Math.min(rect.width - tipRect.width - pad, x + pad);
+        const top = Math.min(rect.height - tipRect.height - pad, y + pad);
+        tip.style.left = `${Math.max(pad, left)}px`;
+        tip.style.top = `${Math.max(pad, top)}px`;
+      });
+
+      resize();
+      reset();
+    </script>
+  </body>
+</html>
