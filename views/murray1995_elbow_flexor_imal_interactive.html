@@ -87,6 +87,20 @@
         font-size: 12px;
         backdrop-filter: blur(8px);
       }
+      .tooltip {
+        position: absolute;
+        pointer-events: none;
+        background: rgba(0,0,0,0.78);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 8px 10px;
+        color: var(--text);
+        font-size: 12px;
+        max-width: 340px;
+        display: none;
+        backdrop-filter: blur(8px);
+      }
+      .tooltip .muted { color: var(--muted); font-weight: 650; }
       .small {
         display: flex;
         gap: 8px;
@@ -132,28 +146,29 @@
         <div class="stage" id="stage">
           <canvas id="c"></canvas>
           <div class="overlay">Measured: solid | Estimated prefix: dashed</div>
+          <div id="tip" class="tooltip"></div>
         </div>
       </div>
     </div>
 
     <script>
       const palette = {
-        "Brachioradialis (Neutral)": "#000000",
+        "Brachioradialis": "#000000",
         "Biceps (Neutral)": "#0066cc",
-        "Brachialis (Neutral)": "#009966",
-        "Pronator teres (Neutral)": "#cc6600",
+        "Brachialis": "#009966",
+        "Pronator teres": "#cc6600",
         "Biceps (Pronated)": "#aaaaaa",
         "Biceps (Supinated)": "#222222",
       };
 
       // Transcribed from murray1995_momentarms/data/female_digitized_points.csv
       const points = [
-        { series: "Brachioradialis (Neutral)", x: 20, y: 0.6 }, { series: "Brachioradialis (Neutral)", x: 30, y: 1.1 },
-        { series: "Brachioradialis (Neutral)", x: 40, y: 1.8 }, { series: "Brachioradialis (Neutral)", x: 50, y: 2.6 },
-        { series: "Brachioradialis (Neutral)", x: 60, y: 3.3 }, { series: "Brachioradialis (Neutral)", x: 70, y: 3.9 },
-        { series: "Brachioradialis (Neutral)", x: 80, y: 4.5 }, { series: "Brachioradialis (Neutral)", x: 90, y: 4.8 },
-        { series: "Brachioradialis (Neutral)", x: 100, y: 5.1 }, { series: "Brachioradialis (Neutral)", x: 110, y: 5.2 },
-        { series: "Brachioradialis (Neutral)", x: 120, y: 4.9 },
+        { series: "Brachioradialis", x: 20, y: 0.6 }, { series: "Brachioradialis", x: 30, y: 1.1 },
+        { series: "Brachioradialis", x: 40, y: 1.8 }, { series: "Brachioradialis", x: 50, y: 2.6 },
+        { series: "Brachioradialis", x: 60, y: 3.3 }, { series: "Brachioradialis", x: 70, y: 3.9 },
+        { series: "Brachioradialis", x: 80, y: 4.5 }, { series: "Brachioradialis", x: 90, y: 4.8 },
+        { series: "Brachioradialis", x: 100, y: 5.1 }, { series: "Brachioradialis", x: 110, y: 5.2 },
+        { series: "Brachioradialis", x: 120, y: 4.9 },
 
         { series: "Biceps (Neutral)", x: 20, y: 1.9 }, { series: "Biceps (Neutral)", x: 30, y: 2.3 },
         { series: "Biceps (Neutral)", x: 40, y: 2.8 }, { series: "Biceps (Neutral)", x: 50, y: 3.2 },
@@ -162,19 +177,19 @@
         { series: "Biceps (Neutral)", x: 100, y: 3.6 }, { series: "Biceps (Neutral)", x: 110, y: 3.2 },
         { series: "Biceps (Neutral)", x: 120, y: 2.8 },
 
-        { series: "Brachialis (Neutral)", x: 25, y: 1.6 }, { series: "Brachialis (Neutral)", x: 35, y: 1.8 },
-        { series: "Brachialis (Neutral)", x: 45, y: 2.0 }, { series: "Brachialis (Neutral)", x: 55, y: 2.2 },
-        { series: "Brachialis (Neutral)", x: 65, y: 2.4 }, { series: "Brachialis (Neutral)", x: 75, y: 2.5 },
-        { series: "Brachialis (Neutral)", x: 85, y: 2.6 }, { series: "Brachialis (Neutral)", x: 95, y: 2.5 },
-        { series: "Brachialis (Neutral)", x: 105, y: 2.3 }, { series: "Brachialis (Neutral)", x: 115, y: 2.1 },
-        { series: "Brachialis (Neutral)", x: 120, y: 2.0 },
+        { series: "Brachialis", x: 25, y: 1.6 }, { series: "Brachialis", x: 35, y: 1.8 },
+        { series: "Brachialis", x: 45, y: 2.0 }, { series: "Brachialis", x: 55, y: 2.2 },
+        { series: "Brachialis", x: 65, y: 2.4 }, { series: "Brachialis", x: 75, y: 2.5 },
+        { series: "Brachialis", x: 85, y: 2.6 }, { series: "Brachialis", x: 95, y: 2.5 },
+        { series: "Brachialis", x: 105, y: 2.3 }, { series: "Brachialis", x: 115, y: 2.1 },
+        { series: "Brachialis", x: 120, y: 2.0 },
 
-        { series: "Pronator teres (Neutral)", x: 20, y: 0.2 }, { series: "Pronator teres (Neutral)", x: 30, y: 0.3 },
-        { series: "Pronator teres (Neutral)", x: 40, y: 0.4 }, { series: "Pronator teres (Neutral)", x: 50, y: 0.5 },
-        { series: "Pronator teres (Neutral)", x: 60, y: 0.6 }, { series: "Pronator teres (Neutral)", x: 70, y: 0.7 },
-        { series: "Pronator teres (Neutral)", x: 80, y: 0.8 }, { series: "Pronator teres (Neutral)", x: 90, y: 0.9 },
-        { series: "Pronator teres (Neutral)", x: 100, y: 1.0 }, { series: "Pronator teres (Neutral)", x: 110, y: 1.1 },
-        { series: "Pronator teres (Neutral)", x: 120, y: 1.2 },
+        { series: "Pronator teres", x: 20, y: 0.2 }, { series: "Pronator teres", x: 30, y: 0.3 },
+        { series: "Pronator teres", x: 40, y: 0.4 }, { series: "Pronator teres", x: 50, y: 0.5 },
+        { series: "Pronator teres", x: 60, y: 0.6 }, { series: "Pronator teres", x: 70, y: 0.7 },
+        { series: "Pronator teres", x: 80, y: 0.8 }, { series: "Pronator teres", x: 90, y: 0.9 },
+        { series: "Pronator teres", x: 100, y: 1.0 }, { series: "Pronator teres", x: 110, y: 1.1 },
+        { series: "Pronator teres", x: 120, y: 1.2 },
 
         { series: "Biceps (Pronated)", x: 20, y: 1.8 }, { series: "Biceps (Pronated)", x: 30, y: 2.2 },
         { series: "Biceps (Pronated)", x: 40, y: 2.6 }, { series: "Biceps (Pronated)", x: 50, y: 3.0 },
@@ -220,6 +235,7 @@
 
       let showEst = true;
       let showPts = true;
+      let screenSeries = [];
 
       const checksEl = document.getElementById("checks");
       for (const s of series) {
@@ -242,6 +258,7 @@
       const stage = document.getElementById("stage");
       const status = document.getElementById("status");
       const ctx = canvas.getContext("2d");
+      const tip = document.getElementById("tip");
 
       document.getElementById("toggleEst").addEventListener("click", () => { showEst = !showEst; draw(); });
       document.getElementById("togglePts").addEventListener("click", () => { showPts = !showPts; draw(); });
@@ -291,6 +308,41 @@
       function yToPx(y, h, padT) { return padT + (view.yMax - y) * (h / (view.yMax - view.yMin)); }
       function pxToX(px, w, padL) { return view.xMin + (px - padL) * (view.xMax - view.xMin) / w; }
       function pxToY(py, h, padT) { return view.yMax - (py - padT) * (view.yMax - view.yMin) / h; }
+
+      function hideTip() { tip.style.display = "none"; }
+      function showTip(html, x, y) {
+        tip.innerHTML = html;
+        tip.style.display = "block";
+        const pad = 14;
+        const rect = stage.getBoundingClientRect();
+        const tipRect = tip.getBoundingClientRect();
+        const left = Math.min(rect.width - tipRect.width - pad, x + pad);
+        const top = Math.min(rect.height - tipRect.height - pad, y + pad);
+        tip.style.left = `${Math.max(pad, left)}px`;
+        tip.style.top = `${Math.max(pad, top)}px`;
+      }
+
+      function distToSegment(px, py, ax, ay, bx, by) {
+        const abx = bx - ax, aby = by - ay;
+        const apx = px - ax, apy = py - ay;
+        const abLen2 = abx * abx + aby * aby;
+        let t = abLen2 ? (apx * abx + apy * aby) / abLen2 : 0;
+        t = Math.max(0, Math.min(1, t));
+        const cx = ax + t * abx;
+        const cy = ay + t * aby;
+        return { dist: Math.hypot(px - cx, py - cy), cx, cy };
+      }
+
+      function closestOnPolyline(px, py, pts) {
+        if (!pts || pts.length < 2) return null;
+        let best = null;
+        for (let i = 0; i < pts.length - 1; i++) {
+          const a = pts[i], b = pts[i + 1];
+          const hit = distToSegment(px, py, a.px, a.py, b.px, b.py);
+          if (!best || hit.dist < best.dist) best = hit;
+        }
+        return best;
+      }
 
       function niceStep(range) {
         const rough = range / 6;
@@ -373,6 +425,7 @@
         const h = Math.max(10, H - padT - padB);
         drawAxes(padL, padT, w, h);
 
+        screenSeries = [];
         for (const s of series) {
           if (!s.visible) continue;
           const color = s.color;
@@ -381,12 +434,15 @@
             .map(p => ({ px: xToPx(p.x, w, padL), py: yToPx(p.y, h, padT) }));
           strokeSpline(measPts, color, 4, []);
 
+          const rec = { name: s.name, color, measured: measPts, estimate: null };
           if (showEst) {
             const estPts = s.estimate
               .filter(p => p.x >= view.xMin && p.x <= view.xMax)
               .map(p => ({ px: xToPx(p.x, w, padL), py: yToPx(p.y, h, padT) }));
             strokeSpline(estPts, color, 3, [10, 7]);
+            rec.estimate = estPts;
           }
+          screenSeries.push(rec);
 
           if (showPts) {
             ctx.save();
@@ -437,6 +493,40 @@
       stage.addEventListener("pointerup", () => { dragging = false; });
       stage.addEventListener("pointercancel", () => { dragging = false; });
 
+      stage.addEventListener("pointerleave", hideTip);
+      stage.addEventListener("pointermove", (e) => {
+        if (dragging) { hideTip(); return; }
+
+        const rect = stage.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const W = rect.width, H = rect.height;
+        const padL = 60, padT = 20, padR = 20, padB = 60;
+        const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
+        if (x < padL || x > padL + w || y < padT || y > padT + h) { hideTip(); return; }
+
+        let best = null;
+        for (const s of screenSeries) {
+          const hitMeas = closestOnPolyline(x, y, s.measured);
+          const hitEst = showEst ? closestOnPolyline(x, y, s.estimate) : null;
+          const hit = (!hitMeas || (hitEst && hitEst.dist < hitMeas.dist)) ? hitEst : hitMeas;
+          if (!hit) continue;
+          if (!best || hit.dist < best.dist) best = { s, ...hit };
+        }
+
+        if (!best || best.dist > 10) { hideTip(); return; }
+
+        const deg = pxToX(best.cx, w, padL);
+        const val = pxToY(best.cy, h, padT);
+        showTip(
+          `<div><strong>${best.s.name}</strong></div><div class="muted">${deg.toFixed(1)}° | ${val.toFixed(2)} cm</div>`,
+          x, y
+        );
+      });
+
       stage.addEventListener("wheel", (e) => {
         e.preventDefault();
         const rect = stage.getBoundingClientRect();
@@ -466,4 +556,3 @@
     </script>
   </body>
 </html>
-

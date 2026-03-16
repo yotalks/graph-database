@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ackland 2008 Shoulder Adductors (Interactive)</title>
+    <title>Extension IMALs</title>
     <style>
       :root {
         --bg: #0b0f17;
@@ -14,7 +14,6 @@
         --border: rgba(255, 255, 255, 0.08);
         --btn: rgba(255, 255, 255, 0.08);
         --btnHover: rgba(255, 255, 255, 0.12);
-        --shadow: rgba(0, 0, 0, 0.35);
       }
       * { box-sizing: border-box; }
       html, body { height: 100%; margin: 0; }
@@ -26,11 +25,7 @@
         color: var(--text);
         overflow: hidden;
       }
-      .wrap {
-        height: 100%;
-        display: grid;
-        grid-template-rows: auto 1fr;
-      }
+      .wrap { height: 100%; display: grid; grid-template-rows: auto 1fr; }
       .top {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -55,14 +50,8 @@
         font-size: 12px;
       }
       .btn:hover { background: var(--btnHover); }
-      .btn:active { transform: translateY(1px); }
       .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
-      .main {
-        position: relative;
-        display: grid;
-        grid-template-columns: 280px 1fr;
-        min-height: 0;
-      }
+      .main { position: relative; display: grid; grid-template-columns: 300px 1fr; min-height: 0; }
       .left {
         border-right: 1px solid var(--border);
         background: var(--panel2);
@@ -84,16 +73,8 @@
       .swatch { width: 12px; height: 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25); }
       .check label { font-size: 12px; font-weight: 650; }
       .hint { margin: 8px 4px 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
-      .stage {
-        position: relative;
-        overflow: hidden;
-        min-width: 0;
-      }
-      canvas {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
+      .stage { position: relative; overflow: hidden; min-width: 0; }
+      canvas { width: 100%; height: 100%; display: block; }
       .overlay {
         position: absolute;
         right: 12px;
@@ -126,8 +107,8 @@
     <div class="wrap">
       <div class="top">
         <div>
-          <div class="title">Ackland et al. (PMC2644775) - Shoulder adductors (coronal plane)</div>
-          <div class="subtitle">Wheel = zoom | Drag = pan | Solid = reported domain (<=120 deg) | Dashed = extrapolated (120-180 deg)</div>
+          <div class="title">Ackland et al. (PMC2644775) - Shoulder extension IMALs (grey curves)</div>
+          <div class="subtitle">Extension only: segments with y ≥ 0 are hidden (no flat zeros). Solid = 0–120° (reported). Dotted/dashed = extrapolated to -30° and 180°.</div>
         </div>
         <div class="controls">
           <button id="fit" class="btn">Fit</button>
@@ -142,13 +123,12 @@
           <div class="sectionTitle">Toggle lines</div>
           <div id="checks"></div>
           <div class="hint">
-            Sign convention: abduction is negative, adduction is positive.
-            This interactive view uses a quadratic fit constrained by Table 1 extrema and is intended for visualization/extrapolation only.
+            Source: Table 1 (Flexion/Extension) extrema from the PMC2644775 paper. Reconstruction uses a simple quadratic through the two extrema; only negative (extension) segments are drawn. Extrapolation uses boundary slope, then hides any y ≥ 0 values.
           </div>
         </div>
         <div class="stage" id="stage">
           <canvas id="c"></canvas>
-          <div class="overlay">Measured region shaded green | Extrapolated region shaded red</div>
+          <div class="overlay">Green = reported domain (0–120°)</div>
           <div id="tip" class="tooltip"></div>
         </div>
       </div>
@@ -157,65 +137,75 @@
     <script>
       const palette = [
         "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
-        "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22"
+        "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf",
+        "#f97316", "#a78bfa", "#22c55e", "#ef4444"
       ];
 
-      // If true, flip moment-arm sign (mm -> -mm) for all non-pec curves.
-      // Must be defined before any curve computation.
-      const flipNonPec = true;
+      // Table 1 extrema (sagittal-plane grey flexion/extension curves) from PMC2644775.
+      // max/min are "moment arm magnitude" with sign preserved.
+      const table = [
+        { name: "Subscapularis (sup)", maxMm: 35.3, maxDeg: 2.5, minMm: -5.4, minDeg: 120.0 },
+        { name: "Subscapularis (mid)", maxMm: 24.2, maxDeg: 2.5, minMm: -0.6, minDeg: 120.0 },
+        { name: "Subscapularis (inf)", maxMm: 10.4, maxDeg: 2.5, minMm: -3.4, minDeg: 109.0 },
 
-      const muscles = [
-        { name: "Subscapularis (sup)", maxMm: -9.5,  maxDeg: 94, minMm: 7.2,   minDeg: 2.5,  measuredMin: 2.5 },
-        { name: "Subscapularis (mid)", maxMm: -12.7, maxDeg: 94, minMm: 1.3,   minDeg: 2.5,  measuredMin: 2.5 },
-        { name: "Subscapularis (inf)", maxMm: -16.6, maxDeg: 90, minMm: -2.2,  minDeg: 15,   measuredMin: 2.5 },
-        { name: "Teres major",         maxMm: -46.1, maxDeg: 83, minMm: -12.1, minDeg: 10,   measuredMin: 10 },
-        // Pectoralis major subregions: anchor-point fits (approx read from the paper figure).
-        { name: "Pectoralis major (sup)", anchors: [[0, -2], [40, 0], [120, 10]], measuredMin: 0 },
-        { name: "Pectoralis major (mid)", anchors: [[0, -22], [50, -33], [120, -18]], measuredMin: 0 },
-        { name: "Pectoralis major (inf)", anchors: [[0, -20], [40, -35], [120, -18]], measuredMin: 0 },
-        { name: "Latissimus dorsi (sup)", maxMm: -29.9, maxDeg: 71, minMm: -4.4,  minDeg: 10,  measuredMin: 10 },
-        { name: "Latissimus dorsi (mid)", maxMm: -38.6, maxDeg: 64, minMm: -16.9, minDeg: 10,  measuredMin: 10 },
-        { name: "Latissimus dorsi (inf)", maxMm: -38.1, maxDeg: 71, minMm: -3.3,  minDeg: 10,  measuredMin: 10 },
-      ].map((m, i) => ({ ...m, color: palette[i % palette.length], visible: true, measuredMax: 120 }));
+        { name: "Supraspinatus (ant)",  maxMm: 41.8, maxDeg: 2.5, minMm: 0.6,  minDeg: 120.0 },
+        { name: "Supraspinatus (post)", maxMm: 43.5, maxDeg: 2.5, minMm: 2.7,  minDeg: 120.0 },
 
-      function coeffsFrom3(anchors) {
-        const [x1, y1] = anchors[0];
-        const [x2, y2] = anchors[1];
-        const [x3, y3] = anchors[2];
-        const den = (x1 - x2) * (x1 - x3) * (x2 - x3);
-        const a = (y1 * (x2 - x3) + y2 * (x3 - x1) + y3 * (x1 - x2)) / den;
-        const b = (y1 * (x3 * x3 - x2 * x2) + y2 * (x1 * x1 - x3 * x3) + y3 * (x2 * x2 - x1 * x1)) / den;
-        const c = (y1 * x2 * x3 * (x2 - x3) + y2 * x3 * x1 * (x3 - x1) + y3 * x1 * x2 * (x1 - x2)) / den;
-        return { a, b, c };
-      }
+        { name: "Infraspinatus (sup)", maxMm: 7.1,  maxDeg: 33.0, minMm: 1.7,  minDeg: 120.0 },
+        { name: "Infraspinatus (inf)", maxMm: -6.8, maxDeg: 23.0, minMm: 4.2,  minDeg: 120.0 },
+        { name: "Teres minor",         maxMm: -18.7, maxDeg: 2.5,  minMm: 2.2,  minDeg: 120.0 },
+        { name: "Teres major",         maxMm: -54.4, maxDeg: 56.0, minMm: -19.7, minDeg: 120.0 },
 
-      for (const m of muscles) {
-        if (m.anchors) m.coeffs = coeffsFrom3(m.anchors);
-      }
+        { name: "Deltoid (ant)",  maxMm: 40.0, maxDeg: 120.0, minMm: 11.6, minDeg: 2.5 },
+        { name: "Deltoid (mid)",  maxMm: 12.2, maxDeg: 120.0, minMm: 0.0,  minDeg: 2.5 },
+        { name: "Deltoid (post)", maxMm: -33.0, maxDeg: 30.0,  minMm: -16.3, minDeg: 120.0 },
 
-      function quad(m, deg) {
+        { name: "Pectoralis major (sup)", maxMm: 53.7, maxDeg: 71.0, minMm: 9.6, minDeg: 2.5 },
+        { name: "Pectoralis major (mid)", maxMm: 15.9, maxDeg: 45.0, minMm: 4.4, minDeg: 2.5 },
+        { name: "Pectoralis major (inf)", maxMm: -9.3, maxDeg: 98.0, minMm: 1.9, minDeg: 2.5 },
+
+        { name: "Latissimus dorsi (sup)", maxMm: -22.1, maxDeg: 45.0, minMm: -0.1, minDeg: 120.0 },
+        { name: "Latissimus dorsi (mid)", maxMm: -7.8,  maxDeg: 30.0, minMm: -0.7, minDeg: 98.0 },
+        { name: "Latissimus dorsi (inf)", maxMm: -10.8, maxDeg: 53.0, minMm: -2.9, minDeg: 120.0 }
+      ];
+
+      const degs = Array.from({ length: 211 }, (_, i) => i - 30); // -30..180
+
+      function momentArmRaw(m, deg) {
         const denom = (m.minDeg - m.maxDeg) ** 2;
         const a = (m.minMm - m.maxMm) / denom;
-        // Sign convention (per paper figure): abduction negative, adduction positive.
-        // Extrema were transcribed with the opposite sign; flip here.
-        return -1 * (a * (deg - m.maxDeg) ** 2 + m.maxMm);
+        return a * (deg - m.maxDeg) ** 2 + m.maxMm;
       }
 
-      function momentArm(m, deg) {
-        let y = m.coeffs ? (m.coeffs.a * deg * deg + m.coeffs.b * deg + m.coeffs.c) : quad(m, deg);
-        if (flipNonPec && !m.name.toLowerCase().includes("pectoralis major")) y = -y;
-        return y;
+      function isFlexorOnly(m) {
+        return (m.maxMm >= 0) && (m.minMm >= 0);
       }
 
-      // Precompute points 0..180
-      const degs = Array.from({ length: 181 }, (_, i) => i);
-      function recompute() {
-        for (const m of muscles) m.y = degs.map(d => momentArm(m, d));
+      function momentArmModel(m, deg) {
+        const y0 = momentArmRaw(m, 0);
+        const y5 = momentArmRaw(m, 5);
+        const y115 = momentArmRaw(m, 115);
+        const y120 = momentArmRaw(m, 120);
+        const slope0 = (y5 - y0) / 5;
+        const slope120 = (y120 - y115) / 5;
+        if (deg < 0) return y0 + slope0 * (deg - 0);
+        if (deg > 120) return y120 + slope120 * (deg - 120);
+        return momentArmRaw(m, deg);
       }
-      recompute();
+
+      function momentArmExtensionNegative(m, deg) {
+        if (isFlexorOnly(m)) return null;
+        const y = momentArmModel(m, deg);
+        return y < 0 ? y : null;
+      }
+
+      let muscles = table.map((m, i) => {
+        const y = degs.map(d => momentArmExtensionNegative(m, d));
+        const any = y.some(v => v !== null);
+        return any ? { ...m, color: palette[i % palette.length], visible: true, y } : null;
+      }).filter(Boolean);
 
       const checksEl = document.getElementById("checks");
-
       function renderChecks() {
         checksEl.innerHTML = "";
         for (const m of muscles) {
@@ -247,29 +237,19 @@
       const btnAll = document.getElementById("all");
       const btnNone = document.getElementById("none");
 
-      // View transform in plot-space (deg/mm) -> screen
-      let view = {
-        xMin: 0,
-        xMax: 180,
-        yMin: -45,
-        yMax: 60,
-      };
+      let view = { xMin: -30, xMax: 180, yMin: -60, yMax: 0 };
 
       function fit() {
         const visible = muscles.filter(m => m.visible);
         const yAll = [];
-        for (const m of visible) yAll.push(...m.y);
-        const yMin = yAll.length ? Math.min(...yAll) : -45;
-        const yMax = yAll.length ? Math.max(...yAll) : 60;
+        for (const m of visible) yAll.push(...m.y.filter(v => v !== null));
+        const yMax = 0;
+        const yMin = yAll.length ? Math.min(...yAll) : -10;
         const pad = 0.08 * (yMax - yMin || 1);
-        view = { xMin: 0, xMax: 180, yMin: yMin - pad, yMax: yMax + pad };
+        view = { xMin: -30, xMax: 180, yMin: yMin - pad, yMax: 0 };
         draw();
       }
-
-      function reset() {
-        view = { xMin: 0, xMax: 180, yMin: -45, yMax: 60 };
-        draw();
-      }
+      function reset() { view = { xMin: -30, xMax: 180, yMin: -60, yMax: 0 }; draw(); }
 
       btnFit.addEventListener("click", fit);
       btnReset.addEventListener("click", reset);
@@ -296,18 +276,10 @@
       }
       window.addEventListener("resize", resize);
 
-      function xToPx(x, w, padL) {
-        return padL + (x - view.xMin) * (w / (view.xMax - view.xMin));
-      }
-      function yToPx(y, h, padT) {
-        return padT + (view.yMax - y) * (h / (view.yMax - view.yMin));
-      }
-      function pxToX(px, w, padL) {
-        return view.xMin + (px - padL) * (view.xMax - view.xMin) / w;
-      }
-      function pxToY(py, h, padT) {
-        return view.yMax - (py - padT) * (view.yMax - view.yMin) / h;
-      }
+      function xToPx(x, w, padL) { return padL + (x - view.xMin) * (w / (view.xMax - view.xMin)); }
+      function yToPx(y, h, padT) { return padT + (view.yMax - y) * (h / (view.yMax - view.yMin)); }
+      function pxToX(px, w, padL) { return view.xMin + (px - padL) * (view.xMax - view.xMin) / w; }
+      function pxToY(py, h, padT) { return view.yMax - (py - padT) * (view.yMax - view.yMin) / h; }
 
       function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
       function hideTip() { tip.style.display = "none"; }
@@ -323,14 +295,28 @@
         tip.style.top = `${Math.max(pad, top)}px`;
       }
 
-      function yAt(m, deg) {
-        const d = clamp(deg, 0, 180);
+      function yAtVisible(m, deg) {
+        const d = clamp(deg, -30, 180);
+        const base = 30;
         const d0 = Math.floor(d);
         const d1 = Math.ceil(d);
-        const y0 = m.y[d0];
-        const y1 = m.y[d1];
-        if (d0 === d1) return y0;
-        return y0 + (y1 - y0) * ((d - d0) / (d1 - d0));
+        const i0 = d0 + base;
+        const i1 = d1 + base;
+        if (i0 < 0 || i1 >= degs.length) return null;
+        const y0 = m.y[i0];
+        const y1 = m.y[i1];
+        if (y0 !== null && y1 !== null) {
+          if (d0 === d1) return y0;
+          return y0 + (y1 - y0) * ((d - d0) / (d1 - d0));
+        }
+        if (y0 !== null) return y0;
+        if (y1 !== null) return y1;
+        for (let off = 1; off <= 6; off++) {
+          const a = i0 - off, b = i0 + off;
+          if (a >= 0 && m.y[a] !== null) return m.y[a];
+          if (b < degs.length && m.y[b] !== null) return m.y[b];
+        }
+        return null;
       }
 
       function niceStep(range) {
@@ -346,7 +332,7 @@
         ctx.lineWidth = 1;
         ctx.strokeStyle = "rgba(255,255,255,0.08)";
 
-        const xStep = 20;
+        const xStep = 30;
         for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax; x += xStep) {
           const px = xToPx(x, w, padL);
           ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
@@ -357,25 +343,14 @@
           ctx.beginPath(); ctx.moveTo(padL, py); ctx.lineTo(padL + w, py); ctx.stroke();
         }
 
-        // axes
         ctx.strokeStyle = "rgba(255,255,255,0.28)";
         ctx.beginPath(); ctx.rect(padL, padT, w, h); ctx.stroke();
 
         // y=0 line
-        if (view.yMin < 0 && view.yMax > 0) {
-          const py0 = yToPx(0, h, padT);
-          ctx.strokeStyle = "rgba(255,255,255,0.35)";
-          ctx.beginPath(); ctx.moveTo(padL, py0); ctx.lineTo(padL + w, py0); ctx.stroke();
-        }
+        const py0 = yToPx(0, h, padT);
+        ctx.strokeStyle = "rgba(255,255,255,0.35)";
+        ctx.beginPath(); ctx.moveTo(padL, py0); ctx.lineTo(padL + w, py0); ctx.stroke();
 
-        // x=120 line
-        if (view.xMin < 120 && view.xMax > 120) {
-          const px120 = xToPx(120, w, padL);
-          ctx.strokeStyle = "rgba(0,0,0,0.55)";
-          ctx.beginPath(); ctx.moveTo(px120, padT); ctx.lineTo(px120, padT + h); ctx.stroke();
-        }
-
-        // labels
         ctx.fillStyle = "rgba(229,231,235,0.9)";
         ctx.font = "12px Segoe UI, system-ui";
         ctx.textAlign = "center";
@@ -389,14 +364,13 @@
           ctx.fillText(String(Math.round(y)), padL - 8, py + 4);
         }
 
-        // axis titles
         ctx.textAlign = "center";
         ctx.fillStyle = "rgba(156,163,175,0.95)";
-        ctx.fillText("Shoulder abduction angle (deg)", padL + w / 2, padT + h + 42);
+        ctx.fillText("Joint angle (deg)  (-30 = hyperextension, + = flexion)", padL + w / 2, padT + h + 42);
         ctx.save();
         ctx.translate(16, padT + h / 2);
         ctx.rotate(-Math.PI / 2);
-        ctx.fillText("Moment arm (mm)  (negative = abduction; positive = adduction)", 0, 0);
+        ctx.fillText("Moment arm (mm)  (extension only; y≥0 hidden)", 0, 0);
         ctx.restore();
 
         ctx.restore();
@@ -412,31 +386,21 @@
         const w = Math.max(10, W - padL - padR);
         const h = Math.max(10, H - padT - padB);
 
-        // Shading measured/extrapolated regions (based on x=120)
-        const px0 = xToPx(Math.max(view.xMin, 0), w, padL);
-        const px120 = xToPx(120, w, padL);
-        const px180 = xToPx(Math.min(view.xMax, 180), w, padL);
+        // Shading for measured region 0..120
         ctx.save();
-        // measured shade
         ctx.fillStyle = "rgba(95, 180, 95, 0.10)";
-        const mLeft = Math.max(padL, px0);
-        const mRight = Math.min(padL + w, px120);
+        const mLeft = xToPx(Math.max(view.xMin, 0), w, padL);
+        const mRight = xToPx(Math.min(view.xMax, 120), w, padL);
         if (mRight > mLeft) ctx.fillRect(mLeft, padT, mRight - mLeft, h);
-        // extrap shade
-        ctx.fillStyle = "rgba(210, 85, 85, 0.10)";
-        const eLeft = Math.max(padL, px120);
-        const eRight = Math.min(padL + w, px180);
-        if (eRight > eLeft) ctx.fillRect(eLeft, padT, eRight - eLeft, h);
         ctx.restore();
 
         drawAxes(padL, padT, w, h);
 
-        // Lines
         for (const m of muscles) {
           if (!m.visible) continue;
           const color = m.color;
 
-          // pre (dotted)
+          // left extrap (-30..0) dotted
           ctx.save();
           ctx.strokeStyle = color;
           ctx.globalAlpha = 0.35;
@@ -446,16 +410,18 @@
           let started = false;
           for (let i = 0; i < degs.length; i++) {
             const d = degs[i];
-            if (d >= m.measuredMin) break;
+            if (d >= 0) break;
             if (d < view.xMin || d > view.xMax) continue;
+            const v = m.y[i];
+            if (v === null) { started = false; continue; }
             const x = xToPx(d, w, padL);
-            const y = yToPx(m.y[i], h, padT);
+            const y = yToPx(v, h, padT);
             if (!started) { ctx.moveTo(x, y); started = true; } else { ctx.lineTo(x, y); }
           }
           ctx.stroke();
           ctx.restore();
 
-          // measured (solid)
+          // measured (0..120) solid
           ctx.save();
           ctx.strokeStyle = color;
           ctx.globalAlpha = 0.95;
@@ -465,16 +431,18 @@
           started = false;
           for (let i = 0; i < degs.length; i++) {
             const d = degs[i];
-            if (d < m.measuredMin || d > m.measuredMax) continue;
+            if (d < 0 || d > 120) continue;
             if (d < view.xMin || d > view.xMax) continue;
+            const v = m.y[i];
+            if (v === null) { started = false; continue; }
             const x = xToPx(d, w, padL);
-            const y = yToPx(m.y[i], h, padT);
+            const y = yToPx(v, h, padT);
             if (!started) { ctx.moveTo(x, y); started = true; } else { ctx.lineTo(x, y); }
           }
           ctx.stroke();
           ctx.restore();
 
-          // extrap (dashed)
+          // right extrap (120..180) dashed
           ctx.save();
           ctx.strokeStyle = color;
           ctx.globalAlpha = 0.9;
@@ -484,17 +452,19 @@
           started = false;
           for (let i = 0; i < degs.length; i++) {
             const d = degs[i];
-            if (d <= m.measuredMax) continue;
+            if (d <= 120) continue;
             if (d < view.xMin || d > view.xMax) continue;
+            const v = m.y[i];
+            if (v === null) { started = false; continue; }
             const x = xToPx(d, w, padL);
-            const y = yToPx(m.y[i], h, padT);
+            const y = yToPx(v, h, padT);
             if (!started) { ctx.moveTo(x, y); started = true; } else { ctx.lineTo(x, y); }
           }
           ctx.stroke();
           ctx.restore();
         }
 
-        const sx = Math.round((180 / (view.xMax - view.xMin)) * 100);
+        const sx = Math.round((210 / (view.xMax - view.xMin)) * 100);
         status.textContent = `${sx}% zoom`;
       }
 
@@ -524,6 +494,7 @@
         const yShift = dy * yRange / h;
         view.xMin += xShift; view.xMax += xShift;
         view.yMin += yShift; view.yMax += yShift;
+        if (view.yMax > 0) { view.yMin -= view.yMax; view.yMax = 0; }
         draw();
       });
       stage.addEventListener("pointerup", () => { dragging = false; });
@@ -545,12 +516,13 @@
         if (x < padL || x > padL + w || y < padT || y > padT + h) { hideTip(); return; }
 
         const deg = pxToX(x, w, padL);
-        if (deg < 0 || deg > 180) { hideTip(); return; }
+        if (deg < -30 || deg > 180) { hideTip(); return; }
 
         let best = null;
         for (const m of muscles) {
           if (!m.visible) continue;
-          const yy = yAt(m, deg);
+          const yy = yAtVisible(m, deg);
+          if (yy === null) continue;
           const px = xToPx(deg, w, padL);
           const py = yToPx(yy, h, padT);
           const dx = x - px, dy = y - py;
@@ -560,7 +532,7 @@
 
         if (!best || best.dist > 10) { hideTip(); return; }
         showTip(
-          `<div><strong>${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}° | ${best.yy.toFixed(1)} mm</div>`,
+          `<div><strong>Region: ${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}° | ${best.yy.toFixed(1)} mm</div>`,
           x, y
         );
       });
@@ -583,16 +555,15 @@
         const xMax = x0 + (view.xMax - x0) * zoom;
         const yMin = y0 + (view.yMin - y0) * zoom;
         const yMax = y0 + (view.yMax - y0) * zoom;
-
-        // Keep some sanity bounds
-        if ((xMax - xMin) < 2) return;
+        if ((xMax - xMin) < 5) return;
         if ((yMax - yMin) < 1) return;
-        view = { xMin, xMax, yMin, yMax };
+        view = { xMin, xMax, yMin, yMax: Math.min(0, yMax) };
         draw();
       }, { passive: false });
 
       resize();
-      reset();
+      fit();
     </script>
   </body>
 </html>
+

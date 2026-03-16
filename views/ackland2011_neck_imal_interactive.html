@@ -364,7 +364,7 @@
 
         const vol = (hit.volumePct === null || hit.volumePct === undefined) ? "n/a" : `${hit.volumePct}%`;
         tip.innerHTML = `
-          <div><strong>${hit.name}</strong></div>
+          <div><strong>Region: ${hit.name}</strong></div>
           <div class="muted">Volume: ${vol} of total neck size</div>
           <div class="muted">Leverage: ${hit.value.toFixed(1)} mm</div>
         `;

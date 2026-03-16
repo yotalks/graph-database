@@ -9,6 +9,24 @@
     ]
   },
   {
+    "id": "ackland2008_shoulder_abduction_imal_interactive",
+    "title": "Abduction IMALs",
+    "file": "views/ackland2008_shoulder_abduction_imal_interactive.html",
+    "kind": "interactive"
+  },
+  {
+    "id": "ackland2008_shoulder_flexion_imal_interactive",
+    "title": "Flexion IMALs",
+    "file": "views/ackland2008_shoulder_flexion_imal_interactive.html",
+    "kind": "interactive"
+  },
+  {
+    "id": "ackland2008_shoulder_extension_imal_interactive",
+    "title": "Extension IMALs",
+    "file": "views/ackland2008_shoulder_extension_imal_interactive.html",
+    "kind": "interactive"
+  },
+  {
     "id": "murray1995_elbow_flexor_imal_interactive",
     "title": "Elbow flexor IMAL",
     "file": "views/murray1995_elbow_flexor_imal_interactive.html",
