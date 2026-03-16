@@ -284,9 +284,17 @@ code {
 }
 
 @media (max-width: 900px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+  }
+
   .app {
+    height: auto;
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
     min-height: 100dvh;
   }
 
@@ -297,15 +305,15 @@ code {
   }
 
   .sidebar__content {
-    max-height: 34dvh;
+    max-height: 24dvh;
   }
 
   .viewer {
-    min-height: 60dvh;
+    min-height: 72dvh;
   }
 
   .stage {
-    min-height: 56dvh;
+    min-height: 68dvh;
   }
 
   .toolbar {
