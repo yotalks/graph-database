@@ -15,6 +15,7 @@ const btnOpenFileEl = document.getElementById("btnOpenFile");
 const btnFit = document.getElementById("btnFit");
 const btn100 = document.getElementById("btn100");
 const btnReset = document.getElementById("btnReset");
+const chickenLinkEl = document.getElementById("chickenLink");
 
 const graphs = (GRAPH_MANIFEST?.graphs || []).slice();
 
@@ -241,4 +242,10 @@ setManifestInfo();
 renderList();
 if (graphs.length) {
   openGraph(graphs[0].id);
+}
+
+if (chickenLinkEl) {
+  chickenLinkEl.addEventListener("click", () => {
+    window.open("https://youtu.be/pxowyM6fcgc", "_blank", "noopener,noreferrer");
+  });
 }

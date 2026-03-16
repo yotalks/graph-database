@@ -264,6 +264,13 @@
 
       function xToPx(x, w, padL) { return padL + (x - view.xMin) * (w / (view.xMax - view.xMin)); }
       function pxToX(px, w, padL) { return view.xMin + (px - padL) * (view.xMax - view.xMin) / w; }
+      function niceStep(range) {
+        const rough = range / 6;
+        const pow = 10 ** Math.floor(Math.log10(Math.max(rough, 1e-9)));
+        const mult = rough / pow;
+        const niceMult = mult < 1.5 ? 1 : mult < 3 ? 2 : mult < 7 ? 5 : 10;
+        return niceMult * pow;
+      }
 
       let barHitboxes = [];
 
@@ -283,8 +290,8 @@
         ctx.save();
         ctx.strokeStyle = "rgba(255,255,255,0.08)";
         ctx.lineWidth = 1;
-        for (let i = 0; i <= 6; i++) {
-          const x = view.xMin + (i / 6) * (view.xMax - view.xMin);
+        const xStep = niceStep(view.xMax - view.xMin);
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
           const px = xToPx(x, w, padL);
           ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
         }
@@ -340,6 +347,11 @@
         ctx.font = "12px Segoe UI, system-ui";
         ctx.fillStyle = "rgba(156,163,175,0.95)";
         ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
+          const px = xToPx(x, w, padL);
+          ctx.fillText(String(Math.round(x * 10) / 10), px, padT + h + 6);
+        }
         ctx.fillText("Moment arm (mm)", padL + w / 2, padT + h + 28);
         ctx.restore();
 

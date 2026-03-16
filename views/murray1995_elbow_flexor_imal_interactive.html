@@ -386,7 +386,9 @@
         ctx.save();
         ctx.lineWidth = 1;
         ctx.strokeStyle = "rgba(255,255,255,0.08)";
-        for (let x = 0; x <= 120; x += 20) {
+        const xStep = niceStep(view.xMax - view.xMin);
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
+          if (x < 0 || x > 120) continue;
           if (x < view.xMin || x > view.xMax) continue;
           const px = xToPx(x, w, padL);
           ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
@@ -402,7 +404,8 @@
         ctx.fillStyle = "rgba(229,231,235,0.9)";
         ctx.font = "12px Segoe UI, system-ui";
         ctx.textAlign = "center";
-        for (let x = 0; x <= 120; x += 20) {
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
+          if (x < 0 || x > 120) continue;
           if (x < view.xMin || x > view.xMax) continue;
           const px = xToPx(x, w, padL);
           ctx.fillText(String(x), px, padT + h + 18);

@@ -376,7 +376,7 @@
         ctx.lineWidth = 1;
         ctx.strokeStyle = "rgba(255,255,255,0.08)";
 
-        const xStep = 20;
+        const xStep = niceStep(view.xMax - view.xMin);
         for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax; x += xStep) {
           const px = xToPx(x, w, padL);
           ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
