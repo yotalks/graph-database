@@ -594,10 +594,12 @@
         const y0 = pxToY(my, h, padT);
 
         const zoom = e.deltaY > 0 ? 1.12 : 1 / 1.12;
-        const xMin = x0 + (view.xMin - x0) * zoom;
-        const xMax = x0 + (view.xMax - x0) * zoom;
-        const yMin = y0 + (view.yMin - y0) * zoom;
-        const yMax = y0 + (view.yMax - y0) * zoom;
+        const zoomX = e.shiftKey && !e.ctrlKey ? 1 : zoom;
+        const zoomY = e.ctrlKey && !e.shiftKey ? 1 : zoom;
+        const xMin = x0 + (view.xMin - x0) * zoomX;
+        const xMax = x0 + (view.xMax - x0) * zoomX;
+        const yMin = y0 + (view.yMin - y0) * zoomY;
+        const yMax = y0 + (view.yMax - y0) * zoomY;
         if ((xMax - xMin) < 5) return;
         if ((yMax - yMin) < 1) return;
         view = { xMin, xMax, yMin, yMax: Math.min(0, yMax) };

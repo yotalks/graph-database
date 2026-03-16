@@ -16,6 +16,7 @@ const btnFit = document.getElementById("btnFit");
 const btn100 = document.getElementById("btn100");
 const btnReset = document.getElementById("btnReset");
 const chickenLinkEl = document.getElementById("chickenLink");
+let chickenTimerId = null;
 
 const graphs = (GRAPH_MANIFEST?.graphs || []).slice();
 
@@ -245,7 +246,30 @@ if (graphs.length) {
 }
 
 if (chickenLinkEl) {
+  const startChickenWalk = () => {
+    chickenLinkEl.classList.remove("chicken-link--walking");
+    void chickenLinkEl.offsetWidth;
+    chickenLinkEl.classList.add("chicken-link--walking");
+  };
+
+  const scheduleChickenWalk = () => {
+    if (chickenTimerId) window.clearTimeout(chickenTimerId);
+    chickenTimerId = window.setTimeout(() => {
+      startChickenWalk();
+      scheduleChickenWalk();
+    }, 25 * 60 * 1000);
+  };
+
+  chickenLinkEl.addEventListener("animationend", (e) => {
+    if (e.animationName === "chicken-walk") {
+      chickenLinkEl.classList.remove("chicken-link--walking");
+    }
+  });
+
   chickenLinkEl.addEventListener("click", () => {
     window.open("https://youtu.be/pxowyM6fcgc", "_blank", "noopener,noreferrer");
   });
+
+  startChickenWalk();
+  scheduleChickenWalk();
 }

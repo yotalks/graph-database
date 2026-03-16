@@ -159,12 +159,11 @@ code {
   border: 0;
   background: transparent;
   cursor: pointer;
-  animation: chicken-walk 18s linear infinite;
+  pointer-events: auto;
 }
 
-.chicken-link:hover,
-.chicken-link:focus-visible {
-  animation-play-state: paused;
+.chicken-link--walking {
+  animation: chicken-walk 18s linear 1;
 }
 
 .chicken-link:focus-visible {

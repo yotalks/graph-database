@@ -386,17 +386,27 @@
       stage.addEventListener("wheel", (e) => {
         e.preventDefault();
         const rect = stage.getBoundingClientRect();
-        const W = rect.width;
-        const padL = 220, padR = 20;
+        const W = rect.width, H = rect.height;
+        const padL = 220, padT = 20, padR = 20, padB = 40;
         const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
         const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
         const x0 = pxToX(mx, w, padL);
+        const y0 = view.yMin + ((my - padT) / Math.max(1, h)) * (view.yMax - view.yMin);
         const zoom = e.deltaY > 0 ? 1.12 : 1 / 1.12;
-        const xMin = x0 + (view.xMin - x0) * zoom;
-        const xMax = x0 + (view.xMax - x0) * zoom;
+        const zoomX = e.shiftKey && !e.ctrlKey ? 1 : zoom;
+        const zoomY = e.ctrlKey && !e.shiftKey ? 1 : zoom;
+        const xMin = x0 + (view.xMin - x0) * zoomX;
+        const xMax = x0 + (view.xMax - x0) * zoomX;
+        const yMin = y0 + (view.yMin - y0) * zoomY;
+        const yMax = y0 + (view.yMax - y0) * zoomY;
         if ((xMax - xMin) < 4) return;
+        if ((yMax - yMin) < 4) return;
         view.xMin = Math.max(0, xMin);
         view.xMax = xMax;
+        view.yMin = Math.max(0, yMin);
+        view.yMax = Math.max(view.yMin + 4, yMax);
         draw();
       }, { passive: false });
 
