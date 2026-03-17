@@ -1,0 +1,527 @@
+                                                                                                                          w21-9290851300       +   w
+                                                                                                                                 Pcrgamon Press Ltd.
+
+
+
+
+            IN I’IVO MOMENT ARM LENGTHS FOR HIP EXTENSOR
+              MUSCLES AT DIFFERENT ANGLES OF HIP FLEXION
+
+                                                        GUN&AR N~METH
+               Kinesiology   Group.    Department     of Anatomy, Karolinska        Institute.    P.O. Box 6040.       S-10401
+                                                         Stockholm, Sweden
+
+
+                                                                   and
+
+
+                                                          HAM OHLS~N
+                      Department      of Diagnostic   Radiology,   Karolinska      Hospital.     Stockholm,     Sweden
+
+
+         Abstract-Moment       arm lengths of three hip extensor muscles, the gluteus maximus, the hamstrings and the
+         adductor magnus, were determined at hip flexion angles from 0’ to 90’ by combining data from ten autopsy
+         specimens and from twenty patients, the latter examined by computed tomography. A straight-line muscle
+         model for muscle force was used for the hamstrings and adductor magnus. and for the gluteus maximus a
+         two-segment straight-line muscle force model was used. With the joint in its anatomical position the moment
+         arm of the gluteus maximus to the bilateral motion axis averaged 79 mm, for the hamstrings 61 mm and for
+         the adductor magnus 15mm. The moment arm of gluteus maximus decreased with increasing hip flexion
+         angle. The hamstrings showed an increase in moment arm length up to an averageof35’      hip flexion and then
+         a decrease with increasing hip Rexion angle. The corresponding figures for the adductor magnus moment arm
+         showed an increase up to 75’ and then a decrease. Statistical analysis revealed significant differences in
+         moment arm length between men and women
+
+
+
+                      INTRODUCTION                                          There is no study dealing with the three-dimensional
+                                                                         course of the hip muscles obtained in L’IL.o. The general
+Quantitative     anatomical     data are required for the                aim of the present study was to investigate the three-
+biomechanical      investigation     of hip joint forces, as             dimensional location of some hip muscular coordinates
+pointed out by several authors, for example Dostal and                   required for calculations of moment arm lengths and to
+Andrews (1981). Johnston (1973) and Reynolds and                         calculate these moment arms as a function of hip
+Hubbard (1980).                                                          Bexion angle. The following specific questions were
+    Earlier published works include that of Eycleshymer                  addressed:
+and Schoemaker         (1905), which is often used for                      1. What is the length of the moment arms of the hip
+measurement       of basic anatomical       structures. Their            extensors (i.e. the gluteus maximus, hamstrings and
+atlas contains reconstruction       drawings, of about four-             adductor magnus) to the bilateral hip motion axis with
+fifths natural size, from transverse sections of different               the joint in its anatomical position?
+cadavers. Dostal and Andrews (198 1) used the straight-                     2. Is there a difference in moment arm length
+line muscle model between the origin and insertion of                    between men and women?
+hip muscle attachment          points on a male dry bone                    3. What is the length of the moment arms at
+specimen. Using anatomical descriptions in text books                    different angles of hip flexion?
+as a guide, points representing          muscle attachments
+were marked on the specimen and coordinates                 were
+measured in a laboratory reference frame. The three-                               METHODS.         MATERIALS       AKD SUBJECTS
+dimensional     muscular anatomy was then described.
+Jensen and co-workers (Jensen and Davy, 1975; Jensen                     Design   oj’the   study
+and Metcalf, 1975) used two cadaver specimens to                           Computed tomography                gives an accurate anatomical
+quantify the centroid line, representing midpoints of                    cross-sectional       image and, using consecutive slices. a
+several sections of some hip abductor               and flexor           three-dimensional          survey allows calculations             of mus-
+muscles. McLeish and Charnley (1970) and lnman                           cular    moment         arms.   Even     though     the course of a
+(1947) inserted wires through theapproximate           centre of         muscle can be accurately described by CT, a tendinous
+hip abductor muscles, and Pohtilla (1969) used small                     origin or insertion of the investigated                 muscle cannot
+radiopaque markers placed in the centre of the tendons                   sometimes be exactly identified               since the attenuation
+of origin and insertion. In the last two studies men-                    does not differ enough from the surrounding                       tissue. If
+tioned conventional        roentgenograms       were used to             this is the case. as for the hamstrings                  and adductor
+measure the muscular moment arms.                                        magnus      in the       present     study,     data     from     autopsy
+                                                                         specimens provide help: in our work, a skeletal land-
+  Receked    10 January   1984; in recisedform      13 September
+                                                                         mark was identified on the specimen and the distance
+1984.                                                                    between     this landmark          and    the muscle origin               was
+
+                                                                    29
+130                                          GLNNAR NEMETH and        HAPS OHLSES
+
+
+measured.     Since this skeletal landmark           was easily        A straight-line muscle model for muscle force was
+identifiable on CT, the muscle origin was obtained on               used for the hamstrings and adductor magnus. For the
+the CT using the measured autopsy distance.                         gluteus maximus a two-segment        straight-line muscle
+    With this background the present study was divided              force model was used. The force exerted by each muscle
+into two parts. First, distances between an anatomical              at any point along the centreline of the muscle belly and
+skeletal landmark and muscular origins, necessary for               tendon was represented by a force vector at that point
+the CT analysis, were determined from autopsy speci-                which was tangent to this line. Both the hamstringsand
+mens. Secondly, an in cico CT analysis of the pelvis and            adductor magnus are long muscles running along the
+proximal thigh was performed on patients. All autopsy               femoral shaft. Thus, the hamstrings and the adductor
+specimens and subjects were placed supine in the                    magnus were considered to have a crania-caudal course
+anatomical position (i.e. the body imagined as standing             parallel to the )-axis in the parasagittal plane passing
+erect with the feet together and toes directed forward)             through the hip centre, regardless of the hip flexion
+during the measurements.           Concerning      observer in-     angle.
+fluence on the measurements,           repeated independent
+measurements        performed       on different      occasions     T/re autopsy specimen analysis
+showed an intraobserver        variation of & 1 mm, in both             Ten adult specimens, five male and five female
+CT and specimen studies.                                            (Table l), were dissected with respect to the muscles
+   A right-handed         orthogonal      coordinate     system     acting about the left hip joint. The specimens were
+(Fig. 1) with the origin placed at the centre of the                measured manually to the nearest millimetre using a
+femoral head was used. Relative to the anatomical                   millimetre-gauge.
+position the x-axis passed horizontally          through both          The locations of the origins (circles in Fig. 2) of the
+femoral heads, the y-axis was vertical running in the               hamstrings and the adductor magnus muscles were
+crania-caudal    direction and aligned with the femoral             determined in relation to a point on the inferior ramus
+link and the z-axis was orthogonal.           The x-axis was        pubis which was most caudal when the hip was in the
+aligned with the bilateral hip motion axis about which              anatomical position. This skeletal landmark was refer-
+hip flexion and extension movements occur.                          red to as the reference point (filled triangle, Fig. 2). The
+
+
+
+
+         Fig. 1. Anterior view of left hip joint showing the right-handed orthogonal coordinate system used. Origin
+         was placed at the centre of left femoral head. Relative to the anatomical position the y-axis was vertical
+         (running in the cranio-caudal direction) and aligned with the femoral link, and the z-axis was orthogonal.
+                Coordinate system to the right visualizes the signification of the + and - signs in Table 2.
+
+
+
+                            Table 1. Specimen (n = 10) and subject (n = 20) data (mean +S.D.)
+
+                                                   Height (m)         Weight (N)         Age (yr)
+                                                  Mean    (SD.)      Mean   (S.D.)     Mean   (SD.)
+
+                          Specimens
+                            Males                  1.76    (0.04)     -        -        78       (1)
+                            Females                1.60    (0.05)     -        -        82       (4)
+                            All                    1.68    (0.06)     -        -        80       (3)
+                          Subjects
+                            Men                    1.76    (0.02)     736      (39)     70       (3)
+                            Women                  1.66    (0.02)     589      (39)     z;       (7)
+                            All                    1.71    (0.03)     667      (59)              (6)
+                                                  In CICOmoment arm lengths                                                  131
+
+
+
+                                                                   millimetres.   the centre of left femoral head being
+                                                                   defined as coordinate system origin (x, J. : = 0.0.0)
+                                                                   (Fig. I). As seen in FIN. 1 the J‘-coordinate represents
+                                                                   the crania-caudal     Is\:1 of the CT-slice, and the X, :-
+                                                                   coordinates represent a point in the transverse plane at
+                                                                   that y-level. Figure 3 illustrates the level of the specific
+                                                                   analysed transverse axial images shown in Fig. 4.
+                                                                      The proximal and distal borders of the gluteus
+                                                                   maximus origin were visible on the CT image, To
+                                                                   determine the midpoint of the gluteus maximus origin,
+                                                                   the levels [i.e. )-coordinates)    of the gluteus maximus
+                                                                   proximal and distal borders were identified on con-
+                                                                   secutive CT images. From the y-coordinates          of these
+                                                                   two slices. the level of the midpoint wascalculated (A in
+                                                                   Fig. 3). This midpoint level was displayed on the CT
+                                                                   monitor and the coordinates         of the origin were de-
+                                                                   termined (cross in Fig. 4a).
+                                                                      Next, the insertion of the gluteus maximus was
+                                                                   determined. The muscle inserts on the gluteal tube-
+FIN. 2. Medial view of pelvis sectioned in mid-sagittal   plane.   rosity on the posterior proximal femur shaft, and its
+Filled triangle indicates reference point, i.e. the point on the   most superficial muscular parts in the ilio-tibia1 tract
+inferior ramus pubis which was most caudal when the hip
+                                                                   (Hollinshead. 1958). To determine the midpoint lebel of
+joint was in the anatomical position. Areas with circles
+indicate muscular origins. The coordinate system is aligned
+                                                                   the insertion it was necessary lo identify the proximal
+                       with that in Fig. I.                        and distal borders of its insertion. However, no distinct
+                                                                   proximal border of the femoral insertion could be
+                                                                   defined in the specimen study or in the CT-images. In
+vertical distance (y-distance. Fig. 2) between the origin          anatomical text books, the proximal border of the
+of the hamstrings        and the reference    point was            insertion is generally placed at the lesser trochantel
+measured, and the average was used in the CT analysis              level (Grant, 1972: Hollinshead,         1958; Sobotta and
+described below. In the adductor magnus, the antero-                Becher, 1975). Therefore, the proximal border of the
+posterior distance (z-distance. Fig. 2) was measured,              insertion was defined as being at the level of the distal
+firstly between the reference point and the anterior               border of the lesser trochanter, and this border is easily
+border of the origin and secondly between the reference            identifiable on the CT axial images. The level (J-
+point and the posterior border. From these values the              coordinate) of this CT image was recorded. The distal
+midpoint of the origin was determined. The average                 border of the gluteus maximus insertion was then
+antero-posterior   distance between midpoint and refer-            determined. The CT-slice showing the most distal part
+ence point was used in the CT analysis.                            of the gluteus maximus muscle belly was displayed. The
+                                                                   tendinous insertion uas considered to be within the
+Thhe CT analysis                                                   displayed slice because the muscle has an oblique
+   Twenty patients, ten men and ten women, were                    course and the final tendinous part is very short. Thus
+analysed (Table 1). The subjects were informed about               the level (p-coordinate)      of the displayed image was
+the present study and volunteered to participate. The              determined. Then, from the known y-coordinates              of
+study was also approved by the Karolinska Institute                the proximal and distal borders, the level of the
+ethical committee. All subjects had carcinomas, but                midpoint was calculated (B in Fig. 3). The CT-slice of
+none had neoplasms affecting the structures to be                  this midpoint level u-as displayed and the insertion
+analysed. and all were active in daily life. The CT                coordinates determined (cross in Fig. 4b).
+examination was primarily diagnostic, but to make the                 Since the gluteus maximus muscle impinges upon the
+present study possible some extra slice images were                underlying skeleton during hip flexion (Dostal and
+taken. The additional x-ray dose (1.5 mGy) was negli-              Andrews. 1981), we recorded the level ()-coordinate) of
+gible, especially since all subjects were to receive               the most dorsal part of the ischial bone (C in Fig. 3). At
+radiotherapy to the pelvic area due to the neoplasm.               that level the .Y.z-coordinates     of a point representing
+   All examinations    were performed     on a General             the middle of the muscle belly were determined
+Electric CT/T 7800 scanner with a 320 by 320 matrix                (Fig. 4~).
+and 1Omm collimator (giving slices of 1Omm thick-                     As mentioned abose, the hamstring origin was not
+ness). The patients were placed supine in the anatomical           visible on the CT image. However, from the specimen
+position and consecutive scans throughout       the lower          study it was known that the mean origin of the
+back, pelvis and proximal thigh were made. The .Y.J, 2             hamstrings was located 19mm cranially to the refer-
+coordinates of relevant points (described below) were              ence point (y-distance in Fig. 2). The y-level points
+determined electronically using a movable cursor on                correspond to the ).-coordinates describing the level of
+the CT monitor. The coordinates       were recorded in             the CT-slices. Therefore the slice at the level of the
+132                                          GW~NAR      NEWETH and HANS OHL%
+
+
+reference point was displayed (D in Fig. 3 and Fig. 4d)             female specimens was located at a point 2 mm (mean)
+and its y-coordinate    recorded. Then, referring co the            anterior to the reference point. The midpoint of the
+specimen study. the slice 20 mm cranially to the refer-             origin of the adductor magnus was determined to a
+ence point was displayed (E in Fig. 3) and the X, Z-                point 26mm anterior to the reference point for the
+coordinates of the hamstring origin (cross in Fig. 4e)              males and 14 mm anterior to the reference point for the
+were determined.                                                    females.
+   To determine      the adductor   magnus origin (not
+visible on the CT image because it is partly tendinous              The subjects
+
+and not surrounded by fat), the CT-slice at the level of               The averaged values of the investigated muscular
+the reference point was displayed again (Fig. 4d). With             coordinates,   determined by CT, are given in Table 2
+the use of specimen data the mean antero-posterior                  (the significance of the + and - signs in Table 2 is
+distance (z-distance in Fig. 2) between the reference               defined to the right in Fig. 1). The coordinates in the
+point and the midpoint of the adductor magnus origin                parasagittal (_v,z)-plane are also shown in Fig. 5. In
+was marked in the CT-slice (arrow in Fig. 4d). The                  relation to the bilateral hip axis the origin of the
+coordinates of the midpoint were then determined in                 hamstrings was more posteriorly located in the men
+the CT-slice where the z-coordinate of the origin of the            (64mm) than in the women (58mm) (p < 0.001).
+adductor magnus intersected the inferior ramus pubis                However, the opposite was found concerning the origin
+(cross in Fig. 4d).                                                 of the adductor magnus. which was more posterior in
+   For the statistical analysis of significant differences          the women than in the men: l9mm and 1Omm
+between means, Student’s r-test with pooled variance                respectively (p < 0.01). Since the variation in the z
+was used.                                                           location of the adductor magnus origin was 51 mm in
+                                                                    men, 16mm (31%) of the origin, on average, was
+                                                                    located anterior to the bilateral hip motion axis. In the
+                RESULTS AND ANALYSIS
+                                                                    female subjects, the entire origin of adductor magnus
+The specimens                                                       was located posterior to the motion axis in the ana-
+                                                                    tomical hip position.
+   Figure 2 shows the locations of the origins (circles) of
+the hamstrings and adductor magnus in relation to the
+reference point (filled triangle). The mean vertical                Analysis     of subjects’    muscular    moment arms
+
+distance (y-distance in Fig. 2) between the reference                  The gluteus maximus (broken line, Fig. 5) touches
+point and the origin of the hamstrings was I9 mm (male              the posterior aspect of the tuber ossis ischii (y,, z,),
+21 mm, range 10-30, and female I7 mm, range 10-30).                 makes a small bend when passing this connection to the
+The average antero-posterior     distance (z-distance in            pelvis and runs further to its femoral insertion (y2, tl).
+Fig. 2) from the reference point to the anterior border             The midpoint of the muscle belly when passing the
+of the origin of the adductor magnus was 5 I mm (range              tuber ossis ischii is also shown in Fig. 4c. The three-
+40-60) for the male specimens and 23 mm (range 10-40)               dimensional muscle force vector and the projection of
+for the female. In all the male specimens the posterior             the force vector on the (J, z)-plane define a further
+border of the adductor magnus origin was located at                 plane. This plane is perpendicular   to the sagittal plane
+the reference point. The same posterior border in the               as is the orthogonal axis running through the moment
+
+            Table 2. The averaged      muscular coordinates     (mmkS.D.)      in the subjects as determined   by CT.
+            Coordinate    system origin is aligned with the centre of the left femoral head. The significance of the +
+                                        and - signs is visualized to the right in Fig. 1
+
+                                                       Men (n = 10)         Women      (n = 10)        All subjects
+                                                      Mean     (S.D.)       Mean          (S.D.)      Mean       (S.D.)
+
+            Gluteus maximus                            -53        (5)          -63         (4)        -58          (5)
+              (pelvic origin)                          +63        (4)          +68         (5)        +66          (5)
+                                                       -96        (4)          -93         (2)        -94          (3)
+            Gluteus maximus                             -1        (3)           +2         (2)          fl         (3)
+              (tuber ischii                            -37        (4)          -37         (4)         -37         (4)
+              level)                                   -74        (2)          -68         (3)         -71         (3)
+            Gluteus maximus                            +32        (3)          +31         (3)        +32          (3)
+               (femoral                               -102        (4)          -94         (3)        -98          (4)
+              insertion)                                -28       (3)          -23         (4)        -25          (4)
+            Hamstrings                                 -34        (3)          -22         (4)         -29         (4)
+              (pelvic                                  -48        (3)          -40         (2)         -44         (3)
+              origin)                                  -64        (1)          -58         (2)         -61         (2)
+            Adductor     magnus              -Q        -63        (3)          -49         (4)         -56         (4)
+              (pelvic                        ?‘r       -61        (3)          -57         (3)         -59         (3)
+              origin)                         ;4       - 10       (2)          -19         (3)         -15         (3)
+ Fig. 3. CT in ScoutView mode, giving survey picture from one subject to illustrate level of specific analysed
+transverse axial images shown in Fig. 4. A indicates level of midpoint of gluteus maximus origin
+(corresponding to Fig. 4a) and B midpoint of its femoral insertion (corresponding to Fig. 4b). C is level of
+most dorsal part of ischial bone (corresponding to Fig. 4c). D is level of reference point (corresponding to
+                     Fig. 4d). E is level of hamstring origin (corresponding to Fig. 4e).
+
+
+
+
+                                                      133
+Fig. 4. Transverse CT scans at different levels. Determined coordinates are indicated with crosses.
+(a) Mi dpoint of gluteus maximus origin (A-level in Fig. 3). (b) Midpoint of gluteus maximus femoral
+inserti on (B-level in Fig. 3), GMa is gluteus maximus muscle belly. (c) Midpoint of gluteus maximuIs muscle
+                                             belly (C-level in Fig. 3).
+
+
+
+
+                                                    134
+Midpoint   of origin of adductor mapnus (cross) (D-level in Fig. 3). triangle is rrfcrencc
+                       (e) Hamstring origin (E-level in Fig. 3).
+
+
+
+
+                                         135
+                                                             In cno moment arm lengths                                                    137
+
+
+                        y him)                                                         During   hip flexion  the pelvis rotates about the
+                        A                                                           bilateral hip motion axis, causing the muscular :-
+                                                                  -, (Y,.Z,l        coordinates (z,) to change as sine functions,and   the J-
+                .60..
+                                                                  I”
+                                                                  I                 coordinates as cosine functions of the hip ffexion angle
+                                                              :
+                                                                                    (A,,)
+                .40
+                                                              ’ GLUTEUS                           i-
+                                                                                            - Y V/z-
+                                                             ; MAXIMUS                      -0       f J ’ sin [ arctan [;)+&I            (2)
+                -20..                                    :
+
+                                                        :
+ 24:     -20:   :                20       40   -60    -ep             -100                  J. = jvcos              [ arctan [;)+G?j.     (3)
+(mm)
+
+
+                                                                                        To calculate the gfuteus maximus moment arm at
+                                                                                    different angles of hip Rexion the coordinates calcu-
+                                                                                    fated from equation (2) were used in equation (1). The
+                                                                                    length of the moment arm at different angles of hip
+                                                                                    flexion is shown numerically in Table 4 and graphically
+                                                                                    in Fig. 6.
+                                                                                        The c coordinates of the origins of the hamstrings
+                                                                                    (I,) and adductor magnus (zJ) are shown in Table 2
+                                                                                    and Fig. 5 and represent the muscular moment arm to
+                                                                                    the bilateral motion axis with the hip joint in its
+                                                                                    anatomical position. The lengths of the moment arms
+Fig. 5. Coordinate     system showing a parasagittal      plane                     are shown in Table 3. The difference in length between
+through left femoral head. Crosses indicate determined
+coordinates in ten men, circles in ten women and filled
+                                                                                    the men and the women was highly significant.
+triangles all subjects. Broken line indicates course of gluteus                        The changed       moment    arms (i.e. zj- and zq-
+maximus muscle and d its moment arm. The coordinate                                 coordinates) for the hamstrings and adductor magnus
+system is aligned with that in Fig. 1 and the _v- and z-                            at different angles of hip flexion were calculated using
+              coordinates correspond to Table 2.
+                                                                                    equation (2). The lengths of the moment arms are
+                                                                                    shown in Table 4 and Fig. 6.
+                                                                                        To determine whether a linear relationship existed
+centre 0. Thus the perpendicular distance between the
+                                                                                    between height and moment arm length the correlation
+projection of the force vector on the (J, =)-plane and the
+                                                                                    coefficient was calculated for each muscle. The result
+origin 0 is equal to the perpendicular distance between
+                                                                                    was 0.39 for the gfuteus maximus, 0.66 for the ham-
+the force vector and the x-axis. Therefore the gfuteus
+                                                                                    strings and 0.52 for the adductor magnus.
+maximus moment arm (d, Fig. 5). defined as the
+perpendicular distance between the muscle force vector
+line-of-action and the bilateral motion axis is given by                                                      DISCUSSIOS
+
+
+                                                                                       The purpose of the present study was to anafyse the
+                                                                                    moment arms of hip extensor muscles which act in the
+                                                                                    sagittaf plane. Thus we calculated the moment arm to
+                                                                              (1)
+                                                                                    the moment axis perpendicular to the sagittaf plane (i.e.
+where x, J+,z are coordinates given in Table 2 with the                             the bilateral hip axis). We are of course aware that
+joint in its anatomical position. The length of the                                 especially the gfuteus maximus also acts with respect to
+calculated moment arm ofgfuteus maximus is shown in                                 the antero-posterior   axis (about which hip abduction
+Table 3. The men had significantly longer moment                                    and adduction occur). However. we did not calculate
+arms than the women had (p < 0.05).                                                 this moment arm because in such a model other major
+
+
+                        Table 3. Moment arm length (mm + S.D.) of the hip extensor muscles to the bilateral hip
+                                               motion axis. The joint in its anatomical          position
+
+                                                     Gluteus maximus’                 Hamstrings:           Adductor   magnust
+                                                      Mean      (S.D.)               Mean      (S.D.)        Mean       (S.D.)
+
+                        Men               (n = 10)      52                   (3)       64        (1)           10          (2)
+                        Women             (n = IO)      76                   (3)       58        (2)           I9          (3)
+                        All subjects                    79                   (3)       61        (2)           15          (3r
+
+                            Significant differences in length of muscular moment             arm between men and women:
+                            * p < 0.05.
+                            t p < 0.01.
+                            : p<O.ool.
+138                                                     GL~SAR NEVETHand H.ASSOHLSE\
+
+
+         Table 4. Moment arm length (mm) of the hip extensors to the bihrsral hip motion axis with the joint in
+                                             different flexed positions
+
+                       Hip flexion angle (degrees)
+                         5 10 15 20 25 30                         35   40   45    50   55   60   65   70    75    80   85   90
+
+         Gluteus maximus
+         Men       81 79             78       76    74       71   69   66   63    61   57   54   51   48    4-l   41   37   33
+         Women    15 74              72       70    69       66   64   62   59    56   54   51   48   4-I   41    38   34   31
+         Hamstrings
+         Men        68          71   74       77    78       79   80   80   79    78   76   74   71   67    63    58   53   48
+         Women      61          64   66       68    69       70   70   70   69    68   66   64   61   57    54    49   45   40
+         Adductor magnus
+         Men      15 20              25       30    35       39   43   47   50    53   56   58   60   61    62    62   62   61
+         Women    24 29              33       37    41       45   48   51   5-t   56   5S   59   60   60    60    59   58   57
+
+
+
+
+                                                                             (Dubowitz     c’r al., 1951). In the present study the
+   F 80                                                                     thickness oi all CT-slices was 1Omm and thus the
+                                                                            precision was + 5 mm in determining the y-coordinates
+   LL
+    E                                                                       for calculations of the moment arm of the gluteus
+    : 60                                                                    maximus       muscle. Any systematic     error of either
+   E
+                                                                             f5mm       or -5 mm in all subjects at the femoral
+   E   40                                                                   insertion would change the moment arm of the gluteus
+   Q                                                                        maximus b> f 0.5 mm. A systematic error of the same
+       20         /-                 -        Men                           order in all subjects in determining the gluteus max-
+                  /                  ---Women                                imus y-coordinate      at the tuber ischii level would
+            I,,        ,   ,     ,   ,    ,     ,   ,    ,                  change the moment arm f 2 mm. The accuracy of the
+                  0        30          60              90                   moment arm of the hamstringsand       adductor magnus is
+                                 Hip flexlon        [deg]                   due to the precision in the transverse (J, =)-plane, i.e.
+                                                                            1 mm.
+Fig. 6. Graphical illustration ofmean moment arm lengthsat                     The calculations of moment arm length at different
+      different hip angles in ten men and ten women.                        angles of hip flexion were based on the coordinate data
+                                                                            in Table 2. The length was then calculated using
+contributing muscles should be taken into account: the                      equation (21 which is based on known geometrical
+ tensor fasciae latae, gluteus medius and gluteus mi-                       relationships. adding no more bias to the results. Thus
+ nimus. We have recorded the corresponding               three-             the above discussion for the gluteus maximus is also
+dimensional data for these muscles as well as for the hip                   valid for the moment arm length at different flexed
+flexor muscles, and manuscripts are in preparation.                         positions. During subsequent hip flexion the origin of
+    A force vector running in the centre of the muscle                      the hamstrings      and adductor    magnus moved pos-
+was taken to represent the muscular force in the present                    teriorly. In our model the muscular course was still
+study. Using this assumption           the midpoint     of the              assumed to k parallel to the y-axis. This was justified
+gluteus maximus muscle belly at the tuber ossis ischii                      because these muscles are long and the maximum error
+level, the midpoint of its insertion and the midpoints of                   introduced     was calculated not to exceed 1.2mm on
+the adductor      magnus and hamstring           origins were               average. It u as also assumed that there was no impinge-
+determined. An approximation           is always introduced                 ment of the muscle line-of-action on surrounding joint
+when a vector represents a muscle which spreads out.                        structures.
+Since the fibres of the adductor magnus muscle diverge                         The ages of the subjects participating      in the CT-
+only slightly and symmetrically at the origin, it may be                    study were high, but the relationship         between the
+justified to take the determined midpoint to represent                      anatomical structures does not change in the adult
+the point of application of the muscle force. Muscles                       human. Thus the figures reported in the present study
+such as the gluteus maximus with parallel fibres from                       may be considered applicable also to young adults.
+ their attachments    are satisfactorily    represented    by a             However. marked muscle bulkiness will induce a
+ force vector, as are the hamstrings which show a well-                     moment arm lengthening for the gluteus maximus. The
+defined origin.                                                             moment arm lengths differed significantly between men
+    CT is a non-invasive       method permitting         three-             and women probably due to different pelvic geometry.
+ dimensional measurements.       It has been used for ana-                  However, there was low correlation between height and
+ tomical cross-sectional evaluation of skeletal and mus-                    moment arm lengths, although the height ofall subjects
+cular structures, i.e. the femoral neck anteversion angle                   was well within the normal limits in Sweden for the
+ (Browning     et al., 1982), areas of thigh muscles                        different sexes respectively.
+ (Hiiggmark et al., 1978) and normal anatomy of the hip                        Two moment arms may be defined for the gluteus
+                                               In LILOmoment arm lengths                                                    139
+
+
+ maximus. In the present study the perpendicular dis-          not occur in women. their extensor muscle moment
+ tance between the distal (caudal) part of the gluteus         does not reduce as in men at these joint angles.
+ maximus and the bilateral axis was considered            to      In biomechanical analysis of the human locomotor
+ represent thecorrect moment arm value (Fig. 5). In our        system one limiting factor is the accuracy of quantitat-
+ opinion this was adequate because the gluteus maximus         ive anatomical data. The methods in the present study,
+ is in contact with underlying pelvic structures between       combining specimen data and in rice CT-analysis on
+ its origin and the ischial tuberosity; and these points       subjects, represent an attempt to measure and calculate
+ cannot move in relation to each other. The muscle then        anatomical data which can be used for biomechanical
+ leaves its pelvic connection at the tuber ischii and runs     analysis of hip joint load. In one of our recent studies
+ straight to its femoral insertion During hip extension        (Nemeth and Ekholm, in press) data from the present
+ the tuber ischii and the femoral insertion (Fig. 5) move      investigation have been used to predict hip compress-
+ towards each other and that motion occurs about the           ive load during different lifting tasks.
+ bilateral hip axis.
+    The length of the moment arm of the gluteus
+ maximus at 0 hip flexion in the present study (average        AcLno~ le‘lymu~nts-This study has been supported by grants
+ 79 mm) differs from the 56 mm reported by Pohiilla            from the Swedish Work Environment Fund (79;1340)and the
+ (1969). In the latter study four cadaver limbs were used.     Swedish hledical Research Council (5720). We wish to extend
+                                                               our thanks to Lars Lindbeck for fruitful discussions of the
+ The line-of-action     of the muscle was determined by
+                                                               biomechanical analysis.
+ drawing a line on conventional lateral roentgenograms
+ between the muscular origin and insertion.            This
+ method is similar to the straight-line muscle model. For
+                                                                                       REFERENCES
+ curved muscles such as gluteus maximus. as shown in
+ Fig. 5, this technique gives lower values for the length      Browning. W. H.. Rosenkrantz, H. and Tarquino. T. (1982)
+ of the moment arm. These differences have been                  Computed tomography in congenital        hip dislocation.   J
+ studied by other investigators (Jensen and Davy, 1975).         Bone Jr. Sury. 64-A, 27-31.
+                                                               Dostal, W. F. and Andrews. J. G. (198 I) A three-dimensional
+    The adductor magnus moment arm at 0 hip fexion
+                                                                 biomechaniwl model of hip musculature. J. Bionwchanics
+ reported in the present study ( 10 mm in men and 19 mm          14, 803-812.
+ in women) is shorter than the 30mm reported by                Dubowitz. B.. Barmeir. E., Stein, M. and Rofl’man, hl. (1981)
+ Pohtilla. However. the sex of the cadaver specimens             Normal axial anatomy of the hips as demonstrated by
+                                                                 computed tomography. C/in. Rad. 32, 663668.
+ used in Pohtillas’ study is not given and the use of
+                                                               Eycleshymer, A. C. and Schoemaker, D. M. (1905, rd. 1970) A
+ conventional     roentgenographic     technique with less       Cross-seclio~l .4rrc~con1~.Appleton-Century-Crofts.       New
+ accuracy makes it impossible to discuss the reason for           York, London.
+ the difference between the results. The hamstring             Grant, J. C. B. (1972) Crunr’s Atlas of’rlnaromy. Williams and
+ moment arm at 0 hip flexion agrees largely with that             Wilkins. Baltimore.
+                                                               Haggmark,     T., Jansson, E. and Svane, B. (1978) Cross-
+ reported by Pohtilla and is slightly longer than Dostal
+                                                                  sectional area of the thigh muscle in man measured by
+and Andrews’ finding (I95 I ).                                    computed    tomography.    Stand. J. r/in. lab. Inresl.  38,
+    In the present study, about one third of the origin of        355-360.
+ the adductor magnus was found to be located anterior          Hollinshead. W. H. (1958) Anurom~ jbr Surgeons, Vol. 3.
+
+ to the bilateral hip motion axis in male subjects with the       Harper B. New York.
+                                                               Inman. V. T. (1947) Functional       aspects of the abductor
+joint in its anatomical       position. Consequently,   the       muscles of the hip. J. Bone JI. Sury. 29-A, 607419.
+anterior part of the muscle does not act as an extensor        Jensen, R. H. and Davy. D. T. (1975) An investigation        of
+of the hip in this position. From equation (2) it was             muscle lines of action about the hip: A centroid        line
+calculated that the whole muscular origin was located             approach. J. Biomechanics 8, 103-l 10.
+                                                               Jensen, R. H. and Metcalf, W. K. (1975) A systematic
+posterior to the motion axis at hip angles exceeding 16
+                                                                 approach to the quantitative    description     of   musculo-
+flexion. thus making the whole muscle act as a hip               skeletal geometry. J. Amt. 119, 209-221.
+extensor at these angles. In women. however, the entire        Johnston. R. C. (19731 Mechanical considerations      of the hip
+muscle origin is located posterior to the motion axis.           joint. Arch. Sury. 107, 411417.
+                                                               McLeish, R. D. and Charnley, J. (1970) Abduction forces in
+ making the entire muscle act as a hip extensor through-
+                                                                  the one-legged stance. J. Biomechanics 3, 191-209.
+out the motion sector. These data may explain the              Nimeth, G., Ekholm. J.. Arborelius, U. P., Harms-Ringdahi,
+difference in maximum hip extensor muscle moment                  K. and Schiildt. K. (1983) Influence of knee Aexion on
+between men and women reported earlier (Nimeth et                 isometric hip extensor strength. Stand. J. Rehabil. Med. 15,
+al., 1983): in both sexes the highest maximum extensor            97-101.
+                                                               Ntmeth, G. and Ekholm, J. (I 985) A biomechanical       analysis
+moments occur at 90 hip flexion, decreasing with
+                                                                 of hip compression      loading during lifting. Ergonomics
+decreasing hip angle. However. the maximum muscle                 28 (2).
+moment of women decreases continuously             over the    Olson, V. L., Smidt. G. L. and Johnston, R. C. (1972) The
+motion sector, whereas the moment in male subjects               maximum torque generated by the eccentric, isometric and
+decreases twice as much between 30 and 0 This is                 concentric contractions    of the hip abductor muscles. Phys.
+                                                                 771rr. 52. 149-158.
+probably because on average 31 S, of the adductor              Pohtilla, J. F. (1969) Kinesiology of hip extension at selected
+magnus origin mechanically becomes a flexor during               angles of pelvifemoral extension. Arch. phJs. Med. Rehahil.
+the last 30 of extension. Since this phenomenon does             50, 241-250.
+140                                           GUNNAR NEMETH and HANS OHLSEN
+
+
+Reynolds, H. M. and Hubbard,         R. P. (1980) Anatomical         Bioenginrrring   Topics   (Edited    by Kenedi.    R. M.),
+  frames of reference and biomechanics.      Human Factors 22,       pp. 359-367. Pergamon Press, London/Xew         York.
+   171-176.                                                        Sobotta. J. and Becher. H. (1975) ,-ttlas o/Human   Anatomy,
+Sorbie. C. and Zalter, R. (1965) Bio-engineering  studies of the     Vol. 1. (Edited by Ferner. H. and Staubesand, J.) 9th Ed.
+  forces transmitted    by joints. Biomrchanics    and Rrlafed       Urban and Schwarzenberg.     Munchen/Berlin/Wien.
+

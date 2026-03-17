@@ -1,0 +1,492 @@
+Clin. Biomech.    1994; 9: 44-50
+
+
+
+
+Anatomy                and actions of the trapezius muscle
+
+G Johnson Pm’, N Bogduk Pm*, A Nowitzke                               MB BS*, D House MIAS*
+
+‘Department  of Mechanical Engineering, University of Newcastle upon Tyne, Newcastle,
+UK; and *Faculty of Medicine, The University of Newcastle, New South Wales, Australia
+
+
+
+Summary
+Dissection studies revealed the fascicular anatomy of the trapezius. Its occipital and nuchal
+fibres passed downwards but mainly transversely to insert into the clavicle. Fibres from C7
+and T1 passed transversely to reach the acromion and spine of the scapula. Its thoracic
+fibres converged to the deltoid tubercle of the scapula. Volumetric studies demonstrated
+that the fibres from C7, T,, and the lower half of ligamentum nuchae were the largest. The
+essentially transverse orientation of the upper and middle fibres of trapezius precludes any
+action as elevators of the scapula as commonly depicted. Rather the action of these fibres is
+to draw the scapula and clavicle backwards or to raise the scapula by rotating the clavicle
+about the sternoclavicular joint. By balancing moments the trapezius relieves the cervical
+spine of compression loads.
+
+Relevance
+This study refutes misconceptions      about the actions of trapezius and how they are
+conventionally depicted. It brings to light the importance of the sternoclavicular joint, not
+the cervical spine in sustaining loads borne by the upper limb.
+
+Key words: Biomechanics, trapezius, anatomy
+
+
+
+
+Introduction                                                             the direction and the disposition of fibres is inconsistent
+                                                                         with the description of this muscle by authorities
+The trapezius is a prominent muscle in the cervical,
+                                                                         such as Charpy and Nicolas3; the fibres of upper
+thoracic, and shoulder regions. Along the midline it
+                                                                         trapezius are drawn passing upwards from the scapula,
+extends from the occiput into the lower reaches of the
+                                                                         not transversely (Figure lc). On the other hand,
+thoracic region, while laterally it extends as far as the
+                                                                         Hollinshead4 illustrates the cervical trapezius as passing
+acromion. Its anatomy and functions are of relevance
+                                                                         essentially transversely but enigmatically the force
+both to clinicians and to biocmechanists interested in
+                                                                         vector ascribed to these fibres is directed upwards, in
+disorders and modelling of either the vertebral column,
+                                                                         accord with the actions ascribed to this muscle but out
+the shoulder girdle, or both. However, if one consults
+                                                                         of line with the actual direction of its fibres (Figure Id),
+authoritative texts on these matters, inconsistencies
+                                                                            Although broadly consistent, descriptions of the
+emerge.
+                                                                         trapezius in English-language textbooks of anatomy
+   A selection of descriptions of the trapezius and its
+                                                                         differ in detail or are incomplete.           Cunningham’s
+actions is depicted in Figure 1. What is evident are
+                                                                         textbook5 lists the origins and the insertions of the
+differences between descriptions and inconsistencies
+                                                                         muscle but does not relate particular sites of origin
+within descriptions.    Texts on biomechanics’ and
+                                                                         to sites of insertion, although the lower cervical fibres
+clinical anatomy2 emphasize the upward forces exerted
+                                                                         are illustrated as descending to the acromion, and
+on the shoulder girdle by the cervical trapezius, and the
+                                                                         horizontal fibres are illustrated passing from the first
+muscle is drawn accordingly (Figures la and lb), but
+                                                                         three thoracic spinous processes to the proximal half of
+                                                                         the spine of the scapula. Gardner, Gray and O’Rahilly’j
+Received: 14 July 1992                                                   state that the uppermost part of the trapezius is
+Accepted: 25 January 1993
+Correspondence and reprint requests to: Professor N Bogduk, Faculty
+                                                                         attached to the lateral third of the clavicle and its
+of Medicine, The University  of Newcastle,    Callaghan, NSW, 2308,      middle part to the acromion and crest of the spine.
+Australia                                                                However, they do not define these parts with respect to
+0 1994 Butterworth-Heinemann      Ltd
+                                                                         the location of their origins, although their illustration
+0268~0033/94/010044-07                                                   indicates that the uppermost part arises only from
+                                                              Johnson et al.: Anatomy              and actions of trapezius   45
+
+
+                                                                             Levator
+                                                                             scapulae
+                                                                                         Trapezius
+                                                                                 I4        (upper1
+
+
+
+                         Levator
+                            scap
+
+
+
+
+              a                                                b                        Seriatus
+                                                                                        anterior
+
+
+
+
+                                                               Rhomboideus
+
+
+
+                                                               Rhomboideus
+
+
+
+
+                                                             Figure 1. Various depictions of trapezius. a and b, Upper
+                                                             trapezius disposed to pull upwards on the acromion or
+                                                             spine of the scapula (a, from Perry’; b, from Basmajian
+                                                             and Slonecker’). c, Trapezius as depicted by Poirier and
+                                                             Nicolas3, showing the transverse orientation of the
+                                                             cervical trapezius. d, Cervical trapezius as depicted by
+                                                             Hollinshead4, correctly having a transverse orientation
+                                                             but ascribed an upward vector.
+
+
+
+the occiput while the middle part stems from the             the morphology of its parts”.
+entire ligamenturn nuchae and upper thoracic spinous            Dvir and Berme l3 depict the trap ezius as having an
+processes. Both Gray’s Anatomy’           and Hamilton’      upward action on the acromion but this is inconsistent
+identify upper and middle fibres but without specifying      with the majority of the anatomical literature (cited
+their origin, although the middle horizontal fibres are      above) which stipulates that fibres that reach the
+drawn passing between the first three thoracic spinous       acromion are orientated horizontally.
+processes and the entire length of the spine of the             The impression gained from this literature is that
+scapula. Only Lockhart, Hamilton, and Fyfe’ define           function precedes structure. The convention appears to
+both the origin and insertion of each part of the            be that the cervical trapezius must have an upward
+trapezius, yet they stipulate that the highest part of the   action on the shoulder girdle, and the muscle (or its line
+muscle arises from the occiput and the upper half of the     of action) is always drawn to suit this prescribed action.
+ligamenturn nuchae and inserts into the clavicle; the        Readers familiar with the morphology of the trapezius
+middle part runs horizontally from the lower half of the     must find irregularity in the way this muscle is described
+ligamenturn nuchae and spines of the upper thoracic          in the biomechanics literature. Either the ascribed
+region to the acromion and spine of the scapulae.            functions of this muscle are consistent with its anatomy
+   Thus, none of these texts are fully in agreement          or they are not.
+with one another, and none provides reliable data on            To address this issue, a formal study was undertaken
+point-to-point attachments of the trapezius at a detail      to reappraise the anatomy of the trapezius and
+suitable for biomechanical modelling.                        thereupon to derive its functions de now. By deter-
+   Little atention is paid to the morphology of trapezius    mining the fascicular anatomy of the trapezius and by
+and its lines of action in the biomechanics literature.      determining the possible actions of its fascicles in three
+This muscle is barely considered in the textbooks of         dimensions, it could be determined if its morphology
+Rockwood and Matsen”’ or Nordin and Frankel”. The            was consistent with conventional views on its actions. It
+textbooks which do address its action do not consider        transpires that this is not the case.
+46    Clin. Biomech.   1994; 9: No 1
+
+
+Methods                                                      and by reconstructing the muscle on a radiograph of the
+                                                             neck and shoulder of a normal, living individual
+The cervical trapezius was studied by dissection on each
+                                                             standing in a relaxed upright posture.
+of four sides in two embalmed human adult cadavers in
+the course of a larger study of the neck musculature.
+The thoracic trapezius was studied bilaterally in a
+further three cadavers. The two separate samples were
+used because the studies were opportunistic in that they     The fibres of trapezius from the superior nuchal line
+were conducted on cadavers otherwise destined for            and the ligamenturn nuchae ran in parallel forming a
+teaching demonstrations.      Consequently, the cervical     flat sheet of muscle surrounding the back and side of
+studies were conducted on specimens destined for             the neck above the shoulder girdle (Figure 2). All
+thoracic demonstrations      and mututis mutundi. The        fascicles from above the level of C7 were directed to the
+sample was completed by two cadavers in which the            clavicle (Figure 3). They attached systematically along
+entire trapezius could be dissected bilaterally. All         the posterior border of the distal third of the bone, such
+specimens were of elderly donors in excess of 65 years       that the fascicle from the superior nuchal line assumed
+of age.                                                      the most anterior attachment, followed in sequence by
+   After removing the skin and fascia of the back, neck      the fascicles from the upper and then lower half of the
+and shoulder, the trapezius was dissected piecemeal to       ligamenturn nuchae, with the fibres arising opposite the
+establish its fascicular anatomy. A fascicle was defined     C6 spinous process inserting into the distal corner of the
+as a bundle of muscle fibres with a distinct, identifiable   clavicle as far as the acromioclavicular joint (Figure 3).
+attachment. The superior nuchal line and the C7 and          Scanning from above, the fascicle from C7 was the
+the thoracic spinous processes constituted such sites,       first to assume any attachment to the scapula; it was
+and a separate fascicle was defined as arising from each.    attached to the inner border of the acromion.
+Between the occiput and the C, spinous process the              Fascicles arose from spinous processes Ti to Ts in all
+trapezius arises from the ligamenturn nuchae and not         specimens on both sides but were represented with
+from bone. Because of the lack of identifiable osseous       decreasing frequency from T6 to Ti2 (Table 1). The
+origins for this segment of the trapezius, it was divided    fascicle from Ti inserted along the entire length of
+into two portions, one arising from the upper half of the    the crest of the spine of the scapula, from its deltoid
+ligamenturn nuchae (between the occiput and about
+the C3 level) and another from the lower half of the
+ligamenturn nuchae (between C3 and C,).
+   Starting from either the cephalic or caudal end of the
+muscle, each fascicle was in turn detached from its
+medial attachment and stripped laterally, peeling it
+from the remaining muscle mass. Each fascicle was
+traced to its distal attachment-site       and detached
+therefrom. Its sites of attachment were recorded by
+driving map pins into the bone or ligamenturn nuchae
+at each site. Summaries of the attachment sites were
+made by radiographing the specimen once dissection
+had been completed, and by drawing the sites of
+attachment onto idealized sketches of the vertebral
+column and shoulder girdle.
+   In the case of the cervical trapezius, because of the
+curved course of these fibres around the neck, wires
+were laid down along the course of each fascicle as it
+was dissected, and anteroposterior      and lateral radio-
+graphs were taken to record the course of the wire.
+   As each fascicle was dissected, measurements were
+made of its size. Each fascicle was trimmed of any
+tendinous fibres at its ends, and the length of its muscle
+fibres was measured with a ruler to the nearest 0.5 cm.
+The volume of the fascicle was measured by immersing
+it in water in a measuring cylinder and recording the
+fluid displacement to the nearest 0.5 ml. These two
+measurements were used to calculate the physiological
+cross-sectional area (PCSA) of the fascicle, the PCSA
+being equal to the volume divided by the length.
+   The possible actions of each fascicle and the fascicles   Figure 2. Posterior view of a dissection of the upper half
+collectively were derived by analysing their orientation     of trapezius showing the essentially transverse course of
+as recorded on the radiographs taken during dissection,      its fibres that arise from the ligamentum nuchae.
+                                                                                      Johnson et al.: Anatomy       and actions of trapezius          47
+
+
+                                                                                    downward orientation at their origin to the extent that
+                                                                                    they passed virtually transversely towards the clavicle.
+                                                                                    The fascicles from C7 and T1 ran essentially transversely
+                                                                                    to the acromion and spine of the scapula (Figures 3,4).
+                                                                                    The remaining thoracic fibres were dispersed in a fan-
+                                                                                    like distribution centred on the deltoid tubercle of the
+                                                                                    scapula (Figure 4).
+                                                                                       The fibres from the superior nuchal line were very
+                                                                                    thin, having an average volume of 5 ml and a mean
+                                                                                    physiological cross-sectional    area of only 0.3 cm*
+                                                                                    (Table 1). The fibres from the upper half of the
+                                                                                    ligamentum nuchae were larger, having an average,
+                                                                                    combined volume of 7 ml and a mean physiological
+                                                                                    cross-sectional area of 0.7 cm2 (Table 1). Those from
+                                                                                    the lower half of the ligamentum nuchae were sub-
+                                                                                    stantially larger still, assuming an average volume of
+                                                                                    19 ml and a mean physiological cross-sectional area of
+Figure 3. Radiograph of a cadaver in which wires have                               2.3 cm2 (Table 1). The fibres from the level of the C6
+been laid along the course of the occipital and cervical                            spinous process constituted the major portion of this
+fibres of trapezius to demonstrate their course and
+                                                                                    latter bundle.
+attachments. All fibres from levels above C, reach the
+clavicle.
+                                                                                       The fascicle from C7 was the largest fascicle arising
+                                                                                    from a spinous process having an average volume of
+                                                                                    some 20 ml and a mean physiological cross-sectional
+tubercle medially to the commencement of the acromion                               area of about 2.2 cm2 (Table 1). The fascicle from T,
+laterally (Figure 4). Those fascicles from T2 to TS                                 was slightly smaller but nonetheless substantial. Below
+converged to a common aponeurotic           tendon that                             T1, the fascicles become progressively smaller in
+attached to the deltoid tubercle of the scapula (Figure                             volume and physiological cross-sectional area (Table 1).
+4). Fascicles from T6 to about TIO (when present)                                   Collectively, the fascicles from C3-Ch, C, and T1
+inserted into the medial border of the deltoid tubercle.                            constituted over 50% of the total physiological cross-
+Lower fascicles (when present) inserted into the lower                              sectional area of trapezius.
+edge of the deltoid tubercle.
+   From above downwards the fibres of the cervical
+                                                                                    Discussion
+trapezius assumed progressively less steep orientations.
+Those from the superior nuchal line passed downwards                                The results of the present   study redress the inconsis-
+and laterally from their origin but after sweeping                                  tencies and deficiencies in the anatomical literature on
+around the neck they approached the clavicle almost                                 the trapezius. As recognized by previous authors’-” the
+horizontally, having only a slight downward inclination                             muscle clearly has three parts, but these parts have
+ (Figures 3, 4). Successive fascicles assumed less of a                             distinct and constant origins and insertions. The
+
+
+Table 1. Morphometric features of the fascicles of trapezius, identified by their segment of origin, an_: their maximum
+force capacity, assuming a force coefficient related to physiological cross-sectional area of 50 N cm
+
+Fascicle               n                                                 Dimensions     of fascicle                                      Maximum
+                                                                                                                                         force (N)
+                                             Volume (ml)                       Length (cm)                   PCSA (cm’)
+
+                                     Mean              Range           Mean             Range         Mean   (SD)          Range
+~________
+SNL                     8               4               l-7              11              8-15         0.3 (0.2)           0.1-0.5                15
+occ-c3                  8               7               4-11             11              8-14         0.7 (0.2)           0.4-1.1                35
+G-G                     8              19              13-36              8              6-10         2.3 (0.9)           ‘!.4-4.0             I 15
+CT                     14              20               8-47              9              6-11         2.2 ii.0)           1.1-4.7              110
+i,                     10              16               2-24              8              6-22         1.9 (0.8)           0.8-3.0                95
+72                      9               8               5-10              7              5-10         1.1 (0.4)           0.6-1.9               55
+T3                     10                6              3-8                9             5-12         0.7 (0.2)           0.5-0.9               35
+T'4                    IO               6               3-9               10             5-15         0.6 (0.2)           O.5- ?.O              30
+T5                     10               7               2-12              11             5-15         0.6 (0.3)           0,3-1.'               30
+T6                      9               7               3-12              12             7-19         0.5 (0.2)           0.3-J .!i             25
+T'7                        8            6               2-14              13             7-20         0.5 (0.2)           0.2-0.9               25
+T8                         5            4               2-6               12            IO-13         0.4 (0.1)           0.2-0.6               20
+Tg                         5            5               3-7               13            12-13         0.4 (0.1)           0.3-0.5               2c
+ T 10                      4            3               3-4               13            13-14         0.2 (0.0)           0.2-0.3               10
+ T 11                      4            4               3-5               14            13-15         0.3 (0.1)           0.2-0.4               15
+ T1Z                       3            5               4-7               14            13-16         0.3 ('0.1)          0.2-0.5               i5
+                                                                                                                                 -._
+ PCSA, physiological       cross-sectional     area; SNL, superior   nuchal line; OCC, occiput.
+49   Clin. Biomech.   1994; 9: No 1
+
+
+                                                              processes dictates that in the horizontal plane the
+                                                              action of the upper and middle trapezius is to draw the
+                                                              clavicle, acromion, and spine of the scapula backwards
+                                                              and medially. This action would be aided by the
+                                                              thoracic fibres which individually and collectively have
+                                                              a transverse orientation in addition to their upward
+                                                              orientation.
+                                                                 The pattern of attachments and orientation of the
+                                                              hbres of trapezius invites a consideration of their role in
+                                                              upward rotation of the scapula. Although strong, the
+                                                              C7 and Ti fibres of trapezius lie very close to the axis of
+                                                              rotation of the scapula, which at the onset of upward
+                                                              rotation passes through the root of the spine of the
+                                                              scapula and then its deltoid tubercle14. Consequently,
+                                                              their ability to generate an upward rotatory moment
+                                                              is compromised by relatively short moment arms.
+                                                              However, their efficiency would be increased once
+                                                              upward rotation has been initiated (ostensibly by the
+                                                              serratus anterior); upward rotation of the scapula raises
+Figure4. Tracing of a radiograph of a normal subject          the acromion and spine, whereupon the moment arms
+standing upright at rest, on which the disposition of the     of the C, and Ti fascicles increase, and these fascicles
+fibres of trapezius has been depicted. The lines depicting
+                                                              are better able to contribute to the force couple that
+thevariousfascicleshavebeendrawnsemi-quantitatively
+to depict their relative size in terms of cross-sectional     generates upward rotation or resists downward rotation.
+area. The orientations of the fascicles are indicated in          The role of the thoracic fibres of trapezius in
+degrees from the horizontal.                                  this movement is somewhat enigmatic. Because their
+                                                              insertions are concentrated on the deltoid tubercle they
+                                                              do not act around the axis of rotation but act directly
+superior (nuchal) part arises from the superior nuchal        on the axis. By maintaining a fixed length these fibres
+line and the ligamenturn nuchae; it inserts into the          would stabilize the axis against the upward action of
+lateral third of the clavicle. The middle part consists of     levator scapulae and the lateral action of the serratus
+those fascicles from C, and Ti with the C, fascicle            anterior, and thereby permit circular movements to
+reaching the acromion and the Ti fascicle reaching the         occur, but they would not contribute any net torque
+spine of the scapula. The lower part consists of those         about this axis. Even when the axis of rotation migrates
+fascicles from spinous processes below Ti and whose           to the acromioclavicular joint the thoracic fibres of
+insertions are concentrated on the deltoid tubercle of        trapezius cannot contribute to an upward moment. The
+the scapula.                                                  lowest fibres become colinear with the axis and the
+   Conspicuously, only the fibres from the superior           higher ones pull medially on the deltoid tubercle below
+nuchal line assume any major degree of downward               the axis, thereby exerting not an upward torque but a
+orientation. The other fibres of the nuchal portion of        downward torque (Figure 5). Throughout the entire
+trapezius pass more transversely to the clavicle. The         range of upward rotation of the scapula the thoracic
+fascicles from C7 and Ti are almost transverse in             fibres of trapezius do not appreciably change length
+orientation with the scapula in neutral position.              (Figure 5). Consequently their role is more consistent
+   It is evident from this pattern that the nuchal portion    with maintaining horizontal and vertical equilibrium of
+of trapezius is not disposed to elevate the scapula.          the scapula rather than generating net torque.
+Foremost, its fibres act on the clavicle and not on              These observations contradict some of the ways in
+the scapula, but even then, its fibres are orientated         which the actions of trapezius have been portrayed
+transversely so as to draw the clavicle backwards or          (Figure 6). Some published descriptions imply that the
+medially, but not upwards. Only the fibres from the           trapezius alone can rotate the scapula, its upper fibres
+superior nuchal line might be accorded some capacity          pulling upwards and its lower fibres pulling downwards
+to apply vertical forces to the clavicle, but their small     to create a force-couple I,15. Other descriptions convey
+size limits their strength in this action. Applying a force   this same implication but add that trapezius acts in
+coefficient of 50 N cmm2 to their physiological cross-        conjunction with serratus anterior2V4.7-9*‘6”7. These
+sectional area restricts their maximum force in this          descriptions are incorrect for the following reason.
+regard to some 15 N (Table 1). Furthermore, towards           Trapezius alone cannot exert a force couple on the
+their insertion, these fibres approach the clavicle in        scapula because its upper and lower fibres do not act in
+almost a horizontal plane. Consequently,          whatever    opposite directions so as to produce zero net force.
+upward action they might have would be dissipated in          Another muscle is required, and must act in an
+the cervical fascia before the fibres reached the clavicle.   opposite direction. Serratus anterior is such a muscle.
+   The transverse orientation of the nuchal fibres of         However, when trapezius acts in conjunction with
+trapezius and those from the C, and Ti spinous                serratus anterior, the upper and lower fibres of
+                                                               Johnson et al.: Anatomy    and actions of trapezius           49
+
+
+                                                              this might be interpreted as indicating that the trapezius
+                                                              pulls the scapula upwards, it is no less consistent with
+                                                              the trapezius achieving elevation by exerting an upward
+                                                              moment on the clavicle at the cost of compression loads
+                                                              at the sternoclavicular joint.
+                                                                 This mechanism offers two advantages. First and
+                                                              foremost the weight of the upper limb and any weight
+                                                              carried by it is not borne by the cervical trapezius.
+                                                              Because of its transverse orientation        the cervical
+                                                              trapezius balances the moments exerted by this load
+                                                              but the vertical force exerted by the weight is trans-
+                                                              ferred to the sternoclavicular joint. Consequently, the
+                                                              trapezius does not need to be anchored to the cervical
+                                                              vertebrae, which explains why the ligamentum nuchae
+Figure 5. Lack of upward rotation by the thoracic fibres of
+trapezius. Figures depict four phases of rotation of the
+scapula (I-IV) and location of the instantaneous centre of
+rotation for each phase (based on Bagg and Forrest14).
+Disposition of the thoracic fibres of trapezius at each
+phase is superimposed to show how they act either on or
+through the axis or exert a downward moment. At no
+stage can they, as a group, exert an upward moment.
+                                                                                                          Trapezius
+                                                                                                           (upper)
+
+trapezius participate in different ways. As the serratus
+anterior contracts its force tends to draw the scapula
+laterally around the chest wall but this displacement is
+resisted by the lower fibres of trapezius which operate
+at constant length to maintain the position of the
+deltoid tubercle which becomes the axis of rotation.
+The upper fibres of trapezius then exert an upward
+rotation moment about this axis, complementing that
+of the serratus anterior. At no time does the trapezius
+exert an upward force on the scapula.
+                                                                                                                           I -
+   The nuchal fibres of trapezius have no direct action                                                  Trwezius     Serratus
+                                                                                                          (lower)
+on the scapula because they attach to the clavicle, but                                                               anterior
+
+they can move the scapula indirectly through the
+acromioclavicular joint. Their transverse orientation is
+well suited to draw the clavicle and scapula backwards
+                                                                                                         b
+in actions such as pulling and rowing, but denies any
+capacity of these fibres to pull the clavicle and scapula
+upwards. However, these fibres can raise the clavicle
+(and thereby the scapula) by another mechanism.
+   At rest, the clavicle is orientated upwards and                                       Trapezius,
+laterally, and the nuchal fibres of trapezius pass                                       upper    part
+
+transversely above the axis of upward rotation of the
+clavicle, which passes through the sternoclavicular joint
+or the clavicular attachment of the costoclavicular
+ligament. Consequently       these fibres can exert a                                    Trapezius,
+                                                                                         lower part
+medially directed moment on the clavicle about this
+axis, which would draw the lateral end of the clavicle
+                                                                                         Serratus
+medially and upwards. Thus, the clavicle and scapula                                     anterior
+can be raised not by drawing them upwards by
+elevation but by rotating the clavicle (Figure 7). A
+                                                              C                                          d
+consequence of this mechanism is that the sterno-
+clavicular joint must sustain substantial compression         Figure 6. Examples of the way upward rotation of the
+loads (Figure 7).                                             scapula is portrayed as produced by trapezius alone (a)
+   This interpretation   of the actions of trapezius in       or in conjunction with serratus anterior (b, c, d).
+elevation of the scapula is novel but nonetheless             In all instances the upper trapezius is portrayed as
+                                                              exerting an upward action on the spine of the scapula
+consistent with electromyography     (EMG) data. EMG          not a medial one concordant with the orientation of its
+studies reveal that during elevation of the scapula the       middle fibres. (a, from Perry’; b, from Basmajian and
+upper fibres of trapezius are strongly active”. Whereas       Slonecker’; c, from Hollinshead4; d, from McMinn’?.
+50   Clin. Biomech.   1994; 9: No 1
+
+
+           /\                                                 it to the sternoclavicular joint. By elucidating this
+                                                              mechanism we seek to stem the misrepresentation of
+                                                              trapezius as an elevator of the scapula and to emphasize
+                                                              the role of the sternoclavicular joint in sustaining
+                                                              downward loads applied to the upper limb.
+
+
+
+                                                              References
+                                                               1 Perry J. Muscle control of the shoulder. In: Rowe CR, ed.
+                                                                 The Shoulder. New York: Churchill Livingstone, 1988;
+                                                                 pp 17-34
+                                                               2 Basmajian JV, Slonecker CE. Grunt’s Method of
+                                                                 Anatomy, 11th edn. Baltimore: Williams and Wilkins,
+                                                                 1989; pp 367-8
+                                                               3 Charpy A, Nicholas A. Trait&d’Anatomie Humaine,
+                                                                  Tome deuxibme, fascicule 1, Myologie, 3rd edn. Paris:
+                                                                  Masson, 1912; p 104
+Figure 7. Weight-bearing mechanism of the cervical             4 Hollinshead WH. Anatomy for Surgeons, Volume 3 -
+trapezius. Let W be weight of the upper limb acting               The Buck and Limbs, 3rd edn. Philadelphia: Harper &
+on the distal end of the clavicle whose length is L.              Rowe, 1982; pp 319-22
+Let a! be elevation of the clavicle. Let F be maximum force    5 Romanes GJ (ed). Cunningham’s Textbook of Anatomy,
+exerted by the CSfascicle of trapezius, which is inclined         10th edn. London: Oxford University Press, 1964;
+at an angle/3 to the horizontal plane. Upon balancing             pp 316-7
+moments, Fsin (& + PI = Wcos a. Reaction force (I?) at         6 Gardner E, Gray DJ, O’Rahilly R. Anatomy. A Regional
+the sternoclavicular joint will be Fcos~lcos    a. For a          Study of Human Structure, 4th edn. Philadelphia:
+cross-sectional area of 2.3 cm* (Table 1) and a force             Saunders, 1975; p 105
+coefficient of 50 N cm-*, F = 115 N. If (Y= 15” and            7 Williams PL, Warwick R, Dyson M, Bannister LH (eds).
+p = 18”, W = 65 N and R = 113 N. Thus the transverse              Gray’s Anatomy, 37th edn. Edinburgh: Churchill
+fibres of trapezius can sustain the weight of the upper           Livingstone, 1989; pp 608- 10
+limb by balancing moments, but the compressive                 8 Hamilton WJ (ed). Textbook of Human Anatomy,
+loads are borne not by the cervical spine but by the              2nd edn. London: MacMillan, 1976; pp 163-4
+sternoclavicular joint.                                        9 Lockhart RD, Hamilton GF, Fyfe FW. Anatomy of the
+                                                                  Human Body. London: Faber and Faber, 1959; pp 197-9
+                                                              10 Morrey BF, An KN. Biomechanics of the shoulder.
+does not attach to the C,-C, spinous processes”. To               In: Rockwood CA, Matsen FA, eds. The Shoulder.
+                                                                  Philadelphia: Saunders, 1990; pp 208-45
+balance moments, all that trapezius requires is an
+                                                              11 Zuckerman JD, Matsen FA. Biomechanics of the
+attachment site that resists lateral (not downward)               shoulder. In: Nordin M, Frankel VH, eds. Basic
+displacement, and this is provided by the superficial             Biomechanics of the Musculoskeletul System, 2nd edn.
+funicular portion of the ligamentum nuchae18.                     Philadelphia: Lea & Febiger, 1989; pp 225-47
+   The second advantage of this mechanism is that it          12 Norkin CC, Levangie PK. Joint Structure and Function.
+                                                                  A Comprehensive Analysis, 2nd edn. Philadelphia: Davis,
+avoids compressive loads exerted on the cervical spine
+                                                                  1992; pp 207-39
+by the upper limb. The strongest fascicles of trapezius       13 Dvir Z, Berme N. The shoulder complex in elevation of
+arise from C6 and C, but are basically transverse in              the arm: a mechanism approach. J Biomech 1978:
+orientation and would contribute little compressive               11: 219-25
+load to the neck. The only compressive loads exerted          14 Bagg SD, Forrest WJ. A biomechanical analysis of
+by trapezius would be those resulting from the obliquity          scapular rotation during arm abduction in the scapular
+                                                                  plane. Am JPhys Med Rehabill988; 67: 238-45
+of its uppermost fibres, but those with the greatest          15 Post M. The Shoulder. Surgical and Nonsurgical
+obliquity and hence the greatest capacity to exert                Management. Philadelphia: Lea & Febiger, 1988; pp 50-l
+compression loads happen also to be the smallest              16 McMinn RMH. Last’s Anatomy. Regional and Applied,
+component of trapezius.                                          8th edn. Edinburgh: Churchill Livingstone. 1990: p 57
+   In essence, by exerting only transverse loads on the       17 Basmajian JV. De Luca CJ. Muscles Alive. Their
+                                                                 Functions Revealed by Electromyography. Baltimore:
+ligamentum nuchae, the cervicle trapezius spares the             Williams & Wilkins, 1985; pp 265-8
+cervical spine from compressive loads and transfers           18 Fielding JW, Burstein AH, Frankel VH. The nuchal
+the weight of the upper limb and any loads carried by            ligament. Spine 1976: 1: 3-14
+

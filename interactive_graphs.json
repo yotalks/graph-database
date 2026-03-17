@@ -54,6 +54,24 @@
     "kind": "interactive"
   },
   {
+    "id": "nemeth1985_hip_extension_imal_interactive",
+    "title": "Hip extension IMAL",
+    "file": "views/nemeth1985_hip_extension_imal_interactive.html",
+    "kind": "interactive"
+  },
+  {
+    "id": "song2020_hip_abduction_imal_interactive",
+    "title": "Hip abduction IMAL",
+    "file": "views/song2020_hip_abduction_imal_interactive.html",
+    "kind": "interactive"
+  },
+  {
+    "id": "kleinhorsman2007_hip_adduction_imal_interactive",
+    "title": "Hip adduction IMAL",
+    "file": "views/kleinhorsman2007_hip_adduction_imal_interactive.html",
+    "kind": "interactive"
+  },
+  {
     "id": "ackland2011_neck_imal_interactive",
     "title": "Neck IMAL",
     "file": "views/ackland2011_neck_imal_interactive.html",

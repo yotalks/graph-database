@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hip adduction IMAL (interactive)</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;cursor:pointer;font-weight:650;font-size:12px}.btn:hover{background:var(--btnHover)}.status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}.swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.35}.stage{position:relative;overflow:hidden;min-width:0;touch-action:none;cursor:grab}.stage.is-dragging{cursor:grabbing} canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.8);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(540px,78vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:24vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:540px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Klein Horsman (2007) - Hip adduction IMALs</div>
+          <div class="subtitle">Broader multi-muscle reconstruction from thesis Figure 1. This view keeps only the positive adduction portions of the reconstructed curves. Wheel = zoom | Drag = pan | Click a line name to highlight it.</div>
+        </div>
+        <div class="controls">
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle lines</div>
+          <div id="checks"></div>
+          <div class="hint">Built from the thesis Figure 1 hip adduction/abduction panel plus the text note that adductor longus peaks around 6.4-8.4 cm across elements. This is a figure-based reconstruction for visual comparison, not a direct numeric export from the thesis.</div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Positive side only = adduction leverage</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const COLORS={
+        "Adductor magnus (mid)":"#f97316",
+        "Adductor longus":"#22c55e",
+        "Adductor brevis":"#60a5fa",
+        "Gracilis":"#eab308",
+        "Pectineus":"#f59e0b",
+        "Iliacus":"#a855f7",
+        "Psoas major":"#c084fc",
+        "Rectus femoris":"#ef4444",
+        "Sartorius":"#14b8a6",
+        "Gluteus maximus (inf)":"#fb7185",
+        "Gluteus maximus (sup)":"#fda4af"
+      };
+      const rawSeries=[
+        ["Adductor magnus (mid)",[[-40,6.6],[-30,6.8],[-20,6.9],[-10,6.8],[0,6.6],[10,6.2],[20,5.8],[30,5.5],[40,5.1],[50,4.7]]],
+        ["Adductor longus",[[-40,4.1],[-30,4.8],[-20,5.6],[-10,6.5],[0,7.3],[10,8.0],[20,8.2],[30,8.0],[40,7.5],[50,6.8]]],
+        ["Adductor brevis",[[-40,4.5],[-30,5.1],[-20,5.8],[-10,6.4],[0,7.0],[10,7.5],[20,7.8],[30,7.8],[40,7.4],[50,6.8]]],
+        ["Gracilis",[[-40,6.1],[-30,6.4],[-20,6.7],[-10,6.8],[0,6.8],[10,6.6],[20,6.2],[30,5.8],[40,5.2],[50,4.6]]],
+        ["Pectineus",[[-40,2.7],[-30,2.5],[-20,2.2],[-10,1.8],[0,1.3],[10,0.8],[20,0.3],[30,-0.1],[40,-0.7],[50,-1.2]]],
+        ["Iliacus",[[-40,2.0],[-30,2.1],[-20,2.1],[-10,1.9],[0,1.5],[10,1.0],[20,0.5],[30,-0.2],[40,-1.0],[50,-1.9]]],
+        ["Psoas major",[[-40,0.8],[-30,1.0],[-20,1.2],[-10,1.4],[0,1.6],[10,1.7],[20,1.5],[30,1.0],[40,0.2],[50,-0.8]]],
+        ["Rectus femoris",[[-40,0.2],[-30,0.3],[-20,0.4],[-10,0.6],[0,0.8],[10,0.9],[20,0.8],[30,0.5],[40,0.1],[50,-0.5]]],
+        ["Sartorius",[[-40,0.9],[-30,1.0],[-20,1.1],[-10,1.2],[0,1.2],[10,1.0],[20,0.7],[30,0.3],[40,-0.2],[50,-0.8]]],
+        ["Gluteus maximus (inf)",[[-40,2.9],[-30,2.7],[-20,2.4],[-10,2.0],[0,1.4],[10,0.7],[20,0.1],[30,-0.8],[40,-1.8],[50,-2.9]]],
+        ["Gluteus maximus (sup)",[[-40,1.4],[-30,1.3],[-20,1.1],[-10,0.9],[0,0.6],[10,0.2],[20,-0.3],[30,-0.9],[40,-1.5],[50,-2.1]]]
+      ];
+
+      const stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),checksEl=document.getElementById("checks"),status=document.getElementById("status"),tip=document.getElementById("tip");
+      let activeSeries=null,dragging=false,lastX=0,lastY=0,screen=[];
+      let series=rawSeries.map(([name,pts])=>({name,color:COLORS[name]||"#cbd5e1",visible:true,data:clipPositive(pts)}));
+      let view={xMin:-40,xMax:50,yMin:0,yMax:8.5};
+
+      function clipPositive(points){
+        const kept=[];
+        for(let i=0;i<points.length;i++){
+          const [x1,y1]=points[i], include1=y1>0;
+          if(include1) kept.push({x:x1,y:y1});
+          if(i===points.length-1) continue;
+          const [x2,y2]=points[i+1], include2=y2>0;
+          if((include1&&!include2)||(!include1&&include2)){
+            const t=(0-y1)/(y2-y1);
+            kept.push({x:x1+(x2-x1)*t,y:0});
+          }else if(include1&&y2===0){kept.push({x:x2,y:0});}
+        }
+        return kept;
+      }
+
+      function rebuildChecks(){
+        checksEl.innerHTML="";
+        for(const s of series){
+          const row=document.createElement("div");
+          row.className="check"+(activeSeries===s.name?" active":"");
+          const cb=document.createElement("input");
+          cb.type="checkbox";cb.checked=s.visible;
+          cb.addEventListener("click",e=>e.stopPropagation());
+          cb.addEventListener("change",()=>{s.visible=cb.checked;if(!s.visible&&activeSeries===s.name)activeSeries=null;rebuildChecks();draw();});
+          const sw=document.createElement("div");sw.className="swatch";sw.style.background=s.color;
+          const lab=document.createElement("label");lab.textContent=s.name;
+          row.addEventListener("click",()=>{activeSeries=activeSeries===s.name?null:s.name;rebuildChecks();draw();});
+          row.append(cb,sw,lab);checksEl.appendChild(row);
+        }
+      }
+
+      function resize(){
+        const r=stage.getBoundingClientRect(),dpr=window.devicePixelRatio||1;
+        canvas.width=Math.max(1,Math.floor(r.width*dpr));canvas.height=Math.max(1,Math.floor(r.height*dpr));
+        canvas.style.width=r.width+"px";canvas.style.height=r.height+"px";
+        ctx.setTransform(dpr,0,0,dpr,0,0);draw();
+      }
+
+      const xToPx=(x,w,p)=>p+(x-view.xMin)*(w/Math.max(1e-6,view.xMax-view.xMin));
+      const yToPx=(y,h,p)=>p+(view.yMax-y)*(h/Math.max(1e-6,view.yMax-view.yMin));
+      const pxToX=(px,w,p)=>view.xMin+(px-p)*(view.xMax-view.xMin)/Math.max(1e-6,w);
+      const pxToY=(py,h,p)=>view.yMax-(py-p)*(view.yMax-view.yMin)/Math.max(1e-6,h);
+      function niceStep(range,target=7){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
+      function clampView(v){const base={xMin:-40,xMax:50,yMin:0,yMax:8.5},minW=10,minH=.6;let w=Math.max(minW,Math.min(base.xMax-base.xMin,v.xMax-v.xMin)),h=Math.max(minH,Math.min(base.yMax-base.yMin,v.yMax-v.yMin)),xMin=v.xMin,yMin=v.yMin;if(xMin<base.xMin)xMin=base.xMin;if(xMin+w>base.xMax)xMin=base.xMax-w;if(yMin<base.yMin)yMin=base.yMin;if(yMin+h>base.yMax)yMin=base.yMax-h;return{xMin,xMax:xMin+w,yMin,yMax:yMin+h}}
+      function stroke(points,color,opts={}){if(points.length<2)return;ctx.save();ctx.strokeStyle=color;ctx.lineWidth=opts.width||4;ctx.globalAlpha=opts.alpha??1;ctx.lineJoin="round";ctx.lineCap="round";if(opts.glow){ctx.shadowColor=color;ctx.shadowBlur=16}ctx.beginPath();ctx.moveTo(points[0].px,points[0].py);for(let i=1;i<points.length-1;i++){const c=points[i],n=points[i+1];ctx.quadraticCurveTo(c.px,c.py,(c.px+n.px)/2,(c.py+n.py)/2)}ctx.lineTo(points[points.length-1].px,points[points.length-1].py);ctx.stroke();ctx.restore()}
+      function segDist(px,py,ax,ay,bx,by){const abx=bx-ax,aby=by-ay,apx=px-ax,apy=py-ay,len2=abx*abx+aby*aby;let t=len2?(apx*abx+apy*aby)/len2:0;t=Math.max(0,Math.min(1,t));const cx=ax+t*abx,cy=ay+t*aby;return{dist:Math.hypot(px-cx,py-cy),cx,cy}}
+      function nearest(px,py,pts){if(pts.length<2)return null;let best=null;for(let i=0;i<pts.length-1;i++){const hit=segDist(px,py,pts[i].px,pts[i].py,pts[i+1].px,pts[i+1].py);if(!best||hit.dist<best.dist)best=hit}return best}
+      function hideTip(){tip.style.display="none"} function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
+      function clipToRange(points,xMin,xMax){return points.filter(p=>p.x>=xMin&&p.x<=xMax);}
+
+      function draw(){
+        const r=stage.getBoundingClientRect(),W=r.width,H=r.height,padL=70,padT=20,padR=20,padB=60,w=Math.max(10,W-padL-padR),h=Math.max(10,H-padT-padB);
+        ctx.clearRect(0,0,W,H);
+        const xStep=niceStep(view.xMax-view.xMin),yStep=niceStep(view.yMax-view.yMin);
+        ctx.save();
+        ctx.strokeStyle="rgba(255,255,255,.08)";ctx.lineWidth=1;
+        for(let x=Math.ceil(view.xMin/xStep)*xStep;x<=view.xMax+1e-6;x+=xStep){const px=xToPx(x,w,padL);ctx.beginPath();ctx.moveTo(px,padT);ctx.lineTo(px,padT+h);ctx.stroke();}
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){const py=yToPx(y,h,padT);ctx.beginPath();ctx.moveTo(padL,py);ctx.lineTo(padL+w,py);ctx.stroke();}
+        ctx.strokeStyle="rgba(255,255,255,.28)";ctx.strokeRect(padL,padT,w,h);
+        const zeroX=xToPx(0,w,padL);ctx.strokeStyle="rgba(255,255,255,.18)";ctx.setLineDash([6,6]);ctx.beginPath();ctx.moveTo(zeroX,padT);ctx.lineTo(zeroX,padT+h);ctx.stroke();ctx.setLineDash([]);
+        ctx.fillStyle="rgba(229,231,235,.92)";ctx.font="12px Segoe UI, system-ui";ctx.textAlign="center";
+        for(let x=Math.ceil(view.xMin/xStep)*xStep;x<=view.xMax+1e-6;x+=xStep)ctx.fillText(String(Math.round(x*10)/10),xToPx(x,w,padL),padT+h+18);
+        ctx.textAlign="right";
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep)ctx.fillText(String(Math.round(y*10)/10),padL-8,yToPx(y,h,padT)+4);
+        ctx.textAlign="center";ctx.fillStyle="rgba(156,163,175,.95)";
+        ctx.fillText("Hip abduction (-) / adduction (+) angle (deg)",padL+w/2,padT+h+42);
+        ctx.save();ctx.translate(16,padT+h/2);ctx.rotate(-Math.PI/2);ctx.fillText("Hip adduction moment arm (cm)",0,0);ctx.restore();
+        ctx.textAlign="left";ctx.fillText("Abduction side",padL+8,padT+18);ctx.textAlign="right";ctx.fillText("Adduction side",padL+w-8,padT+18);
+        ctx.restore();
+
+        screen=[];
+        for(const s of series){
+          if(!s.visible) continue;
+          const isActive=activeSeries===s.name,hasActive=!!activeSeries,alpha=hasActive?(isActive?1:.18):1;
+          const pts=clipToRange(s.data,view.xMin,view.xMax).map(p=>({x:p.x,y:p.y,px:xToPx(p.x,w,padL),py:yToPx(p.y,h,padT)}));
+          if(pts.length>1){stroke(pts,s.color,{width:isActive?6:4,alpha,glow:isActive});screen.push({name:s.name,pts});}
+        }
+        status.textContent=`${series.filter(s=>s.visible).length} muscles shown`;
+      }
+
+      function fit(){
+        const visible=series.filter(s=>s.visible),xs=[],ys=[];
+        for(const s of visible) for(const p of s.data){xs.push(p.x);ys.push(p.y);}
+        if(!xs.length){view={xMin:-40,xMax:50,yMin:0,yMax:8.5};draw();return;}
+        const xMin=Math.max(-40,Math.min(...xs)),xMax=Math.min(50,Math.max(...xs)),yMin=Math.max(0,Math.min(...ys)),yMax=Math.min(8.5,Math.max(...ys));
+        view=clampView({xMin:xMin-3,xMax:xMax+3,yMin:Math.max(0,yMin-0.3),yMax:Math.min(8.5,yMax+0.5)});draw();
+      }
+
+      document.getElementById("fit").addEventListener("click",fit);
+      document.getElementById("reset").addEventListener("click",()=>{view={xMin:-40,xMax:50,yMin:0,yMax:8.5};draw();});
+      document.getElementById("all").addEventListener("click",()=>{for(const s of series)s.visible=true;rebuildChecks();draw();});
+      document.getElementById("none").addEventListener("click",()=>{for(const s of series)s.visible=false;activeSeries=null;rebuildChecks();draw();});
+      window.addEventListener("resize",resize);
+
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;stage.classList.add("is-dragging");lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId);});
+      stage.addEventListener("pointermove",e=>{
+        const r=stage.getBoundingClientRect(),padL=70,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),x=e.clientX-r.left,y=e.clientY-r.top;
+        if(dragging){const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;view=clampView({xMin:view.xMin-dx*(view.xMax-view.xMin)/w,xMax:view.xMax-dx*(view.xMax-view.xMin)/w,yMin:view.yMin+dy*(view.yMax-view.yMin)/h,yMax:view.yMax+dy*(view.yMax-view.yMin)/h});hideTip();draw();return;}
+        if(x<padL||x>padL+w||y<padT||y>padT+h){hideTip();return;}
+        let best=null;for(const s of screen){const hit=nearest(x,y,s.pts);if(hit&&(!best||hit.dist<best.dist))best={...hit,name:s.name};}
+        if(!best||best.dist>10){hideTip();return;}
+        showTip(`<div><strong>${best.name}</strong></div><div class="muted">${pxToX(best.cx,w,padL).toFixed(1)} deg | ${pxToY(best.cy,h,padT).toFixed(2)} cm</div>`,x,y);
+      });
+      stage.addEventListener("pointerup",e=>{dragging=false;stage.classList.remove("is-dragging");try{stage.releasePointerCapture(e.pointerId);}catch{}});
+      stage.addEventListener("pointercancel",()=>{dragging=false;stage.classList.remove("is-dragging");hideTip();});
+      stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip();});
+      stage.addEventListener("wheel",e=>{e.preventDefault();const zoom=e.deltaY>0?1.12:1/1.12,zoomX=e.shiftKey&&!e.ctrlKey?1:zoom,zoomY=e.ctrlKey&&!e.shiftKey?1:zoom;const r=stage.getBoundingClientRect(),padL=70,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB);let x=e.clientX-r.left,y=e.clientY-r.top;if(x<padL||x>padL+w||y<padT||y>padT+h){x=padL+w/2;y=padT+h/2}const x0=pxToX(x,w,padL),y0=pxToY(y,h,padT);view=clampView({xMin:x0+(view.xMin-x0)*zoomX,xMax:x0+(view.xMax-x0)*zoomX,yMin:y0+(view.yMin-y0)*zoomY,yMax:y0+(view.yMax-y0)*zoomY});draw();},{passive:false});
+
+      rebuildChecks();
+      resize();
+    </script>
+  </body>
+</html>

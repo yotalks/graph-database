@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hip extension IMAL (interactive)</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.3}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px}.btn{cursor:pointer}.btn:hover{background:var(--btnHover)}.status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}.swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.35}.stage{position:relative;overflow:hidden;min-width:0;touch-action:none;cursor:grab}.stage.is-dragging{cursor:grabbing} canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.8);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(540px,78vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:22vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:540px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Németh & Ohlsén (1985) - Hip extension IMALs</div>
+          <div id="subtitle" class="subtitle"></div>
+        </div>
+        <div class="controls">
+          <select id="population"></select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle lines</div>
+          <div id="checks"></div>
+          <div class="hint">Built from Table 4 values in the paper. The `All subjects` view is the mean of the reported men and women columns at each hip-flexion angle because the table gives sex-specific rows.</div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Wheel = zoom | Shift = y-only | Ctrl = x-only | Drag = pan</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const COLORS={"Gluteus maximus":"#60a5fa","Hamstrings":"#22c55e","Adductor magnus":"#f97316"};
+      const ANGLES=[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90];
+      const DATA={
+        all:{
+          label:"All subjects",
+          subtitle:"Table 4 hip-extensor moment arms averaged from the reported men and women rows. Units = mm.",
+          base:{xMin:5,xMax:90,yMin:0,yMax:85},
+          xLabel:"Hip flexion angle (deg)",
+          yLabel:"Moment arm (mm)",
+          series:[
+            ["Gluteus maximus",[78,76.5,75,73,71.5,68.5,66.5,64,61,58.5,55.5,52.5,49.5,46,42.5,39.5,35.5,32]],
+            ["Hamstrings",[64.5,67.5,70,72.5,73.5,74.5,75,75,74,73,71,69,66,62,58.5,53.5,49,44]],
+            ["Adductor magnus",[19.5,24.5,29,33.5,38,42,45.5,49,52,54.5,57,58.5,60,60.5,61,60.5,60,59]]
+          ]
+        },
+        men:{
+          label:"Men",
+          subtitle:"Table 4 men values from the paper. Units = mm.",
+          base:{xMin:5,xMax:90,yMin:0,yMax:85},
+          xLabel:"Hip flexion angle (deg)",
+          yLabel:"Moment arm (mm)",
+          series:[
+            ["Gluteus maximus",[81,79,78,76,74,71,69,66,63,61,57,54,51,48,44,41,37,33]],
+            ["Hamstrings",[68,71,74,77,78,79,80,80,79,78,76,74,71,67,63,58,53,48]],
+            ["Adductor magnus",[15,20,25,30,35,39,43,47,50,53,56,58,60,61,62,62,62,61]]
+          ]
+        },
+        women:{
+          label:"Women",
+          subtitle:"Table 4 women values from the paper. Units = mm.",
+          base:{xMin:5,xMax:90,yMin:0,yMax:85},
+          xLabel:"Hip flexion angle (deg)",
+          yLabel:"Moment arm (mm)",
+          series:[
+            ["Gluteus maximus",[75,74,72,70,69,66,64,62,59,56,54,51,48,44,41,38,34,31]],
+            ["Hamstrings",[61,64,66,68,69,70,70,70,69,68,66,64,61,57,54,49,45,40]],
+            ["Adductor magnus",[24,29,33,37,41,45,48,51,54,56,58,59,60,60,60,59,58,57]]
+          ]
+        }
+      };
+
+      const populationEl=document.getElementById("population"),checksEl=document.getElementById("checks"),subtitleEl=document.getElementById("subtitle"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),status=document.getElementById("status"),tip=document.getElementById("tip");
+      let key="all",series=[],view={},screen=[],dragging=false,lastX=0,lastY=0,activeSeries=null;
+      const mode=()=>DATA[key];
+      const bounds=()=>mode().base;
+      function populate(){for(const [k,v] of Object.entries(DATA)){const opt=document.createElement("option");opt.value=k;opt.textContent=v.label;populationEl.appendChild(opt)}populationEl.value=key}
+      function buildSeries(){series=mode().series.map(([name,ys])=>({name,color:COLORS[name]||"#cbd5e1",visible:true,data:ANGLES.map((x,i)=>({x,y:ys[i]}))}))}
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll(".check"))row.classList.toggle("active",row.dataset.name===activeSeries)}
+      function rebuildChecks(){checksEl.innerHTML="";for(const s of series){const row=document.createElement("div");row.className="check";row.dataset.name=s.name;const cb=document.createElement("input");cb.type="checkbox";cb.checked=s.visible;cb.addEventListener("click",e=>e.stopPropagation());cb.addEventListener("change",()=>{s.visible=cb.checked;if(!s.visible&&activeSeries===s.name)activeSeries=null;syncActiveRows();draw()});const sw=document.createElement("div");sw.className="swatch";sw.style.background=s.color;const lab=document.createElement("label");lab.textContent=s.name;row.addEventListener("click",()=>{activeSeries=activeSeries===s.name?null:s.name;syncActiveRows();draw()});row.append(cb,sw,lab);checksEl.appendChild(row)}}
+      function applyMode(){activeSeries=null;subtitleEl.textContent=mode().subtitle;buildSeries();rebuildChecks();resetView()}
+      function resetView(){view={...bounds()};draw()}
+      function fitView(){const visible=series.filter(s=>s.visible),xs=[],ys=[];for(const s of visible)for(const p of s.data){xs.push(p.x);ys.push(p.y)}if(!xs.length){resetView();return}const base=bounds(),xMin=Math.max(base.xMin,Math.min(...xs)),xMax=Math.min(base.xMax,Math.max(...xs)),yMin=Math.max(base.yMin,Math.min(...ys)),yMax=Math.min(base.yMax,Math.max(...ys)),xPad=Math.max(2,(xMax-xMin)*.05),yPad=Math.max(.75,(yMax-yMin)*.08||.75);view=clampView({xMin:xMin-xPad,xMax:xMax+xPad,yMin:yMin-yPad,yMax:yMax+yPad});draw()}
+      function resize(){const r=stage.getBoundingClientRect(),dpr=window.devicePixelRatio||1;canvas.width=Math.max(1,Math.floor(r.width*dpr));canvas.height=Math.max(1,Math.floor(r.height*dpr));canvas.style.width=r.width+"px";canvas.style.height=r.height+"px";ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+      const xToPx=(x,w,p)=>p+(x-view.xMin)*(w/Math.max(1e-6,view.xMax-view.xMin)),yToPx=(y,h,p)=>p+(view.yMax-y)*(h/Math.max(1e-6,view.yMax-view.yMin)),pxToX=(px,w,p)=>view.xMin+(px-p)*(view.xMax-view.xMin)/Math.max(1e-6,w),pxToY=(py,h,p)=>view.yMax-(py-p)*(view.yMax-view.yMin)/Math.max(1e-6,h);
+      function stroke(points,color,opts={}){if(points.length<2)return;ctx.save();ctx.strokeStyle=color;ctx.lineWidth=opts.width||4;ctx.globalAlpha=opts.alpha??1;ctx.lineJoin="round";ctx.lineCap="round";if(opts.glow){ctx.shadowColor=color;ctx.shadowBlur=16}ctx.beginPath();ctx.moveTo(points[0].px,points[0].py);for(let i=1;i<points.length-1;i++){const c=points[i],n=points[i+1];ctx.quadraticCurveTo(c.px,c.py,(c.px+n.px)/2,(c.py+n.py)/2)}ctx.lineTo(points[points.length-1].px,points[points.length-1].py);ctx.stroke();ctx.restore()}
+      function segDist(px,py,ax,ay,bx,by){const abx=bx-ax,aby=by-ay,apx=px-ax,apy=py-ay,len2=abx*abx+aby*aby;let t=len2?(apx*abx+apy*aby)/len2:0;t=Math.max(0,Math.min(1,t));const cx=ax+t*abx,cy=ay+t*aby;return{dist:Math.hypot(px-cx,py-cy),cx,cy}}
+      function nearest(px,py,pts){if(pts.length<2)return null;let best=null;for(let i=0;i<pts.length-1;i++){const hit=segDist(px,py,pts[i].px,pts[i].py,pts[i+1].px,pts[i+1].py);if(!best||hit.dist<best.dist)best=hit}return best}
+      function hideTip(){tip.style.display="none"} function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
+      function clampView(v){const base=bounds(),minW=Math.max((base.xMax-base.xMin)*.08,5),minH=Math.max((base.yMax-base.yMin)*.08,.75);let w=Math.max(minW,Math.min(base.xMax-base.xMin,v.xMax-v.xMin)),h=Math.max(minH,Math.min(base.yMax-base.yMin,v.yMax-v.yMin)),xMin=v.xMin,yMin=v.yMin;if(xMin<base.xMin)xMin=base.xMin;if(xMin+w>base.xMax)xMin=base.xMax-w;if(yMin<base.yMin)yMin=base.yMin;if(yMin+h>base.yMax)yMin=base.yMax-h;return{xMin,xMax:xMin+w,yMin,yMax:yMin+h}}
+      function clipToXRange(points,xMin,xMax){if(points.length<2)return points.filter(p=>p.x>=xMin&&p.x<=xMax);const clipped=[];for(let i=0;i<points.length-1;i++){const a=points[i],b=points[i+1],aIn=a.x>=xMin&&a.x<=xMax,bIn=b.x>=xMin&&b.x<=xMax;if(aIn&&clipped.length===0)clipped.push(a);if(aIn&&i>0&&clipped.length&&clipped[clipped.length-1]!==a&&clipped[clipped.length-1].x!==a.x)clipped.push(a);if((a.x<xMin&&b.x>xMin)||(a.x>xMin&&b.x<xMin)){const t=(xMin-a.x)/(b.x-a.x);clipped.push({x:xMin,y:a.y+(b.y-a.y)*t})}if((a.x<xMax&&b.x>xMax)||(a.x>xMax&&b.x<xMax)){const t=(xMax-a.x)/(b.x-a.x);clipped.push({x:xMax,y:a.y+(b.y-a.y)*t})}if(bIn)clipped.push(b)}const dedup=[];for(const point of clipped){const prev=dedup[dedup.length-1];if(!prev||Math.abs(prev.x-point.x)>1e-6||Math.abs(prev.y-point.y)>1e-6)dedup.push(point)}return dedup.sort((p1,p2)=>p1.x-p2.x)}
+      function yAtSeries(seriesObj,x){const pts=seriesObj.data;if(!pts.length||x<pts[0].x||x>pts[pts.length-1].x)return null;for(let i=0;i<pts.length-1;i++){const a=pts[i],b=pts[i+1];if(x<a.x||x>b.x)continue;if(b.x===a.x)return a.y;const t=(x-a.x)/(b.x-a.x);return a.y+(b.y-a.y)*t}return pts[pts.length-1].y}
+      function computeBestRelativeAngle(){if(!activeSeries)return null;const active=series.find(s=>s.name===activeSeries&&s.visible);if(!active)return null;let best=null;const from=Math.ceil(view.xMin),to=Math.floor(view.xMax);for(let x=from;x<=to;x+=1){const activeY=yAtSeries(active,x);if(activeY===null||activeY<=0)continue;let strongestOther=0;for(const s of series){if(!s.visible||s.name===active.name)continue;const y=yAtSeries(s,x);if(y===null)continue;strongestOther=Math.max(strongestOther,Math.abs(y))}if(strongestOther<=0)continue;const ratio=Math.abs(activeY)/strongestOther;if(!best||ratio>best.ratio)best={deg:x,ratio}}return best}
+      function drawBestMarker(marker,padL,padT,w,h,color){if(!marker)return;const x=xToPx(marker.deg,w,padL);ctx.save();ctx.strokeStyle=color;ctx.globalAlpha=.8;ctx.setLineDash([6,6]);ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,padT);ctx.lineTo(x,padT+h);ctx.stroke();ctx.restore()}
+      function plotBox(){const r=stage.getBoundingClientRect(),padL=70,padT=20,padR=20,padB=60;return{r,padL,padT,padR,padB,w:Math.max(10,r.width-padL-padR),h:Math.max(10,r.height-padT-padB)}}
+      function applyZoom(factorX,factorY,clientX,clientY){const {r,padL,padT,w,h}=plotBox();let x=clientX-r.left,y=clientY-r.top;if(x<padL||x>padL+w||y<padT||y>padT+h){x=padL+w/2;y=padT+h/2}const x0=pxToX(x,w,padL),y0=pxToY(y,h,padT);view=clampView({xMin:x0+(view.xMin-x0)*factorX,xMax:x0+(view.xMax-x0)*factorX,yMin:y0+(view.yMin-y0)*factorY,yMax:y0+(view.yMax-y0)*factorY});hideTip();draw()}
+      function niceStep(range,target=7){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
+      function drawAxes(padL,padT,w,h){const m=mode(),xStep=niceStep(view.xMax-view.xMin),yStep=niceStep(view.yMax-view.yMin);ctx.save();ctx.strokeStyle="rgba(255,255,255,.08)";ctx.lineWidth=1;for(let x=Math.ceil(view.xMin/xStep)*xStep;x<=view.xMax+1e-6;x+=xStep){const px=xToPx(x,w,padL);ctx.beginPath();ctx.moveTo(px,padT);ctx.lineTo(px,padT+h);ctx.stroke()}for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){const py=yToPx(y,h,padT);ctx.beginPath();ctx.moveTo(padL,py);ctx.lineTo(padL+w,py);ctx.stroke()}ctx.strokeStyle="rgba(255,255,255,.28)";ctx.strokeRect(padL,padT,w,h);ctx.fillStyle="rgba(229,231,235,.92)";ctx.font="12px Segoe UI, system-ui";ctx.textAlign="center";for(let x=Math.ceil(view.xMin/xStep)*xStep;x<=view.xMax+1e-6;x+=xStep)ctx.fillText(String(Math.round(x*10)/10),xToPx(x,w,padL),padT+h+18);ctx.textAlign="right";for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep)ctx.fillText(String(Math.round(y*100)/100),padL-8,yToPx(y,h,padT)+4);ctx.textAlign="center";ctx.fillStyle="rgba(156,163,175,.95)";ctx.fillText(m.xLabel,padL+w/2,padT+h+42);ctx.save();ctx.translate(16,padT+h/2);ctx.rotate(-Math.PI/2);ctx.fillText(m.yLabel,0,0);ctx.restore();ctx.restore()}
+      function draw(){const r=stage.getBoundingClientRect(),W=r.width,H=r.height,padL=70,padT=20,padR=20,padB=60,w=Math.max(10,W-padL-padR),h=Math.max(10,H-padT-padB);ctx.clearRect(0,0,W,H);drawAxes(padL,padT,w,h);if(activeSeries){const active=series.find(s=>s.name===activeSeries);if(active)drawBestMarker(computeBestRelativeAngle(),padL,padT,w,h,active.color)}screen=[];for(const s of series){if(!s.visible)continue;const isActive=activeSeries===s.name,hasActive=!!activeSeries,lineAlpha=hasActive?(isActive?1:.18):1;const visiblePts=clipToXRange(s.data,view.xMin,view.xMax).map(p=>({x:p.x,y:p.y,px:xToPx(p.x,w,padL),py:yToPx(p.y,h,padT)}));if(visiblePts.length>1)stroke(visiblePts,s.color,{width:isActive?6:4,alpha:lineAlpha,glow:isActive});ctx.save();ctx.fillStyle=s.color;ctx.globalAlpha=lineAlpha;for(const p of visiblePts){ctx.beginPath();ctx.arc(p.px,p.py,isActive?4.5:3.25,0,Math.PI*2);ctx.fill()}ctx.restore();if(visiblePts.length>1)screen.push({name:s.name,pts:visiblePts})}const base=bounds();const zoomPct=Math.round((base.xMax-base.xMin)/(view.xMax-view.xMin)*100);status.textContent=`${mode().label} | ${zoomPct}% zoom`}
+      populationEl.addEventListener("change",()=>{key=populationEl.value;applyMode()});document.getElementById("fit").addEventListener("click",fitView);document.getElementById("reset").addEventListener("click",resetView);document.getElementById("all").addEventListener("click",()=>{for(const s of series)s.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});document.getElementById("none").addEventListener("click",()=>{for(const s of series)s.visible=false;activeSeries=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});window.addEventListener("resize",resize);
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;stage.classList.add("is-dragging");lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId)});
+      stage.addEventListener("pointermove",e=>{const {r,padL,padT,w,h}=plotBox(),x=e.clientX-r.left,y=e.clientY-r.top;if(dragging){const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;view=clampView({xMin:view.xMin-dx*(view.xMax-view.xMin)/w,xMax:view.xMax-dx*(view.xMax-view.xMin)/w,yMin:view.yMin+dy*(view.yMax-view.yMin)/h,yMax:view.yMax+dy*(view.yMax-view.yMin)/h});hideTip();draw();return}if(x<padL||x>padL+w||y<padT||y>padT+h){hideTip();return}let best=null;for(const s of screen){const hit=nearest(x,y,s.pts);if(hit&&(!best||hit.dist<best.dist))best={...hit,name:s.name}}if(!best||best.dist>10){hideTip();return}showTip(`<div><strong>${best.name}</strong></div><div class="muted">${pxToX(best.cx,w,padL).toFixed(1)} deg | ${pxToY(best.cy,h,padT).toFixed(1)} mm</div>`,x,y)});
+      stage.addEventListener("pointerup",e=>{dragging=false;stage.classList.remove("is-dragging");try{stage.releasePointerCapture(e.pointerId)}catch{}});stage.addEventListener("pointercancel",()=>{dragging=false;stage.classList.remove("is-dragging");hideTip()});stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip()});
+      stage.addEventListener("wheel",e=>{e.preventDefault();const zoom=e.deltaY>0?1.12:1/1.12,zoomX=e.shiftKey&&!e.ctrlKey?1:zoom,zoomY=e.ctrlKey&&!e.shiftKey?1:zoom;applyZoom(zoomX,zoomY,e.clientX,e.clientY)},{passive:false});
+      populate();applyMode();resize();
+    </script>
+  </body>
+</html>

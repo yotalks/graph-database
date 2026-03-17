@@ -1,0 +1,993 @@
+                                HHS Public Access
+                                Author manuscript
+                                J Biomech. Author manuscript; available in PMC 2021 September 18.
+Author Manuscript
+
+
+
+
+                    Published in final edited form as:
+                     J Biomech. 2020 September 18; 110: 109968. doi:10.1016/j.jbiomech.2020.109968.
+
+
+
+                    Dysplastic hip anatomy alters muscle moment arm lengths, lines
+                    of action, and contributions to joint reaction forces during gait
+                    Ke Songa,b, Brecca M.M. Gaffneya, Kevin B. Shelburnec, Cecilia Pascual-Garridod, John C.
+                    Clohisyd, Michael D. Harrisa,b,d,*
+                    aProgram in Physical Therapy, Washington University in St. Louis School of Medicine, St. Louis,
+
+                    MO, USA
+Author Manuscript
+
+
+
+
+                    bDepartment of Mechanical Engineering and Materials Science, Washington University in St.
+
+                    Louis, St. Louis, MO, USA
+                    cDepartment of Mechanical and Materials Engineering, University of Denver, Denver, CO, USA
+
+                    dDepartment of Orthopaedic Surgery, Washington University in St. Louis School of Medicine, St.
+
+                    Louis, MO, USA
+
+                    Abstract
+                         Developmental dysplasia of the hip (DDH) is characterized by abnormal bony anatomy, which
+                         causes detrimental hip joint loading and leads to secondary osteoarthritis. Hip joint loading
+                         depends, in part, on muscle-induced joint reaction forces (JRFs), and therefore, is influenced by
+                         hip muscle moment arm lengths (MALs) and lines of action (LoAs). The current study used
+Author Manuscript
+
+
+
+
+                         subject-specific musculoskeletal models and in-vivo motion analysis to quantify the effects of
+                         DDH bony anatomy on dynamic muscle MALs, LoAs, and their contributions to JRF peaks during
+                         early (~17%) and late-stance (~52%) of gait. Compared to healthy hips (N = 15, 16–39 y/o), the
+                         abductor muscles in patients with untreated DDH (N = 15, 16–39 y/o) had smaller abduction
+                         MALs (e.g. anterior gluteus medius, 35.3 vs. 41.6 mm in early stance, 45.4 vs. 52.6 mm late
+                         stance, p ≤ 0.01) and more medially-directed LoAs. Abduction-adduction and rotation MALs also
+                         differed for major hip flexors such as rectus femoris and iliacus. The altered MALs in DDH
+                         corresponded to higher hip abductor forces, medial JRFs (1.26 vs. 0.87 × BW early stance, p =
+                         0.03), and resultant JRFs (5.71 vs. 4.97 × BW late stance, p = 0.05). DDH anatomy not only
+                         affected hip muscle force generation in the primary plane of function, but also their out-of-plane
+                         mechanics, which collectively elevated JRFs. Overall, hip muscle MALs and their contributions to
+                         JRFs were significantly altered by DDH bony anatomy. Therefore, to better understand the
+Author Manuscript
+
+
+
+
+                         mechanisms of joint degeneration and improve the efficacy of treatments for DDH, the dynamic
+                         anatomy-force relationships and multi-planar functions of the whole hip musculature must be
+                         collectively considered.
+
+
+                    *
+                     Corresponding author at: 4444 Forest Park Avenue, Suite 1101, Campus Box 8502, St. Louis, MO 63108-2212, USA.
+                    harrismi@wustl.edu (M.D. Harris).
+                    Declaration of Competing Interest
+                    The authors declare that they have no known competing financial interests or personal relationships that could have appeared to
+                    influence the work reported in this paper.
+                    Appendix A. Supplementary material
+                    Supplementary data to this article can be found online at https://doi.org/10.1016/j.jbiomech.2020.109968.
+                    Song et al.                                                                                                   Page 2
+
+
+
+                       Keywords
+Author Manuscript
+
+
+
+
+                             Developmental dysplasia of the hip; Muscle moment arm; Line of action; Joint reaction force;
+                             Musculoskeletal modeling
+
+
+                       1.         Introduction
+                                        Developmental dysplasia of the hip (DDH) is characterized by abnormal acetabular and
+                                        femoral anatomy (Wyles et al., 2017). When untreated, these abnormalities alter hip intra-
+                                        articular loading, cause tissue damage, and increase the risk of early secondary osteoarthritis
+                                        (Groh and Herrera, 2009; Lewis and Sahrmann, 2006). Muscle forces and joint reaction
+                                        forces (JRFs) are major mechanical contributors to hip joint loading (Correa et al., 2010),
+                                        and are found to be altered in patients with untreated DDH (Skalshoi et al., 2015; Harris et
+Author Manuscript
+
+
+
+
+                                        al., 2017). It has been speculated that the abnormal bony features of DDH, such as
+                                        lateralized hip joint centers (HJCs), are the sources of altered muscle-induced loading
+                                        (Cheng et al., 2019; Maquet, 1999), but the relationships that explain how bony anatomy
+                                        alters muscle and joint forces have not been explicitly established.
+
+                                        Among factors influencing muscle mechanics, the ability of muscles to generate forces and
+                                        moments around a joint is directly affected by their anatomical paths. Two key mechanical
+                                        parameters that describe the anatomy-force relationships of muscles are their moment arm
+                                        lengths (MALs) and lines of action (LoA). MALs, defined as the perpendicular distance
+                                        from the joint center to the muscle LoA, represent the effectiveness of muscles at generating
+                                        moments to rotate the joint (Pandy, 1999; Sherman et al., 2013). If a muscle MAL is
+                                        reduced, higher force from that muscle is needed to generate the same joint moment. LoAs
+                                        dictate the direction of muscle forces, which affects muscle contributions to loading within
+Author Manuscript
+
+
+
+
+                                        the joint (Yanagawa et al., 2008). The MALs and LoAs of multiple muscles collectively
+                                        influence compressive and shear forces borne by the joint (Yanagawa et al., 2008). A few
+                                        radiographic reports and theoretical models have suggested that abnormal bony anatomy in
+                                        untreated DDH reduces hip abductor MALs and alters their medio-lateral LoAs in a way
+                                        that may increase hip articular pressure (Liu et al., 2012; Maquet, 1999). These studies
+                                        provided preliminary insight into the links between DDH bony anatomy and muscle-induced
+                                        joint loading, but were limited to the abductor muscles in a static position. Because muscle
+                                        paths vary with joint positions, their dynamic force-generating abilities induce variable joint
+                                        loading during an activity, and therefore lead to motion-specific risks for tissue damage.
+                                        However, no study has reported MALs and LoAs in patients with untreated DDH during
+                                        dynamic motions, and how they collectively contribute to hip JRFs.
+Author Manuscript
+
+
+
+
+                                        Because muscle forces cannot be measured directly during motion, musculoskeletal models
+                                        have been used to quantify dynamic hip muscle MALs and LoAs (Delp et al., 1999; Arnold
+                                        et al., 2000; Blemker and Delp, 2005) and their contributions to JRFs (Scheys et al., 2008;
+                                        van Arkel et al., 2013; Wesseling et al., 2016b). The default generic geometry in most
+                                        musculoskeletal models represents healthy bony anatomy, which makes such models less
+                                        reliable for estimating muscle mechanics in populations with anatomical deformities
+                                        (Scheys et al., 2008). Therefore, including subject-specific anatomy is important for
+
+
+
+                                            J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                Page 3
+
+
+                                        estimating hip mechanics in DDH (Song et al., 2019), and has helped elucidate significant
+Author Manuscript
+
+
+
+
+                                        hip JRF differences compared to healthy controls (Harris et al., 2017). However, these recent
+                                        models of DDH fell short of establishing the underlying relationships between the muscle-
+                                        induced hip joint loading (e.g. JRFs) of DDH and the bony deformity. As such, the
+                                        potentially vital roles of muscle anatomy-force parameters (MALs, LoAs) in the patho-
+                                        mechanics of DDH also remain unclear.
+
+                                        The objective of this study was to quantify how hip muscle MALs, LoAs, and their
+                                        contributions to hip JRFs during gait are altered in patients with untreated DDH compared to
+                                        healthy controls. We hypothesized that patients with DDH would have smaller hip abductor
+                                        MALs and more medially-directed LoAs due to lateralized HJCs (Cheng et al., 2019), which
+                                        would result in higher medially-directed hip muscle forces and JRFs (Harris et al., 2017).
+
+
+                       2.         Methods
+Author Manuscript
+
+
+
+
+                       2.1.       Subjects and data collection
+                                        With Institutional Review Board approval and informed consent, 15 female patients with
+                                        untreated DDH (age: 16–39 y/o) and 15 female healthy controls (age: 16–39 y/o) were
+                                        included (Table 1). An a priori power analysis (Faul et al., 2007) based on prior hip JRF
+                                        findings (Harris et al, 2017) indicated 15 subjects per group could detect inter-group
+                                        differences with power of 0.8. Patients were diagnosed by a single orthopaedic surgeon
+                                        (JCC), had hip pain lasting at least 3 months, and radiographic evidence of DDH determined
+                                        by a lateral center edge angle <20° (Wiberg, 1939). For each DDH patient, the symptomatic
+                                        hip was chosen for analysis. Healthy controls had no self-reported history of hip pathology,
+                                        and no pain or discomfort during a flexion-adduction-internal-rotation clinical screening
+                                        exam (MacDonald et al., 1997). A random side was chosen for comparison with DDH
+Author Manuscript
+
+
+
+
+                                        patients. Both groups had no previous hip surgeries, other lower extremity diseases, or pain
+                                        that limited functional activities. Magnetic resonance (MR) images were collected from the
+                                        psoas major muscle origin to the knees using a 3T scanner (VIDA, Siemens AG; Munich,
+                                        Germany) with T1-weighted VIBE gradient-echo sequences and SPAIR fat suppression (1 ×
+                                        1 × 1 mm voxels). During imaging, subjects were prone with the hip positioned at
+                                        approximately zero degrees flexion, adduction, and rotation. From the MR images, 3D
+                                        geometries of the pelvis and femurs for each subject were reconstructed using Amira
+                                        software (Thermo Fisher Scientific, Houston, TX).
+
+                                        Full-body gait data were collected using 70 retro-reflective markers while subjects walked at
+                                        a self-selected speed on an instrumented treadmill (Bertec; Columbus, OH), with a 5-minute
+                                        warm-up (Zeni and Higginson, 2010). Marker trajectories were collected at 100 Hz using 10
+Author Manuscript
+
+
+
+
+                                        infrared cameras (Vicon; Centennial, CO). Ground reaction forces were collected at 2000 Hz
+                                        by the treadmill. Fourth-order Butterworth low-pass filters were applied to marker data using
+                                        an 8 Hz cutoff determined with residual analysis (Winter, 2004), and a 6 Hz cutoff for force
+                                        data to reduce analog noise on instrumented treadmills (Pickle et al., 2016).
+
+
+
+
+                                            J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                  Page 4
+
+
+                       2.2.       Musculoskeletal modeling
+Author Manuscript
+
+
+
+
+                                        Subject-specific musculoskeletal models were created from an existing OpenSim model (Lai
+                                        et al., 2017), similar to procedures recently described (Song et al., 2019). The generic model
+                                        was modified by adding torso and hip external rotator muscles (Table 2) with experimental-
+                                        based paths and strengths (Shelburne et al., 2010; Handsfield et al., 2014), yielding 98
+                                        muscle–tendon actuators. Then, MR-based 3D pelvis and femur geometries were substituted
+                                        into the model for each subject (Fig. 1A). HJCs were moved to subject-specific locations,
+                                        determined as the centroid of a sphere fit to the 3D-reconstructed femoral head (Harris et al.,
+                                        2017). Each MR femur was then rotated about the subject-specific HJC until the femoral
+                                        shaft axis and the distal trans-epicondyle axis were both aligned to the generic geometries.
+
+                                        Origin and insertion sites of the hip muscles were then updated on the subject-specific pelvis
+                                        and femurs based on reconstructed bone-muscle geometries, MR images, and anatomical
+Author Manuscript
+
+
+
+
+                                        guidelines (Netter, 2014) (Fig. 1A). Via points approximating nonlinear muscle paths (e.g.
+                                        tensor fasciae latae) and wrapping objects for the iliacus and psoas major muscles were also
+                                        updated, using the MR images as a guide (Wesseling et al., 2016a). The remaining model
+                                        segments were non-uniformly scaled in antero-posterior (AP), supero-inferior (SI), and
+                                        medio-lateral (ML) dimensions using experimental marker data. Muscle optimal fiber
+                                        lengths and tendon slack lengths were linearly scaled from the generic model according to
+                                        the total length of updated muscle paths in each subject-specific model (Wesseling et al.,
+                                        2016a), which assumed no muscle architecture adaptations (e.g. sarcomere loss) had
+                                        occurred due to the DDH anatomy.
+
+                                        Hip and pelvis angles were calculated via inverse kinematics, and internal hip moments were
+                                        calculated via inverse dynamics (Winter, 2004), for each subject across a representative gait
+                                        cycle. Residual reduction was applied to minimize the nonphysical residual forces and
+Author Manuscript
+
+
+
+
+                                        moments and maintain dynamic consistency within inverse dynamics results (Delp et al.,
+                                        2007). Muscle forces were estimated using static optimization that minimized the sum-
+                                        square of muscle activations (Anderson and Pandy, 2001). The forces of individual hip
+                                        muscles were then summed by functional groups (Lai et al., 2017; Shelburne et al., 2010;
+                                        Table 2). Lastly, resultant hip JRFs and AP, SI, ML directional components were calculated
+                                        from muscle forces (Steele et al., 2012) and expressed in the pelvis frame to represent
+                                        loading on the acetabulum.
+
+                                        Subject-specific MALs and LoAs for all hip muscles were extracted across the entire gait
+                                        cycle. Dynamic muscle MALs (Fig. 1B) were computed within OpenSim using a
+                                        generalized force approach (Sherman et al., 2013). Hip muscle LoAs were extracted using
+                                        an established method (van Arkel et al., 2013) and expressed as unit vectors with AP, SI, and
+Author Manuscript
+
+
+
+
+                                        ML components in the pelvis frame (Fig. 1C). Individual muscle forces were decomposed
+                                        along each LoA component to determine the proportion of that muscle’s net force in the AP,
+                                        SI, ML directions. These three muscle force components were also each summed by
+                                        functional groups.
+
+
+
+
+                                            J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                  Page 5
+
+
+                       2.3.       Model validation
+Author Manuscript
+
+
+
+
+                                        The subject-specific models were validated using established methods (Hicks et al., 2015).
+                                        First, model-estimated muscle activations were compared to surface electromyography
+                                        (EMG) signals. EMG during gait was collected from bilateral gluteus maximus, gluteus
+                                        medius, rectus femoris, tensor fasciae latae, biceps femoris long head, vastus lateralis,
+                                        medial gastrocnemius, and erector spinae, following SENIAM guidelines (Hermens et al.,
+                                        2000). Signals were recorded at 2000 Hz using a 16-channel system (MA300-XVI, Motion
+                                        Lab Systems Inc.; Baton Rouge, LA), shifted by 1.2 ms to offset wireless latency, band-pass
+                                        filtered with 10–350 Hz cutoffs, rectified, and smoothed with a 10 Hz fourth-order
+                                        Butterworth low-pass filter (De Luca et al., 2010). Model-estimated muscle activations from
+                                        static optimization were reported on a scale of 0 (none) to 1 (maximum). For comparison,
+                                        EMG signals in each trial were also normalized to a 0-to-1 scale relative to the maximum
+                                        within that trial (Steele et al., 2012). Second, model errors and residuals were ensured to be
+Author Manuscript
+
+
+
+
+                                        within limits recommended for gait simulations (Hicks et al., 2015), for both motion
+                                        tracking (root-mean-square marker error <2 cm) and static optimization (residual force <5%
+                                        × BW, moment <0.5 Nm/kg). Finally, estimated hip JRFs and muscle forces were
+                                        qualitatively compared to recent subject-specific modeling studies to ensure they are within
+                                        2 standard deviations of previously reported values (Hicks et al., 2015, Wesseling et al.,
+                                        2016a, Wesseling et al., 2016b, Harris et al., 2017, Song et al., 2019).
+
+                       2.4.       Data analysis
+                                        Hip muscle LoAs, MALs, individual and grouped muscle forces, hip JRFs, as well as joint
+                                        angles and moments were time-normalized to the gait cycle. JRFs and muscle forces were
+                                        normalized by body weight (× BW), while joint moments were normalized by body mass
+                                        (Nm/kg) (Moisio et al., 2003). Peak resultant hip JRFs in early stance (~17% of gait cycle,
+Author Manuscript
+
+
+
+
+                                        termed ‘JRF1′) and late stance (~52% of gait cycle, termed ‘JRF2′) were determined, as
+                                        well as joint angles and moments at these two time points. LoAs, MALs and forces for all
+                                        muscles crossing the analyzed hip (Table 2) were extracted at JRF1 and JRF2. Within each
+                                        functional group, the muscles that produced the maximum force at JRF1 or JRF2 were
+                                        categorized as the primary dependent variables for statistical comparisons. The other
+                                        individual muscles were categorized as secondary variables.
+
+                                        All variables were examined with the Shapiro-Wilk test for normality and Levene’s test for
+                                        homogeneity of variance. Normally distributed variables were compared between Healthy
+                                        and DDH groups using independent t-tests, with corrections for unequal variances. Other
+                                        variables were compared non-parametrically using Mann-Whitney U tests. Statistical
+                                        significance for each test was α = 0.05. Effect sizes for inter-group differences were
+Author Manuscript
+
+
+
+
+                                        determined with Cohen’s d (Cohen, 1988) and classified as small (0.2 ≤ d < 0.5), medium
+                                        (0.5 ≤ d < 0.8), or large (d ≥ 0.8). Primary variables compared between DDH and Healthy
+                                        were LoAs, MALs, and forces of muscles selected from each functional group, and hip
+                                        JRFs. Secondary variables were LoAs, MALs, and forces of other individual muscles, as
+                                        well as joint angles and moments. To further quantify the bony features of untreated DDH
+                                        that may directly influence muscle anatomy-force relationships, especially the relative
+                                        lateralization of HJCs (Cheng et al., 2019), the ML location of HJC was normalized by the
+                                        ML distance between the anterior superior iliac spine and the mid-sagittal plane, then
+
+
+                                            J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                   Page 6
+
+
+                                        compared between groups. The depth, height, and width of the pelvises were also compared
+Author Manuscript
+
+
+
+
+                                        between the DDH and Healthy subjects.
+
+
+                       3.         Results
+                       3.1.       Subject characteristics and model validation
+                                        There were no significant differences between DDH and Healthy groups in age, height,
+                                        mass, body-mass index, walking speed (Table 1), and pelvis dimensions. Compared to
+                                        Healthy subjects, HJCs were significantly lateralized in DDH. Model-estimated muscle
+                                        activation qualitatively agreed with EMG timings (Suppl. Fig. 1). Model motion tracking
+                                        errors, residual forces and moments were under 2 cm, 0.025 × BW and 0.4 Nm/kg,
+                                        respectively (Suppl. Fig. 2). Hip muscle forces and JRFs were in ranges similar to recent
+                                        subject-specific modeling studies.
+Author Manuscript
+
+
+
+
+                       3.2.       Hip muscle MALs and LoAs
+                                        Compared to Healthy, DDH subjects had significantly different hip abduction–adduction and
+                                        rotation MALs (Table 3, Fig. 2). Specifically, abduction MALs were smaller for the primary
+                                        hip abductors (e.g. gluteus medius, p ≤ 0.03, d ≥ 0.83), and flipped from abduction to
+                                        adduction roles for the flexors (e.g. iliacus, p < 0.01, d ≥ 1.30) throughout stance.
+                                        Additionally, internal rotation MALs of the iliacus were significantly smaller in DDH (p ≤
+                                        0.02, d ≥ 0.93). Hip flexion–extension MALs were not different between groups for any
+                                        muscle.
+
+                                        For DDH subjects, muscle LoAs significantly differed for the gluteus maximus, which was
+                                        directed more medially compared to Healthy (p = 0.02, d = 0.92 at JRF1; Table 3, Fig. 2).
+                                        No other LoAs were significantly different between DDH and Healthy groups, although the
+Author Manuscript
+
+
+
+
+                                        anterior section of gluteus medius also trended towards a more medial orientation in DDH at
+                                        JRF1 (p = 0.06, d = 0.71; Suppl. Table 2).
+
+                       3.3.       Hip muscle forces and JRFs
+                                        Resultant muscle forces differed between DDH and Healthy for the hip abductors and
+                                        internal rotators. Abductor forces were significantly higher in the DDH group throughout
+                                        stance (p ≤ 0.02, d ≥ 0.88; Fig. 3). Internal rotator forces were also higher in DDH (p ≤ 0.04,
+                                        d ≥ 0.78), as many concurrently served abductor roles (Table 2). Muscle force components
+                                        were also higher in the DDH group for both abductors and internal rotators in the superior
+                                        and medial directions (p ≤ 0.05, d ≥ 0.76), as well as for internal rotators in the anterior
+                                        direction (p = 0.02, d = 0.96 at JRF2) (Fig. 3). Additionally, the flexors and external rotators
+                                        had higher medial forces at JRF1 (p ≤ 0.05, d ≥ 0.52). For individual hip muscles, the DDH
+Author Manuscript
+
+
+
+
+                                        group had higher forces (resultant and each component) from gluteus medius throughout
+                                        stance (p ≤ 0.04, d ≥ 0.77; Fig. 4), and tensor fasciae latae at JRF2 (p < 0.01, d ≥ 1.32).
+
+                                        Finally, hip JRFs were different between the DDH and Healthy groups (Fig. 3). The DDH
+                                        group had significantly higher medial hip JRFs at JRF1 (p = 0.03, d = 0.82), and
+                                        significantly higher resultant and superior JRFs at JRF2 (p ≤ 0.05, d ≥ 0.76).
+
+
+
+
+                                            J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                Page 7
+
+
+                       3.4.       Angles and moments
+Author Manuscript
+
+
+
+
+                                       During late stance (at JRF2), DDH subjects had a slightly adducted hip, instead of slightly
+                                       abducted for Healthy (1.2° ± 2.8° vs. −1.4° ± 2.6°, p = 0.01, d = 0.95). Also, the pelvis
+                                       obliquity was towards the ipsilateral side for DDH subjects, rather than towards contralateral
+                                       for Healthy (1.2° ± 2.2° vs. −1.1° ± 1.8°, p < 0.01, d = 1.15). Other hip and pelvis angles,
+                                       and hip moments were not different between groups.
+
+
+                       4.         Discussion
+                                       The objective of this study was to quantify how hip muscle MALs, LoAs, and their
+                                       contributions to hip JRFs during gait are altered in patients with untreated DDH compared to
+                                       healthy controls. Patients with DDH demonstrated differences in both muscle anatomy
+                                       (MAL, LoA) and joint mechanics (muscle force, JRF). The differences were most
+                                       substantial for the hip abductor muscles, where smaller MALs corresponded to higher forces
+Author Manuscript
+
+
+
+
+                                       and contributions to JRFs especially in the medial direction, which supported our
+                                       hypothesis. Furthermore, the inter-group differences for hip flexors and rotators exhibited
+                                       how DDH alters their multi-planar functions, which suggested these muscles also contribute
+                                       to atypical joint loading.
+
+                                       A prominent effect of the DDH bony anatomy was the shortening of dynamic MALs for the
+                                       hip abductors. The abductor MALs in patients with DDH were smaller than healthy controls
+                                       throughout the gait cycle, which suggest that static image-based measurements of gluteus
+                                       medius MALs hold true during dynamic motions (Liu et al., 2012). The primary cause of the
+                                       shortened MALs was the significantly more lateral HJC locations in untreated DDH
+                                       compared to healthy hips. Shorter MALs indicate a mechanical disadvantage for the
+                                       abductors, which must produce higher forces to generate the joint moment needed for hip
+Author Manuscript
+
+
+
+
+                                       stabilization during stance (Maquet, 1999; Neumann, 2010), thereby elevating hip JRFs.
+                                       Thus, to reduce hip loading in DDH, it is important to correct the shortened abductor MALs,
+                                       which can be accomplished by medializing the HJC (Gaffney et al., 2020).
+
+                                       Higher abductor forces may also be due to the frontal-plane MALs of the surrounding hip
+                                       muscles. Three-dimensional hip motions are dependent on all muscles that span the joint,
+                                       including secondary muscle functions such as the abducting effects of rectus femoris
+                                       (Neumann, 2010). For DDH subjects, almost all hip muscles had less abducting or more
+                                       adducting MALs compared to healthy (e.g. iliacus and rectus femoris; Table 3). Such
+                                       changes in MALs altered the relative demands on each muscle to collectively produce the
+                                       hip-stabilizing abduction moment (which did not differ between groups) during single-leg
+                                       support. For example, while the iliacus and rectus femoris produced high forces to propel the
+Author Manuscript
+
+
+
+
+                                       hip forward (Suppl. Table 3), they also had an abnormal adducting effect that was then
+                                       balanced by elevated hip abductor forces.
+
+                                       The rotation MALs of large hip muscles may also indirectly influence force production by
+                                       adjacent smaller muscles, especially those with multi-planar functions. For example, the
+                                       force from iliacus primarily contributes to hip flexion moments during gait. However, due to
+                                       the shortened internal rotation MAL of iliacus, the tensor fasciae latae compensated with a
+                                       higher-than-normal force to meet the net moment required for late-stance hip rotation
+
+
+                                           J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                             Page 8
+
+
+                                  (Neumann, 2010). Therefore, due to the 3D muscle paths and outof-plane mechanics,
+Author Manuscript
+
+
+
+
+                                  relative contributions among adjacent muscles are integral to altered joint mechanics in the
+                                  presence of DDH anatomy.
+
+                                  Hip muscle LoAs were less affected by the bony anatomy of untreated DDH compared to
+                                  MALs. Patients with DDH had significantly more medial LoAs compared to healthy only
+                                  for the gluteus maximus, although the LoAs of gluteus medius also trended towards a more
+                                  medial orientation. We attribute these differences to the lateralized HJC and shape variability
+                                  of the proximal femur where the gluteal muscles insert (Gaffney et al., 2019). The altered
+                                  LoAs of gluteal muscles meant a higher percentage of their forces were directed medially.
+                                  Therefore, to lower the elevated medial hip JRFs, reducing the dynamic medial LoAs of
+                                  these muscles (e.g. via HJC medialization) may be important for clinical interventions of
+                                  DDH.
+Author Manuscript
+
+
+
+
+                                  The dynamic force-generating ability of hip muscles may also be affected by joint positions
+                                  (Delp et al., 1999). For this cohort of patients with untreated DDH, there was a significant
+                                  yet small (~2–3°) difference in hip adduction and pelvis obliquity during late stance. Hip
+                                  adduction and opposite pelvis drop may be related to abductor muscle weakness (Hardcastle
+                                  and Nade, 1985; Harris-Hayes et al., 2014), and may further influence their abduction
+                                  MALs. However, it remains inconclusive whether such small kinematic differences are
+                                  generalizable to the DDH population, or if they alter muscle mechanics in a clinically
+                                  meaningful way.
+
+                                  Altered hip muscle anatomy or forces in DDH may not always propagate to JRF differences
+                                  compared to healthy hips across the whole gait cycle. Our earlier modeling study of
+                                  untreated DDH also found higher medially-directed JRFs, along with higher hip abductor
+Author Manuscript
+
+
+
+
+                                  muscle forces, in late stance of barefoot over-ground gait (Harris et al., 2017). Harris et al.
+                                  speculated that abductor MALs were a cause of increased medial JRFs, which was
+                                  confirmed by findings in the current study. In the current DDH cohort, increased abductor
+                                  forces accompanied higher resultant hip JRFs only in late stance, and medial JRFs only in
+                                  early stance. The contrast of hip JRF findings may be related to the gait mechanics during
+                                  treadmill versus over-ground walking (Pickle et al., 2016). Nonetheless, both studies
+                                  identified simultaneous elevations in hip abductor forces and medial JRFs, indicating such
+                                  mechanical traits of DDH hold true while walking on flat surfaces.
+
+                                  Several limitations of this study must be considered. First, while we improved upon the
+                                  generic model geometry by using MR-based bone-muscle anatomy, personalization of the
+                                  muscle paths was limited to the static position within the MR images. Thus, inherent
+                                  uncertainty exists in the model-estimated muscle paths through dynamic motions. Second,
+Author Manuscript
+
+
+
+
+                                  the models assumed the hip to be a rotation-only ball and socket joint. Hips with DDH may
+                                  have increased instability (Wyles et al., 2017), which could induce subtle translations that
+                                  change dynamic MALs and LoAs. Since hips with untreated DDH primarily lack lateral
+                                  femoral coverage (Nepple et al., 2017), such instability would be most evident in the lateral
+                                  direction, which would further reduce the abductor MALs. Third, we adopted and
+                                  generically scaled muscle architecture parameters (e.g. fiber lengths) in our models, given
+                                  that subject-specific data were unavailable. The altered muscle paths in presence of
+
+
+                                      J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                                 Page 9
+
+
+                                  untreated DDH anatomy could potentially lead to architectural changes, which would further
+Author Manuscript
+
+
+
+
+                                  affect muscle force generation and contributions to joint loading. Likewise, the efficacy of
+                                  treatments for DDH may also depend on their influence on hip muscle architecture.
+                                  However, our findings suggest that hip muscle MALs can already be significantly altered by
+                                  DDH anatomy even in the absence of architectural adaptation. Fourth, our study was limited
+                                  to gait, which is primarily a sagittal motion. It is possible that the dynamic muscle MALs,
+                                  LoAs and forces in frontal and transverse planes, which were different in hips with DDH,
+                                  would be further altered during multi-planar tasks such as squatting and pivoting. Lastly,
+                                  while all of our DDH cohort had radiographically confirmed dysplasia, there was some
+                                  heterogeneity in the severity of their bony deformities. Future research is needed to specify
+                                  whether the mechanical roles of muscle MALs and LoAs change with DDH severity.
+
+                                  In conclusion, hip muscle MALs and contributions to JRFs were significantly altered by the
+                                  abnormal bony anatomy of untreated DDH, while muscle LoAs were affected to a lesser
+Author Manuscript
+
+
+
+
+                                  extent. Patients with DDH demonstrated shorter hip abductor MALs than healthy controls,
+                                  which corresponded to higher abductor forces. Such elevated forces are likely required to
+                                  stabilize the hip in the presence of abnormal bony anatomy. Out-of-plane muscle MALs and
+                                  medio-lateral LoAs also contributed to joint loading primarily in the medial direction. Thus,
+                                  to better understand the mechanisms of joint degeneration and improve the efficacy of
+                                  treatments for DDH, future research and interventions should collectively consider the
+                                  dynamic anatomy-force relationships of the whole hip musculature and their multi-planar
+                                  functions.
+
+
+                       Supplementary Material
+                                  Refer to Web version on PubMed Central for supplementary material.
+Author Manuscript
+
+
+
+
+                       Acknowledgments
+                                  This project was supported by the National Institutes of Health K01 AR072072, P30 AR074992 and the Lottie
+                                  Caroline Charitable Trust. The research content herein is solely the responsibility of the authors and does not
+                                  necessarily represent the official views of the National Institutes of Health. The authors thank Molly C. Shepherd
+                                  for assistance with MR image data processing.
+
+
+                       References
+                                  Anderson FC, Pandy MG, 2001 Static and dynamic optimization solutions for gait are practically
+                                    equivalent. J. Biomech 34, 153–161. [PubMed: 11165278]
+                                  Arnold AS, Salinas S, Asakawa DJ, Delp SL, 2000 Accuracy of muscle moment arms estimated from
+                                    MRI-based musculoskeletal models of the lower extremity. Comput. Aided Surg 5, 108–119.
+                                    [PubMed: 10862133]
+Author Manuscript
+
+
+
+
+                                  Blemker SS, Delp SL, 2005 Three-dimensional representation of complex muscle architectures and
+                                    geometries. Ann. Biomed. Eng 33, 661–673. [PubMed: 15981866]
+                                  Cheng R, Zhang H, Kernkamp WA, Zheng J, Dai K, Yao Y, Wang L, Tsai TY, 2019 Relations between
+                                    the Crowe classification and the 3D femoral head displacement in patients with developmental
+                                    dysplasia of the hip. BMC Musculoskelet. Disord 20, 530. [PubMed: 31711458]
+                                  Cohen J, 1988 Statistical Power Analysis for the Behavioral Sciences. Lawrence Earlbaum Associates,
+                                    Hillsdale, NJ.
+                                  Correa TA, Crossley KM, Kim HJ, Pandy MG, 2010 Contributions of individual muscles to hip joint
+                                    contact force in normal walking. J. Biomech 43, 1618–1622. [PubMed: 20176362]
+
+
+                                       J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                    Page 10
+
+
+                                  De Luca CJ, Gilmore LD, Kuznetsov M, Roy SH, 2010 Filtering the surface EMG signal: Movement
+                                    artifact and baseline noise contamination. J. Biomech 43, 1573–1579. [PubMed: 20206934]
+Author Manuscript
+
+
+
+
+                                  Delp SL, Anderson FC, Arnold AS, Loan P, Habib A, John CT, Guendelman E, Thelen DG, 2007
+                                    OpenSim: open-source software to create and analyze dynamic simulations of movement. IEEE
+                                    Trans. Biomed. Eng 54, 1940–1950. [PubMed: 18018689]
+                                  Delp SL, Hess WE, Hungerford DS, Jones LC, 1999 Variation of rotation moment arms with hip
+                                    flexion. J. Biomech 32, 493–501. [PubMed: 10327003]
+                                  Faul F, Erdfelder E, Lang AG, Buchner A, 2007 G*Power 3: a flexible statistical power analysis
+                                      program for the social, behavioral, and biomedical sciences. Behav. Res. Methods 39, 175–191.
+                                      [PubMed: 17695343]
+                                  Gaffney BMM, Clohisy JC, Van Dillen LR, Harris MD, 2020 The association between periacetabular
+                                      osteotomy reorientation and hip joint reaction forces in two subgroups of acetabular dysplasia. J.
+                                      Biomech 98, 109464. [PubMed: 31708245]
+                                  Gaffney BMM, Hillen TJ, Nepple JJ, Clohisy JC, Harris MD, 2019 Statistical shape modeling of
+                                      femur shape variability in female patients with hip dysplasia. J. Orthop. Res 37, 665–673.
+                                      [PubMed: 30656719]
+Author Manuscript
+
+
+
+
+                                  Groh MM, Herrera J, 2009 A comprehensive review of hip labral tears. Curr. Rev. Musculoskelet. Med
+                                      2, 105–117. [PubMed: 19468871]
+                                  Handsfield GG, Meyer CH, Hart JM, Abel MF, Blemker SS, 2014 Relationships of 35 lower limb
+                                      muscles to height and body mass quantified using MRI. J. Biomech 47, 631–638. [PubMed:
+                                      24368144]
+                                  Hardcastle P, Nade S, 1985 The significance of the Trendelenburg test. J. Bone Joint Surg. Br 67, 741–
+                                      746. [PubMed: 4055873]
+                                  Harris MD, MacWilliams BA, Bo Foreman K, Peters CL, Weiss JA, Anderson AE, 2017 Higher
+                                      medially-directed joint reaction forces are a characteristic of dysplastic hips: A comparative study
+                                      using subject-specific musculoskeletal models. J. Biomech 54, 80–87. [PubMed: 28233552]
+                                  Harris-Hayes M, Mueller MJ, Sahrmann SA, Bloom NJ, Steger-May K, Clohisy JC, Salsich GB, 2014
+                                      Persons with chronic hip joint pain exhibit reduced hip muscle strength. J. Orthop. Sports Phys.
+                                      Ther 44, 890–898. [PubMed: 25299750]
+                                  Hermens HJ, Freriks B, Disselhorst-Klug C, Rau G, 2000 Development of recommendations for
+Author Manuscript
+
+
+
+
+                                      SEMG sensors and sensor placement procedures. J. Electromyogr. Kinesiol 10, 361–374.
+                                      [PubMed: 11018445]
+                                  Hicks JL, Uchida TK, Seth A, Rajagopal A, Delp SL, 2015 Is my model good enough? Best practices
+                                      for verification and validation of musculoskeletal models and simulations of movement. J.
+                                      Biomech. Eng 137, 020905. [PubMed: 25474098]
+                                  Lai AKM, Arnold AS, Wakeling JM, 2017 Why are antagonist muscles co-activated in my simulation?
+                                      A musculoskeletal model for analysing human locomotor tasks. Ann. Biomed. Eng 45, 2762–
+                                      2774. [PubMed: 28900782]
+                                  Lewis CL, Sahrmann SA, 2006 Acetabular labral tears. Phys. Ther 86, 110–121. [PubMed: 16386066]
+                                  Liu R, Wen X, Tong Z, Wang K, Wang C, 2012 Changes of gluteus medius muscle in the adult patients
+                                      with unilateral developmental dysplasia of the hip. BMC Musculoskelet. Disord 13, 101.
+                                      [PubMed: 22703548]
+                                  MacDonald SJ, Garbuz D, Ganz R, 1997 Clinical evaluation of the symptomatic young adult hip.
+                                      Semin. Arthroplasty 8, 3–9.
+                                  Maquet P, 1999 Biomechanics of hip dysplasia. Acta Orthop. Belg 65, 302–314. [PubMed: 10546353]
+Author Manuscript
+
+
+
+
+                                  Moisio KC, Sumner DR, Shott S, Hurwitz DE, 2003 Normalization of joint moments during gait: a
+                                      comparison of two techniques. J. Biomech 36, 599–603. [PubMed: 12600350]
+                                  Nepple JJ, Wells J, Ross JR, Bedi A, Schoenecker PL, Clohisy JC, 2017 Three patterns of acetabular
+                                      deficiency are common in young adult patients with acetabular dysplasia. Clin. Orthop. Relat. Res
+                                      475, 1037–1044. [PubMed: 27830486]
+                                  Netter FH, 2014 Atlas of Human Anatomy. 6th ed W.B. Saunders, Philadelphia, PA.
+                                  Neumann DA, 2010 Kinesiology of the hip: a focus on muscular actions. J. Orthop. Sports Phys. Ther
+                                      40, 82–94. [PubMed: 20118525]
+
+
+
+                                      J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                   Page 11
+
+
+                                  Pandy MG, 1999 Moment arm of a muscle force. Exerc. Sport Sci. Rev 27, 79–118. [PubMed:
+                                      10791015]
+Author Manuscript
+
+
+
+
+                                  Pickle NT, Grabowski AM, Auyang AG, Silverman AK, 2016 The functional roles of muscles during
+                                      sloped walking. J. Biomech 49, 3244–3251. [PubMed: 27553849]
+                                  Scheys L, Van Campenhout A, Spaepen A, Suetens P, Jonkers I, 2008 Personalized MR-based
+                                      musculoskeletal models compared to rescaled generic models in the presence of increased femoral
+                                      anteversion: effect on hip moment arm lengths. Gait Posture 28, 358–365. [PubMed: 18571416]
+                                  Shelburne KB, Decker MJ, Krong J, Torry MR, Philippon MJ, 2010 Muscle forces at the hip during
+                                      squatting exercise In Proceedings of the 56th Annual Meeting of the Orthopaedic Research
+                                      Society. New Orleans, LA.
+                                  Sherman MA, Seth A, Delp SL, 2013 What is a moment arm? Calculating muscle effectiveness in
+                                      biomechanical models using generalized coordinates Proc. ASME Des. Eng. Tech. Conf Portland,
+                                      OR.
+                                  Skalshoi O, Iversen CH, Nielsen DB, Jacobsen J, Mechlenburg I, Soballe K, Sorensen H, 2015
+                                      Walking patterns and hip contact forces in patients with hip dysplasia. Gait Posture 42, 529–533.
+                                      [PubMed: 26365370]
+Author Manuscript
+
+
+
+
+                                  Song K, Anderson AE, Weiss JA, Harris MD, 2019 Musculoskeletal models with generic and subject-
+                                      specific geometry estimate different joint biomechanics in dysplastic hips. Comput. Methods
+                                      Biomech. Biomed. Engin 22, 259–270. [PubMed: 30663342]
+                                  Steele KM, Demers MS, Schwartz MH, Delp SL, 2012 Compressive tibiofemoral force during crouch
+                                      gait. Gait Posture 35, 556–560. [PubMed: 22206783]
+                                  van Arkel RJ, Modenese L, Phillips AT, Jeffers JR, 2013 Hip abduction can prevent posterior edge
+                                      loading of hip replacements. J. Orthop. Res 31, 1172–1179. [PubMed: 23575923]
+                                  Wesseling M, De Groote F, Bosmans L, Bartels W, Meyer C, Desloovere K, Jonkers I, 2016a Subject-
+                                      specific geometrical detail rather than cost function formulation affects hip loading calculation.
+                                      Comput. Methods Biomech. Biomed. Engin 19, 1475–1488. [PubMed: 26930478]
+                                  Wesseling M, Meyer C, De Groote F, Corten K, Simon JP, Desloovere K, Jonkers I, 2016b Gait
+                                      alterations can reduce the risk of edge loading. J. Orthop. Res 34, 1069–1076. [PubMed:
+                                      26632197]
+                                  Wiberg G, 1939 Studies on dysplastic acetabula and congenital subluxation of the hip joint with
+Author Manuscript
+
+
+
+
+                                      special reference to the complication of osteoarthritis. Acta Chir. Scand 83 (Suppl 58), 7–135.
+                                  Winter DA, 2004 Biomechanics and Motor Control of Human Movement. John Wiley & Sons,
+                                      Hoboken, NJ.
+                                  Wyles CC, Heidenreich MJ, Jeng J, Larson DR, Trousdale RT, Sierra RJ, 2017 The John Charnley
+                                      Award: Redefining the natural history of osteoarthritis in patients with hip dysplasia and
+                                      impingement. Clin. Orthop. Relat. Res 475, 336–350. [PubMed: 27071391]
+                                  Yanagawa T, Goodwin CJ, Shelburne KB, Giphart JE, Torry MR, Pandy MG, 2008 Contributions of
+                                      the individual muscles of the shoulder to glenohumeral joint stability during abduction. J.
+                                      Biomech. Eng 130, 021024. [PubMed: 18412511]
+                                  Zeni JA Jr., Higginson JS, 2010 Gait parameters and stride-to-stride variability during familiarization
+                                      to walking on a split-belt treadmill. Clin. Biomech. (Bristol, Avon) 25, 383–386.
+Author Manuscript
+
+
+
+
+                                      J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                            Page 12
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+
+
+
+                                  Fig. 1.
+                                  (A) Example model with subject-specific pelvis and femur geometries, HJC locations, and
+                                  muscle paths. (B) Example hip muscle MAL (anterior gluteus medius, “GMedAnt”, red
+                                  arrow). Hip flexion, abduction, and rotation MALs were extracted across an entire gait
+                                  cycle. (C) Example hip muscle LoAs. The AP, SI, and ML components of each muscle’s
+                                  LoA represent the percentage of its net force in a certain direction within the pelvis frame.
+Author Manuscript
+
+
+
+
+                                      J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                         Page 13
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+
+
+
+                                  Fig. 2.
+                                  Average muscle MALs (left and center) and LoAs (right) for major hip abductors, flexors,
+                                  and external rotators. Shades represent ± 1SD. Vertical highlighted areas indicate the times
+                                  of JRF peaks in early stance (JRF1) and late stance (JRF2). “*” indicates statistical inter-
+                                  group significance. GMedAnt, anterior gluteus medius; TFL, tensor fasciae latae; RF, rectus
+                                  femoris; IL, iliacus; GMaxAnt, anterior gluteus maximus.
+Author Manuscript
+
+
+
+
+                                      J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                          Page 14
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+
+
+
+                                  Fig. 3.
+                                  Average hip JRF components overlaid with abductor and external rotator muscle forces.
+                                  Internal rotator forces (not shown) followed similar patterns to abductors. Shades represent
+                                  ± 1SD. Vertical highlighted areas indicate the times of hip JRF peaks. “*” indicates
+Author Manuscript
+
+
+
+
+                                  statistical inter-group significance.
+
+
+
+
+                                      J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                         Page 15
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+
+
+
+                                  Fig. 4.
+                                  Average forces for the gluteus medius (GMed) and tensor fasciae latae (TFL) muscles. Three
+                                  individual muscles had force differences between DDH and Healthy: gluteus medius, tensor
+                                  fasciae latae (resultant and superior only), and gluteus minimus (similar patterns to gluteus
+Author Manuscript
+
+
+
+
+                                  medius). Shades represent ± 1SD. Vertical highlighted areas indicate the times of hip JRF
+                                  peaks. “*” indicates statistical inter-group significance.
+
+
+
+
+                                      J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                                         Page 16
+
+
+
+
+                                                                                      Table 1
+
+                    Demographics, gait speed, and normalized HJC ML location (mean ± SD) for Healthy and DDH subjects.
+Author Manuscript
+
+
+
+
+                     Demographics                           Healthy (N = 15)    DDH (N = 15)      p-value
+
+                     Age (years)                            24.6 ± 6.3          26.5 ± 7.9        0.62
+                     Height (m)                             1.67 ± 0.06         1.66 ± 0.07       0.85
+                     Mass (kg)                              61.9 ± 7.8          62.7 ± 9.3        0.79
+                     BMI (kg/m2)                            22.3 ± 2.3          22.7 ± 2.4        0.64
+                     Walking speed (m/s)                    1.39 ± 0.15         1.37 ±0.15        0.59
+                     Normalized HJC ML location (%)         77.2% ± 8.6%        88.4% ± 10.2%     < 0.01
+
+                    Note: Normalized HJC ML location = ML location of HJC / ML distance between anterior superior iliac spine and mid-sagittal plane.
+Author Manuscript
+Author Manuscript
+Author Manuscript
+
+
+
+
+                                                J Biomech. Author manuscript; available in PMC 2021 September 18.
+                    Song et al.                                                                                                                              Page 17
+
+
+
+
+                                                                                         Table 2
+
+                    Hip muscle functional group definitions.
+Author Manuscript
+
+
+
+
+                        Hip Muscle Group        Individual muscles included (alphabetic order)
+
+                        Hip Flexors             adductor brevis, adductor longus, gluteus minimus (anterior), gracillis, iliacus,
+                                                *pectineus, psoas major, rectus femoris, sartorius, tensor fasciae latae
+
+                        Hip Extensors           adductor magnus (distal and ischial), biceps femoris long head, gluteus maximus,
+                                                gluteus medius (middle and posterior), gluteus minimus (posterior), semimembranosus, semitendinosus
+                        Hip Abductors           gluteus maximus (anterior), gluteus medius, gluteus minimus,
+                                                piriformis, sartorius, tensor fasciae latae
+                        Hip Adductors           adductor brevis, adductor longus, adductor magnus, gluteus maximus (posterior),
+                                                gracillis, obturator externus, *pectineus, quadratus femoris
+                        Hip Internal Rotators   adductor brevis, adductor longus, adductor magnus (ischial), gluteus medius (anterior),
+                                                gluteus minimus (anterior), *pectineus, tensor fasciae latae
+                        Hip External Rotators   *gemelli, gluteus maximus, gluteus medius (posterior), gluteus minimus (posterior),
+                                                *obturator externus, *obturator internus, piriformis, *quadratus femoris
+Author Manuscript
+
+
+
+
+                    *
+                     Hip muscles added to the generic OpenSim musculoskeletal model. Torso muscles were also added to the model, including erector spinae,
+                    external oblique, internal oblique, and rectus abdominis (Shelburne et al., 2010).
+Author Manuscript
+Author Manuscript
+
+
+
+
+                                                J Biomech. Author manuscript; available in PMC 2021 September 18.
+                                                                    Author Manuscript                                  Author Manuscript                                       Author Manuscript                                   Author Manuscript
+
+
+                                                                                                                                                                             Table 3
+
+                                                                          Dynamic MALs and LoAs (mean ± SD) for major force-generating hip muscles with significant differences (bold) between DDH and Healthy groups.
+                                                                          LoA expressed as percentage (%) of net muscle force.
+                                                                                                                                                                                                                                                       Song et al.
+
+
+
+
+                                                                                                                                    At JRF1                                                At JRF2
+
+                                                                           Hip MAL (mm)                                             Healthy         DDH            p-value     Cohen’s d   Healthy        DDH            p-value   Cohen’s d
+
+                                                                           Gluteus Medius (anterior section)         Flexion        6.3 ± 6.4       6.1 ± 7.6      0.94        0.03        −7.0 ± 7.2     −6.3 ± 9.1     0.82      0.08
+                                                                                                                     Adduction      −41.6 ± 5.9     −35.3 ± 6.4    0.01        1.02        −52.6 ± 4.0    −45.4 ± 4.8    < 0.01    1.63
+                                                                                                                     Rotation       24.5 ± 5.7      21.9 ± 4.8     0.19        0.49        0.1 ± 3.9      0.2 ± 6.4      0.51      0.03
+                                                                           Rectus Femoris                            Flexion        40.6 ± 5.7      40.6 ± 4.8     1.00        0.00        29.4 ± 2.1     29.9 ± 2.5     0.58      0.20
+                                                                                                                     Adduction      −4.4 ± 4.4      1.9 ± 4.6      < 0.01      1.41        −7.9 ± 4.5     −0.4 ± 4.9     < 0.01    1.60
+                                                                                                                     Rotation       −0.5 ± 0.7      0.3 ± 0.9      0.02        0.95        −1.2 ± 0.5     −0.3 ± 0.7     < 0.01    1.41
+                                                                           Iliacus                                   Flexion        34.0 ± 3.2      35.2 ± 2.6     0.27        0.41        31.6 ±3.5      31.3 ± 3.1     0.80      0.09
+                                                                                                                     Adduction      2.0 ± 3.3       6.5 ± 3.6      < 0.01      1.30        −2.4 ± 3.0     2.6 ± 3.7      < 0.01    1.46
+                                                                                                                     Rotation       6.9 ± 3.1       3.8 ± 3.3      0.01        0.95        8.0 ± 3.4      5.0 ± 3.1      0.02      0.93
+                                                                           Tensor Fasciae Latae                      Flexion        54.1 ± 10.2     57.3 ± 6.8     0.32        0.37        27.0 ± 9.4     31.9 ± 9.4     0.16      0.52
+                                                                                                                     Adduction      −38.4 ± 8.4     −27.5 ± 10.1   < 0.01      1.19        −47.1 ± 8.6    −34.9 ± 10.5   < 0.01    1.28
+                                                                                                                     Rotation       19.8 ± 4.8      21.0 ± 5.9     0.54        0.23        −0.9 ± 3.6     2.0 ± 4.9      0.07      0.68
+
+                                                                           Muscle LoA (%)                                           Healthy         DDH            p-value     Cohen’s d   Healthy        DDH            p-value   Cohen’s d
+
+                                                                           Gluteus Maximus (anterior section)        (+) AP (−)     −51.5 ± 15.7    −41.7 ± 10.5   0.09        0.73        −37.5 ± 13.5   −29.8 ± 8.0    0.17      0.70
+                                                                                                                     (+) SI (−)     80.4 ± 10.1     84.2 ± 4.6     0.57        0.49        78.1 ± 6.1     78.8 ± 4.8     0.72      0.13
+                                                                                                                     (+) ML (−)     22.1 ± 12.0     31.5 ± 7.9     0.02        0.92        47.1 ± 8.6     52.8 ± 6.2     0.05      0.75
+
+                                                                          Note: Positive values indicate hip flexion, adduction, or internal rotation MALs.
+
+
+
+
+J Biomech. Author manuscript; available in PMC 2021 September 18.
+                                                                                                                                                                                                                                                       Page 18
+
