@@ -6,49 +6,49 @@ window.GRAPH_MANIFEST = {
                        "title":  "Adduction IMALs",
                        "file":  "views/ackland2008_shoulder_adductors_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-16T16:23:04.0430711-04:00"
+                       "updatedAt":  "2026-03-17T01:37:33.3254443-04:00"
                    },
                    {
                        "id":  "ackland2008_shoulder_abduction_imal_interactive",
                        "title":  "Abduction IMALs",
                        "file":  "views/ackland2008_shoulder_abduction_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-16T16:19:24.2948709-04:00"
+                       "updatedAt":  "2026-03-17T01:37:33.3244449-04:00"
                    },
                    {
                        "id":  "kuechle1997_shoulder_imal_interactive",
                        "title":  "Kuechle Shoulder IMALs",
                        "file":  "views/kuechle1997_shoulder_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-16T16:38:47.1356703-04:00"
+                       "updatedAt":  "2026-03-16T18:17:27.9348898-04:00"
                    },
                    {
                        "id":  "ackland2008_shoulder_flexion_imal_interactive",
                        "title":  "Flexion IMALs",
                        "file":  "views/ackland2008_shoulder_flexion_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-16T17:05:06.6458819-04:00"
+                       "updatedAt":  "2026-03-17T01:37:33.3254443-04:00"
                    },
                    {
                        "id":  "ackland2008_shoulder_extension_imal_interactive",
                        "title":  "Extension IMALs",
                        "file":  "views/ackland2008_shoulder_extension_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-16T03:19:46.9078152-04:00"
+                       "updatedAt":  "2026-03-17T01:37:33.3254443-04:00"
                    },
                    {
                        "id":  "murray1995_elbow_flexor_imal_interactive",
                        "title":  "Elbow flexor IMAL",
                        "file":  "views/murray1995_elbow_flexor_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-16T05:14:10.7742575-04:00"
+                       "updatedAt":  "2026-03-17T01:37:47.1559668-04:00"
                    },
                    {
                        "id":  "ackland2011_neck_imal_interactive",
                        "title":  "Neck IMAL",
                        "file":  "views/ackland2011_neck_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-16T03:02:49.1328741-04:00"
+                       "updatedAt":  "2026-03-16T18:17:27.9348898-04:00"
                    },
                    {
                        "id":  "digitizer",
@@ -58,6 +58,6 @@ window.GRAPH_MANIFEST = {
                        "updatedAt":  "2026-03-16T01:16:45.0265277-04:00"
                    }
                ],
-    "generatedAt":  "2026-03-16T17:05:24.9000611-04:00"
+    "generatedAt":  "2026-03-17T01:40:51.1648948-04:00"
 };
 

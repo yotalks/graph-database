@@ -197,7 +197,7 @@
         { name: "Latissimus dorsi (inf)", maxMm: -10.8, maxDeg: 53.0, minMm: -2.9, minDeg: 120.0 }
       ];
 
-      const degs = Array.from({ length: 211 }, (_, i) => i - 30); // -30..180
+      const degs = Array.from({ length: 181 }, (_, i) => i - 30); // -30..150
 
       function momentArmRaw(m, deg) {
         const denom = (m.minDeg - m.maxDeg) ** 2;
@@ -283,7 +283,7 @@
       const btnAll = document.getElementById("all");
       const btnNone = document.getElementById("none");
 
-      const X_BOUNDS = { min: -30, max: 180 };
+      const X_BOUNDS = { min: -30, max: 150 };
       const allNegativeY = muscles.flatMap(m => m.y.filter(v => v !== null));
       const Y_BOUNDS = { min: allNegativeY.length ? Math.min(...allNegativeY) : -60, max: 0 };
       const MIN_X_RANGE = 10;
@@ -386,7 +386,7 @@
       }
 
       function yAtVisible(m, deg) {
-        const d = clamp(deg, -30, 180);
+        const d = clamp(deg, X_BOUNDS.min, X_BOUNDS.max);
         const base = 30;
         const d0 = Math.floor(d);
         const d1 = Math.ceil(d);
@@ -422,8 +422,8 @@
         const active = muscles.find(m => m.name === activeMuscle && m.visible);
         if (!active) return null;
         let best = null;
-        const from = Math.max(-30, Math.ceil(view.xMin));
-        const to = Math.min(180, Math.floor(view.xMax));
+        const from = Math.max(X_BOUNDS.min, Math.ceil(view.xMin));
+        const to = Math.min(X_BOUNDS.max, Math.floor(view.xMax));
         for (let deg = from; deg <= to; deg += 1) {
           const activeY = yAtVisible(active, deg);
           if (activeY === null) continue;
@@ -583,7 +583,7 @@
           ctx.stroke();
           ctx.restore();
 
-          // right extrap (120..180) dashed
+          // right extrap (120..150) dashed
           ctx.save();
           ctx.strokeStyle = color;
           ctx.globalAlpha = 0.9 * lineAlpha;
@@ -609,7 +609,7 @@
           ctx.restore();
         }
 
-        const sx = Math.round((210 / (view.xMax - view.xMin)) * 100);
+        const sx = Math.round(((X_BOUNDS.max - X_BOUNDS.min) / (view.xMax - view.xMin)) * 100);
         status.textContent = `${sx}% zoom`;
       }
 
@@ -664,7 +664,7 @@
         if (x < padL || x > padL + w || y < padT || y > padT + h) { hideTip(); return; }
 
         const deg = pxToX(x, w, padL);
-        if (deg < -30 || deg > 180) { hideTip(); return; }
+        if (deg < X_BOUNDS.min || deg > X_BOUNDS.max) { hideTip(); return; }
 
         let best = null;
         for (const m of muscles) {

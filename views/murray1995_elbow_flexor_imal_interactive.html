@@ -148,7 +148,7 @@
       <div class="top">
         <div>
           <div class="title">Murray et al. (1995) - Elbow flexor internal moment arms (female specimen)</div>
-          <div class="subtitle">Wheel = zoom | Drag = pan | Solid = digitized points spline | Dashed = estimated prefix to 0 deg</div>
+          <div class="subtitle">Wheel = zoom | Drag = pan | Solid = digitized points spline | Dashed = estimated 30 degrees beyond the measured range on both sides</div>
         </div>
         <div class="controls">
           <button id="fit" class="btn">Fit</button>
@@ -168,7 +168,7 @@
           </div>
           <div class="hint">
             Data source: <code>murray1995_momentarms/data/female_digitized_points.csv</code> in this repo.
-            This view reproduces the same linear-prefix estimate used in the static plot script.
+            This view uses linear end extrapolation for 30 degrees beyond the measured range on both sides.
             <div style="margin-top:8px;">
               Download static PNG: <a class="link" href="../graphs/murray1995_female_elbow_flexors.png" download>murray1995_female_elbow_flexors.png</a>
             </div>
@@ -260,8 +260,23 @@
         return out;
       }
 
+      function estimateSuffix(measured, stepDeg = 5) {
+        if (measured.length < 2) return [];
+        const x1 = measured[measured.length - 2].x, y1 = measured[measured.length - 2].y;
+        const x2 = measured[measured.length - 1].x, y2 = measured[measured.length - 1].y;
+        const slope = (y2 - y1) / (x2 - x1);
+        const out = [];
+        for (let d = Math.ceil(x2); d <= Math.ceil(x2 + 30); d += stepDeg) {
+          let yHat = y2 + slope * (d - x2);
+          if (yHat < 0) yHat = 0;
+          out.push({ x: d, y: yHat });
+        }
+        return out;
+      }
+
       for (const s of series) {
         s.estimate = estimatePrefix(s.measured);
+        s.estimateSuffix = estimateSuffix(s.measured);
       }
 
       let showEst = true;
@@ -326,8 +341,8 @@
         draw();
       });
 
-      const X_BOUNDS = { min: 0, max: 120 };
-      const allSeriesPoints = series.flatMap(s => [...s.measured, ...s.estimate]);
+      const X_BOUNDS = { min: 0, max: 150 };
+      const allSeriesPoints = series.flatMap(s => [...s.measured, ...s.estimate, ...s.estimateSuffix]);
       const Y_BOUNDS = {
         min: Math.min(...allSeriesPoints.map(p => p.y)),
         max: Math.max(...allSeriesPoints.map(p => p.y)),
@@ -375,7 +390,7 @@
         const visible = series.filter(s => s.visible);
         const all = [];
         for (const s of visible) {
-          if (showEst) all.push(...s.estimate);
+          if (showEst) all.push(...s.estimate, ...s.estimateSuffix);
           all.push(...s.measured);
         }
         const yMin = all.length ? Math.min(...all.map(p => p.y)) : 0;
@@ -454,7 +469,7 @@
         ctx.strokeStyle = "rgba(255,255,255,0.08)";
         const xStep = niceStep(view.xMax - view.xMin);
         for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
-          if (x < 0 || x > 120) continue;
+          if (x < X_BOUNDS.min || x > X_BOUNDS.max) continue;
           if (x < view.xMin || x > view.xMax) continue;
           const px = xToPx(x, w, padL);
           ctx.beginPath(); ctx.moveTo(px, padT); ctx.lineTo(px, padT + h); ctx.stroke();
@@ -471,7 +486,7 @@
         ctx.font = "12px Segoe UI, system-ui";
         ctx.textAlign = "center";
         for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
-          if (x < 0 || x > 120) continue;
+          if (x < X_BOUNDS.min || x > X_BOUNDS.max) continue;
           if (x < view.xMin || x > view.xMax) continue;
           const px = xToPx(x, w, padL);
           ctx.fillText(String(x), px, padT + h + 18);
@@ -519,7 +534,7 @@
       }
 
       function yAtSeries(s, deg) {
-        const points = [...(showEst ? s.estimate : []), ...s.measured].sort((a, b) => a.x - b.x);
+        const points = [...(showEst ? [...s.estimate, ...s.estimateSuffix] : []), ...s.measured].sort((a, b) => a.x - b.x);
         if (!points.length || deg < points[0].x || deg > points[points.length - 1].x) return null;
         for (let i = 0; i < points.length - 1; i++) {
           const a = points[i], b = points[i + 1];
@@ -542,8 +557,8 @@
         if (!active) return null;
         let best = null;
         const activeGroup = leverageGroup(active.name);
-        const from = Math.max(0, Math.ceil(view.xMin));
-        const to = Math.min(120, Math.floor(view.xMax));
+        const from = Math.max(X_BOUNDS.min, Math.ceil(view.xMin));
+        const to = Math.min(X_BOUNDS.max, Math.floor(view.xMax));
         for (let deg = from; deg <= to; deg += 1) {
           const activeY = yAtSeries(active, deg);
           if (activeY === null) continue;
@@ -608,7 +623,11 @@
               .filter(p => p.x >= view.xMin && p.x <= view.xMax)
               .map(p => ({ px: xToPx(p.x, w, padL), py: yToPx(p.y, h, padT) }));
             strokeSpline(estPts, color, isActive ? 4 : 3, [10, 7], 0.85 * lineAlpha, isActive);
-            rec.estimate = estPts;
+            const estPtsSuffix = s.estimateSuffix
+              .filter(p => p.x >= view.xMin && p.x <= view.xMax)
+              .map(p => ({ px: xToPx(p.x, w, padL), py: yToPx(p.y, h, padT) }));
+            strokeSpline(estPtsSuffix, color, isActive ? 4 : 3, [10, 7], 0.85 * lineAlpha, isActive);
+            rec.estimate = [...estPts, ...estPtsSuffix].sort((a, b) => a.px - b.px);
           }
           screenSeries.push(rec);
 
