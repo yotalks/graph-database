@@ -51,6 +51,13 @@ window.GRAPH_MANIFEST = {
                        "updatedAt":  "2026-03-17T18:15:00.0000000-04:00"
                    },
                    {
+                       "id":  "buford1997_knee_extension_imal_interactive",
+                       "title":  "Knee extension IMAL",
+                       "file":  "views/buford1997_knee_extension_imal_interactive.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-17T18:40:00.0000000-04:00"
+                   },
+                   {
                        "id":  "ackland2011_neck_imal_interactive",
                        "title":  "Neck IMAL",
                        "file":  "views/ackland2011_neck_imal_interactive.html",
@@ -65,6 +72,6 @@ window.GRAPH_MANIFEST = {
                        "updatedAt":  "2026-03-16T01:16:45.0265277-04:00"
                    }
                ],
-    "generatedAt":  "2026-03-17T18:15:00.0000000-04:00"
+    "generatedAt":  "2026-03-17T18:40:00.0000000-04:00"
 };
 

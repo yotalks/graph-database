@@ -48,6 +48,12 @@
     "kind": "interactive"
   },
   {
+    "id": "buford1997_knee_extension_imal_interactive",
+    "title": "Knee extension IMAL",
+    "file": "views/buford1997_knee_extension_imal_interactive.html",
+    "kind": "interactive"
+  },
+  {
     "id": "ackland2011_neck_imal_interactive",
     "title": "Neck IMAL",
     "file": "views/ackland2011_neck_imal_interactive.html",

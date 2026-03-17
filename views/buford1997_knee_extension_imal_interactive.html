@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buford 1997 Knee extension IMAL (interactive)</title>
+    <style>
+      :root {
+        --bg: #0b0f17;
+        --panel: rgba(17, 24, 39, 0.55);
+        --panel2: rgba(15, 23, 42, 0.65);
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: rgba(255, 255, 255, 0.08);
+        --btn: rgba(255, 255, 255, 0.08);
+        --btnHover: rgba(255, 255, 255, 0.12);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: radial-gradient(1200px 900px at 20% 10%, rgba(96,165,250,0.15), transparent 45%),
+                    radial-gradient(900px 700px at 80% 15%, rgba(34,197,94,0.12), transparent 45%),
+                    var(--bg);
+        color: var(--text);
+        overflow: hidden;
+      }
+      .wrap { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+      .top {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        align-items: center;
+      }
+      .title { font-weight: 750; font-size: 13px; }
+      .subtitle { color: var(--muted); font-size: 12px; margin-top: 2px; line-height: 1.35; }
+      .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+      .btn {
+        border: 1px solid var(--border);
+        background: var(--btn);
+        color: var(--text);
+        padding: 7px 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 650;
+        font-size: 12px;
+      }
+      .btn:hover { background: var(--btnHover); }
+      .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
+      .main { position: relative; display: grid; grid-template-columns: 320px 1fr; min-height: 0; }
+      .left {
+        border-right: 1px solid var(--border);
+        background: var(--panel2);
+        backdrop-filter: blur(12px);
+        padding: 10px 10px 12px;
+        overflow: auto;
+      }
+      .sectionTitle { font-weight: 750; font-size: 12px; margin: 4px 4px 10px; color: var(--muted); }
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        margin: 8px 4px;
+        background: rgba(0,0,0,0.14);
+        cursor: pointer;
+        transition: background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+      }
+      .check:hover { background: rgba(255,255,255,0.05); }
+      .check.active {
+        border-color: rgba(255,255,255,0.28);
+        background: rgba(255,255,255,0.09);
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset;
+      }
+      .swatch { width: 12px; height: 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25); }
+      .check label { font-size: 12px; font-weight: 650; }
+      .hint { margin: 8px 4px 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
+      .small { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 4px 0; }
+      .small .btn { padding: 6px 8px; font-size: 11px; }
+      .stage { position: relative; overflow: hidden; min-width: 0; touch-action: none; cursor: grab; }
+      .stage.is-dragging { cursor: grabbing; }
+      canvas { width: 100%; height: 100%; display: block; }
+      .overlay {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        background: rgba(0,0,0,0.35);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 8px 10px;
+        color: var(--muted);
+        font-size: 12px;
+        backdrop-filter: blur(8px);
+      }
+      .tooltip {
+        position: absolute;
+        pointer-events: none;
+        background: rgba(0,0,0,0.78);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 8px 10px;
+        color: var(--text);
+        font-size: 12px;
+        max-width: 320px;
+        display: none;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+      }
+      .tooltip .muted { color: var(--muted); font-weight: 650; }
+      @media (max-width: 860px) {
+        html, body { height: auto; overflow: auto; }
+        body { overflow: auto; }
+        .wrap { height: auto; min-height: 100vh; grid-template-rows: auto auto; }
+        .top { grid-template-columns: 1fr; }
+        .controls { justify-content: flex-start; gap: 6px; }
+        .btn { padding: 6px 9px; font-size: 11px; }
+        .status { width: 100%; white-space: normal; }
+        .subtitle, .hint, .overlay { display: none; }
+        .main { grid-template-columns: 1fr; grid-template-rows: auto minmax(540px, 78vh); }
+        .left {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          max-height: 22vh;
+          padding-bottom: 8px;
+        }
+        .check { margin: 6px 4px; padding: 7px 8px; }
+        .stage { min-height: 540px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Buford et al. (1997) - Knee extension IMALs</div>
+          <div class="subtitle">Figure-based reconstruction for quadriceps knee-extension moment arms. Wheel = zoom | Drag = pan | Click a line name to highlight it and mark its best relative leverage angle.</div>
+        </div>
+        <div class="controls">
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle lines</div>
+          <div id="checks"></div>
+          <div class="small">
+            <button id="togglePts" class="btn">Toggle points</button>
+          </div>
+          <div class="hint">
+            Built from a visual reconstruction of the Buford 1997 knee-extensor figure rather than a published numeric table.
+            Use it as an approximate comparison view, not as exact raw measurements.
+          </div>
+        </div>
+        <div class="stage" id="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Figure reconstruction | Hover = muscle | Dotted marker = best relative leverage angle</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const palette = {
+        "Quadriceps (grouped)": "#f8fafc",
+        "Rectus femoris": "#60a5fa",
+        "Vastus intermedius": "#22c55e",
+        "Vastus lateralis": "#f97316",
+        "Vastus medialis": "#ef4444",
+      };
+
+      const points = [
+        { series: "Quadriceps (grouped)", x: 0, y: 4.4 }, { series: "Quadriceps (grouped)", x: 20, y: 4.7 },
+        { series: "Quadriceps (grouped)", x: 40, y: 4.4 }, { series: "Quadriceps (grouped)", x: 60, y: 3.8 },
+        { series: "Quadriceps (grouped)", x: 80, y: 3.2 }, { series: "Quadriceps (grouped)", x: 100, y: 2.5 },
+        { series: "Quadriceps (grouped)", x: 120, y: 1.8 },
+
+        { series: "Rectus femoris", x: 0, y: 4.1 }, { series: "Rectus femoris", x: 20, y: 4.5 },
+        { series: "Rectus femoris", x: 40, y: 4.2 }, { series: "Rectus femoris", x: 60, y: 3.6 },
+        { series: "Rectus femoris", x: 80, y: 3.0 }, { series: "Rectus femoris", x: 100, y: 2.3 },
+        { series: "Rectus femoris", x: 120, y: 1.5 },
+
+        { series: "Vastus intermedius", x: 0, y: 4.0 }, { series: "Vastus intermedius", x: 20, y: 4.3 },
+        { series: "Vastus intermedius", x: 40, y: 4.1 }, { series: "Vastus intermedius", x: 60, y: 3.4 },
+        { series: "Vastus intermedius", x: 80, y: 2.8 }, { series: "Vastus intermedius", x: 100, y: 2.1 },
+        { series: "Vastus intermedius", x: 120, y: 1.3 },
+
+        { series: "Vastus lateralis", x: 0, y: 4.3 }, { series: "Vastus lateralis", x: 20, y: 4.5 },
+        { series: "Vastus lateralis", x: 40, y: 4.2 }, { series: "Vastus lateralis", x: 60, y: 3.6 },
+        { series: "Vastus lateralis", x: 80, y: 3.0 }, { series: "Vastus lateralis", x: 100, y: 2.4 },
+        { series: "Vastus lateralis", x: 120, y: 1.7 },
+
+        { series: "Vastus medialis", x: 0, y: 3.8 }, { series: "Vastus medialis", x: 20, y: 4.1 },
+        { series: "Vastus medialis", x: 40, y: 3.9 }, { series: "Vastus medialis", x: 60, y: 3.4 },
+        { series: "Vastus medialis", x: 80, y: 2.9 }, { series: "Vastus medialis", x: 100, y: 2.4 },
+        { series: "Vastus medialis", x: 120, y: 1.8 },
+      ];
+
+      const seriesNames = Array.from(new Set(points.map(point => point.series)));
+      const series = seriesNames.map(name => ({
+        name,
+        color: palette[name] || "#93c5fd",
+        visible: true,
+        measured: points.filter(point => point.series === name).sort((a, b) => a.x - b.x)
+      }));
+
+      const stage = document.getElementById("stage");
+      const canvas = document.getElementById("c");
+      const ctx = canvas.getContext("2d");
+      const status = document.getElementById("status");
+      const tip = document.getElementById("tip");
+      const checks = document.getElementById("checks");
+
+      let showPoints = true;
+      let activeSeries = null;
+      let dragging = false;
+      let lastX = 0;
+      let lastY = 0;
+      let screenSeries = [];
+      const bounds = { xMin: 0, xMax: 120, yMin: 0, yMax: 5.1 };
+      let view = { ...bounds };
+
+      function xToPx(x, width, padLeft) { return padLeft + (x - view.xMin) * (width / Math.max(1e-6, view.xMax - view.xMin)); }
+      function yToPx(y, height, padTop) { return padTop + (view.yMax - y) * (height / Math.max(1e-6, view.yMax - view.yMin)); }
+      function pxToX(px, width, padLeft) { return view.xMin + (px - padLeft) * (view.xMax - view.xMin) / Math.max(1e-6, width); }
+      function pxToY(py, height, padTop) { return view.yMax - (py - padTop) * (view.yMax - view.yMin) / Math.max(1e-6, height); }
+
+      function clampView(candidate) {
+        const minW = Math.max((bounds.xMax - bounds.xMin) * 0.08, 5);
+        const minH = Math.max((bounds.yMax - bounds.yMin) * 0.08, 0.2);
+        const width = Math.max(minW, Math.min(bounds.xMax - bounds.xMin, candidate.xMax - candidate.xMin));
+        const height = Math.max(minH, Math.min(bounds.yMax - bounds.yMin, candidate.yMax - candidate.yMin));
+        let xMin = candidate.xMin;
+        let yMin = candidate.yMin;
+        if (xMin < bounds.xMin) xMin = bounds.xMin;
+        if (xMin + width > bounds.xMax) xMin = bounds.xMax - width;
+        if (yMin < bounds.yMin) yMin = bounds.yMin;
+        if (yMin + height > bounds.yMax) yMin = bounds.yMax - height;
+        return { xMin, xMax: xMin + width, yMin, yMax: yMin + height };
+      }
+
+      function niceStep(range, target = 7) {
+        const rough = range / target;
+        const power = 10 ** Math.floor(Math.log10(Math.max(rough, 1e-9)));
+        const multiple = rough / power;
+        const niceMultiple = multiple < 1.5 ? 1 : multiple < 3 ? 2 : multiple < 7 ? 5 : 10;
+        return niceMultiple * power;
+      }
+
+      function curvePoints(data) {
+        return data.map(point => ({ x: point.x, y: point.y }));
+      }
+
+      function yAtSeries(seriesObj, x) {
+        const data = curvePoints(seriesObj.measured);
+        if (!data.length || x < data[0].x || x > data[data.length - 1].x) return null;
+        for (let i = 0; i < data.length - 1; i += 1) {
+          const a = data[i];
+          const b = data[i + 1];
+          if (x < a.x || x > b.x) continue;
+          const t = (x - a.x) / (b.x - a.x);
+          return a.y + (b.y - a.y) * t;
+        }
+        return data[data.length - 1].y;
+      }
+
+      function computeBestRelativeAngle() {
+        if (!activeSeries) return null;
+        const active = series.find(item => item.name === activeSeries && item.visible);
+        if (!active) return null;
+        let best = null;
+        for (let x = Math.ceil(view.xMin); x <= Math.floor(view.xMax); x += 1) {
+          const activeY = yAtSeries(active, x);
+          if (activeY === null || activeY <= 0) continue;
+          let strongestOther = 0;
+          for (const item of series) {
+            if (!item.visible || item.name === active.name) continue;
+            const y = yAtSeries(item, x);
+            if (y === null) continue;
+            strongestOther = Math.max(strongestOther, Math.abs(y));
+          }
+          if (strongestOther <= 0) continue;
+          const ratio = activeY / strongestOther;
+          if (!best || ratio > best.ratio) best = { deg: x, ratio };
+        }
+        return best;
+      }
+
+      function drawBestMarker(marker, padLeft, padTop, width, height, color) {
+        if (!marker) return;
+        const px = xToPx(marker.deg, width, padLeft);
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.globalAlpha = 0.8;
+        ctx.setLineDash([6, 6]);
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(px, padTop);
+        ctx.lineTo(px, padTop + height);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function stroke(pointsToDraw, color, options = {}) {
+        if (pointsToDraw.length < 2) return;
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = options.width || 4;
+        ctx.globalAlpha = options.alpha ?? 1;
+        ctx.lineJoin = "round";
+        ctx.lineCap = "round";
+        if (options.glow) {
+          ctx.shadowColor = color;
+          ctx.shadowBlur = 16;
+        }
+        ctx.beginPath();
+        ctx.moveTo(pointsToDraw[0].px, pointsToDraw[0].py);
+        for (let i = 1; i < pointsToDraw.length - 1; i += 1) {
+          const current = pointsToDraw[i];
+          const next = pointsToDraw[i + 1];
+          ctx.quadraticCurveTo(current.px, current.py, (current.px + next.px) / 2, (current.py + next.py) / 2);
+        }
+        ctx.lineTo(pointsToDraw[pointsToDraw.length - 1].px, pointsToDraw[pointsToDraw.length - 1].py);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function drawAxes(padLeft, padTop, width, height) {
+        const xStep = niceStep(view.xMax - view.xMin);
+        const yStep = niceStep(view.yMax - view.yMin);
+
+        ctx.save();
+        ctx.strokeStyle = "rgba(255,255,255,0.08)";
+        ctx.lineWidth = 1;
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
+          const px = xToPx(x, width, padLeft);
+          ctx.beginPath();
+          ctx.moveTo(px, padTop);
+          ctx.lineTo(px, padTop + height);
+          ctx.stroke();
+        }
+        for (let y = Math.ceil(view.yMin / yStep) * yStep; y <= view.yMax + 1e-6; y += yStep) {
+          const py = yToPx(y, height, padTop);
+          ctx.beginPath();
+          ctx.moveTo(padLeft, py);
+          ctx.lineTo(padLeft + width, py);
+          ctx.stroke();
+        }
+
+        ctx.strokeStyle = "rgba(255,255,255,0.28)";
+        ctx.strokeRect(padLeft, padTop, width, height);
+
+        ctx.fillStyle = "rgba(229,231,235,0.92)";
+        ctx.font = "12px Segoe UI, system-ui";
+        ctx.textAlign = "center";
+        for (let x = Math.ceil(view.xMin / xStep) * xStep; x <= view.xMax + 1e-6; x += xStep) {
+          ctx.fillText(String(Math.round(x * 10) / 10), xToPx(x, width, padLeft), padTop + height + 18);
+        }
+        ctx.textAlign = "right";
+        for (let y = Math.ceil(view.yMin / yStep) * yStep; y <= view.yMax + 1e-6; y += yStep) {
+          ctx.fillText(String(Math.round(y * 100) / 100), padLeft - 8, yToPx(y, height, padTop) + 4);
+        }
+
+        ctx.textAlign = "center";
+        ctx.fillStyle = "rgba(156,163,175,0.95)";
+        ctx.fillText("Knee flexion angle (deg)", padLeft + width / 2, padTop + height + 42);
+        ctx.save();
+        ctx.translate(16, padTop + height / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText("Moment arm (cm)", 0, 0);
+        ctx.restore();
+        ctx.restore();
+      }
+
+      function segmentDistance(px, py, ax, ay, bx, by) {
+        const abx = bx - ax;
+        const aby = by - ay;
+        const apx = px - ax;
+        const apy = py - ay;
+        const len2 = abx * abx + aby * aby;
+        let t = len2 ? (apx * abx + apy * aby) / len2 : 0;
+        t = Math.max(0, Math.min(1, t));
+        const cx = ax + t * abx;
+        const cy = ay + t * aby;
+        return { dist: Math.hypot(px - cx, py - cy), cx, cy };
+      }
+
+      function nearest(px, py, pointsToSearch) {
+        if (pointsToSearch.length < 2) return null;
+        let best = null;
+        for (let i = 0; i < pointsToSearch.length - 1; i += 1) {
+          const hit = segmentDistance(px, py, pointsToSearch[i].px, pointsToSearch[i].py, pointsToSearch[i + 1].px, pointsToSearch[i + 1].py);
+          if (!best || hit.dist < best.dist) best = hit;
+        }
+        return best;
+      }
+
+      function hideTip() { tip.style.display = "none"; }
+      function showTip(html, x, y) {
+        tip.innerHTML = html;
+        tip.style.display = "block";
+        const stageRect = stage.getBoundingClientRect();
+        const tipRect = tip.getBoundingClientRect();
+        const pad = 14;
+        tip.style.left = Math.max(pad, Math.min(stageRect.width - tipRect.width - pad, x + pad)) + "px";
+        tip.style.top = Math.max(pad, Math.min(stageRect.height - tipRect.height - pad, y + pad)) + "px";
+      }
+
+      function syncActiveRows() {
+        for (const row of checks.querySelectorAll(".check")) row.classList.toggle("active", row.dataset.name === activeSeries);
+      }
+
+      function buildChecks() {
+        checks.innerHTML = "";
+        for (const item of series) {
+          const row = document.createElement("div");
+          row.className = "check";
+          row.dataset.name = item.name;
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = item.visible;
+          checkbox.addEventListener("click", event => event.stopPropagation());
+          checkbox.addEventListener("change", () => {
+            item.visible = checkbox.checked;
+            if (!item.visible && activeSeries === item.name) activeSeries = null;
+            syncActiveRows();
+            draw();
+          });
+
+          const swatch = document.createElement("div");
+          swatch.className = "swatch";
+          swatch.style.background = item.color;
+
+          const label = document.createElement("label");
+          label.textContent = item.name;
+
+          row.addEventListener("click", () => {
+            activeSeries = activeSeries === item.name ? null : item.name;
+            syncActiveRows();
+            draw();
+          });
+
+          row.append(checkbox, swatch, label);
+          checks.appendChild(row);
+        }
+      }
+
+      function resize() {
+        const rect = stage.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+        canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+        canvas.style.width = rect.width + "px";
+        canvas.style.height = rect.height + "px";
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        draw();
+      }
+
+      function fitView() {
+        const visible = series.filter(item => item.visible);
+        const xs = [];
+        const ys = [];
+        for (const item of visible) {
+          for (const point of item.measured) {
+            xs.push(point.x);
+            ys.push(point.y);
+          }
+        }
+        if (!xs.length) {
+          view = { ...bounds };
+          draw();
+          return;
+        }
+        const xMin = Math.max(bounds.xMin, Math.min(...xs));
+        const xMax = Math.min(bounds.xMax, Math.max(...xs));
+        const yMin = Math.max(bounds.yMin, Math.min(...ys));
+        const yMax = Math.min(bounds.yMax, Math.max(...ys));
+        const xPad = Math.max(2, (xMax - xMin) * 0.05);
+        const yPad = Math.max(0.12, (yMax - yMin) * 0.08 || 0.12);
+        view = clampView({ xMin: xMin - xPad, xMax: xMax + xPad, yMin: yMin - yPad, yMax: yMax + yPad });
+        draw();
+      }
+
+      function applyZoom(factorX, factorY, clientX, clientY) {
+        const rect = stage.getBoundingClientRect();
+        const padLeft = 70;
+        const padTop = 20;
+        const padRight = 20;
+        const padBottom = 60;
+        const width = Math.max(10, rect.width - padLeft - padRight);
+        const height = Math.max(10, rect.height - padTop - padBottom);
+        let x = clientX - rect.left;
+        let y = clientY - rect.top;
+        if (x < padLeft || x > padLeft + width || y < padTop || y > padTop + height) {
+          x = padLeft + width / 2;
+          y = padTop + height / 2;
+        }
+        const x0 = pxToX(x, width, padLeft);
+        const y0 = pxToY(y, height, padTop);
+        view = clampView({
+          xMin: x0 + (view.xMin - x0) * factorX,
+          xMax: x0 + (view.xMax - x0) * factorX,
+          yMin: y0 + (view.yMin - y0) * factorY,
+          yMax: y0 + (view.yMax - y0) * factorY,
+        });
+        hideTip();
+        draw();
+      }
+
+      function draw() {
+        const rect = stage.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const padLeft = 70;
+        const padTop = 20;
+        const padRight = 20;
+        const padBottom = 60;
+        const plotWidth = Math.max(10, width - padLeft - padRight);
+        const plotHeight = Math.max(10, height - padTop - padBottom);
+        ctx.clearRect(0, 0, width, height);
+        drawAxes(padLeft, padTop, plotWidth, plotHeight);
+
+        if (activeSeries) {
+          const selected = series.find(item => item.name === activeSeries);
+          if (selected) drawBestMarker(computeBestRelativeAngle(), padLeft, padTop, plotWidth, plotHeight, selected.color);
+        }
+
+        screenSeries = [];
+        for (const item of series) {
+          if (!item.visible) continue;
+          const isActive = activeSeries === item.name;
+          const lineAlpha = activeSeries ? (isActive ? 1 : 0.18) : 1;
+          const plotted = item.measured
+            .filter(point => point.x >= view.xMin && point.x <= view.xMax)
+            .map(point => ({ x: point.x, y: point.y, px: xToPx(point.x, plotWidth, padLeft), py: yToPx(point.y, plotHeight, padTop) }));
+          if (plotted.length > 1) {
+            stroke(plotted, item.color, { width: isActive ? 6 : 4, alpha: lineAlpha, glow: isActive });
+            screenSeries.push({ name: item.name, points: plotted });
+          }
+          if (showPoints) {
+            ctx.save();
+            ctx.fillStyle = item.color;
+            ctx.globalAlpha = lineAlpha;
+            for (const point of plotted) {
+              ctx.beginPath();
+              ctx.arc(point.px, point.py, isActive ? 4.5 : 3.25, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            ctx.restore();
+          }
+        }
+
+        const zoomPct = Math.round((bounds.xMax - bounds.xMin) / (view.xMax - view.xMin) * 100);
+        status.textContent = `${zoomPct}% zoom`;
+      }
+
+      document.getElementById("fit").addEventListener("click", fitView);
+      document.getElementById("reset").addEventListener("click", () => { view = { ...bounds }; draw(); });
+      document.getElementById("all").addEventListener("click", () => {
+        for (const item of series) item.visible = true;
+        for (const checkbox of checks.querySelectorAll("input")) checkbox.checked = true;
+        syncActiveRows();
+        draw();
+      });
+      document.getElementById("none").addEventListener("click", () => {
+        for (const item of series) item.visible = false;
+        activeSeries = null;
+        for (const checkbox of checks.querySelectorAll("input")) checkbox.checked = false;
+        syncActiveRows();
+        draw();
+      });
+      document.getElementById("togglePts").addEventListener("click", () => {
+        showPoints = !showPoints;
+        draw();
+      });
+
+      window.addEventListener("resize", resize);
+
+      stage.addEventListener("pointerdown", event => {
+        if (event.button !== 0) return;
+        dragging = true;
+        stage.classList.add("is-dragging");
+        lastX = event.clientX;
+        lastY = event.clientY;
+        stage.setPointerCapture(event.pointerId);
+      });
+
+      stage.addEventListener("pointermove", event => {
+        const rect = stage.getBoundingClientRect();
+        const padLeft = 70;
+        const padTop = 20;
+        const padRight = 20;
+        const padBottom = 60;
+        const plotWidth = Math.max(10, rect.width - padLeft - padRight);
+        const plotHeight = Math.max(10, rect.height - padTop - padBottom);
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        if (dragging) {
+          const dx = event.clientX - lastX;
+          const dy = event.clientY - lastY;
+          lastX = event.clientX;
+          lastY = event.clientY;
+          view = clampView({
+            xMin: view.xMin - dx * (view.xMax - view.xMin) / plotWidth,
+            xMax: view.xMax - dx * (view.xMax - view.xMin) / plotWidth,
+            yMin: view.yMin + dy * (view.yMax - view.yMin) / plotHeight,
+            yMax: view.yMax + dy * (view.yMax - view.yMin) / plotHeight,
+          });
+          hideTip();
+          draw();
+          return;
+        }
+
+        if (x < padLeft || x > padLeft + plotWidth || y < padTop || y > padTop + plotHeight) {
+          hideTip();
+          return;
+        }
+
+        let best = null;
+        for (const item of screenSeries) {
+          const hit = nearest(x, y, item.points);
+          if (hit && (!best || hit.dist < best.dist)) best = { ...hit, name: item.name };
+        }
+        if (!best || best.dist > 10) {
+          hideTip();
+          return;
+        }
+        showTip(`<div><strong>${best.name}</strong></div><div class="muted">${pxToX(best.cx, plotWidth, padLeft).toFixed(1)} deg | ${pxToY(best.cy, plotHeight, padTop).toFixed(2)} cm</div>`, x, y);
+      });
+
+      stage.addEventListener("pointerup", event => {
+        dragging = false;
+        stage.classList.remove("is-dragging");
+        try { stage.releasePointerCapture(event.pointerId); } catch {}
+      });
+      stage.addEventListener("pointercancel", () => {
+        dragging = false;
+        stage.classList.remove("is-dragging");
+        hideTip();
+      });
+      stage.addEventListener("pointerleave", () => { if (!dragging) hideTip(); });
+
+      stage.addEventListener("wheel", event => {
+        event.preventDefault();
+        const zoom = event.deltaY > 0 ? 1.12 : 1 / 1.12;
+        const zoomX = event.shiftKey && !event.ctrlKey ? 1 : zoom;
+        const zoomY = event.ctrlKey && !event.shiftKey ? 1 : zoom;
+        applyZoom(zoomX, zoomY, event.clientX, event.clientY);
+      }, { passive: false });
+
+      buildChecks();
+      resize();
+    </script>
+  </body>
+</html>
