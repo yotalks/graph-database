@@ -1,0 +1,291 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Muscle sizes (interactive)</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.btn{cursor:pointer} select,option,optgroup{background:var(--panel);color:var(--text)}.btn:hover{background:var(--btnHover)}.status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}.swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.42}.stage{position:relative;overflow:auto;min-width:0;cursor:grab;touch-action:none} canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.86);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(760px,92vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:28vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:760px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Muscle sizes</div>
+          <div id="subtitle" class="subtitle"></div>
+        </div>
+        <div class="controls">
+          <select id="source"></select>
+          <select id="mode"></select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle bars</div>
+          <div id="checks"></div>
+          <div id="hint" class="hint"></div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div id="overlay" class="overlay"></div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const FAMILY_COLORS={glute:'#8b5cf6',quad:'#3b82f6',hamstring:'#22c55e',adductor:'#f97316',hipFlexor:'#ec4899',rotator:'#a3a3a3',lowerLeg:'#14b8a6',shoulder:'#60a5fa',elbow:'#22c55e',wrist:'#f97316',action:'#a78bfa'};
+
+      const LOWER_INDIVIDUAL=[
+        {name:'Gluteus maximus', mean:764.1, sd:138.0, family:'glute'},
+        {name:'Gluteus medius', mean:287.6, sd:50.2, family:'glute'},
+        {name:'Gluteus minimus', mean:77.1, sd:26.5, family:'glute'},
+        {name:'Gemelli', mean:9.3, sd:4.3, family:'rotator'},
+        {name:'Iliopsoas', mean:353.0, sd:102.2, family:'hipFlexor'},
+        {name:'Obturator externus', mean:38.6, sd:8.9, family:'rotator'},
+        {name:'Obturator internus', mean:46.8, sd:6.0, family:'rotator'},
+        {name:'Piriformis', mean:27.3, sd:6.1, family:'rotator'},
+        {name:'Quadratus femoris', mean:38.4, sd:14.9, family:'rotator'},
+        {name:'Tensor fasciae latae', mean:89.9, sd:14.8, family:'hipFlexor'},
+        {name:'Gracilis', mean:75.4, sd:19.0, family:'adductor'},
+        {name:'Popliteus', mean:10.3, sd:5.4, family:'hamstring'},
+        {name:'Sartorius', mean:126.7, sd:22.4, family:'hipFlexor'},
+        {name:'Rectus femoris', mean:212.3, sd:61.6, family:'quad'},
+        {name:'Vastus intermedius', mean:595.9, sd:185.5, family:'quad'},
+        {name:'Vastus lateralis', mean:303.2, sd:148.4, family:'quad'},
+        {name:'Vastus medialis', mean:306.0, sd:81.0, family:'quad'},
+        {name:'Adductor brevis', mean:79.8, sd:37.3, family:'adductor'},
+        {name:'Adductor longus', mean:107.8, sd:50.7, family:'adductor'},
+        {name:'Adductor magnus', mean:388.9, sd:149.0, family:'adductor'},
+        {name:'Pectineus', mean:49.3, sd:14.3, family:'adductor'},
+        {name:'Biceps femoris', mean:269.8, sd:87.1, family:'hamstring'},
+        {name:'Semimembranosus', mean:210.2, sd:109.0, family:'hamstring'},
+        {name:'Semitendinosus', mean:103.0, sd:41.6, family:'hamstring'}
+      ];
+
+      const LOWER_GROUPED=[
+        {name:'Quads', mean:1417.4, family:'quad', note:'Summed from rectus femoris + vastus intermedius + vastus lateralis + vastus medialis.'},
+        {name:'Glutes', mean:1128.8, family:'glute', note:'Summed from gluteus maximus + gluteus medius + gluteus minimus.'},
+        {name:'Adductors', mean:778.6, family:'adductor', note:'Summed from adductor magnus + sartorius + adductor longus + adductor brevis + gracilis.'},
+        {name:'Hamstrings', mean:583.0, family:'hamstring', note:'Summed from biceps femoris + semimembranosus + semitendinosus.'},
+        {name:'Anterior compartment', mean:402.4, sd:171.0, family:'lowerLeg', note:'Reported lower-leg compartment from Table 1.'},
+        {name:'Deep posterior compartment', mean:165.1, sd:34.8, family:'lowerLeg', note:'Reported lower-leg compartment from Table 1.'},
+        {name:'Lateral compartment', mean:102.0, sd:25.5, family:'lowerLeg', note:'Reported lower-leg compartment from Table 1.'},
+        {name:'Calves', mean:745.6, sd:171.0, family:'lowerLeg', note:'Reported superficial posterior lower-leg compartment from Table 1.'}
+      ];
+
+      const UPPER_MUSCLES=[
+        {name:'Deltoid', abbr:'DELT', mean:380.5, sd:157.7, fraction:15.2, fractionSd:1.0, family:'shoulder', region:'Shoulder'},
+        {name:'Pectoralis major', abbr:'PEC', mean:290.0, sd:169.0, fraction:10.7, fractionSd:2.0, family:'shoulder', region:'Shoulder'},
+        {name:'Latissimus dorsi', abbr:'LAT', mean:262.3, sd:147.2, fraction:9.8, fractionSd:1.5, family:'shoulder', region:'Shoulder'},
+        {name:'Subscapularis', abbr:'SUBSCAP', mean:164.5, sd:63.9, fraction:6.6, fractionSd:0.8, family:'shoulder', region:'Shoulder'},
+        {name:'Infraspinatus', abbr:'INFRA', mean:118.6, sd:46.7, fraction:4.8, fractionSd:0.7, family:'shoulder', region:'Shoulder'},
+        {name:'Supraspinatus', abbr:'SUPRA', mean:50.0, sd:20.4, fraction:2.0, fractionSd:0.3, family:'shoulder', region:'Shoulder'},
+        {name:'Teres major', abbr:'TMAJ', mean:32.7, sd:16.3, fraction:1.3, fractionSd:0.3, family:'shoulder', region:'Shoulder'},
+        {name:'Teres minor', abbr:'TMIN', mean:28.0, sd:13.9, fraction:1.1, fractionSd:0.3, family:'shoulder', region:'Shoulder'},
+        {name:'Coracobrachialis', abbr:'CORB', mean:25.2, sd:16.6, fraction:0.9, fractionSd:0.3, family:'shoulder', region:'Shoulder'},
+        {name:'Triceps brachii', abbr:'TRI', mean:372.1, sd:177.3, fraction:14.5, fractionSd:0.7, family:'elbow', region:'Elbow/forearm'},
+        {name:'Biceps brachii', abbr:'BIC', mean:143.7, sd:68.7, fraction:5.6, fractionSd:0.5, family:'elbow', region:'Elbow/forearm'},
+        {name:'Brachialis', abbr:'BRA', mean:143.7, sd:63.7, fraction:5.7, fractionSd:0.7, family:'elbow', region:'Elbow/forearm'},
+        {name:'Brachioradialis', abbr:'BRD', mean:65.1, sd:36.0, fraction:2.5, fractionSd:0.5, family:'elbow', region:'Elbow/forearm'},
+        {name:'Pronator teres', abbr:'PT', mean:38.4, sd:17.2, fraction:1.5, fractionSd:0.2, family:'elbow', region:'Elbow/forearm'},
+        {name:'Supinator', abbr:'SUP', mean:19.7, sd:8.4, fraction:0.8, fractionSd:0.2, family:'elbow', region:'Elbow/forearm'},
+        {name:'Pronator quadratus', abbr:'PQ', mean:11.2, sd:5.8, fraction:0.4, fractionSd:0.1, family:'elbow', region:'Elbow/forearm'},
+        {name:'Anconeus', abbr:'ANC', mean:10.8, sd:5.2, fraction:0.4, fractionSd:0.1, family:'elbow', region:'Elbow/forearm'},
+        {name:'Flexor digitorum profundus', abbr:'FDP', mean:91.6, sd:39.3, fraction:3.7, fractionSd:0.4, family:'wrist', region:'Wrist'},
+        {name:'Flexor digitorum superficialis', abbr:'FDS', mean:74.2, sd:27.4, fraction:3.0, fractionSd:0.5, family:'wrist', region:'Wrist'},
+        {name:'Extensor carpi radialis longus', abbr:'ECRL', mean:37.5, sd:19.0, fraction:1.5, fractionSd:0.2, family:'wrist', region:'Wrist'},
+        {name:'Flexor carpi ulnaris', abbr:'FCU', mean:37.1, sd:13.6, fraction:1.5, fractionSd:0.3, family:'wrist', region:'Wrist'},
+        {name:'Flexor carpi radialis', abbr:'FCR', mean:34.8, sd:17.1, fraction:1.3, fractionSd:0.2, family:'wrist', region:'Wrist'},
+        {name:'Extensor digitorum communis', abbr:'EDC', mean:28.6, sd:12.7, fraction:1.1, fractionSd:0.1, family:'wrist', region:'Wrist'},
+        {name:'Extensor carpi radialis brevis', abbr:'ECRB', mean:21.6, sd:9.1, fraction:0.9, fractionSd:0.2, family:'wrist', region:'Wrist'},
+        {name:'Flexor pollicis longus', abbr:'FPL', mean:17.1, sd:6.3, fraction:0.7, fractionSd:0.2, family:'wrist', region:'Wrist'},
+        {name:'Extensor carpi ulnaris', abbr:'ECU', mean:17.0, sd:7.4, fraction:0.7, fractionSd:0.1, family:'wrist', region:'Wrist'},
+        {name:'Abductor pollicis longus', abbr:'APL', mean:11.9, sd:5.7, fraction:0.5, fractionSd:0.1, family:'wrist', region:'Wrist'},
+        {name:'Palmaris longus', abbr:'PL', mean:10.0, sd:3.9, fraction:0.4, fractionSd:0.1, family:'wrist', region:'Wrist'},
+        {name:'Extensor digiti minimi', abbr:'EDM', mean:7.0, sd:3.4, fraction:0.3, fractionSd:0.1, family:'wrist', region:'Wrist'},
+        {name:'Extensor pollicis longus', abbr:'EPL', mean:6.6, sd:3.4, fraction:0.3, fractionSd:0.0, family:'wrist', region:'Wrist'},
+        {name:'Extensor pollicis brevis', abbr:'EPB', mean:4.4, sd:2.2, fraction:0.2, fractionSd:0.1, family:'wrist', region:'Wrist'},
+        {name:'Extensor indicis proprius', abbr:'EIP', mean:4.2, sd:1.6, fraction:0.2, fractionSd:0.1, family:'wrist', region:'Wrist'}
+      ];
+
+      const UPPER_REGIONS=[
+        {name:'Shoulder muscles', mean:1340.9, fraction:52.5, family:'shoulder', note:'Study-reported 52.5% shoulder share converted using the mean total upper-limb muscle volume of 2554.0 cm^3.'},
+        {name:'Elbow/forearm muscles', mean:804.5, fraction:31.5, family:'elbow', note:'Study-reported 31.5% elbow/forearm share converted using the mean total upper-limb muscle volume of 2554.0 cm^3.'},
+        {name:'Wrist muscles', mean:408.6, fraction:16.0, family:'wrist', note:'Study-reported 16.0% wrist share converted using the mean total upper-limb muscle volume of 2554.0 cm^3.'}
+      ];
+
+      const UPPER_ACTIONS=[
+        {name:'Shoulder adductors', mean:730.4, fraction:28.6, family:'action', note:'Study-reported action-based share converted from 28.6% of the mean total upper-limb muscle volume (2554.0 cm^3).'},
+        {name:'Shoulder abductors', mean:610.4, fraction:23.9, family:'action', note:'Study-reported action-based share converted from 23.9% of the mean total upper-limb muscle volume (2554.0 cm^3).'},
+        {name:'Elbow flexors', mean:390.8, fraction:15.3, family:'action', note:'Study-reported action-based share converted from 15.3% of the mean total upper-limb muscle volume (2554.0 cm^3).'},
+        {name:'Elbow extensors', mean:383.1, fraction:15.0, family:'action', note:'Study-reported action-based share converted from 15.0% of the mean total upper-limb muscle volume (2554.0 cm^3).'},
+        {name:'Wrist flexors', mean:280.9, fraction:11.0, family:'action', note:'Study-reported action-based share converted from 11.0% of the mean total upper-limb muscle volume (2554.0 cm^3).'},
+        {name:'Wrist extensors', mean:127.7, fraction:5.0, family:'action', note:'Study-reported action-based share converted from 5.0% of the mean total upper-limb muscle volume (2554.0 cm^3).'}
+      ];
+
+      const SOURCES={
+        lower:{
+          label:'Lower body',
+          title:'Lube et al. (2015/2016) - Lower-limb muscle sizes',
+          hint:'Individual mode uses the all-participants means and SDs from Table 1 for actual named muscles only. Grouped mode uses your requested muscle-family sums, and keeps the lower leg as the paper\'s reported compartments since gastrocnemius / soleus were not split out separately.',
+          overlay:'Hover = mean volume | Click a row to highlight | Lower leg remains compartment-based in this study',
+          unit:'cm^3',
+          axisLabel:'Muscle volume (cm^3)',
+          modes:{
+            individual:{label:'Individual muscles', subtitle:'All-participants Table 1 means and standard deviations from Lube et al. for named individual muscles only.', items:LOWER_INDIVIDUAL, labelWidth:190},
+            grouped:{label:'Grouped families', subtitle:'Grouped bars use your custom thigh/hip families, while the lower leg stays compartment-based exactly as reported in the study.', items:LOWER_GROUPED, labelWidth:190}
+          }
+        },
+        upper:{
+          label:'Upper body',
+          title:'Holzbaur et al. (2007) - Upper-body muscle sizes',
+          hint:'Upper-body modes now show actual mean muscle volume in cm^3. Region and action summaries convert the study\'s reported grouped percentages using the mean total upper-limb muscle volume of 2554.0 cm^3.',
+          overlay:'Hover = mean volume | Click a row to highlight | Upper-body tooltips also show the study\'s percentage when available',
+          unit:'cm^3',
+          axisLabel:'Muscle volume (cm^3)',
+          modes:{
+            muscles:{label:'By muscle', subtitle:'Table 2 mean upper-limb muscle volumes from Holzbaur et al. (cm^3), with the study\'s volume fraction kept in the tooltip.', items:UPPER_MUSCLES, labelWidth:230},
+            region:{label:'Grouped by region', subtitle:'Study-reported region shares converted to cm^3 using the mean total upper-limb muscle volume of 2554.0 cm^3.', items:UPPER_REGIONS, labelWidth:230},
+            action:{label:'Grouped by action', subtitle:'Study-reported action shares converted to cm^3 using the mean total upper-limb muscle volume of 2554.0 cm^3.', items:UPPER_ACTIONS, labelWidth:230}
+          }
+        }
+      };
+
+      const sourceEl=document.getElementById('source'),modeEl=document.getElementById('mode'),checksEl=document.getElementById('checks'),subtitleEl=document.getElementById('subtitle'),hintEl=document.getElementById('hint'),overlayEl=document.getElementById('overlay'),stage=document.getElementById('stage'),canvas=document.getElementById('c'),ctx=canvas.getContext('2d'),status=document.getElementById('status'),tip=document.getElementById('tip');
+      let sourceKey='lower',modeKey='individual',items=[],activeName=null,barHits=[];
+      let view={xMin:0,xMax:100},dragging=false,lastX=0,lastY=0,dragMode=null,dragStartX=0,dragStartY=0,dragStartScrollTop=0,dragStartView=null;
+
+      function sourceCfg(){return SOURCES[sourceKey]}
+      function modeCfg(){return sourceCfg().modes[modeKey]}
+      function colorFor(item){return FAMILY_COLORS[item.family]||'#cbd5e1'}
+      function populateSources(){for(const [key,val] of Object.entries(SOURCES)){const opt=document.createElement('option');opt.value=key;opt.textContent=val.label;sourceEl.appendChild(opt)}sourceEl.value=sourceKey}
+      function rebuildModes(){modeEl.innerHTML='';for(const [key,val] of Object.entries(sourceCfg().modes)){const opt=document.createElement('option');opt.value=key;opt.textContent=val.label;modeEl.appendChild(opt)}if(!sourceCfg().modes[modeKey])modeKey=Object.keys(sourceCfg().modes)[0];modeEl.value=modeKey}
+      function buildItems(){items=modeCfg().items.map(item=>({...item,color:colorFor(item),visible:true})).sort((a,b)=>b.mean-a.mean)}
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll('.check'))row.classList.toggle('active',row.dataset.name===activeName)}
+      function rebuildChecks(){checksEl.innerHTML='';for(const item of items){const row=document.createElement('div');row.className='check';row.dataset.name=item.name;const cb=document.createElement('input');cb.type='checkbox';cb.checked=item.visible;cb.addEventListener('click',e=>e.stopPropagation());cb.addEventListener('change',()=>{item.visible=cb.checked;if(!item.visible&&activeName===item.name)activeName=null;syncActiveRows();draw()});const sw=document.createElement('div');sw.className='swatch';sw.style.background=item.color;const lab=document.createElement('label');lab.textContent=item.name;row.addEventListener('click',()=>{activeName=activeName===item.name?null:item.name;syncActiveRows();draw()});row.append(cb,sw,lab);checksEl.appendChild(row)}}
+      function fullXRange(){const visible=items.filter(item=>item.visible);let max=sourceKey==='upper'?1600:1500;for(const item of visible)max=Math.max(max,item.mean+(item.sd??0));return max*(sourceKey==='upper'?1.14:1.14)}
+      function zoomOutBounds(){const full=fullXRange();return{min:-full*0.08,max:full*1.22}}
+      function clampView(next){const bounds=zoomOutBounds();let xMin=next.xMin,xMax=next.xMax;let range=xMax-xMin;const minRange=sourceKey==='upper'?120:120;const maxRange=bounds.max-bounds.min;if(range<minRange){const mid=(xMin+xMax)/2;xMin=mid-minRange/2;xMax=mid+minRange/2;range=minRange}if(range>maxRange)return{xMin:bounds.min,xMax:bounds.max};if(xMin<bounds.min){xMax+=bounds.min-xMin;xMin=bounds.min}if(xMax>bounds.max){xMin-=xMax-bounds.max;xMax=bounds.max}if(xMin<bounds.min)xMin=bounds.min;return{xMin,xMax}}
+      function fitView(){const full=fullXRange();view=clampView({xMin:-full*0.02,xMax:full})}
+      function applyView(){activeName=null;document.title=`${sourceCfg().title}`;subtitleEl.textContent=modeCfg().subtitle;hintEl.textContent=sourceCfg().hint;overlayEl.textContent=sourceCfg().overlay;buildItems();rebuildChecks();fitView();draw()}
+      function xToPx(v,left,w){return left+((v-view.xMin)/Math.max(1e-6,view.xMax-view.xMin))*w}
+      function pxToX(px,left,w){return view.xMin+((px-left)/Math.max(1e-6,w))*(view.xMax-view.xMin)}
+      function niceStep(range,target=7){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
+      function hideTip(){tip.style.display='none'}
+      function showTip(html,x,y){tip.innerHTML=html;tip.style.display='block';const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+'px';tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+'px'}
+      function draw(){
+        const r=stage.getBoundingClientRect(),W=r.width,left=(modeCfg().labelWidth||200)+20,top=24,right=32,bottom=56;
+        const w=Math.max(10,W-left-right);
+        const visible=items.filter(item=>item.visible);
+        const rowGap=10,rowH=(sourceKey==='upper'&&modeKey==='muscles')||modeKey==='individual'?22:64;
+        const contentH=Math.max(320,visible.length*(rowH+rowGap));
+        const H=top+contentH+bottom;
+        const dpr=window.devicePixelRatio||1;
+        canvas.width=Math.max(1,Math.floor(W*dpr));
+        canvas.height=Math.max(1,Math.floor(H*dpr));
+        canvas.style.width=W+'px';
+        canvas.style.height=H+'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+        ctx.clearRect(0,0,W,H);
+        const max=view.xMax;
+        const xStep=niceStep(view.xMax-view.xMin);
+        ctx.save();
+        ctx.strokeStyle='rgba(255,255,255,.08)';
+        ctx.lineWidth=1;
+        for(let x=Math.ceil(view.xMin/xStep)*xStep;x<=view.xMax+1e-6;x+=xStep){const px=xToPx(x,left,w);ctx.beginPath();ctx.moveTo(px,top);ctx.lineTo(px,H-bottom);ctx.stroke()}
+        ctx.strokeStyle='rgba(255,255,255,.28)';
+        ctx.strokeRect(left,top,w,H-top-bottom);
+        ctx.fillStyle='rgba(229,231,235,.92)';
+        ctx.font='12px Segoe UI, system-ui';
+        ctx.textAlign='center';
+        for(let x=Math.ceil(view.xMin/xStep)*xStep;x<=view.xMax+1e-6;x+=xStep){const px=xToPx(x,left,w);ctx.fillText(String(Math.round(x)),px,H-bottom+18)}
+        ctx.fillStyle='rgba(156,163,175,.95)';
+        ctx.fillText(sourceCfg().axisLabel,left+w/2,H-bottom+42);
+        ctx.restore();
+        barHits=[];
+        let y=top+8;
+        for(const item of visible){
+          const barTop=y,barHeight=rowH,valueWidth=xToPx(item.mean,left,w)-left,isActive=activeName===item.name,hasActive=!!activeName,alpha=hasActive?(isActive?1:.18):1;
+          ctx.fillStyle='rgba(229,231,235,.92)';
+          ctx.font=(rowH>22?'600 13px':'12px')+' Segoe UI, system-ui';
+          ctx.textAlign='right';
+          ctx.fillText(item.name,left-12,barTop+barHeight*(rowH>22?0.42:0.62));
+          if(sourceKey==='upper'&&modeKey==='muscles'){
+            ctx.fillStyle='rgba(156,163,175,.95)';
+            ctx.font='11px Segoe UI, system-ui';
+            ctx.fillText(item.abbr,left-12,barTop+barHeight+11);
+          }
+          ctx.save();
+          ctx.globalAlpha=alpha;
+          ctx.fillStyle=item.color;
+          ctx.shadowColor=isActive?item.color:'transparent';
+          ctx.shadowBlur=isActive?18:0;
+          ctx.fillRect(left,barTop,valueWidth,barHeight);
+          ctx.restore();
+          if(item.sd!==undefined&&item.sd!==null){
+            const x1=xToPx(Math.max(0,item.mean-item.sd),left,w),x2=xToPx(item.mean+item.sd,left,w),cy=barTop+barHeight/2;
+            ctx.save();ctx.strokeStyle=item.color;ctx.globalAlpha=alpha;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x1,cy);ctx.lineTo(x2,cy);ctx.stroke();ctx.beginPath();ctx.moveTo(x1,cy-6);ctx.lineTo(x1,cy+6);ctx.moveTo(x2,cy-6);ctx.lineTo(x2,cy+6);ctx.stroke();ctx.restore();
+          }
+          ctx.fillStyle='rgba(15,23,42,.92)';
+          ctx.font='11px Segoe UI, system-ui';
+          ctx.textAlign='left';
+          ctx.fillText(item.mean.toFixed(1)+' cm^3',left+Math.max(8,valueWidth)+8,barTop+barHeight*0.62);
+          barHits.push({x:left,y:barTop,w:valueWidth,h:barHeight,item});
+          y+=rowH+rowGap;
+        }
+        const zoom=Math.round((fullXRange()/Math.max(1e-6,view.xMax-view.xMin))*100);
+        status.textContent=`${sourceCfg().label} | ${modeCfg().label} | ${visible.length} bars shown | ${zoom}% zoom`;
+      }
+      function hitBar(x,y){for(let i=barHits.length-1;i>=0;i--){const b=barHits[i];if(x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)return b}return null}
+      function tooltipHtml(item){
+        if(sourceKey==='upper'){
+          const sdText=item.sd!==undefined&&item.sd!==null?`<div class="muted">+/- ${item.sd.toFixed(1)} cm^3</div>`:'';
+          const fractionText=item.fraction!==undefined&&item.fraction!==null?`<div class="muted">${item.fraction.toFixed(1)}% of total upper-limb volume${item.fractionSd!==undefined&&item.fractionSd!==null?` (+/- ${item.fractionSd.toFixed(1)}%)`:''}</div>`:'';
+          const extra=modeKey==='muscles'
+            ? `<div class="muted">Abbreviation: ${item.abbr}</div><div class="muted">Region: ${item.region}</div>`
+            : `<div class="muted">${item.note||''}</div>`;
+          return `<div><strong>${item.name}</strong></div><div>${item.mean.toFixed(1)} cm^3</div>${sdText}${fractionText}${extra}`;
+        }
+        const sdText=item.sd!==undefined&&item.sd!==null?`<div class="muted">+/- ${item.sd.toFixed(1)} cm^3</div>`:'';
+        const noteText=item.note?`<div class="muted">${item.note}</div>`:`<div class="muted">Family: ${item.family}</div>`;
+        return `<div><strong>${item.name}</strong></div><div>${item.mean.toFixed(1)} cm^3</div>${sdText}${noteText}`;
+      }
+      sourceEl.addEventListener('change',()=>{sourceKey=sourceEl.value;rebuildModes();applyView()});
+      modeEl.addEventListener('change',()=>{modeKey=modeEl.value;applyView()});
+      document.getElementById('fit').addEventListener('click',()=>{fitView();draw()});
+      document.getElementById('reset').addEventListener('click',()=>{fitView();stage.scrollTop=0;draw()});
+      document.getElementById('all').addEventListener('click',()=>{for(const item of items)item.visible=true;for(const cb of checksEl.querySelectorAll('input'))cb.checked=true;syncActiveRows();draw()});
+      document.getElementById('none').addEventListener('click',()=>{for(const item of items)item.visible=false;activeName=null;for(const cb of checksEl.querySelectorAll('input'))cb.checked=false;syncActiveRows();draw()});
+      stage.addEventListener('pointermove',e=>{if(dragging){hideTip();return}const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top+stage.scrollTop,hit=hitBar(x,y);if(!hit){hideTip();return}showTip(tooltipHtml(hit.item),x,y-stage.scrollTop)});
+      stage.addEventListener('pointerleave',hideTip);
+      stage.addEventListener('scroll',hideTip);
+      stage.addEventListener('pointerdown',e=>{if(e.button!==0)return;dragging=true;dragMode=null;dragStartX=e.clientX;dragStartY=e.clientY;dragStartScrollTop=stage.scrollTop;dragStartView={...view};stage.setPointerCapture(e.pointerId);stage.style.cursor='grabbing';lastX=e.clientX;lastY=e.clientY;hideTip()});
+      stage.addEventListener('pointerup',()=>{dragging=false;dragMode=null;stage.style.cursor='grab'});
+      stage.addEventListener('pointercancel',()=>{dragging=false;dragMode=null;stage.style.cursor='grab'});
+      stage.addEventListener('wheel',e=>{const rect=stage.getBoundingClientRect();const left=(modeCfg().labelWidth||200)+20;const top=24;const w=Math.max(10,rect.width-left-32);const h=Math.max(10,rect.height-top-56);const mx=e.clientX-rect.left,my=e.clientY-rect.top;if(mx<left||mx>left+w||my<top||my>top+h)return;e.preventDefault();const x0=pxToX(mx,left,w);const zoom=e.deltaY>0?1.12:1/1.12;view=clampView({xMin:x0+(view.xMin-x0)*zoom,xMax:x0+(view.xMax-x0)*zoom});draw()},{passive:false});
+      stage.addEventListener('pointermove',e=>{if(!dragging)return;const rect=stage.getBoundingClientRect();const left=(modeCfg().labelWidth||200)+20;const w=Math.max(10,rect.width-left-32);const totalDx=e.clientX-dragStartX,totalDy=e.clientY-dragStartY;if(!dragMode){if(Math.abs(totalDx)<6&&Math.abs(totalDy)<6)return;dragMode=Math.abs(totalDy)>Math.abs(totalDx)*1.15?'vertical':'horizontal'}if(dragMode==='vertical'){stage.scrollTop=dragStartScrollTop-totalDy;return}const range=dragStartView.xMax-dragStartView.xMin;const shift=totalDx*range/w;view=clampView({xMin:dragStartView.xMin-shift,xMax:dragStartView.xMax-shift});draw()});
+      window.addEventListener('resize',draw);
+      populateSources();
+      rebuildModes();
+      applyView();
+    </script>
+  </body>
+</html>
+

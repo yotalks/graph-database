@@ -1,0 +1,1104 @@
+ARTICLE IN PRESS
+
+Journal of Biomechanics 40 (2007) 742–749
+www.elsevier.com/locate/jbiomech
+www.JBiomech.com
+
+ASB/ISB award paper
+
+Upper limb muscle volumes in adult subjects
+Katherine R.S. Holzbaura,b,, Wendy M. Murrayc, Garry E. Goldd, Scott L. Delpa,b,c
+a
+
+Bioengineering Department, Stanford University, Stanford, CA 94305, USA
+Mechanical Engineering Department, Stanford University, Stanford, CA 94305, USA
+c
+Bone and Joint Center, VA Palo Alto HCS, Palo Alto, CA 94304, USA
+d
+Department of Radiology, Stanford University, Palo Alto, CA 94305, USA
+
+b
+
+Accepted 17 November 2006
+
+Abstract
+Muscle force-generating properties are often derived from cadaveric studies of muscle architecture. While the relative sizes of muscles
+at a single upper limb joint have been established in cadaveric specimens, the relative sizes of muscles across upper limb joints in living
+subjects remain unclear. We used magnetic resonance imaging to measure the volumes of the 32 upper limb muscles crossing the
+glenohumeral joint, elbow, forearm, and wrist in 10 young, healthy subjects, ranging from a 20th percentile female to a 97th percentile
+male, based on height. We measured the volume and volume fraction of these muscles. Muscles crossing the shoulder, elbow, and wrist
+comprised 52.5, 31.4, and 16.0% of the total muscle volume, respectively. The deltoid had the largest volume fraction (15.2%71%) and
+the extensor indicis propius had the smallest (0.2%70.05%). We determined that the distribution of muscle volume in the upper limb is
+highly conserved across these subjects with a three-fold variation in total muscle volumes (1427–4426 cm3). When we predicted the
+volume of an individual muscle from the mean volume fraction, on average 85% of the variation among subjects was accounted for
+(average p ¼ 0.0008). This study provides normative data that forms the basis for investigating muscle volumes in other populations, and
+for scaling computer models to more accurately represent the muscle volume of a speciﬁc individual.
+r 2006 Elsevier Ltd. All rights reserved.
+Keywords: Upper limb; Muscle; Scaling; Imaging
+
+1. Introduction
+Humans vary greatly in size and shape, yet biomechanists often use generic musculoskeletal models with average
+parameters to evaluate muscle function and coordination.
+While this approach allows researchers to investigate
+general principles underlying human movement, it is
+unclear how conclusions derived from studies of generic
+models apply to individuals of different sizes.
+Muscle force-generating properties used in models are
+often derived from cadaveric studies of muscle architecture.
+However, cadaveric specimens may not accurately reﬂect
+absolute or relative sizes of muscles in young, healthy
+subjects. Cadaveric studies of muscle architecture often
+Corresponding author. Stanford University, Bioengineering Department, James H. Clark Center, Room S-355, 318 Campus Drive, Stanford,
+CA 94305-5450, USA. Tel.: +650 724 5323; fax: +650 724 1922.
+E-mail address: krsholzbaur@gmail.com (K.R.S. Holzbaur).
+
+0021-9290/$ - see front matter r 2006 Elsevier Ltd. All rights reserved.
+doi:10.1016/j.jbiomech.2006.11.011
+
+focus on individual muscle groups; this is especially true
+for the upper limb, where muscle parameters have
+been measured separately for the shoulder (Langenderfer
+et al., 2004), elbow (An et al., 1981; Murray et al., 2000),
+and forearm and wrist (Lieber et al., 1990; Jacobson
+et al., 1992; Lieber et al., 1992). Thus, there are excellent
+data describing the relative size of muscles acting about a
+single joint in cadaveric specimens, but the relative sizes of
+muscle across joints in living subjects has not been
+evaluated.
+Several fundamental questions remain unanswered.
+What are the relative sizes of muscles in the upper
+extremity? Are relative sizes of muscles consistent across
+subjects with different total muscle volume? How is muscle
+volume distributed among muscles crossing the shoulder,
+elbow, and wrist? We answered these questions by
+measuring volumes of 32 muscles of the upper limb in
+young healthy subjects using magnetic resonance imaging
+(MRI). This study provides the most comprehensive
+
+ARTICLE IN PRESS
+K.R.S. Holzbaur et al. / Journal of Biomechanics 40 (2007) 742–749
+
+evaluation of muscle volumes in the entire upper extremity
+to date.
+2. Methods
+Ten subjects (5 female, 5 male, 24–37 years, 158–188 cm,
+50–86 kg) with no history of injury or pathology of the
+upper limb were studied. The subjects varied from a 20th
+percentile female to a 97th percentile male (Gordon et al.,
+1989), by height (Table 1). All subjects were screened for
+MRI risk factors and provided informed consent in
+accordance with institutional guidelines. The dominant
+arm of each subject (right arm in all cases) was studied.
+Each subject was imaged supine within a 1.5 T MRI
+scanner (GE Healthcare, Milwaukee, WI). Axial images
+were acquired from shoulder to wrist using two threedimensional spoiled gradient echo sequences with 3 mm
+sections. Images of muscles crossing the shoulder were
+obtained with the body coil with TE ¼ 3 ms, TR ¼ 11.6 ms,
+ﬂip angle (FA) ¼ 301, matrix ¼ 512  192, bandwidth ¼ 731.25 kHz, and ﬁeld of view (FOV) ¼ 32 cm,
+resulting in a 16 min scan time. Elbow and forearm images
+were acquired using a ﬂexed array long bone coil (Medical
+Advances, Milwaukee, WI) with TE ¼ 5 ms, TR ¼ 23 ms,
+FA ¼ 451, matrix ¼ 320  192, bandwidth ¼ 715.63 kHz,
+and FOV ¼ 16 cm, resulting in a 22 min scan time.
+To calculate muscle volume, we reconstructed the threedimensional geometry of the 32 upper limb muscles that
+cross the wrist, elbow, forearm, and shoulder (glenohumeral joint) (Fig. 1). Muscle boundaries were identiﬁed and
+manually outlined, or segmented, in the axial images, and a
+three-dimensional polygonal surface was created for each
+muscle from the outlines (3D-Doctor, Able Software
+Corp., Lexington, MA). One individual performed all
+segmentation. Thirty-two muscles were segmented in 4
+subjects; 31 were segmented in 6 subjects. The palmaris
+
+743
+
+longus was not identiﬁed in 6 subjects; this muscle is absent
+in some individuals (Dalley and Moore, 1999).
+The accuracy of estimating muscle volume from MRI
+has been established by Tingart et al. (2003); they measured
+the volume of rotator cuff muscles in cadavers using MRI
+of the intact shoulder and water displacement of the
+dissected muscles, and reported differences of less than 4%.
+We assessed accuracy and repeatability of our MRI
+protocol. A cylindrical phantom (volume ¼ 77 cm3) was
+imaged and its volume estimated using the protocols
+deﬁned above. Reconstructed volumes measured within
+1.4% (1.1 cm3) of known volume for images obtained with
+the body coil, and within 0.4% (0.3 cm3) for images
+obtained using the long bone coil. To test segmentation
+reliability, representative muscles from the body coil
+images (deltoid) and from the long bone coil images
+(brachioradialis) for one subject were segmented three
+times. Reconstructed volumes varied by a maximum of
+1.2% (3.0 cm3) for deltoid; volumes varied by a maximum
+of 4.4% (1.2 cm3) for brachioradialis.
+Muscle volume was determined for each of the 314
+muscles from 10 subjects. Total muscle volume of the
+upper limb was determined for each subject as a sum of all
+their individual muscle volumes (31 or 32 muscles). The
+mean volume for each muscle for 10 subjects was
+calculated, as was mean total muscle volume.
+To determine the distribution of muscle volume among
+muscles of a given subject, we calculated volume fraction
+(Fractionm), expressed as a percentage of total muscle
+volume (Vtotal), for each muscle:
+Fractionm ¼ 100  V m =V total ,
+
+(1)
+
+where Vm is individual muscle volume for a given subject.
+The mean volume fraction for each muscle across subjects
+was also calculated.
+To determine whether muscle distribution is consistent
+across subjects with different total muscle mass, we
+
+Table 1
+Subject characteristics
+Subjecta
+
+Age
+
+Height
+(cm)
+
+Percentileb
+(height)
+
+Weight
+(kg)
+
+Percentilec
+(weight)
+
+Humerus
+length
+(cm)
+
+Radius
+length
+(cm)
+
+Ulna
+length
+(cm)
+
+Arm
+lengthc
+(cm)
+
+Arm
+circumferenced
+(cm)
+
+Forearm
+circumferenced
+(cm)
+
+F1
+F2
+F3
+F4
+M1
+M2
+M3
+F5
+M4
+M5
+Mean female (7SD)
+Mean male (7SD)
+Mean total (7SD)
+
+24
+36
+30
+24
+28
+27
+37
+26
+27
+27
+28.0 (5.1)
+29.2 (4.4)
+28.6 (4.5)
+
+157.5
+162.6
+162.6
+165.1
+172.7
+175.3
+175.3
+177.8
+177.8
+188.0
+165.1 (7.6)
+177.8 (6.0)
+171.5 (9.3)
+
+20
+50
+50
+65
+35
+50
+50
+99
+65
+97
+56.8 (28.7)
+59.4 (23.5)
+58.1 (24.8)
+
+49.9
+5
+49.9
+5
+59.0
+40
+52.2
+10
+72.6
+30
+83.9
+70
+93.0
+90
+72.6
+90
+72.6
+30
+86.2
+75
+56.7 (9.6) 30.0 (36.6)
+81.6 (8.9) 59.0 (27.5)
+69.2 (15.8) 44.5 (34.1)
+
+29.7
+31.2
+31.2
+32.1
+35.1
+31.5
+34.2
+34.2
+34.5
+38.1
+31.7 (1.7)
+34.7 (2.4)
+33.2 (2.5)
+
+21.0
+23.1
+22.2
+23.1
+24.3
+23.4
+25.2
+24.6
+25.8
+27.0
+22.8 (1.3)
+25.1 (1.4)
+24.0 (1.8)
+
+23.4
+25.8
+24.9
+24.6
+27.6
+26.1
+28.2
+27.0
+27.9
+30.3
+25.1 (1.3)
+28.0 (1.5)
+26.6 (2.0)
+
+50.7
+54.3
+53.4
+55.2
+59.4
+54.9
+59.4
+58.8
+60.3
+65.1
+54.5 (2.9)
+59.8 (3.6)
+57.2 (4.2)
+
+26.7
+25.2
+27.2
+25.9
+33.5
+35.5
+35.1
+31.5
+34.1
+35.2
+27.3 (2.5)
+34.7 (0.8)
+31.0 (4.3)
+
+20.9
+21.7
+23.9
+21.5
+27.5
+28.5
+29.9
+25.5
+28.0
+29.3
+22.7 (1.9)
+28.6 (1.0)
+25.7 (3.4)
+
+a
+
+The letter in the subject designation indicates the gender of the subject.
+Percentile values based on height and weight are based on Gordon et al. (1989).
+c
+Arm length was calculated from the image data as the sum of the length of the radius and humerus.
+d
+Forearm and arm circumference was measured from the image data as the largest circumference measured on any axial slice.
+b
+
+ARTICLE IN PRESS
+744
+
+K.R.S. Holzbaur et al. / Journal of Biomechanics 40 (2007) 742–749
+
+Fig. 1. Reconstructed muscle volumes for a representative subject. On each axial image (a) we identiﬁed muscle structures and manually outlined the
+boundaries (b). We used the boundaries to create three-dimensional surfaces (c), and measured volume and length for each muscle.
+
+compared volume fraction across 10 subjects. We examined
+the degree to which the mean volume fraction for a given
+muscle represented the volume fraction for an individual
+subject by comparing measured muscle volumes to volumes
+predicted by multiplying the mean volume fraction by total
+muscle volume of a subject.
+To determine how muscle is distributed among the
+shoulder, elbow, and wrist, we calculated the total volume
+of muscle crossing each joint for each subject and
+compared these distributions across subjects. Muscles that
+cross more than one joint were considered with the joint of
+their primary action (groups indicated in Fig. 2). We also
+calculated mean muscle volume at each joint.
+Physiologic cross-sectional area (PCSA), an important
+parameter in maximal muscle force estimation, was
+estimated as
+
+
+PCSA ¼ V m =Lmeas
+Lm =L0m ,
+(2)
+m
+based on measured volumes (Vm), measured muscle length
+ðLmeas
+m Þ, and muscle length to optimal ﬁber length ratios
+ðLm =L0m Þ available from literature (An et al., 1981; Lieber
+et al., 1990; Jacobson et al., 1992; Lieber et al., 1992;
+Murray et al., 2000; Langenderfer et al., 2004). Muscle
+
+length was measured from the reconstructed volumes as the
+length of the centroidal path from most proximal
+appearance of the muscle to most distal (Lieber et al.,
+1992). Tendon length was excluded. Some muscles have
+architectural parameters measured separately for multiple
+compartments or heads. For these muscles (deltoid,
+latissimus dorsi, pectoralis major, biceps brachii, triceps
+brachii, extensor digitorum communis, ﬂexor digitorum
+profundus, and ﬂexor digitorum superﬁcialis) average
+ratios of muscle length to optimal ﬁber length (Lieber et
+al., 1992; Murray et al., 2000; Langenderfer et al., 2004)
+were used. Calculations of PCSA and PCSA fraction as a
+percentage of total upper limb PCSA, and means for these
+values across subjects, were calculated in the manner
+described for volume calculations. PCSA fraction was
+compared to volume fraction for each muscle using paired
+T tests.
+Anthropometric measures, including humerus, radius,
+and ulna lengths, total arm length, arm circumference, and
+forearm circumference, were obtained for each subject.
+Arm length was calculated from the image data as the sum
+of radius length and humerus length. Forearm and arm
+circumference were measured from the image data as the
+
+ARTICLE IN PRESS
+K.R.S. Holzbaur et al. / Journal of Biomechanics 40 (2007) 742–749
+
+745
+
+Fig. 2. Volume fractions for upper limb muscles. Muscles are grouped by anatomical region (shoulder, elbow and forearm, and wrist) and ordered within
+each group from largest volume fraction to smallest. The bar for each muscle represents the mean volume fraction with error bars representing one
+standard deviation for 10 subjects. The abbreviations for muscle names are deﬁned in Table 2.
+
+largest circumference measured on any axial slice. The
+length of each muscle was compared to the corresponding
+radius length using linear regression.
+
+3. Results
+The deltoid and triceps had the largest volume fractions.
+The deltoid had the largest mean volume fraction of
+muscles crossing the shoulder (15.2%71.0%) (Fig. 2). The
+triceps (combined three heads) had the largest volume
+fraction of muscles crossing the elbow (14.5%70.7%), and
+ﬂexor digitorum profundus had the largest volume fraction
+(3.7%70.45%) crossing the wrist.
+The distribution of muscle in the upper limb was
+consistent across the subjects, despite a three-fold variation
+in total muscle volumes (1427–4426 cm3) (Table 2).
+Pectoralis major showed the largest variation, with a
+standard deviation of 2.0% of total muscle volume. The
+average standard deviation for all muscles was 0.4% of
+total muscle volume. The individual volume for a given
+muscle falls close to a line with a slope representing the
+average volume fraction for that muscle across 10 subjects
+(Fig. 3). When we predicted the volume of an individual
+muscle using the mean volume fraction, on average 85% of
+the variation among subjects was accounted for (average
+p ¼ 0.0008). For all muscles, more than 70% of the
+variation was accounted for (po0.001), except for extensor
+pollicis brevis (r2 ¼ 0.52, p ¼ 0.015), supinator (r2 ¼ 0.68,
+
+p ¼ 0.002), and extensor indicis propius (r2 ¼ 0.67,
+p ¼ 0.003).
+The shoulder muscles comprised 52.5% of total muscle
+volume, elbow muscles comprised 31.5%, and wrist
+muscles comprised 16.0% (Fig. 4). Shoulder adductors
+made up 28.6% of total muscle volume, while abductors
+comprised 23.9%. At the elbow, ﬂexors and extensors both
+made up approximately 15% of total muscle volume
+(15.3% and 15.0%, respectively). At the wrist, ﬂexors
+(11.0%) had more than twice the muscle volume of
+extensors (5.0%).
+On average, radius length accounted for 48% of
+variability in muscle length across subjects, although the
+relationship between bone length and muscle length varied
+among muscles. For deltoid, teres major, triceps, biceps,
+extensor carpi ulnaris, ﬂexor carpi ulnaris, extensor pollicis
+longus, ﬂexor digitorum superﬁcialis, and ﬂexor digitorum
+profundus, more than 70% of variability in muscle length
+was explained by radius length (r40.84, po0.0008)
+(Fig. 5). The variability in lengths of other muscles
+(pectoralis major, infraspinatus, extensor carpi radialis
+longus, and abductor pollicis longus) was less explained by
+radius length, but still had signiﬁcant correlation (r40.74,
+po0.01). Less than 30% of variability in muscle length was
+explained by changes in radius length for subscapularis,
+coracobrachialis, brachioradialis, anconeous, supinator,
+pronator quadratus, ﬂexor carpi radialis, palmaris longus,
+ﬂexor pollicis longus, and extensor pollicis brevis (ro0.55,
+p40.07).
+
+ARTICLE IN PRESS
+746
+
+K.R.S. Holzbaur et al. / Journal of Biomechanics 40 (2007) 742–749
+
+Table 2
+Muscle characteristics
+Muscle
+
+Abbreviation
+
+Average volume
+(cm3) (7SD)
+
+Volume fraction
+(%) (7SD)
+
+PCSA (cm2)
+(7SD)
+
+PCSA fraction
+(%) (7SD)
+
+Length (cm)
+(7SD)
+
+Latissimus dorsi
+Pectoralis major
+Deltoid
+Supraspinatus
+Infraspinatus
+Subscapularis
+Teres minor
+Teres major
+Coracobrachialis
+Triceps
+Biceps
+Brachialis
+Brachioradialis
+Anconeus
+Supinator
+Pronator teres
+Pronator quadratus
+Extensor carpi radialis brevis
+Extensor carpi radialis longus
+Extensor carpi ulnaris
+Flexor carpi radialis
+Flexor carpi ulnaris
+Palmaris longus
+Extensor digitorum communis
+Extensor digiti minimi
+Extensor indicis propius
+Extensor pollicis longus
+Extensor pollicis brevis
+Flexor digitorum superﬁcialis
+Flexor digitorum profundus
+Flexor pollicis longus
+Abductor pollicis longus
+
+LAT
+PEC
+DELT
+SUPRA
+INFRA
+SUBSCAP
+TMIN
+TMAJ
+CORACO
+TRI
+BIC
+BRA
+BRD
+ANC
+SUP
+PT
+PQ
+ECRB
+ECRL
+ECU
+FCR
+FCU
+PL
+EDC
+EDM
+EIP
+EPL
+EPB
+FDS
+FDP
+FPL
+APL
+
+262.3 (147.2)
+290.0 (169.0)
+380.5 (157.7)
+50.0 (20.4)
+118.6 (46.7)
+164.5 (63.9)
+28.0 (13.9)
+32.7 (16.3)
+25.2 (16.6)
+372.1 (177.3)
+143.7 (68.7)
+143.7 (63.7)
+65.1 (36.0)
+10.8 (5.2)
+19.7 (8.4)
+38.4 (17.2)
+11.2 (5.8)
+21.6 (9.1)
+37.5 (19.0)
+17.0 (7.4)
+34.8 (17.1)
+37.1 (13.6)
+10.0 (3.9)
+28.6 (12.7)
+7.0 (3.4)
+4.2 (1.6)
+6.6 (3.4)
+4.4 (2.2)
+74.2 (27.4)
+91.6 (39.3)
+17.1 (6.3)
+11.9 (5.7)
+
+9.8 (1.5)
+10.7 (2.0)
+15.2 (1.0)
+2.0 (0.3)
+4.8 (0.7)
+6.6 (0.8)
+1.1 (0.3)
+1.3 (0.3)
+0.9 (0.3)
+14.5 (0.7)
+5.6 (0.5)
+5.7 (0.7)
+2.5 (0.5)
+0.4 (0.1)
+0.8 (0.2)
+1.5 (0.2)
+0.4 (0.1)
+0.9 (0.2)
+1.5 (0.2)
+0.7 (0.1)
+1.3 (0.2)
+1.5 (0.3)
+0.4 (0.1)
+1.1 (0.1)
+0.3 (0.1)
+0.2 (0.1)
+0.3 (0.0)
+0.2 (0.1)
+3.0 (0.5)
+3.7 (0.4)
+0.7 (0.2)
+0.5 (0.1)
+
+13.9 (6.5)
+15.9 (8.3)
+25.0 (8.7)
+4.8 (1.6)
+11.9 (4.2)
+14.1 (4.4)
+3.7 (1.5)
+2.5 (0.9)
+2.4 (1.3)
+40.0 (15.4)
+8.2 (3.4)
+14.4 (5.9)
+3.9 (1.8)
+1.3 (0.6)
+2.3 (0.7)
+6.5 (2.2)
+3.7 (1.9)
+2.5 (0.7)
+2.7 (1.2)
+2.3 (0.9)
+3.9 (1.6)
+6.6 (2.0)
+1.4 (0.5)
+2.5 (0.8)
+0.9 (0.4)
+0.8 (0.2)
+1.3 (0.5)
+0.6 (0.2)
+6.0 (1.9)
+8.4 (3.2)
+3.8 (1.3)
+1.7 (0.6)
+
+6.2 (1.0)
+6.9 (1.4)
+11.5 (0.8)
+2.2 (0.3)
+5.5 (0.7)
+6.6 (0.7)
+1.7 (0.6)
+1.2 (0.3)
+1.1 (0.2)
+18.2 (0.8)
+3.7 (0.3)
+6.5 (0.6)
+1.7 (0.3)
+0.6 (0.1)
+1.1 (0.3)
+3.0 (0.5)
+1.7 (0.5)
+1.2 (0.2)
+1.2 (0.2)
+1.1 (0.2)
+1.8 (0.2)
+3.1 (0.6)
+0.7 (0.1)
+1.2 (0.2)
+0.4 (0.1)
+0.4 (0.1)
+0.6 (0.1)
+0.3 (0.1)
+2.8 (0.3)
+3.8 (0.4)
+1.8 (0.3)
+0.8 (0.1)
+
+19.3 (3.3)
+20.2 (2.2)
+18.1 (1.8)
+12.7 (1.2)
+14.0 (1.0)
+12.6 (1.4)
+11.5 (1.7)
+10.9 (1.9)
+13.8 (2.7)
+27.0 (3.2)
+27.0 (2.6)
+22.3 (2.1)
+23.5 (2.5)
+8.3 (1.7)
+8.8 (2.3)
+16.1 (2.3)
+4.2 (0.5)
+17.6 (2.4)
+22.2 (1.8)
+21.1 (2.4)
+22.6 (2.9)
+24.9 (2.0)
+6.0 (7.7)
+19.6 (3.2)
+17.6 (2.6)
+9.5 (2.2)
+13.0 (2.9)
+11.1 (2.6)
+24.5 (1.7)
+23.4 (1.6)
+13.8 (1.7)
+15.5 (2.1)
+
+Total muscle volume
+
+2554.0 (1166.7)
+
+The PCSA fraction calculated for each muscle was
+consistent across subjects (Table 2); the average standard
+deviation was 0.4% of total muscle PCSA. At the shoulder,
+deltoid, pectoralis major, and latissimus dorsi had PCSA
+fractions that were signiﬁcantly smaller than the volume
+fraction for the same muscles (po0.001). At the elbow,
+triceps, pronator teres, and pronator quadratus had
+signiﬁcantly larger PCSA fraction than volume fraction
+(po0.001), and biceps and brachioradialis had signiﬁcantly
+smaller PCSA fraction than volume fraction (po0.001). At
+the wrist, ﬂexor carpi ulnaris, ﬂexor pollicis longus,
+extensor carpi ulnaris, extensor pollicis longus, and
+extensor indicis propius had signiﬁcantly larger PCSA
+fraction than volume fraction (po0.001).
+4. Discussion
+We have measured muscle volume and estimated PCSA
+for the 32 muscles that cross the wrist, elbow, forearm, and
+shoulder. We have established that volume and PCSA
+fractions were consistent across these individuals with
+different total muscle volumes, and we have determined the
+
+distribution of muscle across the major joints of the upper
+limb. Interestingly, we observed that the muscle volume
+crossing the wrist on the ﬂexor side is twice as large as the
+extensor side (Fig. 4). The wrist had the largest imbalance
+between antagonist muscle groups of any joint in the upper
+limb. In addition, the two largest muscles crossing the wrist
+were the ﬂexor digitorum profundus and ﬂexor digitorum
+superﬁcialis, two muscles that ﬂex the ﬁngers. This highlights the importance of considering the role of ﬁnger
+muscles when examining wrist function (Gonzalez et al.,
+1997).
+Our calculation of PCSA did not include scaling by
+cosine of pennation angle, as is done in some other studies
+(Sacks and Roy, 1982). Here we address only the forcegenerating capability of the ﬁbers themselves; scaling by
+pennation can be incorporated by researchers as a separate
+step. Further, we used an estimate of ﬁber length rather
+than optimal ﬁber length in our PCSA calculation because
+we do not have measures of sarcomere length for these
+muscles. This may affect magnitudes of the PCSA
+estimates. However, despite these limitations, we are able
+to observe the possible effects of including a muscle length
+
+ARTICLE IN PRESS
+K.R.S. Holzbaur et al. / Journal of Biomechanics 40 (2007) 742–749
+
+747
+
+Volume fraction (% total upper limb volume)
+
+60
+
+40
+
+20
+
+n
+io
+ns
+
+Ex
+
+te
+
+io
+
+n
+
+t
+
+ex
+Fl
+
+W
+ris
+
+n
+
+n
+
+io
+
+io
+
+ns
+
+Ex
+
+te
+
+w
+bo
+
+io
+
+ex
+Fl
+
+n
+
+El
+
+n
+
+ct
+
+io
+
+du
+Ad
+
+er
+ld
+
+du
+
+ou
+
+Ab
+
+Sh
+
+ct
+
+0
+
+Fig. 4. Volume fraction for muscles crossing the shoulder, elbow and
+forearm, and wrist. Muscles are grouped with the joint of primary action
+(largest moment arm). The ﬁrst bar in each group indicates the total
+volume fraction of all muscles crossing the joint of interest. The second
+and third bars in each group indicate volume fraction of muscles at a joint
+capable of creating abduction or adduction of the shoulder, ﬂexion or
+extension of the elbow, and ﬂexion or extension of the wrist.
+
+Fig. 3. Individual muscle volumes compared to total muscle volume for
+muscle crossing the shoulder (a), elbow (b), and wrist (c). The muscles with
+the largest volume fraction (diamonds), smallest fraction (squares), and an
+average fraction (triangles) for each muscle group are shown. For each
+muscle, the slope of the corresponding line is the average volume fraction
+calculated for 10 subjects. For all the representative muscles shown, the
+volumes fall close to the appropriate average line, demonstrating
+consistent muscle distribution across all subjects.
+
+measurement on the distribution of muscle. For example,
+we noted that at the shoulder, muscles for which volume
+fraction and PCSA fraction were statistically different
+always had reduced PCSA fraction. This is consistent with
+the relatively long optimal ﬁber lengths (average ¼ 12.9 cm)
+
+Fig. 5. Muscle length compared to radius length. The length of several
+muscles, including the deltoid (DELT, diamonds), biceps (BIC, squares),
+and extensor carpi ulnaris (ECU, triangles), correlated well (r240.7) with
+radius length.
+
+ARTICLE IN PRESS
+748
+
+K.R.S. Holzbaur et al. / Journal of Biomechanics 40 (2007) 742–749
+
+(Langenderfer et al., 2004) of muscles crossing the shoulder.
+At the wrist, muscles for which PCSA and volume fractions
+were different demonstrated increased PCSA fraction. This
+indicates that these muscles had relatively short optimal
+ﬁber lengths (average ¼ 6.5 cm) (Lieber et al., 1990;
+Jacobson et al., 1992; Lieber et al., 1992). There was no
+distinct trend for muscles crossing the elbow.
+We have presented muscle volumes and PCSAs and have
+shown how they scale for individuals of different size.
+Muscle ﬁber length, optimal ﬁber length, and moment arms
+may also scale with an individual’s size, though we did not
+quantify those parameters here. There is evidence that
+moment arms for muscles crossing the elbow may scale
+with bone length or other bone dimensions, and that the
+degree of this scaling varies across muscles (Murray et al.,
+2002). It is unknown how moment arms may scale for
+muscles crossing other joints. Future work to determine
+scaling rules for moment arm and ﬁber length is necessary
+to create subject speciﬁc models that account for variations
+in these parameters.
+Male subjects in this study were observed to have a
+stronger relationship between height and weight and total
+muscle volume than did female subjects. There was very
+little difference in total muscle volume among the ﬁve
+female subjects, despite the large range in height and
+weight. For the male subjects, there was a trend toward
+increased muscle volume with height (r2 ¼ 0.77, p ¼ 0.05)
+and weight (r2 ¼ 0.40, p ¼ 0.25). Further study is necessary
+to determine if these relationships are observed in a larger
+group of subjects.
+Despite these observed differences between genders with
+respect to total muscle volume, we did not observe a
+difference between genders with respect to distribution of
+muscle in these 10 subjects. Therefore, these data suggest
+that once total muscle volume of a subject is known,
+individual muscle volume can be estimated without regard
+to gender. We did not observe strong relationships between
+total or individual muscle volumes and the other anthropometric measurements we measured.
+The strong scaling of individual muscles and muscle
+groups with total muscle volume can be highlighted by
+normalizing subject-speciﬁc volumes by corresponding
+mean volumes for all 10 subjects (Fig. 6). When normalized
+total volume for a subject is compared to the normalized
+volume of muscle crossing each joint, all points fall near a
+line of unity slope with r2 ¼ 0.9818. This indicates that, for
+each subject, the sizes of individual muscles increase
+uniformly as total upper limb volume increases, and that
+the mean distribution of muscle in this study captures the
+distribution of muscle for each individual subject. That is, a
+single number, which we call the scaling ratio, can be used
+to represent the total and individual muscle volume of a
+subject. For a given muscle, a ratio greater than 1 indicates
+that its volume is larger than the mean. By assessing the
+volume of just a few muscles, the size of any subject can be
+estimated and the volume of all muscles can be determined
+using volume distributions reported in this study.
+
+Fig. 6. Volume of muscles crossing a joint (normalized by mean muscle
+volume crossing the joint) compared to total muscle volume (normalized
+by mean total muscle volume). The subjects in this study (open data
+points) demonstrated uniform scaling of individual muscle volume with
+total muscle volume, as demonstrated by the points falling on the unity
+line. Data from cadaveric studies (An et al., 1981; Lieber et al., 1990;
+Jacobson et al., 1992; Lieber et al., 1992; Murray et al., 2000;
+Langenderfer et al., 2004) (black data points), when normalized by the
+corresponding mean volumes from this study, also fall on this line,
+indicating muscle volume distribution equivalent to that found in this
+study. Muscle volumes from cadaver studies are equivalent to the smallest
+females in this study. Muscle volumes from the Visible Human Data set
+(from the National Library of Medicine, National Institutes of Health)
+(gray data points, Garner and Pandy, 2001), when normalized by the
+means from this study, do not fall on the unity line, indicating that the
+shoulder muscles are relatively larger and the elbow muscles are relatively
+smaller than those found in this study. In addition, the volumes from the
+Visible Human Data set are almost 2.5 times the mean found in this study.
+
+This study provides a normative data set that allows for
+investigation of other populations. Many researchers study
+populations that may have different muscle distributions,
+such as children, athletes, or patients following spinal cord
+injury or stroke. We may now be able to detect differences
+in muscle proportions from healthy adult subjects, which
+may help researchers uncover changes in muscle function
+with training or disease.
+We compared our measurements of total muscle volume
+and muscle distribution to existing measurements of muscle
+volume for the shoulder (Langenderfer et al., 2004), elbow
+(An et al., 1981; Murray et al., 2000), and wrist (Lieber et
+al., 1990; Jacobson et al., 1992; Lieber et al., 1992) (Fig. 6).
+The volumes measured in these studies were normalized by
+the corresponding mean muscle volume measured in our
+study for comparison with scaling ratios measured for our
+subjects. The distribution of muscle measured in cadaveric
+studies of muscles crossing the shoulder, elbow, and wrist
+
+ARTICLE IN PRESS
+K.R.S. Holzbaur et al. / Journal of Biomechanics 40 (2007) 742–749
+
+was the same as the distribution measured here, as
+evidenced by the fact that average scaling ratios for these
+studies also fall on the unity line. However, the total muscle
+volume reported by these previous studies is consistent
+with the smallest female subject in our study. One previous
+study used volumes of the Visible Human Male (from the
+National Library of Medicine, National Institutes of
+Health) (20 muscles common to this study) to investigate
+muscle architecture and force-generating capabilities (Garner and Pandy, 2001). This individual exhibits less constant
+scaling ratios among muscles crossing different joints than
+did subjects in our study; the volume of muscle crossing the
+shoulder was relatively larger than that crossing the elbow,
+and the volume of muscle crossing the wrist was relatively
+smaller. Only muscles common to both studies were
+considered in this analysis. In addition, the total muscle
+volume was equivalent to a male with much larger total
+muscle volume than the largest male in our study. The
+difference in muscle distribution in the Visible Human
+Male may be due to exercise related adaptation.
+Measurements of volume fraction have also been made
+for forearm and hand muscles by Brand et al. (1981).
+Substantial agreement was observed between the volume
+fractions measured for muscles common to both studies
+(r2 ¼ 0.9381, po0.00001).
+This study provides a wealth of data regarding the range
+of total muscle volume in normal adults of both genders
+and the distribution of this volume among muscles. We
+have shown that, given mean volume fractions reported
+here, a single parameter is sufﬁcient to scale all upper limb
+muscles to represent a typical individual with different total
+muscle volume. We believe that this is powerful information for understanding the relationship among muscles of
+the upper limb and for supporting results of modeling and
+simulation that use mean muscle properties to understand
+muscle function.
+Acknowledgements
+We acknowledge funding support of Whitaker Foundation, Medtronic Foundation Stanford Graduate Fellowship, Rehabilitation Research and Development Service of
+Veterans Affairs (No. A3741R), NIH R01 HD046774, and
+
+749
+
+NIH-EB002524. We thank our subjects for participating,
+and Silvia Blemker for help with data collection.
+
+References
+An, K.N., Hui, F.C., Morrey, B.F., Linscheid, R.L., Chao, E.Y., 1981.
+Muscles across the elbow joint: a biomechanical analysis. Journal of
+Biomechanics 14, 659–669.
+Brand, P.W., Beach, R.B., Thompson, D.E., 1981. Relative tension and
+potential excursion of muscles in the forearm and hand. Journal of
+Hand Surgery [Am] 6, 209–219.
+Dalley, A.F.I., Moore, K.L., 1999. Clinically Oriented Anatomy.
+Lippincott Williams and Wilkins, Baltimore, MD.
+Garner, B.A., Pandy, M.G., 2001. Musculoskeletal model of the upper
+limb based on the visible human male dataset. Computational
+Methods in Biomechanics and Biomedical Engineering 4, 93–126.
+Gonzalez, R.V., Buchanan, T.S., Delp, S.L., 1997. How muscle
+architecture and moment arms affect wrist ﬂexion–extension moments.
+Journal of Biomechanics 30, 705–712.
+Gordon, C.C., Churchill, T., Clauser, C.E., Bradtmiller, B., McConville,
+J.T., Tebbets, I., Walker, R.A., 1988. Anthropometric Survey of US
+Army Personnel: Methods and Summary Statistics, 1989.
+Jacobson, M.D., Raab, R., Fazeli, B.M., Abrams, R.A., Botte, M.J.,
+Lieber, R.L., 1992. Architectural design of the human intrinsic hand
+muscles. Journal of Hand Surgery [Am] 17, 804–809.
+Langenderfer, J., Jerabek, S.A., Thangamani, V.B., Kuhn, J.E., Hughes,
+R.E., 2004. Musculoskeletal parameters of muscles crossing the
+shoulder and elbow and the effect of sarcomere length sample size
+on estimation of optimal muscle length. Clinical Biomechanics 19,
+664–670.
+Lieber, R.L., Fazeli, B.M., Botte, M.J., 1990. Architecture of selected
+wrist ﬂexor and extensor muscles. Journal of Hand Surgery [Am] 15,
+244–250.
+Lieber, R.L., Jacobson, M.D., Fazeli, B.M., Abrams, R.A., Botte, M.J.,
+1992. Architecture of selected muscles of the arm and forearm:
+anatomy and implications for tendon transfer. Journal of Hand
+Surgery [Am] 17, 787–798.
+Murray, W.M., Buchanan, T.S., Delp, S.L., 2000. The isometric
+functional capacity of muscles that cross the elbow. Journal of
+Biomechanics 33, 943–952.
+Murray, W.M., Buchanan, T.S., Delp, S.L., 2002. Scaling of peak moment
+arms of elbow muscles with upper extremity bone dimensions. Journal
+of Biomechanics 35, 19–26.
+Sacks, R.D., Roy, R.R., 1982. Architecture of the hind limb muscles of
+cats: functional signiﬁcance. Journal of Morphology 173, 185–195.
+Tingart, M.J., Apreleva, M., Lehtinen, J.T., Capell, B., Palmer, W.E.,
+Warner, J.J., 2003. Magnetic resonance imaging in quantitative
+analysis of rotator cuff muscle volume. Clinical Orthopedics. Related
+Research, 104–110.
+
+

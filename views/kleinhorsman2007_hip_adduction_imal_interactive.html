@@ -123,7 +123,7 @@
       const pxToX=(px,w,p)=>view.xMin+(px-p)*(view.xMax-view.xMin)/Math.max(1e-6,w);
       const pxToY=(py,h,p)=>view.yMax-(py-p)*(view.yMax-view.yMin)/Math.max(1e-6,h);
       function niceStep(range,target=7){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
-      function clampView(v){const base={xMin:-40,xMax:50,yMin:0,yMax:8.5},minW=10,minH=.6;let w=Math.max(minW,Math.min(base.xMax-base.xMin,v.xMax-v.xMin)),h=Math.max(minH,Math.min(base.yMax-base.yMin,v.yMax-v.yMin)),xMin=v.xMin,yMin=v.yMin;if(xMin<base.xMin)xMin=base.xMin;if(xMin+w>base.xMax)xMin=base.xMax-w;if(yMin<base.yMin)yMin=base.yMin;if(yMin+h>base.yMax)yMin=base.yMax-h;return{xMin,xMax:xMin+w,yMin,yMax:yMin+h}}
+      function clampView(v){const base={xMin:-40,xMax:50,yMin:0,yMax:8.5},padX=Math.max(5,(base.xMax-base.xMin)*.14),padY=Math.max(.5,(base.yMax-base.yMin)*.14),bounds={xMin:base.xMin-padX,xMax:base.xMax+padX,yMin:Math.max(0,base.yMin-padY),yMax:base.yMax+padY},minW=10,minH=.6;let w=Math.max(minW,Math.min(bounds.xMax-bounds.xMin,v.xMax-v.xMin)),h=Math.max(minH,Math.min(bounds.yMax-bounds.yMin,v.yMax-v.yMin)),xMin=v.xMin,yMin=v.yMin;if(xMin<bounds.xMin)xMin=bounds.xMin;if(xMin+w>bounds.xMax)xMin=bounds.xMax-w;if(yMin<bounds.yMin)yMin=bounds.yMin;if(yMin+h>bounds.yMax)yMin=bounds.yMax-h;return{xMin,xMax:xMin+w,yMin,yMax:yMin+h}}
       function stroke(points,color,opts={}){if(points.length<2)return;ctx.save();ctx.strokeStyle=color;ctx.lineWidth=opts.width||4;ctx.globalAlpha=opts.alpha??1;ctx.lineJoin="round";ctx.lineCap="round";if(opts.glow){ctx.shadowColor=color;ctx.shadowBlur=16}ctx.beginPath();ctx.moveTo(points[0].px,points[0].py);for(let i=1;i<points.length-1;i++){const c=points[i],n=points[i+1];ctx.quadraticCurveTo(c.px,c.py,(c.px+n.px)/2,(c.py+n.py)/2)}ctx.lineTo(points[points.length-1].px,points[points.length-1].py);ctx.stroke();ctx.restore()}
       function segDist(px,py,ax,ay,bx,by){const abx=bx-ax,aby=by-ay,apx=px-ax,apy=py-ay,len2=abx*abx+aby*aby;let t=len2?(apx*abx+apy*aby)/len2:0;t=Math.max(0,Math.min(1,t));const cx=ax+t*abx,cy=ay+t*aby;return{dist:Math.hypot(px-cx,py-cy),cx,cy}}
       function nearest(px,py,pts){if(pts.length<2)return null;let best=null;for(let i=0;i<pts.length-1;i++){const hit=segDist(px,py,pts[i].px,pts[i].py,pts[i+1].px,pts[i+1].py);if(!best||hit.dist<best.dist)best=hit}return best}
@@ -174,7 +174,7 @@
       document.getElementById("none").addEventListener("click",()=>{for(const s of series)s.visible=false;activeSeries=null;rebuildChecks();draw();});
       window.addEventListener("resize",resize);
 
-      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;stage.classList.add("is-dragging");lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId);});
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;dragAxis=null;stage.classList.add("is-dragging");lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId);});
       stage.addEventListener("pointermove",e=>{
         const r=stage.getBoundingClientRect(),padL=70,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),x=e.clientX-r.left,y=e.clientY-r.top;
         if(dragging){const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;view=clampView({xMin:view.xMin-dx*(view.xMax-view.xMin)/w,xMax:view.xMax-dx*(view.xMax-view.xMin)/w,yMin:view.yMin+dy*(view.yMax-view.yMin)/h,yMax:view.yMax+dy*(view.yMax-view.yMin)/h});hideTip();draw();return;}
@@ -183,8 +183,8 @@
         if(!best||best.dist>10){hideTip();return;}
         showTip(`<div><strong>${best.name}</strong></div><div class="muted">${pxToX(best.cx,w,padL).toFixed(1)} deg | ${pxToY(best.cy,h,padT).toFixed(2)} cm</div>`,x,y);
       });
-      stage.addEventListener("pointerup",e=>{dragging=false;stage.classList.remove("is-dragging");try{stage.releasePointerCapture(e.pointerId);}catch{}});
-      stage.addEventListener("pointercancel",()=>{dragging=false;stage.classList.remove("is-dragging");hideTip();});
+      stage.addEventListener("pointerup",e=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging");try{stage.releasePointerCapture(e.pointerId);}catch{}});
+      stage.addEventListener("pointercancel",()=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging");hideTip();});
       stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip();});
       stage.addEventListener("wheel",e=>{e.preventDefault();const zoom=e.deltaY>0?1.12:1/1.12,zoomX=e.shiftKey&&!e.ctrlKey?1:zoom,zoomY=e.ctrlKey&&!e.shiftKey?1:zoom;const r=stage.getBoundingClientRect(),padL=70,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB);let x=e.clientX-r.left,y=e.clientY-r.top;if(x<padL||x>padL+w||y<padT||y>padT+h){x=padL+w/2;y=padT+h/2}const x0=pxToX(x,w,padL),y0=pxToY(y,h,padT);view=clampView({xMin:x0+(view.xMin-x0)*zoomX,xMax:x0+(view.xMax-x0)*zoomX,yMin:y0+(view.yMin-y0)*zoomY,yMax:y0+(view.yMax-y0)*zoomY});draw();},{passive:false});
 
@@ -193,3 +193,5 @@
     </script>
   </body>
 </html>
+
+

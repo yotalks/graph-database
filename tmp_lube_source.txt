@@ -1,0 +1,572 @@
+Surg Radiol Anat
+DOI 10.1007/s00276-015-1526-4
+
+ORIGINAL ARTICLE
+
+Reference data on muscle volumes of healthy human pelvis
+and lower extremity muscles: an in vivo magnetic resonance
+imaging feasibility study
+Juliane Lube1 • Sebastian Cotofana2 • Ingo Bechmann1 • Thomas L. Milani3 •
+Orkun Özkurtul4 • Tatsuo Sakai5 • Hanno Steinke1 • Niels Hammer1,5
+
+Received: 13 February 2015 / Accepted: 22 July 2015
+Ó Springer-Verlag France 2015
+
+Abstract
+Purpose Muscle volumes are of crucial interest when
+attempting to analyze individual physical performance and
+disease- or age-related alterations in muscle morphology.
+However, very little reference data are available in the
+literature on pelvis and lower extremity muscle volumes
+originating from healthy and young individuals. Furthermore, it is of interest if representative muscle volumes,
+covering large anatomical regions, can be obtained using
+magnetic resonance imaging (MRI) in a setting similar to
+the clinical routine. Our objective was therefore to provide
+encompassing, bilateral, 3-T MRI-based datasets on muscle
+volumes of the pelvis and the lower limb muscles.
+Methods T1-weighted 3-T MRI records were obtained
+bilaterally from six young and healthy participants. Threedimensional volumes were compiled from 28 muscles and
+muscle groups of each participant before the muscle volumes were computed.
+Results Muscle volumes were obtained from 28 muscles
+and muscle groups of the pelvis and lower extremity.
+Volumes were larger in male than in female participants.
+& Niels Hammer
+nlshammer@googlemail.com
+1
+
+Faculty of Medicine, Institute of Anatomy, University of
+Leipzig, Liebigstr. 13, 04103 Leipzig, Germany
+
+2
+
+Institute of Anatomy, Paracelsus Medical University,
+Salzburg, Austria
+
+3
+
+Department Human Locomotion, Institute of Sport Science,
+Chemnitz University of Technology, Chemnitz, Germany
+
+4
+
+Department of Trauma and Reconstructive Surgery, Faculty
+of Medicine, University of Leipzig, Leipzig, Germany
+
+5
+
+School of Medicine, Juntendo University, Bunkyo-ku, Tokyo,
+Japan
+
+Volumes of the dominant and non-dominant sides were
+similar in both genders. The obtained results were in line
+with volumetric data obtained from smaller anatomical
+areas, thus extending the available datasets.
+Conclusions This study provides an encompassing and
+feasible approach to obtain data on the muscle volumes of
+pelvic and limb muscles of healthy, young, and physically
+active individuals. The respective data form a basis to
+determine effects of therapeutic approaches, progression of
+diseases, or technical applications like automated segmentation algorithms applied to different populations.
+Keywords Magnetic resonance imaging  Pelvis and
+lower limb muscle volume  Healthy young individuals
+
+Introduction
+Morphometric data on muscles are of principle interest to
+determine intra- and inter-individual differences of physical performance and age-, disease-, or environment-related
+alterations. Likewise, morphometric data on muscles can
+be used to evaluate the effects of specific therapeutic
+interventions in physiotherapy with a suspected impact on
+muscle strength [5, 23, 28].
+A commonly applied approach to estimate muscle
+force is by obtaining muscle cross-sectional areas. Mostly,
+measurements taken from standard anatomical planes are
+used to determine cross-sectional areas of the lower limb,
+resulting in anatomical cross-sectional areas (ACSA).
+However, estimations on the muscle forces based on
+ACSA vary depending on the slice thicknesses and the
+interpolation between several slices. Therefore, the
+resulting forces only give rough estimations. Physiological cross-sectional areas (PCSA), being measured in the
+
+123
+
+Surg Radiol Anat
+
+fiber direction of the muscle, are more precise for the
+calculation of muscle forces than ACSA [18]. To increase
+muscle force estimations to further extent, PCSA are
+complemented by the pennation angle data of the
+respective muscles [14, 30, 31]. Another approach to
+estimate individual muscle force of the lower limb is
+based on muscle volumes (MV). The MV can be understood as the sum of sarcomeres arranged both in parallel
+and in series in the muscles’ architecture [17].
+Magnetic resonance imaging (MRI) is a non-invasive
+and X-radiation-free technique that provides three-dimensional data necessary to compute muscle volumes.
+MRI provides reliable information on various types of soft
+tissues for both post-mortem and living individuals. Previous studies utilizing MRI over extended body regions
+were often based on post-mortem data or from single
+individuals [25, 26]. The resulting data may therefore not
+necessarily reflect the size and the functional shape of the
+living, as anatomical fixation causes shrinkage and dehydration [31]. However, muscle data over extended
+anatomical regions are hard to obtain in the living, since
+
+the participants are forced to remain motionless for a
+significant amount of time. Existing studies on living
+participants were therefore mostly limited to narrowly
+defined anatomical regions [2, 6, 7, 21, 22, 24, 27, 29].
+Handsfield et al. recently presented an encompassing
+dataset reaching from the hip to the toes, but this study
+was limited to one side, therefore omitting potentially
+relevant information for individuals’ bipedal physical
+activity [12]. To date, there is no dataset available from
+literature providing information on bilateral pelvis and
+lower extremity MV. Such data, however, would help
+improve one’s understanding of muscle function and
+muscle involvement in pathogenesis, e.g., of the hip
+abductor in hip joint disorders [9].
+This feasibility study followed two aims. The first aim
+was to apply state-of-the-art MRI imaging in a setting
+similar to the clinical one to obtain MV data over an
+extended body region. The second aim was to provide
+bilateral pelvis and lower extremity MV datasets of healthy
+young participants that can be used as a reference group by
+the research community.
+
+Fig. 1 Magnetic resonance images (MRI) of the pelvis and lower
+extremity in different anatomical orientations. Masked images of the
+right iliopsoas and the gluteus maximus as well as the coxal bone and
+
+the left femur are shown (21-year-old #). The resulting threedimensional models are given in the lower right. a anterior, ca caudal,
+cr cranial, l left, p posterior, r right
+
+123
+
+Surg Radiol Anat
+
+Materials and methods
+Participants
+Six participants were included in this prospective study:
+three females [age 26.0 ± 4.4 years (mean ± standard
+deviation), body mass index 21.0 ± 0.9 kg/m2, body
+height 167.3 ± 1.2 cm] and three males (27.0 ± 5.6 years,
+body mass index 23.3 ± 0.8 kg/m2, body height
+174.3 ± 4.0 cm). All participants had no history of previous injuries or previous surgery of the pelvis and lower
+extremities. None of the participants suffered from any
+chronic or inflammatory diseases, and none of the
+
+Fig. 2 Three-dimensional models were obtained from pelvis and
+lower extremity muscles from T1-weighted magnetic resonance
+images. The given images depict the three-dimensional models in the
+frontal view (23-year-old $) of the pelvis (a), thigh (b), and lower leg
+(c). The following images show the entire pelvis and limb in different
+
+participants was under regular medication at the time of
+investigation. All participants took part in regular recreational activity or endurance sport averaging 3 h weekly.
+The right leg was the dominant one in all participants and
+was determined by asking the participants which leg is
+used to kick a ball. All participants gave their written
+informed consent to participate in this study and to the aims
+of this specific investigation prior to the magnetic resonance imaging analyses, and the university’s ethics committee ‘‘Ethik-Kommission an der Medizinischen Fakultät
+der Universität Leipzig’’ approved the study (Protocol No.
+205-2009-28092009).
+
+anatomical orientations (d frontal view, e dorsal view, and f lateral
+view). Magnification 90.21 (a), 90.13 (b), 90.25 (c), and 90.08 (d–
+f). Foot muscles were partly excluded from the segmentation process.
+a anterior, ca caudal, cr cranial, l left, p posterior, r right
+
+123
+
+Surg Radiol Anat
+
+Magnetic resonance imaging
+All participants were scheduled for the MRI scan at the
+same time of day and were asked to avoid extensive
+physical activity on the day prior to the investigation in
+order to exclude potential effects that might influence the
+imaging acquisition. The MRI scans were performed at the
+Department of Radiology of the University Clinics of
+Leipzig using a 3-T Magnetom TrioTim syngo (MR B17;
+Siemens AG, Erlangen, Germany). The participants were
+placed in prone position. Data of the pelvis and both legs
+were obtained starting from the thoracolumbar transition to
+the tips of both toes. A T1-weighted turbo-spin-echo
+sequence was applied (TE = 11 ms, TR = 744 ms).
+Scanning orientation was coronal with an inter-slice gap of
+2.5 mm, slice thickness of 2.0 mm, and a resolution of
+310 9 720 pixels. Total scanning time averaged 10 min
+for each participant with the scan of the pelvis and both
+legs being performed in a single session. Participants were
+lying prone for at least 15 min before the scan started to
+allow completion of fluid shifts during changing position
+from upright to prone [4].
+Segmentation process and MV calculation
+MimicsÒ software (Materialise, Leuven, Belgium) was
+used to calculate the MV from the T1-weighted MRI
+datasets. The outline of each of the muscles was delineated
+manually in a section-by-section manner using a graphic
+tablet (Aiptec 600U Premium II, Aiptec Inc., Hsinchu,
+Taiwan). Six trained experts with at least 2 years of
+experience performed the segmentations (Fig. 1). A second
+expert reader verified all segmentations for consistency in
+all cases. The MV of each of the muscles was determined
+with a software-based method, using numerical integration
+of the segmented voxels. In a next step, three-dimensional
+models were generated on the basis of the muscle outlines
+using MimicsÒ software (Fig. 2). All muscles were segmented bilaterally. Segmentation and verification of each
+participant’s dataset averaged 50 h. Intra-reader reliability
+was 0.98 and the inter-reader reliability was 0.95 (Cohen’s
+kappa).
+Lower leg muscles were grouped into compartments
+during segmentation process, according to their anatomical
+and functional alliance: anterior compartment consisting of
+the tibialis anterior, extensor digitorum longus, and
+extensor hallucis longus muscle; lateral compartment
+consisting of the fibularis brevis and longus muscle;
+superficial posterior compartment consisting of the triceps
+surae and plantaris longus muscle; and deep posterior
+compartment consisting of the flexor digitorum longus,
+flexor hallucis longus, and tibialis posterior muscle.
+Anatomical and clinical subject literature, as well as
+
+123
+
+Fig. 3 The same anatomical plane was used to define muscle borders
+using thin-slice plastinates. A thin-slice plastinate of the right hip
+joint region of a 75-year-old male body donor is shown as an example
+(top) and compared to magnetic resonance imaging slices of the
+21-year-old male participant of the same topographic region (middle,
+bottom). As shown here, muscle borders were difficult to differentiate.
+Therefore, plastinates were used for orientation and verification of the
+masked images. Scale bar 20 mm, axial plane. a anterior, m medial,
+l lateral, p posterior, GT greater trochanter, H femoral head, IP
+iliopsoas, IS ischium, IT iliotibial tract, MA gluteus maximus, ME
+gluteus medius, OE obturator externus, OI obturator internus, RF
+rectus femoris, S sartorius, SG superior gluteal nerve, TF tensor
+fasciae latae, VL vastus lateralis
+
+plastinates from the pelvis and lower leg, was used in case
+of any ambiguities of muscle separation ([13], Fig. 3).
+
+Results
+MV was obtained bilaterally from 28 muscles and muscle
+groups of six participants. Mean MV data are presented in
+Table 1. MV were consistently larger in males than in
+females (Table 1). In all participants, the following muscles were larger on the dominant side than on the nondominant one: gluteus maximus, gluteus minimus, gemelli,
+obturator internus, gracilis, sartorius, popliteus, vastus
+medialis, adductor brevis, adductor magnus, pectineus,
+
+Surg Radiol Anat
+Table 1 Averaged MV with standard deviation of the six young and healthy participants
+
+MV were averaged in total (all #/$), on males and females (all #, all $), and on dominant (right/d all) and non-dominant (left/n all). In all
+participants, the right-sided leg was the dominant one
+Data on the adductors (ADD), gluteus maximus, quadriceps femoris (QDC), hamstrings (HMS), biceps femoris (BF), popliteus (PO), the biceps
+femoris (BF), semitendinosus muscles (ST), adductor brevis (AB), adductor longus (AL), adductor magnus (AM), gluteus maximus (GA), gluteus
+medius (GE), gluteus minimus (GI), gemelli (GG), gracilis (GR), iliopsoas (IP), obturator externus (OE), obturator internus (OI), pectineus (PE),
+piriformis (PI), quadratus femoris (QF), rectus femoris (RF), sartorius (SA), semimembranosus (SM), tensor fasciae latae (TF), vastus intermedius (VI), vastus lateralis (VL), vastus medialis (VM), and the groups of the anterior (AC), lateral (LC), deep posterior (DC)
+d dominant, n non-dominant
+
+semimembranosus, and the muscles of the deep posterior
+lower leg compartment (Table 1).
+In the male participants, the mean MV of the following
+muscles were larger on the dominant than on the non-
+
+dominant side: gluteus minimus, gemelli, obturator internus, piriformis quadratus femoris, gracilis, sartorius,
+adductor brevis, semimembranosus, and the muscles of the
+deep posterior lower leg compartment (Table 2).
+
+123
+
+Surg Radiol Anat
+Table 2 Averaged MV with standard deviation of the three male
+participants
+
+Table 3 Averaged MV with standard deviation of the three female
+participants
+
+Data on the adductors (ADD), gluteus maximus, quadriceps femoris
+(QDC), hamstrings (HMS), biceps femoris (BF), popliteus (PO), the
+biceps femoris (BF), semitendinosus muscles (ST), adductor brevis
+(AB), adductor longus (AL), adductor magnus (AM), gluteus maximus (GA), gluteus medius (GE), gluteus minimus (GI), gemelli (GG),
+gracilis (GR), iliopsoas (IP), obturator externus (OE), obturator
+internus (OI), pectineus (PE), piriformis (PI), quadratus femoris (QF),
+rectus femoris (RF), sartorius (SA), semimembranosus (SM), tensor
+fasciae latae (TF), vastus intermedius (VI), vastus lateralis (VL),
+vastus medialis (VM), and the groups of the anterior (AC), lateral
+(LC), deep posterior (DC)
+
+Data on the adductors (ADD), gluteus maximus, quadriceps femoris
+(QDC), hamstrings (HMS), biceps femoris (BF), popliteus (PO), the
+biceps femoris (BF), semitendinosus muscles (ST), adductor brevis
+(AB), adductor longus (AL), adductor magnus (AM), gluteus maximus (GA), gluteus medius (GE), gluteus minimus (GI), gemelli (GG),
+gracilis (GR), iliopsoas (IP), obturator externus (OE), obturator
+internus (OI), pectineus (PE), piriformis (PI), quadratus femoris (QF),
+rectus femoris (RF), sartorius (SA), semimembranosus (SM), tensor
+fasciae latae (TF), vastus intermedius (VI), vastus lateralis (VL),
+vastus medialis (VM), and the groups of the anterior (AC), lateral
+(LC), deep posterior (DC)
+
+d dominant, n non-dominant
+
+d dominant, n non-dominant
+
+123
+
+Surg Radiol Anat
+Table 4 Comparison of muscle volumes (MV) with other studies
+
+To compare MV data from other studies to ours, data on the adductors (ADD), gluteus maximus, quadriceps femoris (QDC), hamstrings (HMS),
+biceps femoris (BF), and on the muscle compartments of the lower leg were summarized for each of the respective muscles. MVs of the popliteus
+(PO), the biceps femoris (BF), and the semitendinosus muscles (ST) varied to large extent from our data and are indicated in bold in the table.
+Other MVs were quite comparable: adductor brevis (AB), adductor longus (AL), adductor magnus (AM), gluteus maximus (GA), gluteus medius
+(GE), gluteus minimus (GI), gemelli (GG), gracilis (GR), iliopsoas (IP), obturator externus (OE), obturator internus (OI), pectineus (PE),
+piriformis (PI), quadratus femoris (QF), rectus femoris (RF), sartorius (SA), semimembranosus (SM), tensor fasciae latae (TF), vastus intermedius (VI), vastus lateralis (VL), vastus medialis (VM), and the groups of the anterior (AC), lateral (LC), deep posterior (DC), and superficial
+posterior muscle compartment of the lower leg as well as ADD, QDC, and HMS
+d dominant, n non-dominant
+
+In females, the mean MV of the following muscles were
+larger on the dominant than on the non-dominant side: gluteus
+maximus, medius and minimus, gracilis, popliteus, sartorius,
+
+vastus medialis, adductor brevis, longus and magnus, pectineus, semimembranosus, and the muscles of the deep posterior and the lateral lower leg compartment (Table 3).
+
+123
+
+Surg Radiol Anat
+
+Comparison to the MV from other studies investigating
+more than five muscles is summarized in Table 4. Concerning the variations in the muscle volumes in the different volunteers, no dependencies were found compared to
+BMI, body length, and body weight.
+
+Discussion
+The aim of the given study was to provide bilateral MV of
+the human pelvis and lower extremity muscles obtained
+from young and healthy individuals on the basis of a 3-T
+MRI scanner in a clinical setting. The data on MV presented in this study are intended to serve as reference data
+for the research community. The MV data obtained in this
+study are in line with previous studies presenting data on
+MV from active individuals [2, 7, 12]. Beyond this finding,
+the MV presented here complement data from others on
+the quadriceps femoris [2], triceps surae muscle [7], the
+gluteus medius and minimus [8], and from both the dominant and the non-dominant sides [6, 12]. A principal
+difference of the given study to others is that we used
+images aligned in the coronal plane, whereas other studies
+utilized axial images exclusively [1–3, 6–8, 10–12, 15, 16,
+19, 20, 22, 24, 27, 29]. However, our MV data are similar
+to the data published elsewhere [1–3, 6–12, 15–17, 20, 22,
+24, 27, 29]. This similarity indicates that the method from
+our setting is also feasible to obtain reliable results but in a
+timesaving manner, as indicated by the short image
+acquisition times. Furthermore, the coronal plane may be
+advantageous concerning the origin and insertion sites of
+the pelvis and lower extremity muscles being aligned in
+the same manner.
+The MV values of the quadriceps femoris obtained in
+our study were similar to the data published in literature
+regardless of varying participant numbers and of the
+approach to data acquisition performed via segmentation or
+estimation on basis of cross-sectional areas [3, 6, 12, 20,
+24, 27, 29] (Table 4). Similar findings were found for the
+hamstrings of both genders [6, 12, 20, 24, 27]. One
+exception is the study of Krainski and coworkers [16], who
+obtained significantly smaller MV, as compared to the
+quadriceps femoris and hamstrings MV from our study.
+This difference might be related to their approach, estimating MV by maximum cross-sectional areas [16]. Only
+few studies exist on MV of the small muscles of the pelvis
+[8, 11, 12, 22]. These MV data of the obturator internus
+[22], gluteus maximus [11, 12], gluteus medius and minimus [8], and tensor fasciae latae [8, 11] are similar to our
+results. However, none of the above-mentioned studies
+presented MV of major muscles of the pelvis and lower
+extremity from individual datasets, and only one of these
+studies included the contra-lateral leg in their analyses [8].
+
+123
+
+Segmentation of small pelvic muscles such as the popliteus
+muscle can result in larger inter-individual differences, as
+these muscles can only be visualized in few slices of
+standard MRI. Small alterations in muscle morphology
+might consequently result in MV differences and thus
+cause the observed differences among the given studies.
+Handsfield et al. performed an encompassing study on the
+right leg of healthy participants [12]. Their MV data were in
+line with our findings (Table 4) [12]. Mersmann et al. presented MV data on the quadriceps femoris with much higher
+MV magnitudes than in our study, which might potentially
+be related to their participants being athletes only [19].
+Fukunaga and coworkers found larger MV of the (rightsided) popliteus than in our study [10]. The differing maleto-female ratio between our study (1:1) and the work of
+Fukunaga and colleagues (11:1) [10] or Handsfield et al.
+(2:1) [12] might partially explain the differing results.
+Another muscle with differing MV from Handsfield et al. is
+the biceps femoris [12]. Although the reason for this difference remains unclear, our data are similar to those presented by Belavý and Konishi [3, 15], indicating a large
+variation of the biceps femoris among different populations.
+Similar deviations can be found for the semitendinosus in
+comparison to others [3, 12, 15]. Concerning the MV data of
+the lower leg, existing studies gave similar results compared
+to our study [1, 3, 7, 10, 12, 20].
+Previously, mostly 1.5-T scanners were used to obtain
+MV on larger anatomical regions of the lower extremity
+with the exception of Barnouin et al. [2], Csapo et al. [7],
+and Handsfield et al. [12], using 3-T scanners as done in
+our setup, but in the axial plane. Using higher magnetic
+fields facilitated obtaining the MV with respect to the
+imaging recording time and quality by means of standard
+T1-weighted sequences in a setting similar to the clinical
+routine. On the basis of these data, it will be of further
+interest to determine the most representative ACSA or
+PCSA for predicting muscle forces, as shown elsewhere
+[6]. Such data could help optimize imaging routines over
+extended body regions in a more timesaving manner. MRI
+data from the standing position might give additional
+information of the functional shape of the muscles, but
+can currently only be collected experimentally, i.e., open
+MRI in 0.2–1.2 T. A major limitation of the present study
+is the small sample size, which certainly restricts the
+options to analyze the obtained data. A greater sample
+might have been beneficial in terms of generalization to
+greater populations. However, the aim of this study was to
+present a preliminary dataset on healthy references,
+including the pelvis and both lower extremities on the
+basis of an alternative MRI scanning protocol using 3-T
+MRI.
+Conclusively, this study provides the research community with encompassing, bilateral MV datasets of the
+
+Surg Radiol Anat
+
+human pelvis and lower extremity obtained from young,
+healthy, and active individuals in 3-T MRI. These data will
+serve in future studies as a healthy reference for disease-,
+age-, or training-related alterations, using an effective
+approach for obtaining MRI-based data on muscles.
+Acknowledgments The authors would like to thank Susanne Bán,
+Philipp Pieroh, Uwe Planitzer, Maria Schaebs, and Felix Schmidt for
+their aid with the segmentations. Heike Röder obtained the MRI
+records and Gustav F. Preller proofread the manuscript as a native
+speaker.
+Compliance with ethical standards
+Conflict of interest The authors have no conflict of interest or
+financial disclosure related to this manuscript.
+
+References
+1. Akagi R, Tohdoh Y, Takahashi H (2013) Sex difference in
+strength and size ratios between reciprocal muscle groups in the
+lower leg. Int J Sports Med 34:449–452. doi:10.1055/s-00321327654
+2. Barnouin Y, Butler-Browne G, Voit T, Reversat D, Azzabou N,
+Leroux G, Behin A, McPhee JS, Carlier PG, Hogrel JY (2014)
+Manual segmentation of individual muscles of the quadriceps
+femoris using MRI: a reappraisal. J Magn Reson Imaging
+40:239–247. doi:10.1002/jmri.24370
+3. Belavy DL, Miokovic T, Rittweger J, Felsenberg D (2011)
+Estimation of changes in volume of individual lower-limb muscles using magnetic resonance imaging (during bed-rest). Physiol
+Meas 32:35–50. doi:10.1088/0967-3334/32/1/003
+4. Berg HE, Tedner B, Tesch PA (1993) Changes in lower limb
+muscle cross-sectional area and tissue fluid volume after transition from standing to supine. Acta Physiol Scand 148:379–385.
+doi:10.1111/j.1748-1716.1993.tb09573.x
+5. Chen WM, Park J, Park SB, Shim VP, Lee T (2012) Role of
+gastrocnemius-soleus muscle in forefoot force transmission at
+heel rise—a 3D finite element analysis. J Biomech
+45:1783–1789. doi:10.1016/j.jbiomech.2012.04.024
+6. Cotofana S, Hudelmaier M, Wirth W, Himmer M, Ring-Dimitriou S, Sanger AM, Eckstein F (2010) Correlation between
+single-slice muscle anatomical cross-sectional area and muscle
+volume in thigh extensors, flexors and adductors of perimenopausal women. Eur J Appl Physiol 110:91–97. doi:10.1007/
+s00421-010-1477-8
+7. Csapo R, Malis V, Sinha U, Du J, Sinha S (2014) Age-associated
+differences in triceps surae muscle composition and strength—an
+MRI-based cross-sectional comparison of contractile, adipose and
+connective tissue. BMC Musculoskelet Disord 15:209. doi:10.
+1186/1471-2474-15-209
+8. Flack NA, Meikle GR, Reddy M, Nicholson HD, Woodley SJ
+(2012) Hip abductor muscle volume in women with lateral hip
+pain: a case-controlled study. Surg Radiolog Anat SRA
+34:847–855. doi:10.1007/s00276-012-0970-7
+9. Flack NA, Nicholson HD, Woodley SJ (2012) A review of the
+anatomy of the hip abductor muscles, gluteus medius, gluteus
+minimus, and tensor fascia lata. Clin Anat 25:697–708. doi:10.
+1002/ca.22004
+10. Fukunaga T, Roy RR, Shellock FG, Hodgson JA, Day MK, Lee
+PL, Kwong-Fu H, Edgerton VR (1992) Physiological cross-sectional area of human leg muscles based on magnetic resonance
+imaging. J Orthop Res 10:928–934. doi:10.1002/jor.1100100623
+
+11. Grimaldi A, Richardson C, Durbridge G, Donnelly W, Darnell R,
+Hides J (2009) The association between degenerative hip joint
+pathology and size of the gluteus maximus and tensor fascia lata
+muscles. Man Ther 14:611–617. doi:10.1016/j.math.2008.11.002
+12. Handsfield GG, Meyer CH, Hart JM, Abel MF, Blemker SS
+(2014) Relationships of 35 lower limb muscles to height and body
+mass quantified using MRI. J Biomech 47:631–638. doi:10.1016/
+j.jbiomech.2013.12.002
+13. Helms CA (2009) Musculoskeletal MRI. Saunders/Elsevier,
+Philadelphia
+14. Kawashima S, Akima H, Kuno SY, Gunji A, Fukunaga T (2004)
+Human adductor muscles atrophy after short duration of
+unweighting. Eur J Appl Physiol 92:602–605. doi:10.1007/
+s00421-004-1184-4
+15. Konishi Y, Oda T, Tsukazaki S, Kinugasa R, Hirose N, Fukubayashi T (2011) Relationship between quadriceps femoris
+muscle volume and muscle torque after anterior cruciate ligament
+rupture. Knee Surg Sports Traumatol Arthrosc 19:641–645.
+doi:10.1007/s00167-010-1324-9
+16. Krainski F, Hastings JL, Heinicke K, Romain N, Pacini EL, Snell
+PG, Wyrick P, Palmer MD, Haller RG, Levine BD (2014) The
+effect of rowing ergometry and resistive exercise on skeletal
+muscle structure and function during bed rest. J Appl Physiol
+(1985) 116:1569–1581. doi:10.1152/japplphysiol.00803.2013
+17. Maganaris CN, Baltzopoulos V, Tsaopoulos D (2006) Muscle
+fibre length-to-moment arm ratios in the human lower limb
+determined in vivo. J Biomech 39:1663–1668. doi:10.1016/j.
+jbiomech.2005.04.025
+18. Maughan RJ (1984) Relationship between muscle strength and
+muscle cross-sectional area. Implications for training. Sports Med
+1:263–269
+19. Mersmann F, Bohm S, Schroll A, Boeth H, Duda G, Arampatzis
+A (2014) Muscle shape consistency and muscle volume prediction of thigh muscles. Scand J Med Sci Sports. doi:10.1111/sms.
+12285
+20. Miokovic T, Armbrecht G, Gast U, Rawer R, Roth HJ, Runge M,
+Felsenberg D, Belavy DL (2014) Muscle atrophy, pain, and damage
+in bed rest reduced by resistive (vibration) exercise. Med Sci Sports
+Exerc 46:1506–1516. doi:10.1249/MSS.0000000000000279
+21. Mitsuhashi N, Fujieda K, Tamura T, Kawamoto S, Takagi T,
+Okubo K (2009) BodyParts3D: 3D structure database for
+anatomical concepts. Nucleic Acids Res 37:D782–D785. doi:10.
+1093/nar/gkn613
+22. Morris VC, Murray MP, Delancey JO, Ashton-Miller JA
+(2012) A comparison of the effect of age on levator ani and
+obturator internus muscle cross-sectional areas and volumes in
+nulliparous women. Neurourol Urodyn 31:481–486. doi:10.
+1002/nau.21208
+23. O’Brien TD, Reeves ND, Baltzopoulos V, Jones DA, Maganaris
+CN (2009) Strong relationships exist between muscle volume,
+joint power and whole-body external mechanical power in adults
+and children. Exp Physiol 94:731–738. doi:10.1113/expphysiol.
+2008.045062
+24. Ogawa M, Yasuda T, Abe T (2012) Component characteristics of
+thigh muscle volume in young and older healthy men. Clin
+Physiol Funct Imaging 32:89–93. doi:10.1111/j.1475-097X.2011.
+01057.x
+25. Park JS, Chung MS, Hwang SB, Lee YS, Har DH, Park HS
+(2005) Visible Korean human: improved serially sectioned images of the entire body. IEEE Trans Med Imaging 24:352–360
+26. Spitzer V, Ackerman MJ, Scherzinger AL, Whitlock D (1996)
+The visible human male: a technical report. J Am Med Inform
+Assoc 3:118–130
+27. Tate CM, Williams GN, Barrance PJ, Buchanan TS (2006) Lower
+extremity muscle morphology in young athletes: an MRI-based
+analysis. Med Sci Sports Exerc 38:122–128
+
+123
+
+Surg Radiol Anat
+28. Thom JM, Morse CI, Birch KM, Narici MV (2005) Triceps surae
+muscle power, volume, and quality in older versus younger
+healthy men. J Gerontol A Biol Sci Med Sci 60:1111–1117
+29. Walton JM, Roberts N, Whitehouse GH (1997) Measurement of
+the quadriceps femoris muscle using magnetic resonance and
+ultrasound imaging. Br J Sports Med 31:59–64
+30. Ward SR, Eng CM, Smallwood LH, Lieber RL (2009) Are current measurements of lower extremity muscle architecture
+
+123
+
+accurate? Clin Orthop Relat Res 467:1074–1082. doi:10.1007/
+s11999-008-0594-8
+31. Wickiewicz TL, Roy RR, Powell PL, Edgerton VR (1983)
+Muscle architecture of the human lower limb. Clin Orthop Relat
+Res 179:275–283
+
+

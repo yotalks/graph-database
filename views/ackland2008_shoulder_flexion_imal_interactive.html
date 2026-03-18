@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -137,7 +137,7 @@
       <div class="top">
         <div>
           <div class="title">Ackland et al. (PMC2644775) - Shoulder flexion IMALs (grey curves)</div>
-          <div class="subtitle">Flexion only: segments with y ≤ 0 are hidden (no flat zeros). Solid = 0–120° (reported). Dotted/dashed = quadratic extrapolation from -30° to 150°.</div>
+          <div class="subtitle">Flexion only: segments with y â‰¤ 0 are hidden (no flat zeros). Solid = 0â€“120Â° (reported). Dotted/dashed = quadratic extrapolation from -30Â° to 150Â°.</div>
         </div>
         <div class="controls">
           <button id="fit" class="btn">Fit</button>
@@ -152,7 +152,7 @@
           <div class="sectionTitle">Toggle lines</div>
           <div id="checks"></div>
           <div class="hint">
-            Source: Table 1 (Flexion/Extension) extrema from the PMC2644775 paper. Reconstruction uses a simple quadratic through the two extrema; only positive (flexion) segments are drawn. Extrapolation follows that same quadratic fit for 30° beyond the reported range on each side, then hides any y ≤ 0 values.
+            Source: Table 1 (Flexion/Extension) extrema from the PMC2644775 paper. Reconstruction uses a simple quadratic through the two extrema; only positive (flexion) segments are drawn. Extrapolation follows that same quadratic fit for 30Â° beyond the reported range on each side, then hides any y â‰¤ 0 values.
           </div>
         </div>
         <div class="stage" id="stage">
@@ -278,6 +278,8 @@
       const X_BOUNDS = { min: -30, max: 150 };
       const allPositiveY = muscles.flatMap(m => m.y.filter(v => v !== null));
       const Y_MAX_BOUND = (allPositiveY.length ? Math.max(...allPositiveY) : 60) + 5;
+      const VIEW_X_BOUNDS = { min: X_BOUNDS.min - 12, max: X_BOUNDS.max + 18 };
+      const VIEW_Y_MAX = Y_MAX_BOUND + Math.max(6, Y_MAX_BOUND * 0.16);
       const MIN_X_RANGE = 10;
       const MIN_Y_RANGE = 5;
 
@@ -287,7 +289,7 @@
         let xMin = next.xMin;
         let xMax = next.xMax;
         let yMin = Math.max(0, next.yMin);
-        let yMax = Math.min(Y_MAX_BOUND, next.yMax);
+        let yMax = Math.min(VIEW_Y_MAX, next.yMax);
 
         let xRange = xMax - xMin;
         let yRange = yMax - yMin;
@@ -299,37 +301,37 @@
           xRange = MIN_X_RANGE;
         }
         if (yRange < MIN_Y_RANGE) {
-          yMax = Math.min(Y_MAX_BOUND, yMin + MIN_Y_RANGE);
+          yMax = Math.min(VIEW_Y_MAX, yMin + MIN_Y_RANGE);
           yMin = Math.max(0, yMax - MIN_Y_RANGE);
           yRange = yMax - yMin;
         }
 
-        if (xRange > (X_BOUNDS.max - X_BOUNDS.min)) {
-          xMin = X_BOUNDS.min;
-          xMax = X_BOUNDS.max;
+        if (xRange > (VIEW_X_BOUNDS.max - VIEW_X_BOUNDS.min)) {
+          xMin = VIEW_X_BOUNDS.min;
+          xMax = VIEW_X_BOUNDS.max;
         } else {
           if (xMin < X_BOUNDS.min) {
-            xMax += X_BOUNDS.min - xMin;
-            xMin = X_BOUNDS.min;
+            xMax += VIEW_X_BOUNDS.min - xMin;
+            xMin = VIEW_X_BOUNDS.min;
           }
           if (xMax > X_BOUNDS.max) {
-            xMin -= xMax - X_BOUNDS.max;
-            xMax = X_BOUNDS.max;
+            xMin -= xMax - VIEW_X_BOUNDS.max;
+            xMax = VIEW_X_BOUNDS.max;
           }
-          xMin = Math.max(X_BOUNDS.min, xMin);
-          xMax = Math.min(X_BOUNDS.max, xMax);
+          xMin = Math.max(VIEW_X_BOUNDS.min, xMin);
+          xMax = Math.min(VIEW_X_BOUNDS.max, xMax);
         }
 
-        if (yMax > Y_MAX_BOUND) {
-          yMin -= yMax - Y_MAX_BOUND;
-          yMax = Y_MAX_BOUND;
+        if (yMax > VIEW_Y_MAX) {
+          yMin -= yMax - VIEW_Y_MAX;
+          yMax = VIEW_Y_MAX;
         }
         if (yMin < 0) {
-          yMax = Math.min(Y_MAX_BOUND, yMax - yMin);
+          yMax = Math.min(VIEW_Y_MAX, yMax - yMin);
           yMin = 0;
         }
         if ((yMax - yMin) < MIN_Y_RANGE) {
-          yMax = Math.min(Y_MAX_BOUND, yMin + MIN_Y_RANGE);
+          yMax = Math.min(VIEW_Y_MAX, yMin + MIN_Y_RANGE);
           yMin = Math.max(0, yMax - MIN_Y_RANGE);
         }
 
@@ -625,8 +627,10 @@
       // Pan + zoom
       let dragging = false;
       let lastX = 0, lastY = 0;
+      let dragAxis = null;
       stage.addEventListener("pointerdown", (e) => {
         dragging = true;
+        dragAxis = null;
         stage.setPointerCapture(e.pointerId);
         lastX = e.clientX; lastY = e.clientY;
       });
@@ -635,6 +639,10 @@
         const dx = e.clientX - lastX;
         const dy = e.clientY - lastY;
         lastX = e.clientX; lastY = e.clientY;
+        if (!dragAxis) {
+          if (Math.abs(dx) < 2 && Math.abs(dy) < 2) return;
+          dragAxis = Math.abs(dy) > Math.abs(dx) * 1.15 ? "y" : "x";
+        }
 
         const rect = stage.getBoundingClientRect();
         const W = rect.width, H = rect.height;
@@ -644,18 +652,18 @@
 
         const xRange = (view.xMax - view.xMin);
         const yRange = (view.yMax - view.yMin);
-        const xShift = -dx * xRange / w;
-        const yShift = dy * yRange / h;
+        const xShift = dragAxis === "y" ? 0 : (-dx * xRange / w);
+        const yShift = dragAxis === "x" ? 0 : (dy * yRange / h);
         view = clampView({
           xMin: view.xMin + xShift,
           xMax: view.xMax + xShift,
           yMin: view.yMin + yShift,
-          yMax: view.yMax + yShift
+          yMax: view.yMax + yShift,
         });
         draw();
       });
-      stage.addEventListener("pointerup", () => { dragging = false; });
-      stage.addEventListener("pointercancel", () => { dragging = false; });
+      stage.addEventListener("pointerup", () => { dragging = false; dragAxis = null; });
+      stage.addEventListener("pointercancel", () => { dragging = false; dragAxis = null; });
 
       stage.addEventListener("pointerleave", hideTip);
       stage.addEventListener("pointermove", (e) => {
@@ -689,7 +697,7 @@
 
         if (!best || best.dist > 10) { hideTip(); return; }
         showTip(
-          `<div><strong>${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}° | ${best.yy.toFixed(1)} mm</div>`,
+          `<div><strong>${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}Â° | ${best.yy.toFixed(1)} mm</div>`,
           x, y
         );
       });
@@ -723,3 +731,5 @@
     </script>
   </body>
 </html>
+
+

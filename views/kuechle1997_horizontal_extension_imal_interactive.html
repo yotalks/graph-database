@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -113,8 +113,8 @@
     <div class="wrap">
       <div class="top">
         <div>
-          <div class="title">Kuechle et al. (1997) - Horizontal extension IMALs (humerus at 90° elevation)</div>
-          <div class="subtitle">Moment arms digitized (approx) from Fig. 9. Extension only: segments with y ≤ 0 are hidden. Markers at 0° (out to sides) and 90° (straight ahead).</div>
+          <div class="title">Kuechle et al. (1997) - Horizontal extension IMALs (humerus at 90Â° elevation)</div>
+          <div class="subtitle">Moment arms digitized (approx) from Fig. 9. Extension only: segments with y â‰¤ 0 are hidden. Markers at 0Â° (out to sides) and 90Â° (straight ahead).</div>
         </div>
         <div class="controls">
           <button id="fit" class="btn">Fit</button>
@@ -332,10 +332,10 @@
         ctx.strokeStyle = "rgba(255,255,255,0.28)";
         ctx.beginPath(); ctx.rect(padL, padT, w, h); ctx.stroke();
 
-        // Markers at 0° and 90°
+        // Markers at 0Â° and 90Â°
         const markers = [
-          { x: 0, label: "Out to sides (0°)" },
-          { x: 90, label: "Straight ahead (90°)" },
+          { x: 0, label: "Out to sides (0Â°)" },
+          { x: 90, label: "Straight ahead (90Â°)" },
         ];
         for (const m of markers) {
           if (m.x < view.xMin || m.x > view.xMax) continue;
@@ -448,8 +448,10 @@
 
       let dragging = false;
       let lastX = 0, lastY = 0;
+      let dragAxis = null;
       stage.addEventListener("pointerdown", (e) => {
         dragging = true;
+        dragAxis = null;
         stage.setPointerCapture(e.pointerId);
         lastX = e.clientX; lastY = e.clientY;
       });
@@ -458,24 +460,29 @@
         const dx = e.clientX - lastX;
         const dy = e.clientY - lastY;
         lastX = e.clientX; lastY = e.clientY;
-
+        if (!dragAxis) {
+          if (Math.abs(dx) < 2 && Math.abs(dy) < 2) return;
+          dragAxis = Math.abs(dy) > Math.abs(dx) * 1.15 ? "y" : "x";
+        }
         const rect = stage.getBoundingClientRect();
-        const W = rect.width, H = rect.height;
         const padL = 70, padT = 20, padR = 20, padB = 60;
-        const w = Math.max(10, W - padL - padR);
-        const h = Math.max(10, H - padT - padB);
-
-        const xRange = (view.xMax - view.xMin);
-        const yRange = (view.yMax - view.yMin);
-        const xShift = -dx * xRange / w;
-        const yShift = dy * yRange / h;
-        view.xMin += xShift; view.xMax += xShift;
-        view.yMin += yShift; view.yMax += yShift;
-        if (view.yMin < 0) { view.yMax += -view.yMin; view.yMin = 0; }
+        const w = Math.max(10, rect.width - padL - padR);
+        const h = Math.max(10, rect.height - padT - padB);
+        const xRange = view.xMax - view.xMin;
+        const yRange = view.yMax - view.yMin;
+        if (dragAxis !== "y") {
+          view.xMin += -dx * xRange / w;
+          view.xMax += -dx * xRange / w;
+        }
+        if (dragAxis !== "x") {
+          view.yMin += dy * yRange / h;
+          view.yMax += dy * yRange / h;
+          if (view.yMin < 0) { view.yMax += -view.yMin; view.yMin = 0; }
+        }
         draw();
       });
-      stage.addEventListener("pointerup", () => { dragging = false; });
-      stage.addEventListener("pointercancel", () => { dragging = false; });
+      stage.addEventListener("pointerup", () => { dragging = false; dragAxis = null; });
+      stage.addEventListener("pointercancel", () => { dragging = false; dragAxis = null; });
 
       function handleHover(e) {
         if (dragging) { hideTip(); return; }
@@ -500,7 +507,7 @@
         const deg = pxToX(best.cx, w, padL);
         const val = pxToY(best.cy, h, padT);
         showTip(
-          `<div><strong>Region: ${best.s.name}</strong></div><div class="muted">${deg.toFixed(1)}° | ${val.toFixed(2)} cm</div>`,
+          `<div><strong>Region: ${best.s.name}</strong></div><div class="muted">${deg.toFixed(1)}Â° | ${val.toFixed(2)} cm</div>`,
           x, y
         );
       }
@@ -537,3 +544,4 @@
     </script>
   </body>
 </html>
+

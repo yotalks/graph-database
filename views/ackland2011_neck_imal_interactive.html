@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -48,8 +48,8 @@
         cursor: pointer;
         font-weight: 650;
         font-size: 12px;
-      }
-      select { cursor: default; }
+      } option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}
+      select { cursor: default; } option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}
       .btn:hover { background: var(--btnHover); }
       .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
       .main { position: relative; display: grid; grid-template-columns: 330px 1fr; min-height: 0; }
@@ -261,6 +261,8 @@
 
       const X_BOUNDS = { min: 0, max: Math.max(...muscles.flatMap(m => [m.ext, m.flex, m.lat])) };
       const Y_BOUNDS = { min: 0, max: muscles.length + 1 };
+      const VIEW_X_BOUNDS = { min: X_BOUNDS.min - Math.max(5, (X_BOUNDS.max - X_BOUNDS.min) * 0.12), max: X_BOUNDS.max + Math.max(5, (X_BOUNDS.max - X_BOUNDS.min) * 0.18) };
+      const VIEW_Y_BOUNDS = { min: 0, max: Y_BOUNDS.max + 1 };
       const MIN_X_RANGE = 6;
       const MIN_Y_RANGE = 4;
       let view = { xMin: X_BOUNDS.min, xMax: X_BOUNDS.max, yMin: Y_BOUNDS.min, yMax: Y_BOUNDS.max };
@@ -268,8 +270,8 @@
       function clampView(next) {
         let xMin = next.xMin;
         let xMax = next.xMax;
-        let yMin = Math.max(Y_BOUNDS.min, next.yMin);
-        let yMax = Math.min(Y_BOUNDS.max, next.yMax);
+        let yMin = Math.max(VIEW_Y_BOUNDS.min, next.yMin);
+        let yMax = Math.min(VIEW_Y_BOUNDS.max, next.yMax);
         let xRange = xMax - xMin;
         let yRange = yMax - yMin;
         if (xRange < MIN_X_RANGE) {
@@ -284,19 +286,19 @@
           yMax = mid + MIN_Y_RANGE / 2;
           yRange = MIN_Y_RANGE;
         }
-        if (xRange > (X_BOUNDS.max - X_BOUNDS.min)) {
-          xMin = X_BOUNDS.min;
-          xMax = X_BOUNDS.max;
+        if (xRange > (VIEW_X_BOUNDS.max - VIEW_X_BOUNDS.min)) {
+          xMin = VIEW_X_BOUNDS.min;
+          xMax = VIEW_X_BOUNDS.max;
         } else {
-          if (xMin < X_BOUNDS.min) { xMax += X_BOUNDS.min - xMin; xMin = X_BOUNDS.min; }
-          if (xMax > X_BOUNDS.max) { xMin -= xMax - X_BOUNDS.max; xMax = X_BOUNDS.max; }
+          if (xMin < VIEW_X_BOUNDS.min) { xMax += VIEW_X_BOUNDS.min - xMin; xMin = VIEW_X_BOUNDS.min; }
+          if (xMax > VIEW_X_BOUNDS.max) { xMin -= xMax - VIEW_X_BOUNDS.max; xMax = VIEW_X_BOUNDS.max; }
         }
-        if (yRange > (Y_BOUNDS.max - Y_BOUNDS.min)) {
-          yMin = Y_BOUNDS.min;
-          yMax = Y_BOUNDS.max;
+        if (yRange > (VIEW_Y_BOUNDS.max - VIEW_Y_BOUNDS.min)) {
+          yMin = VIEW_Y_BOUNDS.min;
+          yMax = VIEW_Y_BOUNDS.max;
         } else {
-          if (yMin < Y_BOUNDS.min) { yMax += Y_BOUNDS.min - yMin; yMin = Y_BOUNDS.min; }
-          if (yMax > Y_BOUNDS.max) { yMin -= yMax - Y_BOUNDS.max; yMax = Y_BOUNDS.max; }
+          if (yMin < VIEW_Y_BOUNDS.min) { yMax += VIEW_Y_BOUNDS.min - yMin; yMin = VIEW_Y_BOUNDS.min; }
+          if (yMax > VIEW_Y_BOUNDS.max) { yMin -= yMax - VIEW_Y_BOUNDS.max; yMax = VIEW_Y_BOUNDS.max; }
         }
         return { xMin, xMax, yMin, yMax };
       }
@@ -430,23 +432,33 @@
       stage.addEventListener("pointermove", (e) => {
         if (!dragging) return;
         const dx = e.clientX - lastX;
-        lastX = e.clientX;
+        const dy = e.clientY - lastY;
+        lastX = e.clientX; lastY = e.clientY;
+        if (!dragAxis) {
+          if (Math.abs(dx) < 2 && Math.abs(dy) < 2) return;
+          dragAxis = Math.abs(dy) > Math.abs(dx) * 1.15 ? "y" : "x";
+        }
+
         const rect = stage.getBoundingClientRect();
-        const W = rect.width;
-        const padL = 220, padR = 20;
+        const W = rect.width, H = rect.height;
+        const padL = 60, padT = 20, padR = 20, padB = 60;
         const w = Math.max(10, W - padL - padR);
+        const h = Math.max(10, H - padT - padB);
+
         const xRange = (view.xMax - view.xMin);
-        const xShift = -dx * xRange / w;
+        const yRange = (view.yMax - view.yMin);
+        const xShift = dragAxis === "y" ? 0 : (-dx * xRange / w);
+        const yShift = dragAxis === "x" ? 0 : (dy * yRange / h);
         view = clampView({
           xMin: view.xMin + xShift,
           xMax: view.xMax + xShift,
-          yMin: view.yMin,
-          yMax: view.yMax,
+          yMin: view.yMin + yShift,
+          yMax: view.yMax + yShift,
         });
         draw();
       });
-      stage.addEventListener("pointerup", () => { dragging = false; });
-      stage.addEventListener("pointercancel", () => { dragging = false; });
+      stage.addEventListener("pointerup", () => { dragging = false; dragAxis = null; });
+      stage.addEventListener("pointercancel", () => { dragging = false; dragAxis = null; });
 
       stage.addEventListener("wheel", (e) => {
         e.preventDefault();
@@ -504,3 +516,4 @@
     </script>
   </body>
 </html>
+

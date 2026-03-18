@@ -225,6 +225,7 @@
       let dragging = false;
       let lastX = 0;
       let lastY = 0;
+      let dragAxis = null;
       let screenSeries = [];
       const bounds = { xMin: 0, xMax: 120, yMin: 0, yMax: 5.1 };
       let view = { ...bounds };
@@ -235,16 +236,22 @@
       function pxToY(py, height, padTop) { return view.yMax - (py - padTop) * (view.yMax - view.yMin) / Math.max(1e-6, height); }
 
       function clampView(candidate) {
+        const limits = {
+          xMin: bounds.xMin - Math.max(6, (bounds.xMax - bounds.xMin) * 0.14),
+          xMax: bounds.xMax + Math.max(6, (bounds.xMax - bounds.xMin) * 0.14),
+          yMin: bounds.yMin - Math.max(0.8, (bounds.yMax - bounds.yMin) * 0.14),
+          yMax: bounds.yMax + Math.max(0.8, (bounds.yMax - bounds.yMin) * 0.14),
+        };
         const minW = Math.max((bounds.xMax - bounds.xMin) * 0.08, 5);
         const minH = Math.max((bounds.yMax - bounds.yMin) * 0.08, 0.2);
-        const width = Math.max(minW, Math.min(bounds.xMax - bounds.xMin, candidate.xMax - candidate.xMin));
-        const height = Math.max(minH, Math.min(bounds.yMax - bounds.yMin, candidate.yMax - candidate.yMin));
+        const width = Math.max(minW, Math.min(limits.xMax - limits.xMin, candidate.xMax - candidate.xMin));
+        const height = Math.max(minH, Math.min(limits.yMax - limits.yMin, candidate.yMax - candidate.yMin));
         let xMin = candidate.xMin;
         let yMin = candidate.yMin;
-        if (xMin < bounds.xMin) xMin = bounds.xMin;
-        if (xMin + width > bounds.xMax) xMin = bounds.xMax - width;
-        if (yMin < bounds.yMin) yMin = bounds.yMin;
-        if (yMin + height > bounds.yMax) yMin = bounds.yMax - height;
+        if (xMin < limits.xMin) xMin = limits.xMin;
+        if (xMin + width > limits.xMax) xMin = limits.xMax - width;
+        if (yMin < limits.yMin) yMin = limits.yMin;
+        if (yMin + height > limits.yMax) yMin = limits.yMax - height;
         return { xMin, xMax: xMin + width, yMin, yMax: yMin + height };
       }
 
@@ -589,6 +596,7 @@
       stage.addEventListener("pointerdown", event => {
         if (event.button !== 0) return;
         dragging = true;
+        dragAxis = null;
         stage.classList.add("is-dragging");
         lastX = event.clientX;
         lastY = event.clientY;
@@ -611,11 +619,15 @@
           const dy = event.clientY - lastY;
           lastX = event.clientX;
           lastY = event.clientY;
+          if (!dragAxis) {
+            if (Math.abs(dx) < 2 && Math.abs(dy) < 2) return;
+            dragAxis = Math.abs(dy) > Math.abs(dx) * 1.15 ? "y" : "x";
+          }
           view = clampView({
-            xMin: view.xMin - dx * (view.xMax - view.xMin) / plotWidth,
-            xMax: view.xMax - dx * (view.xMax - view.xMin) / plotWidth,
-            yMin: view.yMin + dy * (view.yMax - view.yMin) / plotHeight,
-            yMax: view.yMax + dy * (view.yMax - view.yMin) / plotHeight,
+            xMin: view.xMin - (dragAxis === "y" ? 0 : dx * (view.xMax - view.xMin) / plotWidth),
+            xMax: view.xMax - (dragAxis === "y" ? 0 : dx * (view.xMax - view.xMin) / plotWidth),
+            yMin: view.yMin + (dragAxis === "x" ? 0 : dy * (view.yMax - view.yMin) / plotHeight),
+            yMax: view.yMax + (dragAxis === "x" ? 0 : dy * (view.yMax - view.yMin) / plotHeight),
           });
           hideTip();
           draw();
@@ -641,11 +653,13 @@
 
       stage.addEventListener("pointerup", event => {
         dragging = false;
+        dragAxis = null;
         stage.classList.remove("is-dragging");
         try { stage.releasePointerCapture(event.pointerId); } catch {}
       });
       stage.addEventListener("pointercancel", () => {
         dragging = false;
+        dragAxis = null;
         stage.classList.remove("is-dragging");
         hideTip();
       });
@@ -664,3 +678,5 @@
     </script>
   </body>
 </html>
+
+

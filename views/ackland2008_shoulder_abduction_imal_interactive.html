@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -137,7 +137,7 @@
       <div class="top">
         <div>
           <div class="title">Ackland et al. (PMC2644775) - Shoulder abduction IMALs (black coronal curves)</div>
-          <div class="subtitle">Abduction only: segments with y ≤ 0 are hidden (no flat zeros). Solid = 0–120° (reported). Dashed = extrapolated from -30&#8211;0&#176; and 120&#8211;150&#176;.</div>
+          <div class="subtitle">Abduction only: segments with y â‰¤ 0 are hidden (no flat zeros). Solid = 0â€“120Â° (reported). Dashed = extrapolated from -30&#8211;0&#176; and 120&#8211;150&#176;.</div>
         </div>
         <div class="controls">
           <button id="fit" class="btn">Fit</button>
@@ -281,6 +281,8 @@
       const X_BOUNDS = { min: 0, max: 150 };
       const allPositiveY = muscles.flatMap(m => m.y.filter(v => v !== null));
       const Y_BOUNDS = { min: 0, max: allPositiveY.length ? Math.max(...allPositiveY) : 60 };
+      const VIEW_X_BOUNDS = { min: X_BOUNDS.min - 12, max: X_BOUNDS.max + 18 };
+      const VIEW_Y_BOUNDS = { min: 0, max: Y_BOUNDS.max + Math.max(6, (Y_BOUNDS.max - Y_BOUNDS.min) * 0.18) };
       const MIN_X_RANGE = 8;
       const MIN_Y_RANGE = 2;
       let view = { xMin: X_BOUNDS.min, xMax: X_BOUNDS.max, yMin: Y_BOUNDS.min, yMax: Y_BOUNDS.max };
@@ -288,8 +290,8 @@
       function clampView(next) {
         let xMin = next.xMin;
         let xMax = next.xMax;
-        let yMin = Math.max(Y_BOUNDS.min, next.yMin);
-        let yMax = Math.min(Y_BOUNDS.max, next.yMax);
+        let yMin = Math.max(VIEW_Y_BOUNDS.min, next.yMin);
+        let yMax = Math.min(VIEW_Y_BOUNDS.max, next.yMax);
         let xRange = xMax - xMin;
         let yRange = yMax - yMin;
 
@@ -305,19 +307,19 @@
           yMax = mid + MIN_Y_RANGE / 2;
           yRange = MIN_Y_RANGE;
         }
-        if (xRange > (X_BOUNDS.max - X_BOUNDS.min)) {
-          xMin = X_BOUNDS.min;
-          xMax = X_BOUNDS.max;
+        if (xRange > (VIEW_X_BOUNDS.max - VIEW_X_BOUNDS.min)) {
+          xMin = VIEW_X_BOUNDS.min;
+          xMax = VIEW_X_BOUNDS.max;
         } else {
-          if (xMin < X_BOUNDS.min) { xMax += X_BOUNDS.min - xMin; xMin = X_BOUNDS.min; }
-          if (xMax > X_BOUNDS.max) { xMin -= xMax - X_BOUNDS.max; xMax = X_BOUNDS.max; }
+          if (xMin < VIEW_X_BOUNDS.min) { xMax += VIEW_X_BOUNDS.min - xMin; xMin = VIEW_X_BOUNDS.min; }
+          if (xMax > VIEW_X_BOUNDS.max) { xMin -= xMax - VIEW_X_BOUNDS.max; xMax = VIEW_X_BOUNDS.max; }
         }
-        if (yRange > (Y_BOUNDS.max - Y_BOUNDS.min)) {
-          yMin = Y_BOUNDS.min;
-          yMax = Y_BOUNDS.max;
+        if (yRange > (VIEW_Y_BOUNDS.max - VIEW_Y_BOUNDS.min)) {
+          yMin = VIEW_Y_BOUNDS.min;
+          yMax = VIEW_Y_BOUNDS.max;
         } else {
-          if (yMin < Y_BOUNDS.min) { yMax += Y_BOUNDS.min - yMin; yMin = Y_BOUNDS.min; }
-          if (yMax > Y_BOUNDS.max) { yMin -= yMax - Y_BOUNDS.max; yMax = Y_BOUNDS.max; }
+          if (yMin < VIEW_Y_BOUNDS.min) { yMax += VIEW_Y_BOUNDS.min - yMin; yMin = VIEW_Y_BOUNDS.min; }
+          if (yMax > VIEW_Y_BOUNDS.max) { yMin -= yMax - VIEW_Y_BOUNDS.max; yMax = VIEW_Y_BOUNDS.max; }
         }
         return { xMin, xMax, yMin, yMax };
       }
@@ -614,8 +616,10 @@
       // Pan + zoom
       let dragging = false;
       let lastX = 0, lastY = 0;
+      let dragAxis = null;
       stage.addEventListener("pointerdown", (e) => {
         dragging = true;
+        dragAxis = null;
         stage.setPointerCapture(e.pointerId);
         lastX = e.clientX; lastY = e.clientY;
       });
@@ -624,6 +628,10 @@
         const dx = e.clientX - lastX;
         const dy = e.clientY - lastY;
         lastX = e.clientX; lastY = e.clientY;
+        if (!dragAxis) {
+          if (Math.abs(dx) < 2 && Math.abs(dy) < 2) return;
+          dragAxis = Math.abs(dy) > Math.abs(dx) * 1.15 ? "y" : "x";
+        }
 
         const rect = stage.getBoundingClientRect();
         const W = rect.width, H = rect.height;
@@ -633,8 +641,8 @@
 
         const xRange = (view.xMax - view.xMin);
         const yRange = (view.yMax - view.yMin);
-        const xShift = -dx * xRange / w;
-        const yShift = dy * yRange / h;
+        const xShift = dragAxis === "y" ? 0 : (-dx * xRange / w);
+        const yShift = dragAxis === "x" ? 0 : (dy * yRange / h);
         view = clampView({
           xMin: view.xMin + xShift,
           xMax: view.xMax + xShift,
@@ -643,8 +651,8 @@
         });
         draw();
       });
-      stage.addEventListener("pointerup", () => { dragging = false; });
-      stage.addEventListener("pointercancel", () => { dragging = false; });
+      stage.addEventListener("pointerup", () => { dragging = false; dragAxis = null; });
+      stage.addEventListener("pointercancel", () => { dragging = false; dragAxis = null; });
 
       stage.addEventListener("pointerleave", hideTip);
       stage.addEventListener("pointermove", (e) => {
@@ -677,7 +685,7 @@
 
         if (!best || best.dist > 10) { hideTip(); return; }
         showTip(
-          `<div><strong>Region: ${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}° | ${best.yy.toFixed(1)} mm</div>`,
+          `<div><strong>Region: ${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}Â° | ${best.yy.toFixed(1)} mm</div>`,
           x, y
         );
       });
@@ -713,3 +721,4 @@
     </script>
   </body>
 </html>
+

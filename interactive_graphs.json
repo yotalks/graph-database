@@ -1,89 +1,95 @@
-[
-  {
-    "id": "ackland2008_shoulder_adductors_interactive",
-    "title": "Adduction IMALs",
-    "file": "views/ackland2008_shoulder_adductors_interactive.html",
-    "kind": "interactive",
-    "replacesFiles": [
-      "ackland2008_shoulder_adductors_coronal_extrapolated_to_180.png"
-    ]
-  },
-  {
-    "id": "ackland2008_shoulder_abduction_imal_interactive",
-    "title": "Abduction IMALs",
-    "file": "views/ackland2008_shoulder_abduction_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "kuechle1997_shoulder_imal_interactive",
-    "title": "Kuechle Shoulder IMALs",
-    "file": "views/kuechle1997_shoulder_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "ackland2008_shoulder_flexion_imal_interactive",
-    "title": "Flexion IMALs",
-    "file": "views/ackland2008_shoulder_flexion_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "ackland2008_shoulder_extension_imal_interactive",
-    "title": "Extension IMALs",
-    "file": "views/ackland2008_shoulder_extension_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "murray1995_elbow_flexor_imal_interactive",
-    "title": "Elbow flexor IMAL",
-    "file": "views/murray1995_elbow_flexor_imal_interactive.html",
-    "kind": "interactive",
-    "replacesFiles": [
-      "murray1995_female_elbow_flexors.png"
-    ]
-  },
-  {
-    "id": "ettema1998_upper_limb_imal_interactive",
-    "title": "Ettema IMALs",
-    "file": "views/ettema1998_upper_limb_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "buford1997_knee_extension_imal_interactive",
-    "title": "Knee extension IMAL",
-    "file": "views/buford1997_knee_extension_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "nemeth1985_hip_extension_imal_interactive",
-    "title": "Hip extension IMAL",
-    "file": "views/nemeth1985_hip_extension_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "song2020_hip_abduction_imal_interactive",
-    "title": "Hip abduction IMAL",
-    "file": "views/song2020_hip_abduction_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "kleinhorsman2007_hip_adduction_imal_interactive",
-    "title": "Hip adduction IMAL",
-    "file": "views/kleinhorsman2007_hip_adduction_imal_interactive.html",
-    "kind": "interactive"
-  },
-  {
-    "id": "ackland2011_neck_imal_interactive",
-    "title": "Neck IMAL",
-    "file": "views/ackland2011_neck_imal_interactive.html",
-    "kind": "interactive",
-    "replacesFiles": [
-      "ackland2011_leverage_rankings.png"
-    ]
-  },
-  {
-    "id": "digitizer",
-    "title": "Digitizer",
-    "file": "views/digitizer.html",
-    "kind": "interactive"
-  }
+﻿[
+    {
+        "id":  "ackland2008_shoulder_adductors_interactive",
+        "title":  "Adduction IMALs",
+        "file":  "views/ackland2008_shoulder_adductors_interactive.html",
+        "kind":  "interactive",
+        "replacesFiles":  [
+                              "ackland2008_shoulder_adductors_coronal_extrapolated_to_180.png"
+                          ]
+    },
+    {
+        "id":  "ackland2008_shoulder_abduction_imal_interactive",
+        "title":  "Abduction IMALs",
+        "file":  "views/ackland2008_shoulder_abduction_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "kuechle1997_shoulder_imal_interactive",
+        "title":  "Kuechle Shoulder IMALs",
+        "file":  "views/kuechle1997_shoulder_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "ackland2008_shoulder_flexion_imal_interactive",
+        "title":  "Flexion IMALs",
+        "file":  "views/ackland2008_shoulder_flexion_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "ackland2008_shoulder_extension_imal_interactive",
+        "title":  "Extension IMALs",
+        "file":  "views/ackland2008_shoulder_extension_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "murray1995_elbow_flexor_imal_interactive",
+        "title":  "Elbow flexor IMAL",
+        "file":  "views/murray1995_elbow_flexor_imal_interactive.html",
+        "kind":  "interactive",
+        "replacesFiles":  [
+                              "murray1995_female_elbow_flexors.png"
+                          ]
+    },
+    {
+        "id":  "ettema1998_upper_limb_imal_interactive",
+        "title":  "Ettema IMALs",
+        "file":  "views/ettema1998_upper_limb_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "buford1997_knee_extension_imal_interactive",
+        "title":  "Knee extension IMAL",
+        "file":  "views/buford1997_knee_extension_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "nemeth1985_hip_extension_imal_interactive",
+        "title":  "Hip extension IMAL",
+        "file":  "views/nemeth1985_hip_extension_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "song2020_hip_abduction_imal_interactive",
+        "title":  "Hip abduction IMAL",
+        "file":  "views/song2020_hip_abduction_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "kleinhorsman2007_hip_adduction_imal_interactive",
+        "title":  "Hip adduction IMAL",
+        "file":  "views/kleinhorsman2007_hip_adduction_imal_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "ackland2011_neck_imal_interactive",
+        "title":  "Neck IMAL",
+        "file":  "views/ackland2011_neck_imal_interactive.html",
+        "kind":  "interactive",
+        "replacesFiles":  [
+                              "ackland2011_leverage_rankings.png"
+                          ]
+    },
+    {
+        "id":  "lube2015_muscle_sizes_interactive",
+        "title":  "Muscle sizes",
+        "file":  "views/lube2015_muscle_sizes_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "digitizer",
+        "title":  "Digitizer",
+        "file":  "views/digitizer.html",
+        "kind":  "interactive"
+    }
 ]

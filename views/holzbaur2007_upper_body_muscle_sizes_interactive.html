@@ -1,0 +1,186 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Upper-body muscle sizes (interactive)</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 18% 10%,rgba(96,165,250,.14),transparent 45%),radial-gradient(900px 700px at 82% 12%,rgba(34,197,94,.11),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.btn{cursor:pointer} select,option,optgroup{background:var(--panel);color:var(--text)}.btn:hover{background:var(--btnHover)}.status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}.swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.45}.stage{position:relative;overflow:auto;min-width:0} canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.86);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(760px,92vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:28vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:760px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Holzbaur et al. (2007) - Upper-body muscle sizes</div>
+          <div id="subtitle" class="subtitle"></div>
+        </div>
+        <div class="controls">
+          <select id="mode"></select>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle bars</div>
+          <div id="checks"></div>
+          <div class="hint">Figure-based reconstruction from Holzbaur et al. Figure 2 using mean muscle volume fractions (% of total upper-limb volume). Region and action summaries use the study's reported grouped percentages.</div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Hover = mean fraction | Click a row to highlight | Muscle view is reconstructed from the paper's bar chart</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const FAMILY_COLORS={shoulder:'#60a5fa',elbow:'#22c55e',wrist:'#f97316',action:'#a78bfa'};
+      const MUSCLES=[
+        {name:'Deltoid', abbr:'DELT', mean:15.2, family:'shoulder', region:'Shoulder'},
+        {name:'Pectoralis major', abbr:'PEC', mean:10.8, family:'shoulder', region:'Shoulder'},
+        {name:'Latissimus dorsi', abbr:'LAT', mean:9.7, family:'shoulder', region:'Shoulder'},
+        {name:'Supraspinatus', abbr:'SUPRA', mean:6.4, family:'shoulder', region:'Shoulder'},
+        {name:'Infraspinatus', abbr:'INFRA', mean:4.6, family:'shoulder', region:'Shoulder'},
+        {name:'Teres minor', abbr:'TMIN', mean:2.0, family:'shoulder', region:'Shoulder'},
+        {name:'Teres major', abbr:'TMAJ', mean:1.4, family:'shoulder', region:'Shoulder'},
+        {name:'Coracobrachialis', abbr:'CORB', mean:1.2, family:'shoulder', region:'Shoulder'},
+        {name:'Triceps brachii', abbr:'TRI', mean:14.5, family:'elbow', region:'Elbow/forearm'},
+        {name:'Brachialis', abbr:'BRA', mean:5.5, family:'elbow', region:'Elbow/forearm'},
+        {name:'Brachioradialis', abbr:'BRD', mean:5.4, family:'elbow', region:'Elbow/forearm'},
+        {name:'Biceps brachii', abbr:'BIC', mean:2.3, family:'elbow', region:'Elbow/forearm'},
+        {name:'Anconeus', abbr:'ANC', mean:1.5, family:'elbow', region:'Elbow/forearm'},
+        {name:'Supinator', abbr:'SUP', mean:0.9, family:'elbow', region:'Elbow/forearm'},
+        {name:'Pronator quadratus', abbr:'PQ', mean:0.6, family:'elbow', region:'Elbow/forearm'},
+        {name:'Pronator teres', abbr:'PT', mean:0.4, family:'elbow', region:'Elbow/forearm'},
+        {name:'Flexor digitorum profundus', abbr:'FDP', mean:3.7, family:'wrist', region:'Wrist'},
+        {name:'Flexor digitorum superficialis', abbr:'FDS', mean:3.2, family:'wrist', region:'Wrist'},
+        {name:'Flexor carpi ulnaris', abbr:'FCU', mean:1.8, family:'wrist', region:'Wrist'},
+        {name:'Palmaris longus', abbr:'PL', mean:1.5, family:'wrist', region:'Wrist'},
+        {name:'Extensor carpi ulnaris', abbr:'ECU', mean:1.4, family:'wrist', region:'Wrist'},
+        {name:'Extensor carpi radialis brevis', abbr:'ECRB', mean:1.2, family:'wrist', region:'Wrist'},
+        {name:'Extensor carpi radialis longus', abbr:'ECRL', mean:0.9, family:'wrist', region:'Wrist'},
+        {name:'Abductor pollicis longus', abbr:'APL', mean:0.8, family:'wrist', region:'Wrist'},
+        {name:'Flexor pollicis longus', abbr:'FPL', mean:0.6, family:'wrist', region:'Wrist'},
+        {name:'Extensor digiti minimi', abbr:'EDM', mean:0.5, family:'wrist', region:'Wrist'},
+        {name:'Extensor digitorum communis', abbr:'EDC', mean:0.5, family:'wrist', region:'Wrist'},
+        {name:'Extensor pollicis brevis', abbr:'EPB', mean:0.3, family:'wrist', region:'Wrist'},
+        {name:'Extensor indicis proprius', abbr:'EIP', mean:0.2, family:'wrist', region:'Wrist'}
+      ];
+      const REGIONS=[
+        {name:'Shoulder muscles', mean:52.5, family:'shoulder', note:'Reported joint-based volume fraction for shoulder muscles.'},
+        {name:'Elbow/forearm muscles', mean:31.5, family:'elbow', note:'Reported joint-based volume fraction for elbow and forearm muscles.'},
+        {name:'Wrist muscles', mean:16.0, family:'wrist', note:'Reported joint-based volume fraction for wrist muscles.'}
+      ];
+      const ACTIONS=[
+        {name:'Shoulder adductors', mean:28.6, family:'action', note:'Reported action-based volume fraction.'},
+        {name:'Shoulder abductors', mean:23.9, family:'action', note:'Reported action-based volume fraction.'},
+        {name:'Elbow flexors', mean:15.4, family:'action', note:'Reported action-based volume fraction.'},
+        {name:'Elbow extensors', mean:15.0, family:'action', note:'Reported action-based volume fraction.'},
+        {name:'Wrist flexors', mean:11.0, family:'action', note:'Reported action-based volume fraction.'},
+        {name:'Wrist extensors', mean:5.0, family:'action', note:'Reported action-based volume fraction.'}
+      ];
+      const MODES={
+        muscles:{label:'By muscle', subtitle:'Figure 2 reconstruction of mean volume fractions for individual upper-limb muscles (% of total upper-limb volume).', items:MUSCLES},
+        region:{label:'Grouped by region', subtitle:'Study-reported region totals: shoulder 52.5%, elbow/forearm 31.5%, wrist 16.0%.', items:REGIONS},
+        action:{label:'Grouped by action', subtitle:'Study-reported action totals across the upper limb: shoulder adductors/abductors, elbow flexors/extensors, and wrist flexors/extensors.', items:ACTIONS}
+      };
+
+      const modeEl=document.getElementById('mode'),checksEl=document.getElementById('checks'),subtitleEl=document.getElementById('subtitle'),stage=document.getElementById('stage'),canvas=document.getElementById('c'),ctx=canvas.getContext('2d'),status=document.getElementById('status'),tip=document.getElementById('tip');
+      let modeKey='muscles',items=[],activeName=null,barHits=[];
+
+      function colorFor(item){return FAMILY_COLORS[item.family]||'#cbd5e1'}
+      function current(){return MODES[modeKey]}
+      function populateModes(){for(const [key,val] of Object.entries(MODES)){const opt=document.createElement('option');opt.value=key;opt.textContent=val.label;modeEl.appendChild(opt)}modeEl.value=modeKey}
+      function buildItems(){items=current().items.map(item=>({...item,color:colorFor(item),visible:true})).sort((a,b)=>b.mean-a.mean)}
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll('.check'))row.classList.toggle('active',row.dataset.name===activeName)}
+      function rebuildChecks(){checksEl.innerHTML='';for(const item of items){const row=document.createElement('div');row.className='check';row.dataset.name=item.name;const cb=document.createElement('input');cb.type='checkbox';cb.checked=item.visible;cb.addEventListener('click',e=>e.stopPropagation());cb.addEventListener('change',()=>{item.visible=cb.checked;if(!item.visible&&activeName===item.name)activeName=null;syncActiveRows();draw()});const sw=document.createElement('div');sw.className='swatch';sw.style.background=item.color;const lab=document.createElement('label');lab.textContent=item.name;row.addEventListener('click',()=>{activeName=activeName===item.name?null:item.name;syncActiveRows();draw()});row.append(cb,sw,lab);checksEl.appendChild(row)}}
+      function applyMode(){activeName=null;subtitleEl.textContent=current().subtitle;buildItems();rebuildChecks();draw()}
+      function resize(){const r=stage.getBoundingClientRect(),dpr=window.devicePixelRatio||1;canvas.width=Math.max(1,Math.floor(r.width*dpr));canvas.height=Math.max(1,Math.floor(r.height*dpr));canvas.style.width=r.width+'px';canvas.style.height=r.height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+      function hideTip(){tip.style.display='none'}
+      function showTip(html,x,y){tip.innerHTML=html;tip.style.display='block';const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+'px';tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+'px'}
+      function xRange(){const visible=items.filter(item=>item.visible);let max=30;for(const item of visible)max=Math.max(max,item.mean);return max*1.18}
+      function xToPx(v,left,w,max){return left+(v/Math.max(1e-6,max))*w}
+      function niceStep(range,target=7){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
+      function draw(){
+        const r=stage.getBoundingClientRect(),W=r.width,left=220,top=24,right=32,bottom=56;
+        const w=Math.max(10,W-left-right);
+        const visible=items.filter(item=>item.visible);
+        const rowGap=10, rowH=(modeKey==='muscles'?22:58);
+        const contentH=Math.max(320,visible.length*(rowH+rowGap));
+        const H=top+contentH+bottom;
+        const dpr=window.devicePixelRatio||1;
+        canvas.width=Math.max(1,Math.floor(W*dpr));
+        canvas.height=Math.max(1,Math.floor(H*dpr));
+        canvas.style.width=W+'px';
+        canvas.style.height=H+'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+        ctx.clearRect(0,0,W,H);
+        const max=xRange();
+        const xStep=niceStep(max);
+        ctx.save();
+        ctx.strokeStyle='rgba(255,255,255,.08)';
+        ctx.lineWidth=1;
+        for(let x=0;x<=max+1e-6;x+=xStep){const px=xToPx(x,left,w,max);ctx.beginPath();ctx.moveTo(px,top);ctx.lineTo(px,H-bottom);ctx.stroke()}
+        ctx.strokeStyle='rgba(255,255,255,.28)';
+        ctx.strokeRect(left,top,w,H-top-bottom);
+        ctx.fillStyle='rgba(229,231,235,.92)';
+        ctx.font='12px Segoe UI, system-ui';
+        ctx.textAlign='center';
+        for(let x=0;x<=max+1e-6;x+=xStep){const px=xToPx(x,left,w,max);ctx.fillText(String(Math.round(x)),px,H-bottom+18)}
+        ctx.fillStyle='rgba(156,163,175,.95)';
+        ctx.fillText('Volume fraction of total upper limb (%)',left+w/2,H-bottom+42);
+        ctx.restore();
+        barHits=[];
+        let y=top+8;
+        for(const item of visible){
+          const barTop=y,barHeight=rowH,valueWidth=xToPx(item.mean,left,w,max)-left,isActive=activeName===item.name,hasActive=!!activeName,alpha=hasActive?(isActive?1:.18):1;
+          ctx.fillStyle='rgba(229,231,235,.92)';
+          ctx.font=(modeKey==='muscles'?'12px':'600 13px')+' Segoe UI, system-ui';
+          ctx.textAlign='right';
+          ctx.fillText(item.name,left-12,barTop+barHeight*(modeKey==='muscles'?0.62:0.42));
+          if(modeKey==='muscles'){
+            ctx.fillStyle='rgba(156,163,175,.95)';
+            ctx.font='11px Segoe UI, system-ui';
+            ctx.fillText(item.abbr,left-12,barTop+barHeight+11);
+          }
+          ctx.save();
+          ctx.globalAlpha=alpha;
+          ctx.fillStyle=item.color;
+          ctx.shadowColor=isActive?item.color:'transparent';
+          ctx.shadowBlur=isActive?18:0;
+          ctx.fillRect(left,barTop,valueWidth,barHeight);
+          ctx.restore();
+          ctx.fillStyle='rgba(15,23,42,.92)';
+          ctx.font='11px Segoe UI, system-ui';
+          ctx.textAlign='left';
+          ctx.fillText(item.mean.toFixed(1)+'%',left+Math.max(8,valueWidth)+8,barTop+barHeight*0.62);
+          barHits.push({x:left,y:barTop,w:valueWidth,h:barHeight,item});
+          y+=rowH+rowGap;
+        }
+        status.textContent=`${current().label} | ${visible.length} bars shown`;
+      }
+      function hitBar(x,y){for(let i=barHits.length-1;i>=0;i--){const b=barHits[i];if(x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)return b}return null}
+      modeEl.addEventListener('change',()=>{modeKey=modeEl.value;applyMode()});
+      document.getElementById('all').addEventListener('click',()=>{for(const item of items)item.visible=true;for(const cb of checksEl.querySelectorAll('input'))cb.checked=true;syncActiveRows();draw()});
+      document.getElementById('none').addEventListener('click',()=>{for(const item of items)item.visible=false;activeName=null;for(const cb of checksEl.querySelectorAll('input'))cb.checked=false;syncActiveRows();draw()});
+      window.addEventListener('resize',resize);
+      stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top+stage.scrollTop,hit=hitBar(x,y);if(!hit){hideTip();return}const item=hit.item;const extra=modeKey==='muscles'?`<div class="muted">Abbreviation: ${item.abbr}</div><div class="muted">Region: ${item.region}</div>`:`<div class="muted">${item.note||''}</div>`;showTip(`<div><strong>${item.name}</strong></div><div>${item.mean.toFixed(1)}% of upper-limb volume</div>${extra}`,x,y-stage.scrollTop)});
+      stage.addEventListener('pointerleave',hideTip);
+      stage.addEventListener('scroll',hideTip);
+      populateModes();applyMode();resize();
+    </script>
+  </body>
+</html>
