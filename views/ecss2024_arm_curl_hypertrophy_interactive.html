@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ECSS 2024 arm curl hypertrophy</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}
+      .top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}
+      .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px}.btn{cursor:pointer}.btn:hover{background:var(--btnHover)}
+      select,option,optgroup{background:var(--panel);color:var(--text)}
+      .status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}
+      .left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}
+      .sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}
+      .swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)} .check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.4}
+      .stage{position:relative;overflow:auto;min-width:0}
+      canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.82);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(760px,92vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:28vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:760px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">ECSS 2024 - Incline vs preacher arm curl hypertrophy</div>
+          <div id="subtitle" class="subtitle"></div>
+        </div>
+        <div class="controls">
+          <select id="mode"></select>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle</div>
+          <div id="checks"></div>
+          <div id="hint" class="hint"></div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div id="overlay" class="overlay"></div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const COLORS={incline:"#60a5fa",preacher:"#f97316",bb:"#8b5cf6",brc:"#22c55e",brr:"#ec4899",whole:"#facc15"};
+      const MODES={
+        volume:{
+          label:"Volume change",
+          subtitle:"Reported muscle-volume changes after 12 weeks of incline (shoulder-extended) versus preacher (shoulder-flexed) arm curl training.",
+          hint:"Grouped bars show the reported percent muscle-volume changes. Whole elbow flexors were similar between conditions, but BB favored incline while BRC and BRR favored preacher.",
+          overlay:"Hover = exact reported % change | Bars are the abstract values",
+          items:[
+            {name:"Whole elbow flexors - Incline", group:"Whole elbow flexors", value:16.5, color:COLORS.incline, note:"No significant between-condition difference reported (P = 0.167, d = 0.18)."},
+            {name:"Whole elbow flexors - Preacher", group:"Whole elbow flexors", value:17.6, color:COLORS.preacher, note:"No significant between-condition difference reported (P = 0.167, d = 0.18)."},
+            {name:"Biceps brachii - Incline", group:"Biceps brachii", value:18.0, color:COLORS.incline, note:"Greater than preacher (P = 0.026, d = 0.41)."},
+            {name:"Biceps brachii - Preacher", group:"Biceps brachii", value:14.9, color:COLORS.preacher, note:"Less than incline for BB."},
+            {name:"Brachialis - Incline", group:"Brachialis", value:17.0, color:COLORS.incline, note:"Less than preacher (P = 0.022, d = 0.52)."},
+            {name:"Brachialis - Preacher", group:"Brachialis", value:21.0, color:COLORS.preacher, note:"Greater than incline for BRC."},
+            {name:"Brachioradialis - Incline", group:"Brachioradialis", value:10.0, color:COLORS.incline, note:"Less than preacher (P = 0.018, d = 0.49)."},
+            {name:"Brachioradialis - Preacher", group:"Brachioradialis", value:13.0, color:COLORS.preacher, note:"Greater than incline for BRR."}
+          ]
+        },
+        regions:{
+          label:"Regional ACSA advantage",
+          subtitle:"Reported regional differences in anatomical cross-sectional area (ACSA) changes between incline and preacher arm curls.",
+          hint:"This view is a region map from the abstract, not raw ACSA percentages. Colored blocks mark the muscle regions where one condition significantly outperformed the other.",
+          overlay:"Colored bands = reported significant regional advantage",
+          items:[
+            {name:"BB incline advantage", muscle:"Biceps brachii", from:20, to:40, winner:"Incline", color:COLORS.incline, text:"Incline > preacher at proximal BB (20-40%), P = 0.015-0.045, d = 0.48-0.80."},
+            {name:"BRC preacher advantage", muscle:"Brachialis", from:70, to:80, winner:"Preacher", color:COLORS.preacher, text:"Preacher > incline at distal BRC (70-80%), P = 0.005-0.014, d = 0.76-0.81."},
+            {name:"BRR preacher advantage", muscle:"Brachioradialis", from:60, to:60, winner:"Preacher", color:COLORS.preacher, text:"Preacher > incline at middle BRR (60%), P = 0.001, d = 0.72."}
+          ]
+        }
+      };
+
+      const modeEl=document.getElementById("mode"),checksEl=document.getElementById("checks"),subtitleEl=document.getElementById("subtitle"),hintEl=document.getElementById("hint"),overlayEl=document.getElementById("overlay"),statusEl=document.getElementById("status"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),tip=document.getElementById("tip");
+      let modeKey="volume",items=[],activeName=null,hits=[];
+
+      function currentMode(){return MODES[modeKey]}
+      function populateModes(){for(const [key,val] of Object.entries(MODES)){const opt=document.createElement("option");opt.value=key;opt.textContent=val.label;modeEl.appendChild(opt)} modeEl.value=modeKey}
+      function buildItems(){items=currentMode().items.map(item=>({...item,visible:true}))}
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll(".check"))row.classList.toggle("active",row.dataset.name===activeName)}
+      function rebuildChecks(){
+        checksEl.innerHTML="";
+        for(const item of items){
+          const row=document.createElement("div"); row.className="check"; row.dataset.name=item.name;
+          const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=item.visible;
+          cb.addEventListener("click",e=>e.stopPropagation());
+          cb.addEventListener("change",()=>{item.visible=cb.checked;if(!item.visible&&activeName===item.name)activeName=null;syncActiveRows();draw()});
+          const sw=document.createElement("div"); sw.className="swatch"; sw.style.background=item.color;
+          const lab=document.createElement("label"); lab.textContent=modeKey==="volume"?item.name:item.text;
+          row.addEventListener("click",()=>{activeName=activeName===item.name?null:item.name;syncActiveRows();draw()});
+          row.append(cb,sw,lab); checksEl.appendChild(row);
+        }
+      }
+      function hideTip(){tip.style.display="none"}
+      function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
+      function drawVolume(W){
+        const left=90,top=28,right=24,bottom=70,groupGap=40,barW=36,barGap=10;
+        const groups=["Whole elbow flexors","Biceps brachii","Brachialis","Brachioradialis"];
+        const visible=items.filter(item=>item.visible);
+        const plotW=Math.max(600,W-left-right);
+        const H=540;
+        canvas.style.height=H+"px";
+        const dpr=window.devicePixelRatio||1;
+        canvas.width=Math.floor(W*dpr); canvas.height=Math.floor(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+        ctx.clearRect(0,0,W,H); ctx.fillStyle="#0f172a"; ctx.fillRect(0,0,W,H);
+        const maxY=24;
+        const yToPx=v=>top+(1-v/maxY)*(H-top-bottom);
+        hits=[];
+        ctx.strokeStyle="rgba(255,255,255,.08)"; ctx.lineWidth=1;
+        for(let y=0;y<=maxY;y+=4){const py=yToPx(y);ctx.beginPath();ctx.moveTo(left,py);ctx.lineTo(W-right,py);ctx.stroke();ctx.fillStyle="rgba(229,231,235,.92)";ctx.font="12px Segoe UI, system-ui";ctx.textAlign="right";ctx.fillText(`${y}%`,left-10,py+4)}
+        ctx.strokeStyle="rgba(255,255,255,.28)"; ctx.strokeRect(left,top,plotW,H-top-bottom);
+        let x=left+34;
+        for(const group of groups){
+          const groupItems=visible.filter(item=>item.group===group);
+          const allGroupItems=items.filter(item=>item.group===group);
+          const groupCenter=x+((barW*2+barGap)/2)-barGap/2;
+          for(const baseItem of allGroupItems){
+            const item=groupItems.find(entry=>entry.name===baseItem.name);
+            const isVisible=!!item;
+            const val=baseItem.value;
+            const barLeft=x;
+            const barTop=yToPx(val);
+            const barH=H-bottom-barTop;
+            const isActive=activeName===baseItem.name, hasActive=!!activeName, alpha=isVisible?(hasActive?(isActive?1:.18):1):.07;
+            ctx.save(); ctx.globalAlpha=alpha; ctx.fillStyle=baseItem.color; if(isActive){ctx.shadowColor=baseItem.color;ctx.shadowBlur=18} ctx.fillRect(barLeft,barTop,barW,barH); ctx.restore();
+            if(isVisible) hits.push({x:barLeft,y:barTop,w:barW,h:barH,item:baseItem});
+            ctx.save(); ctx.globalAlpha=alpha; ctx.fillStyle="rgba(229,231,235,.92)"; ctx.font="11px Segoe UI, system-ui"; ctx.textAlign="center"; ctx.fillText(baseItem.name.includes("Incline")?"Incline":"Preacher",barLeft+barW/2,H-bottom+18); ctx.restore();
+            x += barW + barGap;
+          }
+          ctx.fillStyle="rgba(156,163,175,.95)"; ctx.font="12px Segoe UI, system-ui"; ctx.textAlign="center"; ctx.fillText(group,groupCenter,H-bottom+42);
+          x += groupGap;
+        }
+        ctx.fillStyle="rgba(156,163,175,.95)";
+        ctx.save();
+        ctx.translate(20,top+(H-top-bottom)/2);
+        ctx.rotate(-Math.PI/2);
+        ctx.textAlign="center";
+        ctx.fillText("Muscle volume change (%)",0,0);
+        ctx.restore();
+        statusEl.textContent=`${visible.length} bars shown`;
+      }
+      function drawRegions(W){
+        const left=110,top=46,right=30,bottom=90,rowGap=84,rowH=34,H=460;
+        const muscles=["Biceps brachii","Brachialis","Brachioradialis"];
+        const plotW=Math.max(560,W-left-right);
+        canvas.style.height=H+"px";
+        const dpr=window.devicePixelRatio||1;
+        canvas.width=Math.floor(W*dpr); canvas.height=Math.floor(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+        ctx.clearRect(0,0,W,H); ctx.fillStyle="#0f172a"; ctx.fillRect(0,0,W,H);
+        const xToPx=v=>left+((v-10)/80)*plotW;
+        hits=[];
+        ctx.strokeStyle="rgba(255,255,255,.08)"; ctx.lineWidth=1;
+        for(let x=10;x<=90;x+=10){const px=xToPx(x);ctx.beginPath();ctx.moveTo(px,top);ctx.lineTo(px,H-bottom);ctx.stroke();ctx.fillStyle="rgba(229,231,235,.92)";ctx.font="12px Segoe UI, system-ui";ctx.textAlign="center";ctx.fillText(`${x}%`,px,H-bottom+20)}
+        for(let i=0;i<muscles.length;i++){
+          const y=top+i*rowGap;
+          ctx.strokeStyle="rgba(255,255,255,.18)"; ctx.strokeRect(left,y,plotW,rowH);
+          ctx.fillStyle="rgba(229,231,235,.92)"; ctx.textAlign="right"; ctx.font="13px Segoe UI, system-ui"; ctx.fillText(muscles[i],left-14,y+22);
+          ctx.fillStyle="rgba(255,255,255,.03)"; ctx.fillRect(left,y,plotW,rowH);
+        }
+        const visible=items.filter(item=>item.visible);
+        for(const item of visible){
+          const rowIndex=muscles.indexOf(item.muscle);
+          const y=top+rowIndex*rowGap;
+          const x1=xToPx(item.from), x2=xToPx(item.to);
+          const isActive=activeName===item.name, hasActive=!!activeName, alpha=hasActive?(isActive?1:.18):1;
+          ctx.save(); ctx.globalAlpha=alpha; ctx.fillStyle=item.color; if(isActive){ctx.shadowColor=item.color;ctx.shadowBlur=16}
+          if(item.from===item.to){
+            ctx.fillRect(x1-7,y+2,14,rowH-4);
+            hits.push({x:x1-7,y:y+2,w:14,h:rowH-4,item});
+          }else{
+            ctx.fillRect(x1,y+2,x2-x1,rowH-4);
+            hits.push({x:x1,y:y+2,w:x2-x1,h:rowH-4,item});
+          }
+          ctx.restore();
+          ctx.fillStyle="rgba(229,231,235,.92)"; ctx.font="12px Segoe UI, system-ui"; ctx.textAlign="left";
+          ctx.fillText(item.winner,xToPx(item.to)+10,y+22);
+        }
+        ctx.fillStyle="rgba(156,163,175,.95)"; ctx.textAlign="center"; ctx.fillText("Muscle length region (proximal to distal)",left+plotW/2,H-26);
+        statusEl.textContent=`${visible.length} regional findings shown`;
+      }
+      function draw(){
+        const W=Math.max(760,stage.clientWidth||760);
+        subtitleEl.textContent=currentMode().subtitle;
+        hintEl.textContent=currentMode().hint;
+        overlayEl.textContent=currentMode().overlay;
+        if(modeKey==="volume") drawVolume(W); else drawRegions(W);
+      }
+      function applyMode(){activeName=null;buildItems();rebuildChecks();syncActiveRows();draw()}
+
+      modeEl.addEventListener("change",()=>{modeKey=modeEl.value;applyMode()});
+      document.getElementById("all").addEventListener("click",()=>{for(const item of items)item.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});
+      document.getElementById("none").addEventListener("click",()=>{for(const item of items)item.visible=false;activeName=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});
+      stage.addEventListener("pointermove",e=>{const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;const hit=hits.find(h=>x>=h.x&&x<=h.x+h.w&&y>=h.y&&y<=h.y+h.h);if(!hit){hideTip();return}if(modeKey==="volume"){showTip(`<div><strong>${hit.item.name}</strong></div><div class="muted">${hit.item.value.toFixed(1)}% change</div><div class="muted">${hit.item.note}</div>`,x,y)}else{showTip(`<div><strong>${hit.item.muscle}</strong></div><div class="muted">${hit.item.text}</div>`,x,y)}});
+      stage.addEventListener("pointerleave",hideTip);
+      window.addEventListener("resize",draw);
+      populateModes();
+      applyMode();
+    </script>
+  </body>
+</html>

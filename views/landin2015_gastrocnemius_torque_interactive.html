@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Landin 2015 gastrocnemius torque</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.btn{cursor:pointer} select,option,optgroup{background:var(--panel);color:var(--text)}.btn:hover{background:var(--btnHover)}.status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}.swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.35}.stage{position:relative;overflow:hidden;min-width:0;touch-action:none;cursor:grab}.stage.is-dragging{cursor:grabbing} canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.8);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(540px,78vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:22vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:540px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Landin et al. (2015) - Gastrocnemius plantarflexion torque</div>
+          <div id="subtitle" class="subtitle"></div>
+        </div>
+        <div class="controls">
+          <select id="metric"></select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle ankle positions</div>
+          <div id="checks"></div>
+          <div id="hint" class="hint"></div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Wheel = zoom | Drag = pan | X = knee angle | Lines = ankle angle</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const kneeAngles=[0,15,30,45,60,75,90,105];
+      const COLORS={"-15 plantarflexed":"#f97316","0 neutral":"#60a5fa","+15 dorsiflexed":"#22c55e"};
+      const METRICS={
+        maximum:{
+          label:"Maximum moment",
+          subtitle:"Table 1 maximum plantarflexion moment (Nm). This includes the passive moment plus the stimulated contribution.",
+          hint:"Reported from Table 1. Straight knee + dorsiflexed ankle produced the largest maximum moment in the paper.",
+          yLabel:"Maximum plantarflexion moment (Nm)",
+          yBounds:{min:10,max:27},
+          series:[
+            {name:"-15 plantarflexed",visible:true,points:[{x:0,y:20.5},{x:15,y:18.91},{x:30,y:17.65},{x:45,y:18.96},{x:60,y:16.99},{x:75,y:14.93},{x:90,y:15.03},{x:105,y:13.02}]},
+            {name:"0 neutral",visible:true,points:[{x:0,y:21.11},{x:15,y:20.35},{x:30,y:20.47},{x:45,y:20.30},{x:60,y:18.5},{x:75,y:17.51},{x:90,y:18.11},{x:105,y:14.95}]},
+            {name:"+15 dorsiflexed",visible:true,points:[{x:0,y:24.95},{x:15,y:21.43},{x:30,y:23.72},{x:45,y:22.41},{x:60,y:20.71},{x:75,y:20.9},{x:90,y:20.11},{x:105,y:18.17}]}
+          ]
+        },
+        passive:{
+          label:"Passive moment",
+          subtitle:"Table 2 passive plantarflexion moment (Nm). This is the torque from passive tissue without stimulation.",
+          hint:"Reported from Table 2. This shows how much passive plantarflexion torque comes from tissue lengthening alone.",
+          yLabel:"Passive plantarflexion moment (Nm)",
+          yBounds:{min:4,max:22},
+          series:[
+            {name:"-15 plantarflexed",visible:true,points:[{x:0,y:12.63},{x:15,y:11.38},{x:30,y:9.68},{x:45,y:9.80},{x:60,y:9.02},{x:75,y:8.46},{x:90,y:7.77},{x:105,y:5.75}]},
+            {name:"0 neutral",visible:true,points:[{x:0,y:15.13},{x:15,y:14.10},{x:30,y:14.01},{x:45,y:12.01},{x:60,y:11.78},{x:75,y:11.36},{x:90,y:10.63},{x:105,y:9.52}]},
+            {name:"+15 dorsiflexed",visible:true,points:[{x:0,y:20.69},{x:15,y:17.33},{x:30,y:18.88},{x:45,y:16.65},{x:60,y:15.57},{x:75,y:15.39},{x:90,y:15.08},{x:105,y:13.99}]}
+          ]
+        },
+        stimulated:{
+          label:"Stimulated moment",
+          subtitle:"Table 3 stimulated plantarflexion moment (Nm). This is the electrically stimulated contribution after subtracting passive moment.",
+          hint:"Reported from Table 3. This isolates the gastrocnemius stimulation contribution beyond passive tissue torque.",
+          yLabel:"Stimulated plantarflexion moment (Nm)",
+          yBounds:{min:3,max:10},
+          series:[
+            {name:"-15 plantarflexed",visible:true,points:[{x:0,y:4.01},{x:15,y:4.0},{x:30,y:4.99},{x:45,y:5.65},{x:60,y:5.03},{x:75,y:5.46},{x:90,y:5.00},{x:105,y:4.25}]},
+            {name:"0 neutral",visible:true,points:[{x:0,y:6.0},{x:15,y:5.99},{x:30,y:6.48},{x:45,y:8.32},{x:60,y:6.56},{x:75,y:6.32},{x:90,y:7.44},{x:105,y:5.49}]},
+            {name:"+15 dorsiflexed",visible:true,points:[{x:0,y:7.92},{x:15,y:7.28},{x:30,y:7.99},{x:45,y:8.98},{x:60,y:7.93},{x:75,y:6.46},{x:90,y:7.18},{x:105,y:6.88}]}
+          ]
+        }
+      };
+
+      const metricEl=document.getElementById("metric"),checksEl=document.getElementById("checks"),subtitleEl=document.getElementById("subtitle"),hintEl=document.getElementById("hint"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),status=document.getElementById("status"),tip=document.getElementById("tip");
+      let metricKey="maximum",series=[],activeSeries=null,screenSeries=[],dragging=false,lastX=0,lastY=0,dragAxis=null;
+      let view={xMin:0,xMax:105,yMin:10,yMax:27};
+
+      function currentMetric(){return METRICS[metricKey]}
+      function populateMetrics(){for(const [key,val] of Object.entries(METRICS)){const opt=document.createElement("option");opt.value=key;opt.textContent=val.label;metricEl.appendChild(opt)}metricEl.value=metricKey}
+      function rebuildSeries(){series=currentMetric().series.map(s=>({...s,color:COLORS[s.name]}))}
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll(".check"))row.classList.toggle("active",row.dataset.name===activeSeries)}
+      function rebuildChecks(){
+        checksEl.innerHTML="";
+        for(const s of series){
+          const row=document.createElement("div"); row.className="check"; row.dataset.name=s.name;
+          const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=s.visible;
+          cb.addEventListener("click",e=>e.stopPropagation());
+          cb.addEventListener("change",()=>{s.visible=cb.checked;if(!s.visible&&activeSeries===s.name)activeSeries=null;syncActiveRows();draw()});
+          const sw=document.createElement("div"); sw.className="swatch"; sw.style.background=s.color;
+          const lab=document.createElement("label"); lab.textContent=s.name;
+          row.addEventListener("click",()=>{activeSeries=activeSeries===s.name?null:s.name;syncActiveRows();draw()});
+          row.append(cb,sw,lab); checksEl.appendChild(row);
+        }
+      }
+      function fitView(){const y=currentMetric().yBounds; view={xMin:0,xMax:105,yMin:y.min,yMax:y.max}; draw()}
+      function clampView(next){
+        let {xMin,xMax,yMin,yMax}=next;
+        const minXRange=30,minYRange=2,maxXRange=140,maxYRange=40;
+        let xr=xMax-xMin,yr=yMax-yMin;
+        if(xr<minXRange){const mid=(xMin+xMax)/2;xMin=mid-minXRange/2;xMax=mid+minXRange/2}
+        if(yr<minYRange){const mid=(yMin+yMax)/2;yMin=mid-minYRange/2;yMax=mid+minYRange/2}
+        if(xMax-xMin>maxXRange){xMin=-10;xMax=130}
+        const yDefault=currentMetric().yBounds;
+        if(yMax-yMin>maxYRange){yMin=yDefault.min-4;yMax=yDefault.max+4}
+        if(xMin<-10){xMax+=-10-xMin;xMin=-10}
+        if(xMax>130){xMin-=xMax-130;xMax=130}
+        if(yMin<yDefault.min-4){yMax+=(yDefault.min-4)-yMin;yMin=yDefault.min-4}
+        if(yMax>yDefault.max+4){yMin-=yMax-(yDefault.max+4);yMax=yDefault.max+4}
+        return {xMin,xMax,yMin,yMax};
+      }
+      function xToPx(v,w,padL){return padL+((v-view.xMin)/(view.xMax-view.xMin))*w}
+      function yToPx(v,h,padT){return padT+(1-(v-view.yMin)/(view.yMax-view.yMin))*h}
+      function pxToX(px,w,padL){return view.xMin+((px-padL)/w)*(view.xMax-view.xMin)}
+      function pxToY(py,h,padT){return view.yMin+(1-((py-padT)/h))*(view.yMax-view.yMin)}
+      function niceStep(range,target=6){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
+      function hideTip(){tip.style.display="none"}
+      function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=12;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
+      function closestOnPolyline(x,y,pts){let best=null;for(let i=0;i<pts.length-1;i++){const a=pts[i],b=pts[i+1];const abx=b.px-a.px,aby=b.py-a.py,ab2=abx*abx+aby*aby;if(!ab2)continue;let t=((x-a.px)*abx+(y-a.py)*aby)/ab2;t=Math.max(0,Math.min(1,t));const cx=a.px+t*abx,cy=a.py+t*aby,dist=Math.hypot(x-cx,y-cy);if(!best||dist<best.dist)best={cx,cy,dist}}return best}
+      function draw(){
+        const r=stage.getBoundingClientRect(),W=r.width,H=r.height,padL=66,padT=20,padR=20,padB=60,w=Math.max(10,W-padL-padR),h=Math.max(10,H-padT-padB),dpr=window.devicePixelRatio||1;
+        canvas.width=Math.max(1,Math.floor(W*dpr)); canvas.height=Math.max(1,Math.floor(H*dpr)); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+        screenSeries=[]; subtitleEl.textContent=currentMetric().subtitle; hintEl.textContent=currentMetric().hint;
+        ctx.save();
+        ctx.fillStyle="#0f172a"; ctx.fillRect(0,0,W,H);
+        ctx.strokeStyle="rgba(255,255,255,.08)"; ctx.lineWidth=1;
+        for(let x=Math.ceil(view.xMin/15)*15;x<=view.xMax+1e-6;x+=15){const px=xToPx(x,w,padL);ctx.beginPath();ctx.moveTo(px,padT);ctx.lineTo(px,padT+h);ctx.stroke()}
+        const yStep=niceStep(view.yMax-view.yMin);
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){const py=yToPx(y,h,padT);ctx.beginPath();ctx.moveTo(padL,py);ctx.lineTo(padL+w,py);ctx.stroke()}
+        ctx.strokeStyle="rgba(255,255,255,.28)"; ctx.strokeRect(padL,padT,w,h);
+        ctx.fillStyle="rgba(229,231,235,.92)"; ctx.font="12px Segoe UI, system-ui"; ctx.textAlign="center";
+        for(let x=Math.ceil(view.xMin/15)*15;x<=view.xMax+1e-6;x+=15){ctx.fillText(String(x),xToPx(x,w,padL),padT+h+18)}
+        ctx.textAlign="right";
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){ctx.fillText((Math.round(y*10)/10).toString(),padL-8,yToPx(y,h,padT)+4)}
+        ctx.textAlign="center"; ctx.fillStyle="rgba(156,163,175,.95)";
+        ctx.fillText("Knee angle (deg)",padL+w/2,padT+h+42);
+        ctx.save(); ctx.translate(18,padT+h/2); ctx.rotate(-Math.PI/2); ctx.fillText(currentMetric().yLabel,0,0); ctx.restore();
+        for(const s of series){
+          if(!s.visible) continue;
+          const pts=s.points.filter(p=>p.x>=view.xMin&&p.x<=view.xMax).map(p=>({x:p.x,y:p.y,px:xToPx(p.x,w,padL),py:yToPx(p.y,h,padT)}));
+          screenSeries.push({name:s.name,color:s.color,pts});
+          if(pts.length<2) continue;
+          const isActive=activeSeries===s.name, hasActive=!!activeSeries, alpha=hasActive?(isActive?1:.18):1;
+          ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=s.color; ctx.lineWidth=isActive?6:4; ctx.lineJoin="round"; ctx.lineCap="round"; if(isActive){ctx.shadowColor=s.color;ctx.shadowBlur=18}
+          ctx.beginPath(); ctx.moveTo(pts[0].px,pts[0].py); for(let i=1;i<pts.length;i++) ctx.lineTo(pts[i].px,pts[i].py); ctx.stroke();
+          ctx.fillStyle=s.color; for(const p of pts){ctx.beginPath();ctx.arc(p.px,p.py,isActive?4.6:3.6,0,Math.PI*2);ctx.fill()}
+          ctx.restore();
+        }
+        ctx.restore();
+        const sx=Math.round((105/Math.max(1e-6,view.xMax-view.xMin))*100);
+        status.textContent=`${currentMetric().label} | ${series.filter(s=>s.visible).length} lines shown | ${sx}% zoom`;
+      }
+      function applyMetric(){activeSeries=null;rebuildSeries();rebuildChecks();syncActiveRows();fitView()}
+
+      metricEl.addEventListener("change",()=>{metricKey=metricEl.value;applyMetric()});
+      document.getElementById("fit").addEventListener("click",fitView);
+      document.getElementById("reset").addEventListener("click",()=>{activeSeries=null;syncActiveRows();fitView()});
+      document.getElementById("all").addEventListener("click",()=>{for(const s of series)s.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});
+      document.getElementById("none").addEventListener("click",()=>{for(const s of series)s.visible=false;activeSeries=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});
+
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;dragAxis=null;lastX=e.clientX;lastY=e.clientY;stage.classList.add("is-dragging");stage.setPointerCapture(e.pointerId);hideTip()});
+      stage.addEventListener("pointermove",e=>{
+        if(dragging){
+          const dx=e.clientX-lastX,dy=e.clientY-lastY; lastX=e.clientX; lastY=e.clientY;
+          if(!dragAxis){if(Math.abs(dx)<2&&Math.abs(dy)<2)return;dragAxis=Math.abs(dy)>Math.abs(dx)*1.15?"y":"x";}
+          const r=stage.getBoundingClientRect(),padL=66,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),xr=view.xMax-view.xMin,yr=view.yMax-view.yMin;
+          view=clampView({xMin:view.xMin-(dragAxis==="y"?0:dx*xr/w),xMax:view.xMax-(dragAxis==="y"?0:dx*xr/w),yMin:view.yMin+(dragAxis==="x"?0:dy*yr/h),yMax:view.yMax+(dragAxis==="x"?0:dy*yr/h)});
+          draw(); return;
+        }
+        const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,padL=66,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB);
+        if(x<padL||x>padL+w||y<padT||y>padT+h){hideTip();return}
+        let best=null;
+        for(const s of screenSeries){const hit=closestOnPolyline(x,y,s.pts); if(!hit) continue; if(!best||hit.dist<best.dist) best={s,...hit};}
+        if(!best||best.dist>10){hideTip();return}
+        const knee=pxToX(best.cx,w,padL), val=pxToY(best.cy,h,padT);
+        showTip(`<div><strong>${best.s.name}</strong></div><div class="muted">Knee: ${knee.toFixed(1)} deg | ${currentMetric().label}: ${val.toFixed(2)} Nm</div>`,x,y);
+      });
+      stage.addEventListener("pointerup",()=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointercancel",()=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip()});
+      stage.addEventListener("wheel",e=>{
+        const r=stage.getBoundingClientRect(),padL=66,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),x=e.clientX-r.left,y=e.clientY-r.top;
+        if(x<padL||x>padL+w||y<padT||y>padT+h)return;
+        e.preventDefault();
+        const x0=pxToX(x,w,padL), y0=pxToY(y,h,padT), zoom=e.deltaY>0?1.12:1/1.12;
+        view=clampView({xMin:x0+(view.xMin-x0)*zoom,xMax:x0+(view.xMax-x0)*zoom,yMin:y0+(view.yMin-y0)*zoom,yMax:y0+(view.yMax-y0)*zoom});
+        draw();
+      },{passive:false});
+
+      window.addEventListener("resize",draw);
+      populateMetrics();
+      applyMetric();
+    </script>
+  </body>
+</html>

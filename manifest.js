@@ -90,7 +90,35 @@ window.GRAPH_MANIFEST = {
                        "title":  "Muscle sizes",
                        "file":  "views/lube2015_muscle_sizes_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:40:59.0652386-04:00"
+                       "updatedAt":  "2026-03-18T14:44:28.4909482-04:00"
+                   },
+                   {
+                       "id":  "ochi2016_elbow_flexor_swelling_chart",
+                       "title":  "Ochi 2016 swelling",
+                       "file":  "views/ochi2016_elbow_flexor_swelling_chart.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-18T15:27:52.0039769-04:00"
+                   },
+                   {
+                       "id":  "landin2015_gastrocnemius_torque_interactive",
+                       "title":  "Gastrocnemius plantarflexion torque",
+                       "file":  "views/landin2015_gastrocnemius_torque_interactive.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-18T15:47:19.1301807-04:00"
+                   },
+                   {
+                       "id":  "ecss2024_arm_curl_hypertrophy_interactive",
+                       "title":  "Incline vs preacher curl hypertrophy",
+                       "file":  "views/ecss2024_arm_curl_hypertrophy_interactive.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-18T16:11:35.5733822-04:00"
+                   },
+                   {
+                       "id":  "tsuchiya2015_elbow_flexor_csa_interactive",
+                       "title":  "Elbow flexor ECC CSA",
+                       "file":  "views/tsuchiya2015_elbow_flexor_csa_interactive.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-18T23:39:47.8672495-04:00"
                    },
                    {
                        "id":  "digitizer",
@@ -100,6 +128,6 @@ window.GRAPH_MANIFEST = {
                        "updatedAt":  "2026-03-18T14:37:10.8083317-04:00"
                    }
                ],
-    "generatedAt":  "2026-03-18T14:41:24.5454993-04:00"
+    "generatedAt":  "2026-03-18T23:40:09.3074948-04:00"
 };
 

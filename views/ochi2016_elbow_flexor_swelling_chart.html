@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ochi 2016 elbow flexor swelling</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}
+      .top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}
+      .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px;cursor:pointer}.btn:hover{background:var(--btnHover)}.status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}
+      .left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}
+      .sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}
+      .swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.4}
+      .stage{position:relative;overflow:hidden;min-width:0;touch-action:none;cursor:grab}.stage.is-dragging{cursor:grabbing} canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.8);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(540px,78vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:22vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:540px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Ochi et al. (2016) - Elbow flexor swelling</div>
+          <div class="subtitle">Cross-sectional area after the eccentric condition, shown as percent of baseline across pre, post, day 1, day 3, and day 5.</div>
+        </div>
+        <div class="controls">
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle lines</div>
+          <div id="checks"></div>
+          <div class="hint">Hover = values | Drag = pan | Wheel = zoom | Brachialis day 1/3/5 values come from the paper text; the remaining points are figure-based reconstruction from Fig. 4 of the eccentric condition.</div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Values shown as percent of baseline CSA</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const timePoints=[{x:0,label:"Pre"},{x:1,label:"Post"},{x:2,label:"1"},{x:3,label:"3"},{x:4,label:"5"}];
+      const series=[
+        {name:"Biceps brachii",color:"#7c3aed",visible:true,points:[{x:0,y:100},{x:1,y:100.5},{x:2,y:100.2},{x:3,y:100.0},{x:4,y:99.8}]},
+        {name:"Brachialis",color:"#0ea5e9",visible:true,points:[{x:0,y:100},{x:1,y:107.0},{x:2,y:124.9},{x:3,y:141.1},{x:4,y:136.2}]},
+        {name:"Brachioradialis",color:"#db2777",visible:true,points:[{x:0,y:100},{x:1,y:101.2},{x:2,y:101.5},{x:3,y:101.1},{x:4,y:101.0}]}
+      ];
+      const checksEl=document.getElementById("checks"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),status=document.getElementById("status"),tip=document.getElementById("tip");
+      let activeSeries=null;
+      const X_BOUNDS={min:0,max:4};
+      const Y_BOUNDS={min:95,max:145};
+      let view={xMin:0,xMax:4,yMin:95,yMax:145};
+      let screenSeries=[],dragging=false,lastX=0,lastY=0,dragAxis=null;
+
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll(".check"))row.classList.toggle("active",row.dataset.name===activeSeries)}
+      function rebuildChecks(){
+        checksEl.innerHTML="";
+        for(const s of series){
+          const row=document.createElement("div"); row.className="check"; row.dataset.name=s.name;
+          const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=s.visible;
+          cb.addEventListener("click",e=>e.stopPropagation());
+          cb.addEventListener("change",()=>{s.visible=cb.checked;if(!s.visible&&activeSeries===s.name)activeSeries=null;syncActiveRows();draw()});
+          const sw=document.createElement("div"); sw.className="swatch"; sw.style.background=s.color;
+          const lab=document.createElement("label"); lab.textContent=s.name;
+          row.addEventListener("click",()=>{activeSeries=activeSeries===s.name?null:s.name;syncActiveRows();draw()});
+          row.append(cb,sw,lab); checksEl.appendChild(row);
+        }
+      }
+      function clampView(next){
+        let {xMin,xMax,yMin,yMax}=next;
+        const minXRange=1.4,minYRange=12,maxXRange=6,maxYRange=70;
+        let xr=xMax-xMin, yr=yMax-yMin;
+        if(xr<minXRange){const mid=(xMin+xMax)/2;xMin=mid-minXRange/2;xMax=mid+minXRange/2;xr=minXRange}
+        if(yr<minYRange){const mid=(yMin+yMax)/2;yMin=mid-minYRange/2;yMax=mid+minYRange/2;yr=minYRange}
+        if(xr>maxXRange){xMin=-1;xMax=5}
+        if(yr>maxYRange){yMin=88;yMax=158}
+        if(xMin<-1){xMax+=-1-xMin;xMin=-1}
+        if(xMax>5){xMin-=xMax-5;xMax=5}
+        if(yMin<88){yMax+=88-yMin;yMin=88}
+        if(yMax>158){yMin-=yMax-158;yMax=158}
+        return {xMin,xMax,yMin,yMax};
+      }
+      function fitView(){view={xMin:0,xMax:4,yMin:95,yMax:145}; draw()}
+      function resetView(){activeSeries=null;syncActiveRows();fitView()}
+      function xToPx(v,w,padL){return padL+((v-view.xMin)/(view.xMax-view.xMin))*w}
+      function yToPx(v,h,padT){return padT+(1-(v-view.yMin)/(view.yMax-view.yMin))*h}
+      function pxToX(px,w,padL){return view.xMin+((px-padL)/w)*(view.xMax-view.xMin)}
+      function pxToY(py,h,padT){return view.yMin+(1-((py-padT)/h))*(view.yMax-view.yMin)}
+      function niceStep(range,target=6){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
+      function hideTip(){tip.style.display="none"}
+      function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=12;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
+      function closestOnPolyline(x,y,pts){let best=null;for(let i=0;i<pts.length-1;i++){const a=pts[i],b=pts[i+1];const abx=b.px-a.px,aby=b.py-a.py,ab2=abx*abx+aby*aby;if(!ab2)continue;let t=((x-a.px)*abx+(y-a.py)*aby)/ab2;t=Math.max(0,Math.min(1,t));const cx=a.px+t*abx,cy=a.py+t*aby,dist=Math.hypot(x-cx,y-cy);if(!best||dist<best.dist)best={cx,cy,dist}}return best}
+      function draw(){
+        const r=stage.getBoundingClientRect(),W=r.width,H=r.height,padL=70,padT=20,padR=20,padB=60,w=Math.max(10,W-padL-padR),h=Math.max(10,H-padT-padB),dpr=window.devicePixelRatio||1;
+        canvas.width=Math.max(1,Math.floor(W*dpr)); canvas.height=Math.max(1,Math.floor(H*dpr)); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+        screenSeries=[];
+        ctx.save();
+        ctx.fillStyle="#0f172a"; ctx.fillRect(0,0,W,H);
+        ctx.strokeStyle="rgba(255,255,255,.08)"; ctx.lineWidth=1;
+        for(let i=Math.ceil(view.xMin);i<=Math.floor(view.xMax);i++){const px=xToPx(i,w,padL);ctx.beginPath();ctx.moveTo(px,padT);ctx.lineTo(px,padT+h);ctx.stroke()}
+        const yStep=niceStep(view.yMax-view.yMin);
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){const py=yToPx(y,h,padT);ctx.beginPath();ctx.moveTo(padL,py);ctx.lineTo(padL+w,py);ctx.stroke()}
+        ctx.strokeStyle="rgba(255,255,255,.28)"; ctx.strokeRect(padL,padT,w,h);
+        ctx.fillStyle="rgba(229,231,235,.92)"; ctx.font="12px Segoe UI, system-ui"; ctx.textAlign="center";
+        for(const t of timePoints){if(t.x<view.xMin||t.x>view.xMax)continue;ctx.fillText(t.label,xToPx(t.x,w,padL),padT+h+18)}
+        ctx.textAlign="right";
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){ctx.fillText(`${Math.round(y)}%`,padL-8,yToPx(y,h,padT)+4)}
+        ctx.textAlign="center"; ctx.fillStyle="rgba(156,163,175,.95)";
+        ctx.fillText("Time after exercise (days)",padL+w/2,padT+h+42);
+        ctx.save(); ctx.translate(18,padT+h/2); ctx.rotate(-Math.PI/2); ctx.fillText("Cross-sectional area (% of baseline)",0,0); ctx.restore();
+        for(const s of series){
+          if(!s.visible) continue;
+          const pts=s.points.filter(p=>p.x>=view.xMin&&p.x<=view.xMax).map(p=>({x:p.x,y:p.y,px:xToPx(p.x,w,padL),py:yToPx(p.y,h,padT)}));
+          screenSeries.push({name:s.name,color:s.color,pts});
+          const isActive=activeSeries===s.name, hasActive=!!activeSeries, alpha=hasActive?(isActive?1:.18):1;
+          if(pts.length<2) continue;
+          ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=s.color; ctx.lineWidth=isActive?6:4; ctx.lineJoin="round"; ctx.lineCap="round"; if(isActive){ctx.shadowColor=s.color;ctx.shadowBlur=18}
+          ctx.beginPath(); ctx.moveTo(pts[0].px,pts[0].py);
+          for(let i=1;i<pts.length;i++) ctx.lineTo(pts[i].px,pts[i].py);
+          ctx.stroke();
+          ctx.fillStyle=s.color;
+          for(const p of pts){ctx.beginPath();ctx.arc(p.px,p.py,isActive?4.6:3.6,0,Math.PI*2);ctx.fill()}
+          ctx.restore();
+        }
+        ctx.restore();
+        const sx=Math.round(((X_BOUNDS.max-X_BOUNDS.min)/(view.xMax-view.xMin))*100);
+        status.textContent=`${series.filter(s=>s.visible).length} lines shown | ${sx}% zoom`;
+      }
+
+      document.getElementById("fit").addEventListener("click",fitView);
+      document.getElementById("reset").addEventListener("click",resetView);
+      document.getElementById("all").addEventListener("click",()=>{for(const s of series)s.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});
+      document.getElementById("none").addEventListener("click",()=>{for(const s of series)s.visible=false;activeSeries=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});
+
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;dragAxis=null;lastX=e.clientX;lastY=e.clientY;stage.classList.add("is-dragging");stage.setPointerCapture(e.pointerId);hideTip()});
+      stage.addEventListener("pointermove",e=>{
+        if(dragging){
+          const dx=e.clientX-lastX,dy=e.clientY-lastY; lastX=e.clientX; lastY=e.clientY;
+          if(!dragAxis){if(Math.abs(dx)<2&&Math.abs(dy)<2)return;dragAxis=Math.abs(dy)>Math.abs(dx)*1.15?"y":"x";}
+          const r=stage.getBoundingClientRect(),padL=70,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),xr=view.xMax-view.xMin,yr=view.yMax-view.yMin;
+          view=clampView({xMin:view.xMin-(dragAxis==="y"?0:dx*xr/w),xMax:view.xMax-(dragAxis==="y"?0:dx*xr/w),yMin:view.yMin+(dragAxis==="x"?0:dy*yr/h),yMax:view.yMax+(dragAxis==="x"?0:dy*yr/h)});
+          draw(); return;
+        }
+        const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,padL=70,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB);
+        if(x<padL||x>padL+w||y<padT||y>padT+h){hideTip();return}
+        let best=null;
+        for(const s of screenSeries){const hit=closestOnPolyline(x,y,s.pts); if(!hit) continue; if(!best||hit.dist<best.dist) best={s,...hit};}
+        if(!best||best.dist>10){hideTip();return}
+        const time=pxToX(best.cx,w,padL), val=pxToY(best.cy,h,padT);
+        showTip(`<div><strong>${best.s.name}</strong></div><div class="muted">${time.toFixed(1)} days | ${val.toFixed(1)}% of baseline</div>`,x,y);
+      });
+      stage.addEventListener("pointerup",()=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointercancel",()=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip()});
+      stage.addEventListener("wheel",e=>{
+        const r=stage.getBoundingClientRect(),padL=70,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),x=e.clientX-r.left,y=e.clientY-r.top;
+        if(x<padL||x>padL+w||y<padT||y>padT+h)return;
+        e.preventDefault();
+        const x0=pxToX(x,w,padL), y0=pxToY(y,h,padT), zoom=e.deltaY>0?1.12:1/1.12;
+        view=clampView({xMin:x0+(view.xMin-x0)*zoom,xMax:x0+(view.xMax-x0)*zoom,yMin:y0+(view.yMin-y0)*zoom,yMax:y0+(view.yMax-y0)*zoom});
+        draw();
+      },{passive:false});
+      window.addEventListener("resize",draw);
+      rebuildChecks();
+      syncActiveRows();
+      fitView();
+    </script>
+  </body>
+</html>

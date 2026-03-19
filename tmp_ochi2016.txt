@@ -1,0 +1,701 @@
+Eur J Appl Physiol
+DOI 10.1007/s00421-016-3462-3
+
+    ORIGINAL ARTICLE
+
+
+
+Differences in post‑exercise T2 relaxation time changes
+between eccentric and concentric contractions of the elbow flexors
+Eisuke Ochi1 · Yosuke Tsuchiya2 · Kazunori Nosaka3
+
+
+
+
+Received: 9 May 2016 / Accepted: 28 August 2016
+© Springer-Verlag Berlin Heidelberg 2016
+
+
+Abstract                                                         after ECC (p < 0.05). The post-ECC T2 changes showed no
+Purpose This study compared maximal eccentric (ECC)              significant correlations with the changes in MVC torque,
+and concentric (CON) contractions of the elbow flexors           muscle soreness, and CSA, but the T2 increase immedi-
+for changes in transverse relaxation time (T2) and indirect      ately post-ECC was correlated with the peak T2 in 1–5-day
+markers of muscle damage.                                        post-ECC (r = 0.63, p < 0.05).
+Methods Twelve young men performed five sets of six              Conclusion These results suggest that muscle activity
+maximal isokinetic (30°/s) ECC with one arm followed by          during exercise was lower in ECC than CON, and the T2
+CON with the other arm. Magnetic resonance images to             changes after ECC do not necessarily relate to the changes
+assess T2 and cross-sectional area (CSA) of biceps brachii,      in other indirect markers of muscle damage.
+brachialis, and brachioradialis, and measurements of maxi-
+mal voluntary isometric contraction (MVC) torque, range          Keywords Muscle damage · Transverse relaxation time ·
+of motion (ROM), and muscle soreness were taken before,          Cross-sectional area · Magnetic resonance imaging ·
+immediately after, and 1, 3, and 5 days after each exercise.     Delayed onset muscle soreness · Muscle function
+Results MVC torque and ROM decreased greater after
+ECC than CON (p < 0.05), and muscle soreness devel-              Abbreviations
+oped only after ECC. Biceps brachii and brachialis CSA           ANOVA	Analysis of variance
+increased immediately after CON, but delayed increases           CK	Creatine kinase
+in brachialis CSA were found only after ECC (p < 0.05).          CON	Concentric contraction
+T2 of the muscles increased greater after CON (27–34 %)          CSA	Cross-sectional area
+than ECC (16–18 %) immediately post-exercise (p < 0.05),         DOMS	Delayed onset muscle soreness
+but returned to baseline by 1 day after CON. The biceps          ECC	Eccentric contraction
+brachii and brachialis T2 increased by 9–29 % at 1–5 days        EMG	Electromyography
+                                                                 MRI	Magnetic resonance imaging
+                                                                 MVC	Maximal voluntary isometric contraction
+Communicated by William J. Kraemer.
+                                                                 ROI	Region of interest
+                                                                 ROM	Range of motion
+* Eisuke Ochi                                                    T2	Transverse relaxation time
+  ochi@hosei.ac.jp                                               VAS	Visual analog scale
+1
+     Faculty of Bioscience and Applied Chemistry, Hosei
+     University, 3‑7‑2, Kajino, Koganei, Tokyo 184‑8584, Japan
+2
+     Faculty of Modern and Life, Teikyo Heisei University,
+                                                                 Introduction
+     4‑21‑2, Nakano, Tokyo 164‑8530, Japan
+3                                                                Eccentric contractions, in which a contracting muscle is
+     Centre for Exercise and Sports Science Research, School
+     of Medical and Health Sciences, Edith Cowan University,     repeatedly lengthened by greater external force than muscle
+     270 Joondalup Drive, Joondalup, WA 6027, Australia          force, can induce greater muscle damage than concentric or
+
+                                                                                                                 13
+                                                                                                            Eur J Appl Physiol
+
+
+isometric contractions (Clarkson and Sayers 1999; Laven-        (MVC) strength, DOMS, and increases in muscle vol-
+der and Nosaka 2006; Proske and Morgan 2001). Muscle            ume after eccentric exercise of the knee extensors. How-
+damage induced by eccentric contractions is characterised       ever, no previous study has investigated the relationship
+by prolonged decreases in maximal muscle strength, and          between the acute T2 change and the delayed T2 change
+the range of motion (ROM), development of delayed onset         for elbow flexor eccentric exercise. Since it has been shown
+muscle soreness (DOMS), muscle swelling, increases in           that elbow flexor eccentric exercise induces greater muscle
+creatine kinase (CK) and/or myoglobin in the blood (Chen        damage than leg muscle eccentric exercises (Chen et al.
+et al. 2011). Several studies have also shown that prolonged    2011), a clearer relationship between the acute T2 change
+increases in transverse relaxation time (T2) of magnetic        and the delayed T2 change might be demonstrated, if any.
+resonance imaging (MRI) indicate muscle damage (Foley           Providing a smaller acute T2 change indicates that fewer
+et al. 1999; Larsen et al. 2007; Nosaka and Clarkson 1996).     muscle fibres are recruited as mentioned above, it might
+    Nosaka and Clarkson (1996) reported that T2 of biceps       be that a smaller increase in T2 immediately post-exercise
+brachii and brachialis increased after the maximal eccen-       results in a greater increase in the T2 at 1–5-day post-
+tric exercise of the unilateral elbow flexors, peaked at        exercise. It was also assumed that the smaller the acute T2
+3–6 days and remained greater than baseline for 23 days         change, the greater the changes in indirect markers of mus-
+after the exercise. They also showed that the magnitude of      cle damage after eccentric exercise, since mechanical strain
+the increase in T2 reflected the magnitude of muscle dam-       to the recruited muscle fibres would be greater when the
+age (Nosaka and Clarkson 1996). Since concentric exercise       acute T2 increase is smaller.
+does not induce muscle damage (Lavender and Nosaka                 The present study, therefore, compared eccentric and
+2006), it is reasonable to assume that T2 changes after con-    concentric maximal exercises of the elbow flexors for
+centric exercise are minimal, especially after 1-day post-      changes in T2 before, immediately and for 5 days after
+exercise. In fact, Larsen et al. (2007) showed that T2 in       exercise in relation to other indirect markers of muscle
+adductor magnus did not increase immediately post-exer-         damage. This study also compared between eccentric
+cise for both legs, but significantly increased only for the    and concentric elbow flexor exercises for the relationship
+eccentrically exercised leg at 9 days after 30-min step exer-   between the acute T2 change and the delayed T2 change
+cise in which eccentric contractions were performed by one      at 1–5-day post-exercise. The specific hypotheses tested in
+leg and concentric contractions by the other leg.               the present study were that (1) the acute T2 change would
+    Several studies used MRI to evaluate muscle activa-         be smaller after maximum eccentric than maximum con-
+tion in exercise, and showed that T2 increased greater          centric exercise and (2) the acute T2 change after eccentric
+with increasing in the exercise intensity for elbow flex-       exercise would be negatively correlated with the delayed
+ors (Adams et al. 1992) and ankle dorsiflexors (Jenner          T2 change, and with the magnitude of decrease in mus-
+et al. 1994). It has been shown that the magnitude of T2        cle function, DOMS, and muscle swelling indicated by
+increase immediately post-exercise was smaller for eccen-       increases in muscle cross-sectional area (CSA).
+tric than concentric exercise (Adams et al. 1992). Adams
+et al. (1992) reported that the extent of T2 increase imme-
+diately after eccentric exercise was approximately 15–25 %      Methods
+smaller than that after concentric exercise consisting of 50
+elbow flexions using a dumbbell that was set at 40, 60, 80,     Participants
+and 100 % of ten repetition maximum (RM) of concentric
+curls. This indicates that fewer muscle fibres were recruited   The sample size was determined by a power analysis
+in eccentric than concentric contractions at the same abso-     (G*power, version 3.0.10, Heinrich-Heine University, Dus-
+lute intensity (Adams et al. 1992). However, it is not known    seldorf, Germany) by setting the effect size as 1, α level
+whether this is also the case for maximal voluntary contrac-    of 0.05 and power (1−β) of 0.80 for the possible differ-
+tions, in which force production is potentially greater for     ence in criterion measures between eccentric and concen-
+eccentric than concentric contractions (Komi et al. 2000).      tric exercises. It showed that at least ten participants were
+    Regarding the relationship between the change in T2         necessary, and thus, 12 men (age 28.1 ± 5.3 years, height
+immediately after eccentric exercise from baseline (acute       172.3 ± 6.4 cm, and body mass 68.8 ± 10.5 kg) who had
+T2 change) and that of several days after the exercise          not participated in any regular resistance training for at
+(delayed T2 change), Prior et al. (2001) reported no sig-       least 1 year prior to this study were recruited. They were
+nificant correlation between the two. They also showed that     requested to avoid any interventions that could affect the
+the change in T2 immediately after eccentric exercise from      outcome measures shown below, such as massage and
+baseline did not relate to the magnitude of muscle damage       stretching during the experimental period. They were
+represented by decreases in maximal voluntary contraction       given detailed explanations of the study protocol before
+
+13
+Eur J Appl Physiol
+
+
+participation and signed an informed consent form in con-       of motion from 0° flexion to 90°. The contraction time of
+formity with the Declaration of Helsinki. This study was        CON was the same as ECC. The rest period between sets
+approved by the local ethics committee for human experi-        was 90 s in both ECC and CON. The peak torque dur-
+ments at the Juntendo University.                               ing concentric and eccentric contractions was recorded at
+                                                                a sampling rate of 100 Hz in a computer connected to the
+Experimental protocols                                          isokinetic dynamometer, and the elbow joint angle at the
+                                                                peak torque (peak torque angle) was also determined. The
+All participants performed maximal concentric (CON) and         total work output during CON and ECC was calculated by
+eccentric (ECC) exercises of the elbow flexors using one        the summation of 30 contractions using a software program
+arm for CON and the other arm for ECC. The choice of            (Biodex System 3 application, NY, USA).
+the non-dominant or dominant arm for CON and ECC was               Blood sample for lactate was collected from a finger
+randomised among the participants, such that ECC was            using a refrigerated capillary tube (20 μl) before and 3 min
+performed by the non-dominant arm of six participants           after the exercise, and each sample was immediately placed
+and by the dominant arm of other six participants. The two      to a tube with a solution. These samples were analysed
+exercises were performed on the same day, and ECC was           using a Biosen C-line (EKF-Diagnostics, Cardiff, United
+performed first followed by CON based on a previous study       Kingdom).
+(Moore et al. 2005). The dependent variables included
+MVC torque, ROM, perceived muscle soreness by a visual          Muscle damage markers
+analog scale (VAS), T2 of MRI, CSA of each muscle of the
+elbow flexors (i.e., biceps brachii, brachialis, and brachio-   Maximal voluntary isometric contraction (MVC) torque
+radialis), and blood lactate. Blood lactate was measured
+immediately before and after exercise. Other measures           MVC torque was measured on the same apparatus and
+were taken immediately before, immediately after (within        positioning as those described for the eccentric exercise.
+30 min) and 1, 3, and 5 days after each exercise. The order     Participants performed two 5-s MVCs at 90° elbow joint
+of the measurements performed immediately after each            angle with a 15 s rest between contractions. A higher peak
+exercise was MRI, VAS, ROM, and MVC torque, and the             torque value of the two contractions was used as the MVC
+MRI was performed within 3 min after each exercise. The         torque according to a previous study (Tsuchiya et al. 2014).
+same order was maintained for the measurements taken at
+1, 3, and 5-day post-exercise. These measurements were          Range of motion (ROM)
+taken in a room maintained at 24–26 °C, which was simi-
+lar to that of the previous studies (Kouzaki et al. 2016;       To quantify the elbow joint ROM, two elbow joint angles
+Tsuchiya et al. 2016).                                          (extended and flexed joint angles) were measured using a
+                                                                goniometer (Takase Medical, Tokyo, Japan). The extended
+Exercises                                                       joint angle was recorded when participants attempted to
+                                                                fully extend the elbow joint, with the elbow held by their
+After a warm-up exercise consisting of 3–5 elbow flexions       side and the hand in supination. The flexed joint angle
+and extensions with a 2-kg dumbbell, each participant was       was determined when participants attempted to fully flex
+seated on the chair of an isokinetic dynamometer (Biodex        the elbow joint with the hand in supinated position. ROM
+Multi-Joint System 3, NY, USA), and the arm was set at a        was obtained by subtracting the flexed joint angle from the
+shoulder joint angle of 45° flexion and the elbow joint was     extended joint angle (Chen et al. 2012).
+aligned with the rotation axis of the isokinetic dynamom-
+eter, while the lever arm of the isokinetic dynamometer         Muscle soreness
+was secured to the subject’s wrist in a supinated position.
+The ECC consisted of five sets of six maximal voluntary         Muscle soreness was assessed using a 100-mm VAS in
+isokinetic (30°/s) eccentric contractions of the elbow flex-    which 0 indicates “no pain” and 100 is “worst pain imag-
+ors with a ROM from 90° flexion to 0° (full extension). The     inable” (Chen et al. 2009). Each participant was asked to
+participants were verbally encouraged to maximally resist       indicate the pain level on the scale when the investigator
+throughout the ROM for 3 s, and after each contraction, the     palpated the biceps brachii, brachialis, and brachioradialis,
+isokinetic dynamometer returned the arm to the 90° flexed       respectively, using a thumb, while the participant relaxed
+position at a constant velocity of 30°/s, creating a 3 s pas-   and let the arm down at the side (natural position). All
+sive recovery between contractions. The CON consisted           tests were conducted by the same investigator who had
+of five sets of six maximal voluntary isokinetic concen-        practiced to apply the same pressure over time and among
+tric contractions of the elbow flexors at 30°/s with a range    participants.
+
+                                                                                                                  13
+                                                                                                                            Eur J Appl Physiol
+
+
+Magnetic resonance imaging (MRI)                                           time were compared between CON and ECC by a two-way
+                                                                           repeated measure analysis of variance (ANOVA). When a
+MRI was used to assess T2 and CSA of biceps brachii, bra-                  significant interaction or time effect was found, a Bonfer-
+chialis, and brachioradialis by a 0.3-T AIRIS-imaging sys-                 roni’s multiple comparison was followed as a post hoc test.
+tem (Hitachi Medical, Tokyo, Japan). A T2-weighted spin-                   Student’s t test was used to compare the CON and ECC in
+echo sequence (repetition time 2500 ms, echo time 30 and                   the total work output and peak torque angle. Pearson prod-
+90 ms, 256 × 256 matrix, and scan time 286 s) was applied                  uct–moment correlation coefficient was used to assess the
+to each arm using an extremity body coil, while each par-                  relationships between selected variables, such as T2 change
+ticipant laid supine on the bed of the system. The images                  immediately post-exercise from baseline, peak T2 change
+of biceps brachii and brachialis were obtained at two-thirds               in 1–5-day post-exercise from baseline, and the largest
+of the distance from the acromion to the lateral epicondyle                changes in MVC torque (peak MVC), ROM (peak ROM),
+of the humerus (Kulig et al. 2001). The image of brachio-                  CSA (peak CSA), and muscle soreness (peak DOMS) from
+radialis was obtained at 6 cm below the lateral epicondyle                 baseline found in 1–5 days after exercise. For these vari-
+of the humerus. Scanned images of MRI were transferred                     ables except peak DOMS (absolute value was used), the
+to a personal computer, and CSA was calculated manually                    magnitude of change from the baseline value was used
+by tracing each muscle using an image analysis software                    for the correlation analyses. A significance level was set at
+(Image J, Maryland, USA), and T2 was analysed with a                       p < 0.05. All variables are expressed as means ± standard
+software provided by the Aquarius Net Station (TeraRecon,                  deviations (SD).
+California, USA). Three circular regions of interests (ROIs)
+in each image were set in the transverse section of the
+biceps brachii, brachialis, and brachioradialis, respectively,             Results
+and care was taken not to include an area other than mus-
+cle, such as subcutaneous fat, tendon, and aponeuroses. The                Concentric and eccentric exercises
+average T2 value of the three ROIs (each area = 200 mm2)
+for each muscle was calculated (Nosaka and Clarkson                        The angle at peak torque was smaller (p < 0.05) for ECC
+1996). The T2 change between the pre-exercise and imme-                    (70.0 ± 7.7°) than CON (85.5 ± 10.4°). Peak torque dur-
+diately post-exercise values was calculated using the aver-                ing ECC was greater (p < 0.05) than that of CON at the
+age value of biceps brachii and brachialis, and was refereed               first (ECC 63.0 ± 13.8 Nm and CON 48.9 ± 10.3 Nm)
+to as acute T2 change. The delayed T2 change was defined                   and second sets (ECC 56.1 ± 14.4 Nm and CON
+as the difference between the baseline value and the highest               44.1 ± 9.9 Nm), but no significant differences were
+value (the average of biceps brachii and brachialis) found                 observed in 3–5 sets (Fig. 1a). The work output of ECC
+at either 1, 3, or 5 days after exercise. For these analyses,              (392.2 ± 85.9 J) was greater (p < 0.05) than that of CON
+the brachioradialis was excluded, since the changes in T2                  (323.3 ± 81.6 J) for the first set only (Fig. 1b), and the
+of this muscle were minimum.                                               total work did not differ between ECC (1475.9 ± 629.7 J)
+                                                                           and CON (1325.8 ± 508.9 J). Blood lactate increased
+Statistical analyses                                                       (p < 0.05) from the baseline (ECC 2.5 ± 0.8 mm/L and
+                                                                           CON 2.5 ± 0.8 mm/L) to immediately after exercise (ECC
+Changes in the dependent variables (peak torque, work,                     4.9 ± 1.2 mm/L and CON 5.4 ± 1.4 mm/L), without a sig-
+MVC torque, ROM, VAS, T2, CSA, and blood lactate) over                     nificant difference between ECC and CON.
+
+Fig. 1  Changes (mean ± SD)                a                                                  b
+in peak torque (a) and total                      100                            –䕿– CON                600                     –䕿– CON
+work (b) over five sets of six                                                   –䖃– ECC *                                      –䖃– ECC *
+maximal concentric (CON)                               80   *   *#                                      500   *
+                                    Peak Torque (Nm)
+
+
+
+
+and eccentric (ECC) contrac-                                         #                                                           #      #
+tions. *Denotes a significant                                               #         #                 400
+                                                       60
+                                                                                             Work (J)
+
+
+
+
+(p < 0.05) difference between
+CON and ECC. #Shows a                                                                                   300
+significant (p < 0.05) difference                      40
+                                                                                                        200
+from the first set                                              #    #       #        #                           #    #
+                                                       20                                                                        #      #
+                                                                                                        100
+                                                        0                                                 0
+                                                            1   2    3      4         5                       1   2    3         4       5
+                                                                     Set                                              Set
+
+
+
+13
+Eur J Appl Physiol
+
+Fig. 2  Changes (mean ± SD)            a                                                                  b
+in maximal voluntary isometric                100
+contraction (MVC) torque (a)                                                                     *              140
+                                                                                                                                     *#     *           *
+                                                                        *          *                                                                            *
+
+
+
+
+                                   MVC Torque (Nm)
+and range of motion (ROM) (b)                        80                 #
+before (pre), immediately after                                 #                                               120
+
+
+
+
+                                                                                                      ROM (r)
+(0), and 1, 3, and 5 days after                      60
+                                                                                                                                                                #
+concentric (CON) and eccentric                                                                                  100
+(ECC) exercises. *Denotes a                          40                            #                                                           #        #
+                                                                                                                                     #
+significant (p < 0.05) differ-                                  #       #              –䕿– CON                   80                                     –䕿– CON
+ence between CON and ECC. #                          20                                –䖃– ECC *                                                        –䖃– ECC *
+Denotes a significant (p < 0.05)
+difference from pre-exercise                          0                                                          60
+                                                          pre   0       1          3             5                        pre        0      1           3       5
+value
+                                                                    Time (day)                                                            Time (day)
+
+
+
+MVC torque and ROM                                                                 a 100
+
+After CON, MVC torque decreased immediately                                                80        –䕿– CON                    *#        *#
+                                                                                                                      *
+
+
+                                                                                 9$6 PP
+(22.7 ± 13.0 %, p < 0.05) and 1 day (11.3 ± 7.6 %, p < 0.05)                                         –䖃– ECC
+                                                                                           60
+after exercise, but returned to baseline at 3-day post-exer-                                                                                            #
+                                                                                           40
+cise (Fig. 2a). After ECC, MVC torque decreased imme-
+diately after (32.7 ± 13.9 %, p < 0.05) and remained lower                                 20
+than the baseline at 1 (33.3 ± 12.6 %, p < 0.05) and 3 days                                 0
+(16.5 ± 9.7 %, p < 0.05) after exercise. MVC torque was                              -20
+greater for CON than ECC at 1, 3, and 5 days after exercise                        b 100
+(p < 0.05). As shown in Fig. 2b, ROM decreased immediately                           80              –䕿– CON                                       *#
+                                                                                                                      *              *#
+                                                                             9$6 PP
+
+
+
+
+post-exercise for both ECC and CON (p < 0.05), but decreases                                         –䖃– ECC
+from the baseline at 1–5-day post-exercise were found only
+                                                                                     60
+for ECC (p < 0.05). ROM was smaller for ECC than CON                                 40
+immediately, 1, 3, and 5 days after exercise (p < 0.05).                             20
+                                                                                      0
+Muscle soreness
+                                                                                    -20
+                                                                                  c 100
+Muscle soreness did not develop at all time points after
+CON, but developed after ECC for biceps brachii, brachia-
+                                                                                           80        –䕿– CON
+                                                                                           60        –䖃– ECC          *
+                                                                                 9$6 PP
+
+
+
+
+lis, and brachioradialis (Fig. 3). The biceps brachii soreness
+developed at 1 day, and remained higher than the baseline                                  40
+                                                                                                                                     *#
+at 3 and 5-day post-exercise (p < 0.05). The brachialis sore-
+ness developed at 1-day post-exercise, and remained higher
+                                                                                           20                                        *
+than the baseline at 3-day post-exercise, but the brachiora-                                0
+dialis soreness was evident at only 1-day post-exercise.                                   -20
+                                                                                                     pre              0              1              3       5
+Cross‑sectional area (CSA)                                                                                                  Time (day)
+
+
+Changes in CSA of biceps brachii, brachialis, and bra-                       Fig. 3  Changes (mean ± SD) in muscle soreness assessed by visual
+chioradialis are shown in Fig. 4. No significant differ-                     analog scale (VAS) for the palpation of biceps brachii (a), brachialis
+                                                                             (b), and brachioradialis (c) before (pre), immediately after (0), and 1,
+ence between ECC and CON was found for brachioradia-                         3, and 5 days after concentric (CON) and eccentric (ECC) exercises.
+lis that did not show significant changes, but a significant                 *Denotes a significant (p < 0.05) difference between CON and ECC.
+                                                                             #
+interaction effect was evident for biceps brachii and bra-                     Denotes a significant (p < 0.05) difference from pre-exercise value
+chialis. CSA of biceps brachii increased immediately post-
+exercise (21.3 ± 17.9 %, p < 0.05) for CON, but no such
+increase was seen after ECC. An increase in CSA of bra-                      1-day post-exercise. In contrast, CSA of brachialis increased
+chialis was observed immediately post-exercise for CON                       (p < 0.05) at 1 (24.9 ± 29.8 %), 3 (41.1 ± 47.9 %), and
+(21.2 ± 19.0 %, p < 0.05), but it returned to baseline by                    5 days (36.2 ± 36.9 %) after ECC.
+
+
+
+                                                                                                                                                            13
+                                                                                                                       Eur J Appl Physiol
+
+
+        a 14                                                               increase was greater for CON (biceps brachii 34 ± 8 %,
+                                                                           brachialis 27 ± 9 %, p < 0.05) than ECC (biceps brachii
+                 12          #
+                                                                           18 ± 10 %, brachialis 16 ± 10 %, p < 0.05). T2 returned
+     CSA (cm2)
+
+                 10                                                        to baseline by 1-day post-exercise for CON, but was still
+                                                                           significantly elevated above baseline for biceps brachii
+                  8                                                        (9–15 %, p < 0.05) and brachialis (17–29 %, p < 0.05) at
+                  6                                                        1–5 days after ECC.
+                       –䕿– CON
+                  4
+                  㻜    –䖃– ECC   *                                         Correlations between T2 and other measures
+        b
+                 14    –䕿– CON
+                       –䖃– ECC   *                *#                       The change in T2 immediately after ECC or CON (i.e.,
+                 12                                        *#
+     CSA (cm2)
+
+
+
+
+                 10
+                             #          *#                                 acute T2 change) was not significantly correlated with the
+                                                                           absolute peak torque or the total work generated both in
+                  8                                                        the first two sets and in the five sets in ECC or CON. The
+                                                                           acute T2 change was not significantly correlated with any
+           6                                                               muscle damage markers for CON. A significant (p < 0.05)
+           4㻜                                                              correlation was found between the acute T2 change and the
+        c
+          14                                                               delayed maximal T2 change after ECC (r = 0.63, Fig. 7a).
+                                                                           The relationships between the magnitude of the T2 changes
+                 12                          –䕿– CON n.s.
+                                             –䖃– ECC                       (acute and delayed) and muscle damage markers after
+      CSA (cm2)
+
+
+
+
+                 10                                                        ECC are shown in Table 1. A significant (p < 0.05) correla-
+                                                                           tion was evident only for the delayed T2 and peak ROM
+                  8
+                                                                           (r = −0.83; Fig. 7b).
+                  6
+                  4㻜
+                                                                           Discussion
+                       pre   0           1             3        5
+                                     Time (day)                            The present study tested the two hypotheses: (1) the acute
+                                                                           T2 change would be smaller after eccentric than concentric
+Fig. 4  Changes (mean ± SD) in cross-sectional area (CSA) of biceps        exercise and (2) the acute T2 change would be negatively
+brachii (a), brachialis (b), and brachioradialis (c) before (pre), imme-
+diately after (0), and 1, 3, and 5 days after concentric (CON) and
+                                                                           correlated with delayed T2 changes, and the magnitude of
+eccentric (ECC) exercises. *Denotes a significant (p < 0.05) differ-       changes in muscle damage markers at 1–5 days after eccen-
+ence between CON and ECC, and n.s. shows no significant difference         tric exercise. The results showed that T2 increased greater
+between CON and ECC. #Denotes a significant (p < 0.05) difference          after CON than ECC immediately after exercise, but
+from pre-exercise value
+                                                                           returned to baseline by 1-day post-exercise for CON, while
+                                                                           T2 was still elevated at 1–5 days after ECC (Figs. 5, 6). The
+T2                                                                         acute T2 change after ECC and the peak T2 change found
+                                                                           at 1–5 days after ECC were positively correlated (r = 0.63,
+MR images taken from the upper arm of one partici-                         Fig. 7a). The magnitude of acute T2 change after ECC
+pant are shown in Fig. 5a. A distinct difference between                   showed no correlation with the peak MVC torque, peak
+CON and ECC is seen, such that an increased T2 was                         CSA, and peak DOMS (Table 1). These results support the
+found only immediately after CON, but increased T2 was                     first hypothesis, but not the second one.
+observed for 5 days after ECC. The increase in T2 after                        As shown in Fig. 1, peak torque and work output were
+ECC was greater for brachialis than biceps brachii and                     greater for the first and second sets during ECC compared
+brachioradialis. This is also shown for the averaged results               to CON. It has been reported that the elbow flexors could
+of all participants, as shown in Fig. 6. No significant dif-               produce approximately 30 % greater force during isoki-
+ference in T2 was found for the baseline between ECC                       netic eccentric than concentric contractions (Komi et al.
+and CON, and between biceps brachii, brachialis, and                       2000). The present study also showed that peak torque in
+brachioradialis. A significant interaction effect was found                ECC in the first two sets was approximately 30 % greater
+for all muscles, and T2 changed significantly for biceps                   than that in CON. It is possible that the greater decrease
+brachii and brachialis, but not brachioradialis after ECC.                 in peak torque during ECC than CON was due to mus-
+T2 of biceps brachii and brachialis increased immediately                  cle damage induced by eccentric contractions. The peak
+post-exercise for CON and ECC, but the magnitude of the                    torque angle during ECC (70.7 ± 7.7°) was similar to that
+
+13
+Eur J Appl Physiol
+
+
+                     pre                     day 0                      day 1                    day 3                     day 5
+
+                     BB
+
+                          Br
+CON
+
+
+
+           BB: 35.7 ms                 BB: 42.9 ms              BB: 30.4 ms               BB: 32.2 ms               BB: 31.1 ms
+           Br: 35.1 ms                 Br: 42.2 ms              Br: 33.7 ms               Br: 33.6 ms               Br: 32.2 ms
+
+                          BB
+
+ECC                  Br
+
+
+
+
+            BB: 32.1 ms                BB: 40.7 ms              BB: 41.4 ms               BB: 37.1 ms                BB: 37.8 ms
+            Br: 33.0 ms                Br: 36.9 ms              Br: 46.2 ms               Br: 53.4 ms                Br: 44.5 ms
+
+Fig. 5  Typical magnetic resonance T2 images taken from the upper        verse relaxation time (T2) of biceps brachii (BB) and brachialis (Br)
+arm of one subject before (pre), immediately after (0), and 1, 3, and    is shown below each image
+5 days after concentric (CON) and eccentric (ECC) exercises. Trans-
+
+
+
+of the previous study (Komi et al. 2000). The peak torque                in the study by Qi et al. (2011), in which submaximal con-
+angle during CON (85.5 ± 10.4°) in the present study                     tractions were performed, and also those reported in the
+was also similar to that of the previous study (Chen et al.              study by Komi et al. (2000), in which maximal contrac-
+2012).                                                                   tions were performed. It was stated that MRI T2 relaxation
+   In spite of the greater peak torque, the T2 increase of               time change immediately after exercise showed cumulative
+the biceps brachii, brachialis, and brachioradialis imme-                muscle activity during exercise, whereas EMG was rep-
+diately after ECC was significantly smaller than that after              resentative of muscle activity of the time of muscle con-
+CON (Fig. 6). It has been shown that T2 reflects the recruit-            traction (Kulig et al. 2001). Thus, the smaller T2 increase
+ment of motor units (Adams et al. 1992; Jenner et al. 1994).             immediately after ECC than CON suggests that fewer
+Akima (2012) reported that the muscle fibre recruitment                  muscle fibres were recruited during ECC, in spite of the
+was strongly correlated with the T2 increase immediately                 greater peak torque during first two sets in ECC than CON.
+post-exercise for triceps surae muscles. Using electromyo-               Because of this, it seems reasonable to assume that greater
+graphy (EMG), Qi et al. (2011) showed that biceps bra-                   mechanical strain was imposed to the muscle fibres in ECC
+chii muscle activity was approximately 30 % lower during                 than CON, resulting in greater muscle damage after ECC
+isokinetic (30°/s) eccentric than concentric contractions at             than CON.
+80 % of maximal voluntary concentric contraction torque.                    Changes in MVC torque (Fig. 2a), ROM (Fig. 2b),
+Komi et al. (2000) compared maximal isokinetic eccentric                 and DOMS (Fig. 3) after ECC were comparable to those
+and concentric contractions of the elbow flexors for four                reported in the previous studies in which a similar eccentric
+different velocities, and showed that EMG activity during                exercise of the elbow flexors to that of the present study
+eccentric contractions was approximately 15–30 % lower                   was performed (Chapman et al. 2006; Chen et al. 2009).
+when compared with concentric contractions. In the present               The present study showed that brachialis CSA significantly
+study, the acute T2 increase was 63–93 % greater for CON                 increased from 1 to 5 days (25–35 %) after ECC, but this
+than ECC. These values were greater than those reported                  was not the case for CON, and no significant CSA increases
+
+
+
+                                                                                                                                  13
+                                                                                                                             Eur J Appl Physiol
+
+
+  a                                                                         studies (Nosaka et al. 2001; Nosaka and Clarkson 1996).
+              60                                      –䕿– CON
+                                                      –䖃– ECC      *        For example, Nosaka and Clarkson (1996) showed that
+77LPH PV
+
+
+              50           *#                                               the T2 of biceps brachii and brachialis peaked 3–6 days
+                                      *#        *#        #
+                                                                            (approximately 70 % increase) after 24 maximal eccen-
+                                                                            tric contractions of elbow flexors and remained elevated
+              40
+                                                                            for 23 days after exercise (approximately 25 % increase).
+                           #                                                It should be noted that muscle strength decreased 45 %
+              30
+                                                                            immediately post-exercise and remained 30 % lower than
+              20                                                            the baseline at 5-day post-exercise in the study of Nosaka
+                                                                            and Clarkson (1996), which were much greater than those
+  b 60                           –䕿– CON
+                                 –䖃– ECC       * *#           *#            found in the present study. It seems possible that the
+                                                                            smaller changes in T2 in the present study after ECC were
+              50            *#
+77LPH PV
+
+
+
+
+                                                                            due to less muscle damage when compared with the previ-
+                                       *#                                   ous study (Nosaka and Clarkson 1996).
+              40                                                                As shown in Fig. 7a, the magnitude of the increase in T2
+                                                                            immediately after eccentric exercise was positively corre-
+                            #
+              30                                                            lated with the magnitude of maximal increase in T2 found
+                                                                            between 1 and 5 days post-exercise. This was against the
+    20                                                                      hypothesis that the acute T2 change would be negatively cor-
+  c 60                                                                      related with the delayed T2 change, based on the assump-
+                                                                            tion that a smaller acute T2 change would reflect less muscle
+                                                      –䕿– CON
+              50
+                               *#                     –䖃– ECC      *        fibres that were recruited during ECC. It was thought that if
+77LPH PV
+
+
+
+
+                                                                            less muscle fibres were recruited during maximal eccentric
+              40                                                            contractions, mechanical strain to the recruited muscle fibres
+                                                                            would be greater, possibly resulting in greater muscle dam-
+              30                                                            age reflected in greater increases in T2 in 1–5-day post-exer-
+                                                                            cise. However, Fig. 7a shows that the greater the increase in
+              20                                                            T2 immediately post-ECC, the greater the increase in T2 at
+                   pre          0          1          3            5        1–5-day post-exercise. It should be noted that the acute T2
+                                    Time (day)                              change was not correlated with total work generated during
+                                                                            ECC. As discussed above, the magnitude of increase in T2
+Fig. 6  Changes (mean ± SD) in transverse relaxation time (T2) of           immediately after exercise appears to represent the over-
+biceps brachii (a), brachialis (b), and brachioradialis (c) before (pre),
+immediate after (0), and 1, 3, and 5 days after concentric (CON) and
+                                                                            all use of a muscle, and thus, it seems unlikely that the T2
+eccentric (ECC) exercises. *Denotes a significant (p < 0.05) differ-        increase immediately post-exercise represents how motor
+ence between CON and ECC. #Denotes a significant (p < 0.05) differ-         units were recruited during the exercise. It may be that the
+ence from pre-exercise value                                                greater T2 increase immediately after ECC simply represents
+                                                                            greater exercise effort. If so, it is possible that the participants
+                                                                            whose T2 increase immediately post-exercise was large pro-
+were evident for biceps brachii and brachioradialis even                    duced greater force for the whole range of motion induced
+after ECC. Nosaka et al. (2001) reported that brachialis was                greater muscle damage than those whose T2 increase imme-
+more damaged by eccentric exercise of the elbow flexors                     diately post-exercise was small.
+than biceps brachii. Kawakami et al. (1994) reported that                       As shown in Table 1, no significant correlations were
+brachialis contributed more (47 %) than biceps brachii                      evident between the magnitude of the T2 change imme-
+(34 %) and brachioradialis (19 %) for the force produc-                     diately after ECC and the magnitude of change in the
+tion of the elbow flexors during isometric, concentric, and                 muscle damage markers. This suggests that the acute T2
+eccentric contractions. Therefore, the increase in brachialis               change does not predict the magnitude of muscle damage.
+CSA probably indicates that brachialis was more involved                    Regarding the relationships between the peak T2 change
+in ECC than the other two agonist muscles. This may                         from baseline found in 1–5-day post-ECC and the indirect
+explain why the increases in T2 at 1–5 days after ECC were                  muscle damage markers, a significant correlation was only
+greater for brachialis than biceps brachii.                                 found for ROM (Table 1). Nosaka and Clarkson (1996)
+   The increases in T2 of biceps brachii and brachialis in                  reported large changes in T2 and indirect muscle damage
+the present study after eccentric contractions were smaller                 markers after the eccentric exercise of the elbow flexors,
+and shorter-lasting than those reported in the previous                     but did not report the correlations between the T2 and the
+
+13
+Eur J Appl Physiol
+
+
+                          a                                                               b
+                                             80                                                               0
+
+
+
+
+                     Delayed T2 Change (%)
+
+
+
+
+                                                                                       Peak ROM Change (%)
+                                                                                                             -10
+                                             60
+                                                                                                             -20
+                                             40
+                                                                                                             -30
+                                             20                            r = 0.63                                    r = -0.83
+                                                                                                             -40
+                                                                           p < 0.05                                    p < 0.05
+                                             0                                                               -50
+                                                  0             20            40                                   0      20       40     60       80
+                                                          Acute T2 Change (%)                                              Delayed T2 Change (%)
+
+
+Fig. 7  Relationship between the magnitude of change in T2 (average                             and the magnitude of the delayed T2 change and the magnitude of the
+of biceps brachii and brachialis) immediately after eccentric exercise                          largest change in the range of motion around the elbow joint found at
+(acute T2 change) and the magnitude of maximal T2 change found at                               either 1, 3, or 5 days after eccentric exercise (peak ROM change) (b)
+either 1, 3, or 5 days after eccentric exercise (delayed T2 change) (a),
+
+
+Table 1  Correlation coefficients (r values) between the magnitude                                 In summary, muscle activation was lower during maxi-
+of change in T2 immediately after eccentric exercise from baseline                              mal eccentric than maximal concentric contractions of the
+(acute T2) and the magnitude of the largest change in T2 from base-                             elbow flexors, which was indicated by the smaller increase
+line found between 1 and 5 days after eccentric exercise (delayed
+                                                                                                in T2 immediately after eccentric than concentric contrac-
+T2), the largest decrease in maximal voluntary isometric contraction
+torque (peak MVC) and range of motion around the elbow joint (peak                              tions. However, increases in T2 from baseline at 1–5-day
+ROM), the largest increase in cross-sectional area of the three elbow                           post-exercise were evident only after eccentric exercise,
+flexor muscles (peak CSA), and peak muscle soreness value on the                                and the magnitude of increase in T2 immediately after
+visual analog scale for muscle soreness (peak DOMS)
+                                                                                                eccentric exercise was positively correlated with the magni-
+               Peak MVC                           Peak ROM      Peak CSA   Peak DOMS            tude of increase in T2 at 1–5 days after the exercise. These
+                                                                                                results suggest that the cause of T2 increase is not the same
+Acute T2       −0.34                              −0.56         0.38       −0.03
+                                                                                                between immediately and days after exercise. More studies
+Delayed T2     −0.25                              −0.83*        0.49         0.18
+                                                                                                are required to investigate the mechanisms underpinning
+* Denotes significant (p < 0.05) correlation                                                    the delayed T2 increase after eccentric exercise.
+
+                                                                                                Acknowledgments This study was supported by the Grant-in-Aid for
+muscle damage markers. Prior et al. (2001) reported no                                          Young Scientists (B; 20614473).
+significant correlations between the acute T2 change and
+MVC, CSA, and muscle soreness. This was in line with                                            Compliance with ethical standards
+the findings of the present study. It is interesting that the
+                                                                                                Conflict of interest The authors declare that they have no conflict of
+delayed T2 change was significantly correlated with the                                         interest.
+peak ROM change (Fig. 7b). This may suggest that the
+cause of the delayed increase in T2 and the decrease in
+ROM is associated. It is possible that the decrease in ROM                                      References
+is partially associated with muscle swelling (Howell et al.
+1993). It is stated that the increased T2 after eccentric exer-                                 Adams GR, Duvoisin MR, Dudley GA (1992) Magnetic resonance
+                                                                                                    imaging and electromyography as indexes of muscle function. J
+cise is due to oedema (Foley et al. 1999; Nosaka and Saka-                                          Appl Physiol 73:1578–1583
+moto 2001), probably associated with increased free water                                       Akima H (2012) Evaluation of functional properties of skeletal mus-
+in extracellular matrix (Rodenburg et al. 1994). However,                                           cle using functional magnetic resonance imaging (fMRI). J Phys
+the present study found no correlation between the magni-                                           Fitness Sports Med 1:621–630
+                                                                                                Chapman DW, Newton M, Sacco P, Nosaka K (2006) Greater muscle
+tude of T2 change (acute and delayed) and change in CSA.                                            damage induced by fast versus slow velocity eccentric exercise.
+This may be due to the relatively small changes in T2 and                                           Int J Sports Med 27:591–598
+CSA. Further research is necessary to investigate the asso-                                     Chen TC, Chen HL, Lin MJ, Wu CJ, Nosaka K (2009) Muscle damage
+ciation between T2 and ROM changes and if T2 and CSA                                                responses of the elbow flexors to four maximal eccentric exercise
+                                                                                                    bouts performed every 4 weeks. Eur J Appl Physiol 106:267–275
+changes are related when both show larger increases after                                       Chen TC, Lin KY, Chen HL, Lin MJ, Nosaka K (2011) Comparison
+eccentric exercise as reported in the previous studies (Foley                                       in eccentric exercise-induced muscle damage among four limb
+et al. 1999; Larsen et al. 2007; Nosaka and Clarkson 1996).                                         muscles. Eur J Appl Physiol 111:211–223
+
+
+                                                                                                                                                          13
+                                                                                                                           Eur J Appl Physiol
+
+Chen HL, Nosaka K, Chen TC (2012) Muscle damage protection by                muscle in young men after maximal shortening and lengthening
+     low-intensity eccentric contractions remains for 2 weeks but not        contractions. Am J Physiol Endocrinol Metab 288:E1153–E1159
+     3 weeks. Eur J Appl Physiol 112:555–565                            Nosaka K, Clarkson PM (1996) Changes in indicators of inflamma-
+Clarkson PM, Sayers SP (1999) Etiology of exercise-induced muscle            tion after eccentric exercise of the elbow flexors. Med Sci Sports
+     damage. Can J Appl Physiol 24:234–248                                   Exerc 28:953–961
+Del Valle A, Thomas CK (2005) Firing rates of motor units during        Nosaka K, Sakamoto K (2001) Effect of elbow joint angle on the
+     strong dynamic contractions. Muscle Nerve 32:316–325                    magnitude of muscle damage to the elbow flexors. Med Sci
+Foley JM, Jayaraman RC, Prior BM, Pivarnik JM, Meyer RA (1999)               Sports Exerc 33:22–29
+     MR measurements of muscle damage and adaptation after eccen-       Nosaka K, Sakamoto K, Newton M, Sacco P (2001) How long does
+     tric exercise. J Appl Physiol 87:2311–2318                              the protective effect on eccentric exercise-induced muscle dam-
+Howell JN, Chleboun G, Conatser R (1993) Muscle stiffness, strength          age last? Med Sci Sports Exerc 33:1490–1495
+     loss, swelling and soreness following exercise-induced injury in   Prior BM, Jayaraman RC, Reid RW, Cooper TG, Foley JM, Dudley
+     humans. J Physiol 464:183–196                                           GA, Meyer RA (2001) Biarticular and monoarticular muscle
+Jenner G, Foley JM, Cooper TG, Potchen EJ, Meyer RA (1994) Changes           activation and injury in human quadriceps muscle. Eur J Appl
+     in magnetic resonance images of muscle depend on exercise inten-        Physiol 85:185–190
+     sity and duration, not work. J Appl Physiol 76:2119–2124           Proske U, Morgan DL (2001) Muscle damage from eccentric exer-
+Kawakami Y, Nakazawa K, Fujimoto T, Nozaki D, Miyashita M,                   cise: mechanism, mechanical signs, adaptation and clinical
+     Fukunaga T (1994) Specific tension of elbow flexor and extensor         applications. J Physiol 537:333–345
+     muscles based on MRI. Eur J Appl Physiol 68:139–147                Qi L, Wakeling JM, Ferguson-Pell M (2011) Spectral properties of
+Komi PV, Linnamo V, Silventoinen P, Sillanpää M (2000) Force and             electromyographic and mechanomyographic signals during
+     EMG power spectrum during eccentric and concentric actions.             dynamic concentric and eccentric contractions of the human
+     Med Sci Sports Exerc 32:1757–1762                                       biceps brachii muscle. J Electromyogr Kinesiol 21:1056–1063
+Kouzaki K, Nosaka K, Ochi E, Nakazato K (2016) Increases in             Rodenburg JB, de Boer RW, Schiereck P, van Echteld CJ, Bär PR
+     M-wave latency of biceps brachii after elbow flexor eccentric           (1994) Changes in phosphorus compounds and water content
+     contractions in women. Eur J Appl Physiol 116:939–946                   in skeletal muscle due to eccentric exercise. Eur J Appl Physiol
+Kulig K, Powers CM, Shellock FG, Terk M (2001) The effects of                Occup Physiol 68:205–213
+     eccentric velocity on activation of elbow flexors: evaluation by   Tsuchiya Y, Sakuraba K, Ochi E (2014) High force eccentric exercise
+     magnetic resonance imaging. Med Sci Sports Exerc 33:196–200             enhances serum tartrate-resistant acid phosphatase-5b and osteo-
+Larsen RG, Ringgaard S, Overgaard K (2007) Localization and quan-            calcin. J Musculoskelet Neuronal Interact 14:50–57
+     tification of muscle damage by magnetic resonance imaging fol-     Tsuchiya Y, Yanagimoto K, Nakazato K, Hayamizu K, Ochi E (2016)
+     lowing step exercise in young women. Scand J Med Sci Sports             Eicosapentaenoic and docosahexaenoic acids-rich fish oil sup-
+     17:76–83                                                                plementation attenuates strength loss and limited joint range of
+Lavender AP, Nosaka K (2006) Changes in fluctuation of isometric             motion after eccentric contractions: a randomized, double-blind,
+     force following eccentric and concentric exercise of the elbow          placebo-controlled, parallel-group trial. Eur J Appl Physiol
+     flexors. Eur J Appl Physiol 96:235–240                                  116:1179–1188
+Moore DR, Phillips SM, Babraj JA, Smith K, Rennie MJ (2005)
+     Myofibrillar and collagen protein synthesis in human skeletal
+
+
+
+
+13
+

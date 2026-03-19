@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tsuchiya 2015 elbow flexor CSA</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px}.btn{cursor:pointer}.btn:hover{background:var(--btnHover)} select,option,optgroup{background:var(--panel);color:var(--text)}
+      .status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}.swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.35}.stage{position:relative;overflow:hidden;min-width:0;touch-action:none;cursor:grab}.stage.is-dragging{cursor:grabbing} canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.8);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(540px,78vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:22vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:540px}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Tsuchiya et al. (2015) - Elbow flexor CSA after ECC</div>
+          <div id="subtitle" class="subtitle"></div>
+        </div>
+        <div class="controls">
+          <select id="mode"></select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle series</div>
+          <div id="checks"></div>
+          <div id="hint" class="hint"></div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div class="overlay">Wheel = zoom | Drag = pan | Values are % of pre-exercise CSA</div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const timePoints=[{x:0,label:"Pre"},{x:1,label:"Post"},{x:2,label:"Day 1"},{x:3,label:"Day 3"},{x:4,label:"Day 5"}];
+      const COLORS={bb:"#8b5cf6",brc:"#22c55e",tb:"#60a5fa",brr:"#ec4899",incline:"#f97316"};
+      const LINE_SERIES=[
+        {name:"Biceps brachii",color:COLORS.bb,visible:true,points:[{x:0,y:100},{x:1,y:105.1},{x:2,y:104.0},{x:3,y:102.0},{x:4,y:98.3}],note:"Mean of proximal, middle, and distal BB CSA values from Table 1."},
+        {name:"Brachialis",color:COLORS.brc,visible:true,points:[{x:0,y:100},{x:1,y:114.6},{x:2,y:119.5},{x:3,y:125.6},{x:4,y:119.5}],note:"Mean of proximal, middle, and distal BRC CSA values from Table 1."},
+        {name:"Triceps brachii",color:COLORS.tb,visible:true,points:[{x:0,y:100},{x:1,y:99.4},{x:2,y:97.4},{x:3,y:97.1},{x:4,y:94.0}],note:"Mean of proximal, middle, and distal triceps brachii CSA values from Table 1."},
+        {name:"Brachioradialis",color:COLORS.brr,visible:true,points:[{x:0,y:100},{x:1,y:107.5},{x:2,y:103.6},{x:3,y:104.4},{x:4,y:106.5}],note:"Single brachioradialis CSA line from Table 1."}
+      ];
+      const POST_BARS=[
+        {name:"Biceps brachii",color:COLORS.bb,value:5.1,note:"Immediate post-exercise mean change from pre, averaged across the three BB regions."},
+        {name:"Brachialis",color:COLORS.brc,value:14.6,note:"Immediate post-exercise mean change from pre, averaged across the three BRC regions."},
+        {name:"Triceps brachii",color:COLORS.tb,value:-0.6,note:"Immediate post-exercise mean change from pre, averaged across the three triceps regions."},
+        {name:"Brachioradialis",color:COLORS.brr,value:7.5,note:"Immediate post-exercise change from pre for BRR."}
+      ];
+      const MODES={
+        line:{label:"All muscles over time",subtitle:"Mean CSA response for all measured muscles across pre, post, day 1, day 3, and day 5 after eccentric elbow-flexor contractions.",hint:"Built from Table 1. For BB, BRC, and triceps, each line is the mean of proximal, middle, and distal values. BRR is its single reported line.",overlay:"Wheel = zoom | Drag = pan | Values are % of pre-exercise CSA",yBounds:{min:92,max:130}},
+        post:{label:"Post-workout difference",subtitle:"Immediate post-exercise difference from pre for each measured muscle.",hint:"Bars show the immediate post-workout difference only. Multi-region muscles use the mean of their reported regional post values.",overlay:"Bars show post minus pre (% points)",yBounds:{min:-4,max:18}}
+      };
+      const modeEl=document.getElementById("mode"),checksEl=document.getElementById("checks"),subtitleEl=document.getElementById("subtitle"),hintEl=document.getElementById("hint"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),status=document.getElementById("status"),tip=document.getElementById("tip"),overlay=document.querySelector(".overlay");
+      let modeKey="line",series=[],activeSeries=null,screenSeries=[],hits=[],dragging=false,lastX=0,lastY=0,dragAxis=null;
+      let view={xMin:0,xMax:4,yMin:92,yMax:130};
+
+      function currentMode(){return MODES[modeKey]}
+      function populateModes(){for(const [key,val] of Object.entries(MODES)){const opt=document.createElement("option");opt.value=key;opt.textContent=val.label;modeEl.appendChild(opt)} modeEl.value=modeKey}
+      function rebuildSeries(){series=(modeKey==="line"?LINE_SERIES:POST_BARS).map(s=>({visible:true,...s}))}
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll(".check"))row.classList.toggle("active",row.dataset.name===activeSeries)}
+      function rebuildChecks(){
+        checksEl.innerHTML="";
+        for(const s of series){
+          const row=document.createElement("div"); row.className="check"; row.dataset.name=s.name;
+          const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=s.visible;
+          cb.addEventListener("click",e=>e.stopPropagation());
+          cb.addEventListener("change",()=>{s.visible=cb.checked;if(!s.visible&&activeSeries===s.name)activeSeries=null;syncActiveRows();draw()});
+          const sw=document.createElement("div"); sw.className="swatch"; sw.style.background=s.color;
+          const lab=document.createElement("label"); lab.textContent=s.name;
+          row.addEventListener("click",()=>{activeSeries=activeSeries===s.name?null:s.name;syncActiveRows();draw()});
+          row.append(cb,sw,lab); checksEl.appendChild(row);
+        }
+      }
+      function fitView(){const y=currentMode().yBounds; view=modeKey==="line"?{xMin:0,xMax:4,yMin:y.min,yMax:y.max}:{xMin:-0.5,xMax:3.5,yMin:y.min,yMax:y.max}; draw()}
+      function clampView(next){
+        let {xMin,xMax,yMin,yMax}=next;
+        const minXRange=1.5,minYRange=8,maxXRange=6,maxYRange=70;
+        if(xMax-xMin<minXRange){const mid=(xMin+xMax)/2;xMin=mid-minXRange/2;xMax=mid+minXRange/2}
+        if(yMax-yMin<minYRange){const mid=(yMin+yMax)/2;yMin=mid-minYRange/2;yMax=mid+minYRange/2}
+        const yDefault=currentMode().yBounds;
+        if(xMax-xMin>maxXRange){xMin=modeKey==="line"?-1:-1;xMax=modeKey==="line"?5:4}
+        if(yMax-yMin>maxYRange){yMin=yDefault.min-4;yMax=yDefault.max+4}
+        const xLower=modeKey==="line"?-1:-1, xUpper=modeKey==="line"?5:4;
+        if(xMin<xLower){xMax+=xLower-xMin;xMin=xLower}
+        if(xMax>xUpper){xMin-=xMax-xUpper;xMax=xUpper}
+        if(yMin<yDefault.min-4){yMax+=(yDefault.min-4)-yMin;yMin=yDefault.min-4}
+        if(yMax>yDefault.max+4){yMin-=yMax-(yDefault.max+4);yMax=yDefault.max+4}
+        return {xMin,xMax,yMin,yMax};
+      }
+      function xToPx(v,w,padL){return padL+((v-view.xMin)/(view.xMax-view.xMin))*w}
+      function yToPx(v,h,padT){return padT+(1-(v-view.yMin)/(view.yMax-view.yMin))*h}
+      function pxToX(px,w,padL){return view.xMin+((px-padL)/w)*(view.xMax-view.xMin)}
+      function pxToY(py,h,padT){return view.yMin+(1-((py-padT)/h))*(view.yMax-view.yMin)}
+      function niceStep(range,target=6){const rough=range/target,pow=10**Math.floor(Math.log10(Math.max(rough,1e-9))),mult=rough/pow,niceMult=mult<1.5?1:mult<3?2:mult<7?5:10;return niceMult*pow}
+      function hideTip(){tip.style.display="none"}
+      function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=12;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
+      function closestOnPolyline(x,y,pts){let best=null;for(let i=0;i<pts.length-1;i++){const a=pts[i],b=pts[i+1];const abx=b.px-a.px,aby=b.py-a.py,ab2=abx*abx+aby*aby;if(!ab2)continue;let t=((x-a.px)*abx+(y-a.py)*aby)/ab2;t=Math.max(0,Math.min(1,t));const cx=a.px+t*abx,cy=a.py+t*aby,dist=Math.hypot(x-cx,y-cy);if(!best||dist<best.dist)best={cx,cy,dist}}return best}
+      function draw(){
+        const r=stage.getBoundingClientRect(),W=r.width,H=r.height,padL=72,padT=20,padR=20,padB=60,w=Math.max(10,W-padL-padR),h=Math.max(10,H-padT-padB),dpr=window.devicePixelRatio||1;
+        canvas.width=Math.max(1,Math.floor(W*dpr)); canvas.height=Math.max(1,Math.floor(H*dpr)); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+        screenSeries=[]; hits=[]; subtitleEl.textContent=currentMode().subtitle; hintEl.textContent=currentMode().hint; overlay.textContent=currentMode().overlay;
+        ctx.save(); ctx.fillStyle="#0f172a"; ctx.fillRect(0,0,W,H);
+        ctx.strokeStyle="rgba(255,255,255,.08)"; ctx.lineWidth=1;
+        const xStep=modeKey==="line"?1:1;
+        for(let i=Math.ceil(view.xMin/xStep)*xStep;i<=Math.floor(view.xMax)+1e-6;i+=xStep){const px=xToPx(i,w,padL);ctx.beginPath();ctx.moveTo(px,padT);ctx.lineTo(px,padT+h);ctx.stroke()}
+        const yStep=niceStep(view.yMax-view.yMin);
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){const py=yToPx(y,h,padT);ctx.beginPath();ctx.moveTo(padL,py);ctx.lineTo(padL+w,py);ctx.stroke()}
+        ctx.strokeStyle="rgba(255,255,255,.28)"; ctx.strokeRect(padL,padT,w,h);
+        ctx.fillStyle="rgba(229,231,235,.92)"; ctx.font="12px Segoe UI, system-ui"; ctx.textAlign="center";
+        if(modeKey==="line"){
+          for(const t of timePoints){if(t.x<view.xMin||t.x>view.xMax)continue;ctx.fillText(t.label,xToPx(t.x,w,padL),padT+h+18)}
+        }else{
+          series.forEach((s,i)=>{if(i<view.xMin||i>view.xMax)return;ctx.fillText(s.name,xToPx(i,w,padL),padT+h+18)});
+        }
+        ctx.textAlign="right";
+        for(let y=Math.ceil(view.yMin/yStep)*yStep;y<=view.yMax+1e-6;y+=yStep){ctx.fillText(`${Math.round(y)}%`,padL-8,yToPx(y,h,padT)+4)}
+        ctx.textAlign="center"; ctx.fillStyle="rgba(156,163,175,.95)";
+        ctx.fillText(modeKey==="line"?"Time after ECC":"Muscle",padL+w/2,padT+h+42);
+        ctx.save(); ctx.translate(18,padT+h/2); ctx.rotate(-Math.PI/2); ctx.fillText(modeKey==="line"?"Cross-sectional area (% of pre)":"Post-workout difference (% points)",0,0); ctx.restore();
+        if(modeKey==="line"){
+          for(const s of series){
+            if(!s.visible) continue;
+            const pts=s.points.filter(p=>p.x>=view.xMin&&p.x<=view.xMax).map(p=>({x:p.x,y:p.y,px:xToPx(p.x,w,padL),py:yToPx(p.y,h,padT)}));
+            screenSeries.push({name:s.name,color:s.color,pts,note:s.note});
+            if(pts.length<2) continue;
+            const isActive=activeSeries===s.name, hasActive=!!activeSeries, alpha=hasActive?(isActive?1:.18):1;
+            ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=s.color; ctx.lineWidth=isActive?6:4; ctx.lineJoin="round"; ctx.lineCap="round"; if(isActive){ctx.shadowColor=s.color;ctx.shadowBlur=18}
+            ctx.beginPath(); ctx.moveTo(pts[0].px,pts[0].py); for(let i=1;i<pts.length;i++) ctx.lineTo(pts[i].px,pts[i].py); ctx.stroke();
+            ctx.fillStyle=s.color; for(const p of pts){ctx.beginPath();ctx.arc(p.px,p.py,isActive?4.6:3.6,0,Math.PI*2);ctx.fill()}
+            ctx.restore();
+          }
+        }else{
+          const visibleBars = series.filter(s => s.visible);
+          const slots = Math.max(series.length, 1);
+          const slotW = w / slots;
+          const barW = Math.min(72, Math.max(34, slotW * 0.55));
+          const baselineY = yToPx(0, h, padT);
+          series.forEach((s,i)=>{
+            if(!s.visible) return;
+            const center = padL + slotW * (i + 0.5);
+            const valueY = yToPx(s.value, h, padT);
+            const topY = Math.min(baselineY, valueY);
+            const barH = Math.max(8, Math.abs(valueY - baselineY));
+            const leftX = center - barW / 2;
+            const isActive = activeSeries === s.name;
+            const hasActive = !!activeSeries;
+            ctx.save();
+            ctx.globalAlpha = hasActive ? (isActive ? 1 : 0.7) : 1;
+            ctx.fillStyle = s.color;
+            if(isActive){ctx.shadowColor=s.color;ctx.shadowBlur=18}
+            ctx.fillRect(leftX, topY, barW, barH);
+            ctx.strokeStyle = "rgba(255,255,255,.18)";
+            ctx.lineWidth = 1;
+            ctx.strokeRect(leftX, topY, barW, barH);
+            ctx.restore();
+
+            ctx.save();
+            ctx.fillStyle = "rgba(229,231,235,.92)";
+            ctx.font = "11px Segoe UI, system-ui";
+            ctx.textAlign = "center";
+            ctx.fillText(`${s.value.toFixed(1)}%`, center, topY - 8);
+            ctx.restore();
+
+            hits.push({x:leftX,y:topY,w:barW,h:barH,item:s});
+          });
+        }
+        ctx.restore();
+        status.textContent=`${series.filter(s=>s.visible).length} ${modeKey==="line"?"lines":"bars"} shown`;
+      }
+      function applyMode(){activeSeries=null;rebuildSeries();rebuildChecks();syncActiveRows();fitView()}
+
+      modeEl.addEventListener("change",()=>{modeKey=modeEl.value;applyMode()});
+      document.getElementById("fit").addEventListener("click",fitView);
+      document.getElementById("reset").addEventListener("click",()=>{activeSeries=null;syncActiveRows();fitView()});
+      document.getElementById("all").addEventListener("click",()=>{for(const s of series)s.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});
+      document.getElementById("none").addEventListener("click",()=>{for(const s of series)s.visible=false;activeSeries=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;dragAxis=null;lastX=e.clientX;lastY=e.clientY;stage.classList.add("is-dragging");stage.setPointerCapture(e.pointerId);hideTip()});
+      stage.addEventListener("pointermove",e=>{
+        if(dragging){
+          const dx=e.clientX-lastX,dy=e.clientY-lastY; lastX=e.clientX; lastY=e.clientY;
+          if(!dragAxis){if(Math.abs(dx)<2&&Math.abs(dy)<2)return;dragAxis=Math.abs(dy)>Math.abs(dx)*1.15?"y":"x";}
+          const r=stage.getBoundingClientRect(),padL=72,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),xr=view.xMax-view.xMin,yr=view.yMax-view.yMin;
+          view=clampView({xMin:view.xMin-(dragAxis==="y"?0:dx*xr/w),xMax:view.xMax-(dragAxis==="y"?0:dx*xr/w),yMin:view.yMin+(dragAxis==="x"?0:dy*yr/h),yMax:view.yMax+(dragAxis==="x"?0:dy*yr/h)});
+          draw(); return;
+        }
+        const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,padL=72,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB);
+        if(x<padL||x>padL+w||y<padT||y>padT+h){hideTip();return}
+        if(modeKey==="line"){
+          let best=null;
+          for(const s of screenSeries){const hit=closestOnPolyline(x,y,s.pts); if(!hit) continue; if(!best||hit.dist<best.dist) best={s,...hit};}
+          if(!best||best.dist>10){hideTip();return}
+          const time=pxToX(best.cx,w,padL), val=pxToY(best.cy,h,padT);
+          showTip(`<div><strong>${best.s.name}</strong></div><div class="muted">${time.toFixed(1)} | ${val.toFixed(1)}% of pre</div><div class="muted">${best.s.note}</div>`,x,y);
+        }else{
+          const hit=hits.find(h=>x>=h.x&&x<=h.x+h.w&&y>=h.y&&y<=h.y+h.h);
+          if(!hit){hideTip();return}
+          showTip(`<div><strong>${hit.item.name}</strong></div><div class="muted">${hit.item.value.toFixed(1)} percentage points post-workout</div><div class="muted">${hit.item.note}</div>`,x,y);
+        }
+      });
+      stage.addEventListener("pointerup",()=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointercancel",()=>{dragging=false;dragAxis=null;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip()});
+      stage.addEventListener("wheel",e=>{
+        const r=stage.getBoundingClientRect(),padL=72,padT=20,padR=20,padB=60,w=Math.max(10,r.width-padL-padR),h=Math.max(10,r.height-padT-padB),x=e.clientX-r.left,y=e.clientY-r.top;
+        if(x<padL||x>padL+w||y<padT||y>padT+h)return;
+        e.preventDefault();
+        const x0=pxToX(x,w,padL), y0=pxToY(y,h,padT), zoom=e.deltaY>0?1.12:1/1.12;
+        view=clampView({xMin:x0+(view.xMin-x0)*zoom,xMax:x0+(view.xMax-x0)*zoom,yMin:y0+(view.yMin-y0)*zoom,yMax:y0+(view.yMax-y0)*zoom});
+        draw();
+      },{passive:false});
+      window.addEventListener("resize",draw);
+      populateModes();
+      applyMode();
+    </script>
+  </body>
+</html>

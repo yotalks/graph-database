@@ -1,0 +1,613 @@
+    Galley Proof                                     27/03/2015; 14:50                         File: ies578.tex; BOKCTP/wyn p. 1
+
+
+    Isokinetics and Exercise Science 00 (2015) 1–7                                                                                     1
+    DOI 10.3233/IES-150578
+    IOS Press
+
+
+
+
+    Differences of activation pattern and damage
+    in elbow flexor muscle after isokinetic
+    eccentric contractions
+    Yosuke Tsuchiyaa,∗, Naoki Kikuchib , Minayuki Shiratoc and Eisuke Ochid
+    a
+      Laboratory of Health and Sports Sciences, Meiji Gakuin University, Yokohama, Japan
+    b
+      Training Center, Nippon Sport Science University, Tokyo, Japan
+    c
+      Laboratory of Hygiene and Community Hygiene, Nippon Sport Science University, Tokyo, Japan
+    d
+      Graduate School of Education, Okayama University, Okayama, Japan
+
+
+
+    Received 5 January 2015
+    Accepted 22 March 2015
+
+
+    Abstract.
+    BACKGROUND: Eccentric contractions (ECC)-induced muscle damage and activation pattern are not fully understood.
+    OBJECTIVE: To investigate the activation level and damage in each muscle and site after ECC.
+    METHODS: Eleven men performed 30 isokinetic ECC of the elbow flexors. Maximal voluntary isometric contraction (MVC)
+    moment, range of motion of the elbow joint (ROM), delayed onset muscle soreness (DOMS), transverse relaxation time (T2),
+    and cross-sectional area (CSA) were measured immediately before, immediately after, and 1, 3, 5 days after ECC.
+    RESULTS: MVC and ROM significantly decreased while DOMS significantly increased until 3 days after ECC. The CSA of
+    the brachialis significantly increased after ECC. The T2 in biceps brachii and middle and distal brachialis increased significantly
+    at post (p < 0.01) day 1 (middle; p < 0.01, distal; biceps brachii, p < 0.05, brachialis, p < 0.01), and day 3 (middle; p < 0.01,
+    distal; biceps brachii, p < 0.05, brachialis, p < 0.01). In addition, after 5 days only the distal brachialis has shown a significant
+    increase (p < 0.01).
+    CONCLUSIONS: Following maximal ECC the activation pattern and muscle damage differ among the elbow flexors depending
+    upon the individual muscle and site of recording.
+
+    Keywords: Lengthening, transverse relaxation time, elbow flexors, site-specific activation
+
+
+
+
+1   1. Introduction                                                        (Mb) increase, and transverse relaxation time (T2) on            8
+
+                                                                           magnetic resonance imaging (MRI) is prolonged [4,6,              9
+
+2      Unaccustomed muscle movement, including eccen-                      7,26]. DOMS has a peak at 1–3 days after ECC, while              10
+
+3   tric contraction (ECC) is widely known to cause mus-                   CK and Mb have a peak after 3–5 days [5,27]. More-               11
+
+4   cle damage [8,22]. After ECC, muscle strength de-                      over, T2 has a peak after 3–6 days [9,14,16]. It has been        12
+
+5   creases, delayed onset muscle soreness (DOMS) oc-                      proposed that micro damage occurred in the skeletal              13
+
+6   curs, range of motion (ROM) becomes limited, muscle                    muscle due to active oxygen, although this remains to            14
+
+7   swelling, serum creatinine kinase (CK) and myoglobin                   be clarified [20,22].                                            15
+
+                                                                              T2 is widely known as an indicator for evaluating             16
+
+
+        ∗ Corresponding author: Yosuke Tsuchiya, Laboratory of Health
+                                                                           the extent of muscle damage compared to other mark-              17
+
+
+    and Sports Sciences, Meiji Gakuin University, 1518 Kamikurata,
+                                                                           ers [9,15,17]. Nurenberg et al. found that a correlation         18
+
+    Totsuka, Yokohama 244-8539, Japan. Tel.: +81 90 8026 6846;             between the magnitude of increased T2 and the amount             19
+
+    E-mail: yosuket@gen.meijigakuin.ac.jp.                                 of ultrastructural damage in quadriceps femoris after            20
+
+
+
+
+    ISSN 0959-3020/15/$35.00 
+                             c 2015 – IOS Press and the authors. All rights reserved
+     Galley Proof                                27/03/2015; 14:50                                    File: ies578.tex; BOKCTP/wyn p. 2
+
+
+
+     2               Y. Tsuchiya et al. / Differences of activation pattern and damage in elbow flexor muscle after isokinetic ECC
+
+
+21   downhill running [17]. In addition, Nosaka et al. re-                     BMI: 23.3 ± 2.5) who had not participated in regular         68
+
+22   ported that relationship between increased T2 and peak                    resistance training prior to this study were recruited.      69
+
+23   serum CK level after ECC in the elbow flexors [15].                       They were requested to avoid interventions such as           70
+
+24   Therefore, T2 has been considered to be a useful indi-                    massage and stretching during the experimental pe-           71
+
+25   cator of muscle damage.                                                   riod. All subjects were informed of the experimental         72
+
+26      Several previous studies have reported that the mag-                   procedure and purpose of this study, which conformed         73
+
+27   nitude of muscle damage following ECC differs de-                         to the standards set by the Declaration of Helsinki,         74
+
+28   pending on the muscle [4,13]. Chen et al. compared the                    and gave their written consent in accordance with the        75
+
+29   damage following the same number of ECC of flex-                          Ethics Committee for Human Experiments, Juntendo             76
+
+30   ors and extensors in the knee and elbow and reported                      University (ID: 24–118). The authors of this study de-       77
+
+31   that damage was greater in the elbow flexors than the                     clare no conflict of interest.                               78
+
+32   knee flexors and extensors [4]. Furthermore, Prior et
+33   al. loaded the knee extensors of young men with ECC                       2.2. Experimental protocols                                  79
+
+
+34   and found that the increase in T2 after exercise was
+                                                                                  All subjects performed maximal eccentric exercise         80
+35   approximately 20% greater in the rectus femoris than                      of the elbow flexors using their non-dominant arm in         81
+36   in the vastus lateralis, vastus medialis, and vastus lat-                 a Repeated Measures (RM) design. The experimental            82
+37   eralis [21]. However, despite speculation that muscle                     period consisted of 5 testing days. The dependent vari-      83
+38   damage following ECC differs depending on the mus-                        ables included MVC moment, ROM of the elbow joint,           84
+39   cle even in muscles of the same joint (flexors and ex-                    DOMS using the visual analog scale (VAS), transverse         85
+40   tensors), the case regarding the elbow flexors remains                    relaxation time (T2), and cross-sectional area (CSA).        86
+41   unclear.                                                                  Measurements were taken immediately before and af-           87
+42      Previous studies have calculated T2 by MRI in or-                      ter exercise and 1, 3, and 5 days after exercise.            88
+43   der to evaluate the activation level of skeletal muscles
+44   and the recruitment of motor units [1,11,15,16]. The                      2.3. Eccentric contractions (ECC)                            89
+
+45   advantage of T2 is related to possibility of evaluating
+46   several muscles at once in a specific site (proximal,                        Each subject was seated on the chair of an isokinetic     90
+
+47   medial and distal) [1]. Kinugasa et al. investigated T2                   dynamometer (Biodex Multi-Joint System 3, USA).              91
+
+48   following plantar and dorsiflexion of the lower limb                      Their arm was set at a shoulder joint angle of 45◦ of        92
+
+49   in humans and reported that the T2 response was not                       flexion, and the elbow joint was aligned with the rota-      93
+
+50   be equal within the gastrocnemius [11]. According to                      tion axis of the isokinetic dynamometer, while the lever     94
+
+51   a previous study on ECC, the T2 response differed in                      arm of the dynamometer was secured to the subject’s          95
+
+52   the biceps femoris, semimembranosus and gracilis af-                      supinated wrist. The exercise consisted of five sets of      96
+
+53   ter ECC of the knee flexors [25]. However, no studies                     six maximal voluntary eccentric contractions of the el-      97
+
+
+54   have evaluated the level of muscle activity directly af-                  bow flexors at a constant velocity of 30◦ /s from 90◦ of     98
+
+
+55   ter ECC in the elbow flexors or the subsequent muscle                     flexion to 0◦ (full extension). The subjects were ver-       99
+
+
+56   damage according to each muscle and site.                                 bally encouraged to maximally resist to lever arm of        100
+
+
+57      In the present study, we therefore investigated the                    the dynamometer throughout the ROM for 3 s. After           101
+
+
+58   activation level of the biceps brachii, brachialis and                    each contraction, the dynamometer returned the arm to       102
+
+
+59   brachioradialis muscles after isokinetic ECC as well as                   the 90◦ flexed position at a constant velocity of 30◦ /s,   103
+
+                                                                               creating a 3 s passive recovery between contractions.       104
+60   muscle damage according to each muscle and site. We
+                                                                               The rest period between each set was 90 s. The mo-          105
+61   hypothesized that the activation level after ECC and
+                                                                               ment produced during the contractions was saved and         106
+62   the subsequent damage differ depending on the muscle
+                                                                               the peak moment and work were obtained later.               107
+63   and the site, even in the same muscle group.
+                                                                               2.4. MVC                                                    108
+
+
+
+64   2. Materials and methods                                                     The MVC moment was measured using the same ap-           109
+
+                                                                               paratus and positioning as that described for the eccen-    110
+
+65   2.1. Subjects                                                             tric exercise. The subjects performed two 5 s MVCs          111
+
+                                                                               at a 90◦ elbow joint angle with a 15 s rest between         112
+
+66     Eleven male volunteers (age: 28.0 ± 5.5 years,                          contractions. The peak moment was used for the MVC          113
+
+67   height: 171.8 ± 6.4 cm, body mass: 69.0 ± 11.0 kg,                        moment, as seen in a previous study [26,27].                114
+      Galley Proof                                    27/03/2015; 14:50                                  File: ies578.tex; BOKCTP/wyn p. 3
+
+
+
+                        Y. Tsuchiya et al. / Differences of activation pattern and damage in elbow flexor muscle after isokinetic ECC    3
+
+
+                                                                                  quence (repetition time: 2,500 ms, echo time: 30.90        138
+
+                                                                                  ms, 256 × 256 matrix, scan time: 286 s) was used to        139
+
+                                                                                  collect upper arm MRI using an extremity body coil.        140
+
+                                                                                  The subjects lay supine on the MR scanner. T2 and          141
+
+                                                                                  CSA of the biceps brachii, brachialis, triceps brachii,    142
+
+                                                                                  and brachioradialis were measured. The regions im-         143
+
+                                                                                  aged included the middle region, which was 1/3 the         144
+
+                                                                                  distance from the acromion to the lateral epicondyle       145
+
+                                                                                  of the humerus, distal at region and proximal at re-       146
+
+                                                                                  gion was 20% from the middle at region, respectively.      147
+
+                                                                                  The brachioradialis was only imaged at 6 cm below the      148
+
+                                                                                  middle region. The scanned MRI was transferred to a        149
+
+                                                                                  personal computer using fixed software on the MR sys-      150
+
+                                                                                  tem. The T2 region of interest (ROI) was determined        151
+
+                                                                                  with the software provided by Aquarius Net Station         152
+
+                                                                                  (Terarecon, USA). Three circular ROIs in each image        153
+
+                                                                                  were defined by manually tracing around the individ-       154
+
+                                                                                  ual muscle, and then subcutaneous and intramuscular        155
+
+                                                                                  fat, tendon, and aponeurosis were excluded from the        156
+      Fig. 1. Changes in total work per sets during eccentric contractions.
+      Values are means ± S.D. Work output were significantly decreased
+                                                                                  tracing.                                                   157
+
+      in 2, 3, 4, 5 set as compared to the first set (∗ p < 0.05, ∗∗ p < 0.01;
+      Significantly different from pre-treatment value).                          2.8. Statistical analyses                                  158
+
+
+
+115   2.5. ROM                                                                      All variables are expressed as means ± standard de-      159
+
+                                                                                  viation (SD). Changes in MVC, ROM, DOMS, T2, and           160
+
+116      To examine ROM of the elbow joint, two elbow                             CSA over time were compared using a one-way re-            161
+
+117   joint angles (extended and flexed) were measured us-                        peated measure ANOVA. When a significant time ef-          162
+
+118   ing a plastic goniometer. The extended joint angle was                      fect or interaction effect was found, multiple pairwise    163
+
+119   recorded when the subjects attempted to fully extend                        comparisons with Bonferroni’s correction were used         164
+
+120   the joint with the elbow held by their side and the hand                    for the post-hoc test. The significance level was set at   165
+
+121   in supination, and the flexed joint angle was recorded                      p < 0.05.                                                  166
+
+122   when the subjects attempted to fully flex the joint with
+123   the hand in the supinated position.
+                                                                                  3. Results                                                 167
+
+124   2.6. DOMS
+                                                                                  3.1. ECC                                                   168
+
+125      Palpated DOMS was assessed using VAS in scale
+126   of 100 mm, where 0 indicates “no pain”, and 100 is                             The work output of each set during ECC signifi-         169
+
+127   “worst pain”. Each subject was asked to indicate the                        cantly decreased (p < 0.01) in sets 2 (5.1 ± 1.4 J/kg),    170
+
+128   pain intensity on the scale when the investigator pal-                      3 (4.6 ± 1.5 J/kg), 4 (4.3 ± 1.5 J/kg), and 5 (4.0 ±       171
+
+129   pated the biceps brachii, brachialis, triceps brachii, and                  1.4 J/kg) compared with that in set 1 (5.7 ± 1.1 J/kg).    172
+
+130   brachioradialis using a thumb while a subject relaxed                       In addition, as shown in Fig. 1, the value of set 2 sig-   173
+
+131   and drop the arm down (natural position) [3,14]. All                        nificantly decreased compared to sets 4 (p < 0.05) and     174
+
+132   tests were performed three times in each muscle by a                        5 (p < 0.01).                                              175
+
+133   well-experienced investigator.
+                                                                                  3.2. MVC                                                   176
+
+134   2.7. T2 and CSA
+                                                                                    MVC moment decreased by 33 ± 14% from the pre-           177
+
+135      To observe T2 and the CSA of the muscle, MRI was                         exercise level immediately after exercise and remained     178
+
+136   performed using a 0.3-T AIRIS imaging system (Hi-                           lower than the baseline at days 1 (33 ± 13%, p < 0.01)     179
+
+137   tachi Medical, Japan). A T2-weighted spin-echo se-                          and 3 (15 ± 10%, p < 0.01) post-exercise (Fig. 2a).        180
+      Galley Proof                                   27/03/2015; 14:50                                     File: ies578.tex; BOKCTP/wyn p. 4
+
+
+
+      4                 Y. Tsuchiya et al. / Differences of activation pattern and damage in elbow flexor muscle after isokinetic ECC
+
+
+
+
+                                                         (a) MVC                                     (b) ROM
+
+
+
+
+                                                                   (c) Muscle Soreness
+
+      Fig. 2. Changes in a) maximal voluntary contractions, b), range of motion c) delayed onset muscle soreness (DOMS) at pre, immediately after,
+      and 1, 3, 5 days eccentric contractions. Values are means ± S.D. MVC moment was significantly decreased immediately after exercise, and
+      remained lower than the baseline at 1, 3 post-exercise. ROM was significantly decreased immediately after exercise, and remained lower than the
+      baseline at 1, and 3 post-exercise. ECC developed at biceps brachii at day 1 and 3. Similarly, brachialis developed 1 and 3 days after exercise. In
+      addition, brachioradialis also developed at day 1. ∗ p < 0.05, ∗∗ p < 0.01, Significantly different from pre-treatment value; p < 0.05,  p <
+      0.05, Significantly different from pre-treatment value in biceps brachii; †p < 0.05, ††p < 0.01, Significantly different from pre-treatment value
+      in brachialis ‡p < 0.05, Significantly different from pre-treatment value in brachioradialis.
+
+181   3.3. ROM                                                                     the inter-subject coefficient of variation (CV) in biceps                195
+
+                                                                                   brachii was pre; 30.4%, post; 26.2%, day 1; 20.4%, day                   196
+
+182     The ROM decreased by 17 ± 7% from the pre-                                 3; 31.3%, day 5; 21.4% respectively. Brachialis was                      197
+
+183   exercise level immediately after exercise (p < 0.01)                         pre; 34.1%, post; 23.4%, day 1; 30.1%, day 3; 30.0%,                     198
+
+184   and remained lower than the baseline at days 1 (14 ±                         day 5; 19.1% respectively. Brachioradialis was pre;                      199
+
+185   8%, p < 0.01) and 3 (13 ± 10%, p < 0.05) post-                               26.7%, post; 32.6%, day 1; 21.4%, day 3; 20.7%, day                      200
+
+186   exercise (Fig. 2b).                                                          5; 19.7% respectively. The intra-subject CV in biceps                    201
+
+                                                                                   brachii was pre; 10.4%, post; 8.5%, day 1; 12.4%, day                    202
+
+
+187   3.4. DOMS                                                                    3; 15.7%, day 5; 9.4% respectively. Brachialis was pre;                  203
+
+                                                                                   12.5%, post; 15.4%, day 1; 20.8%, day 3; 17.1%, day                      204
+
+                                                                                   5; 8.4% respectively. Brachioradialis was pre; 7.3%,                     205
+188      Delayed onset muscle soreness with thumb pres-
+                                                                                   post; 18.1%, day 1; 8.1%, day 3; 9.4%, day 5; 7.3%                       206
+189   sure developed in the biceps brachii at days 1 and 3
+                                                                                   respectively.                                                            207
+190   post-exercise (p < 0.01). Similarly, the brachialis de-
+191   veloped DOMS at days 1 and 3 post-exercise (p <                              3.5. CSA                                                                 208
+192   0.01). In addition, the brachioradialis also developed
+193   DOMS at day 1 (p < 0.01). DOMS did not develop                                  CSA change is shown in Table 1. The brachialis sig-                   209
+
+194   in the triceps brachii over time (Fig. 2c). In addition,                     nificantly increased post-exercise as well as at days 1,                 210
+      Galley Proof                                   27/03/2015; 14:50                                       File: ies578.tex; BOKCTP/wyn p. 5
+
+
+
+                         Y. Tsuchiya et al. / Differences of activation pattern and damage in elbow flexor muscle after isokinetic ECC                    5
+
+                                                                          Table 1
+      Changes (mean ± S.D.) in cross sectional area of biceps brachii, brachialis, triceps brachii, and brachioradialis at pre, immediately after, and 1,
+      3, 5 days after eccentric contractions
+                                                  Pre             Post                    Day 1                   Day 3                    Day 5
+        Biceps brachii (%)         Proximal       100         102.7 ± 11.2             104.0 ± 7.3             101.4 ± 9.6              101.4 ± 9.6
+                                   Middle         100         103.6 ± 11.7             104.6 ± 11.8            100.4 ± 12.4              99.3 ± 11.6
+                                   Distal         100         109.0 ± 16.7             103.4 ± 11.8            104.3 ± 18.6              94.1 ± 19.1
+        Brachialis (%)             Proximal       100         122.1 ± 17.7∗∗          121.6 ± 18.7∗            116.3 ± 32.7             107.4 ± 19.8
+                                   Middle         100         116.9 ± 24.4∗           125.0 ± 31.2∗∗           135.8 ± 46.5∗∗           134.6 ± 38.3∗∗
+                                   Distal         100         104.7 ± 10.4            111.9 ± 11.3             124.6 ± 19.2∗            116.6 ± 19.5
+        Triceps brachii (%)        Proximal       100          99.7 ± 5.3              101.3 ± 9.1              102.3 ± 4.2              94.4 ± 8.4
+                                   Middle         100          98.5 ± 8.7               93.9 ± 7.2               96.1 ± 7.7              95.7 ± 9.1
+                                   Distal         100          99.9 ± 20.1              97.0 ± 18.1              92.8 ± 16.5             92.0 ± 15.7
+        Brachioradialis (%)                       100         107.5 ± 11.5             103.6 ± 9.7              104.4 ± 9.7             106.5 ± 9.3
+      ∗ Significantly (p < 0.01) different from pre-treatment value, ∗∗ Significantly (p < 0.01) different from pre-treatment value.
+
+
+
+
+                                      (a) Biceps brachii                                                          (b) Brachialis
+
+      Fig. 3. Changes in transverse relaxation time of a) biceps brachii, b) brachialis at pre, immediately after, and 1, 3, 5 days after concentric and
+      eccentric contractions. Values are means ± S.D. For biceps brachii, the proximal at region is significantly increased only after exercise compared
+      to pre-exercise. Middle at region was significantly increased up to 5 days from immediately after exercise. In distal at region a significant increase
+      was observed up to 3 days from immediately after exercise. For brachialis, although there was no significant change in the proximal at region,
+      in the distal and middle at region significant increase was observed up to 5 days after compared to pre-exercise. Distal at region of immediately
+      after exercise was significantly higher than the proximal at region. ∗ p < 0.05, p < 0.05, Significantly different from pre-treatment value in
+      proximal; †p < 0.05, ††p < 0.01, Significantly different from pre-treatment value in middle; ‡p < 0.05, ‡‡p < 0.01, Significantly different
+      from pre-treatment value in distal.
+
+211   3, and 5 (post-exercise: p < 0.05; days 1, 3, and 5: p <                       cant increase was observed up to day 5 from imme-                         224
+
+212   0.01) in the middle region. In the proximal region, the                        diately after exercise (post-exercise, day 1 and day 3:                   225
+
+213   brachialis significantly increased post-exercise and at                        p < 0.01; day 5: p < 0.05). In the distal region, a sig-                  226
+
+214   day 1 (post-exercise: p < 0.05, day 1: p < 0.01). In                           nificant increase was observed up to day 3 from imme-                     227
+
+215   addition, it significantly increased at day 3 (p < 0.05)                       diately after exercise (p < 0.01). There was no signif-                   228
+
+216   in the distal region. However, there was no significant                        icant difference in the different regions of the biceps                   229
+
+
+217   change in the biceps brachii, triceps brachii, and bra-                        brachii. Concerning the brachialis, although there was                    230
+
+
+218   chioradialis over time.                                                        no significant change in the proximal region, there was                   231
+
+                                                                                     a significant increase observed in the distal and middle                  232
+
+                                                                                     region up to day 5 after exercise compared with pre-                      233
+219   3.6. T2                                                                        exercise (p < 0.01). In addition, the distal region im-                   234
+
+                                                                                     mediately after exercise was significantly higher than                    235
+220     T2 change is shown in Fig. 3. Concerning the biceps                          that at the proximal region (p < 0.05). The brachio-                      236
+
+221   brachii, the proximal region significantly increased                           radialis significantly increased only immediately after                   237
+
+222   only immediately after exercise compared with pre-                             exercise (p < 0.05). There was no significant change                      238
+
+223   exercise (p < 0.05). In the middle region, a signifi-                          in the triceps brachii.                                                   239
+      Galley Proof                               27/03/2015; 14:50                                    File: ies578.tex; BOKCTP/wyn p. 6
+
+
+
+      6              Y. Tsuchiya et al. / Differences of activation pattern and damage in elbow flexor muscle after isokinetic ECC
+
+
+240   4. Discussion                                                            the semitendinosus and gracilis than in the long head        290
+
+                                                                               of the biceps femoris and semimembranosus [18]. We           291
+
+241      In the present study, we investigated the activation                  also observed inter-site differences in the brachialis in    292
+
+242   level and muscle damage after isokinetic ECC of the                      the present study. However, there were no changes in         293
+
+243   elbow flexors. We found that immediately after exer-                     T2 according to the site in the biceps brachii. This may     294
+
+244   cise T2 in the brachialis had increased significantly                    have been due to the lack of difference between inten-       295
+
+245   more in the distal region than in the proximal region.                   sities in the present study. Further study is needed of      296
+
+
+246   Furthermore, the CSA after ECC only increased sig-                       loading at higher intensities.                               297
+
+
+247   nificantly in the brachialis. These results supported our                   No study had investigated the magnitude of mus-           298
+
+
+248   hypothesis. With regard to eccentric contraction, ex-                    cle swelling after ECC of the elbow flexors which            299
+
+
+249   cessive ECC have a possibility for muscle injury i.e.                    serve as an indicator of muscle damage. No changes           300
+
+                                                                               in CSA of the biceps brachii and brachioradialis were        301
+250   muscle strain [19,23,24]. In our study, the anomalies of
+                                                                               seen in the present study, although CSA significantly        302
+251   present ECC load recovered until 5 days, which were
+                                                                               increased until 5 days after exercise in the brachialis.     303
+252   similar to previous ECC [4]. Therefore, we believe that
+                                                                               This suggests for the first time that the magnitude of       304
+253   ECC load in our study was defined as the temporary                       swelling from ECC of the elbow flexors differs in the        305
+254   anomalies and not muscle strain injury.                                  elbow flexor muscles. In a study that loaded the quadri-     306
+255      Decreased maximal strength and ROM and in-                            ceps with ECC, the increase in CSA after 12 hours            307
+256   creased in DOMS and T2 occur after ECC [4,6,7]. We                       was found to be larger in the v. intermedius than in the     308
+257   obtained similar results using the same protocol [2,3].                  rectus femoris, v. medialis and v. lateralis [25]. They      309
+258   Chapman et al. loaded the elbow flexors with maxi-                       suggested that one of the reasons for this finding was       310
+259   mal 30 ECCs and observed a 32% decrease in MVC                           the larger number of slow twitch fibers in the v. inter-     311
+260   directly after exercise, which was a similar rate of de-                 medius compared with other muscles. Although there           312
+
+261   crease (33%) to that obtained in the present study [2].                  have been no reports to show the ratio of muscle fiber       313
+
+262   In addition, a significant increase in the DOMS was                      types in the brachialis, the proportion of type II fibers    314
+
+263   seen from 24 hours to 96 hours after exercise in the                     has been reported at 57.7% in the biceps brachii and         315
+
+264   present study, which is a similar level of muscle dam-                   60.2% in the brachioradialis [10]. We speculate that the     316
+
+265   age to that reported by Chapman et al. [2]. Chen et al.                  difference in CSA between brachialis and other mus-          317
+
+266   also loaded the elbow flexors with 30 ECCs and found                     cles are depended on the muscle fiber type composi-          318
+
+267   that ROM has decreased significantly until 3 days after                  tion. In other words, brachialis has larger number of        319
+
+268   ECC, in line with our results [3]. Therefore, we think                   type II fibers than biceps brachii and brachioradialis.      320
+
+269   that the loading setup in the present study was appro-                   Interestingly, Kulig et al. compared slow ECC contrac-       321
+
+270   priate.                                                                  tions (10 seconds) with fast ECC contractions (2 sec-        322
+
+271      Several studies have analyzed the activation level of                 onds) in elbow flexors at an intensity of 60%1RM and         323
+
+
+272   skeletal muscle according to the site using T2 [11,21].                  found that the activation level was significantly higher     324
+
+
+273   As shown in Introduction, Kinugasa et al.’s experi-                      in the brachialis than in the biceps brachii at a slow       325
+
+
+274   ments subjects performed 10 plantar flexion move-                        velocity, whereas the activation level was significantly     326
+
+                                                                               higher in the biceps brachii than in the brachialis at the   327
+275   ments in 7 sets (70 in total) at load intensities of
+                                                                               faster velocity with a possible connection to the fiber      328
+276   20%1RM or 60%1RM and analyzed T2 of the gas-
+                                                                               type difference between these muscles [12]. Further          329
+277   trocnemius three-dimensionally directly after exer-
+                                                                               study will be needed to investigate the fiber composi-       330
+278   cise [11]. They reported that the activation level in-                   tion with the increase in CSA by fast and slow ECC.          331
+279   creased for the exterior of the medial region and cen-                      The above findings suggest that the activation level      332
+280   ter of the distal region of the gastrocnemius at an in-                  of the brachialis in ECC of the elbow flexors is un-         333
+281   tensity of 60%1RM [11]. In the present study, signif-                    even throughout the entire muscle and that the degree        334
+282   icantly higher values were seen in the distal region of                  of swelling of the brachialis is greater compared with       335
+283   the brachialis than the proximal region. While the mea-                  that of the biceps brachii and brachioradialis. However,     336
+284   sured muscles was different from that in the report by                   since this study has investigated by only ECC group,         337
+285   Kinugasa et al. [11], the results of the present study re-               the activation pattern and magnitude of muscle damage        338
+
+286   vealed that the activation level of the brachialis directly              after isometric and concentric contractions remain un-       339
+
+287   after exercise was not uniform even in ECC. Ono et al.                   clear. In the future, further study will be needed at dif-   340
+
+288   loaded the knee flexors with ECC at 120%1RM and                          ferent intensities and velocity and with different mus-      341
+
+289   reported that the increase in T2 was more apparent in                    cle contraction mode.                                        342
+      Galley Proof                                  27/03/2015; 14:50                                    File: ies578.tex; BOKCTP/wyn p. 7
+
+
+
+                       Y. Tsuchiya et al. / Differences of activation pattern and damage in elbow flexor muscle after isokinetic ECC                   7
+
+
+343   Conflict of interest                                                       [13]   Marqueste T, Giannesini B, Fur YL, Cozzone PJ, Benda-               387
+                                                                                        han D. Comparative MRI analysis of T2 changes associated            388
+                                                                                        with single and repeated bouts of downhill running leading to       389
+344      The authors of this study declare no conflict of inter-                        eccentric-induced muscle damage. J Appl Physiol. 2008; 105:         390
+345   est.                                                                              299-307.                                                            391
+                                                                                 [14]   Nosaka K, Clarkson PM. Changes in indicators of inflamma-           392
+                                                                                        tion after eccentric exercise of the elbow flexors. Med Sci         393
+                                                                                        Sports Exerc. 1996; 28: 953-961.                                    394
+346   Acknowledgement                                                            [15]   Nosaka K, Clarkson PM. Variability in serum creatine kinase         395
+                                                                                        response after eccentric exercise of the elbow flexors. Int J       396
+
+347     We would like to thanks Prof. Kazunori Nosaka and                               Sports Med. 1996; 17: 120-127.                                      397
+
+348   Prof. Hiroshi Kiyota for their helpful discussion.                         [16]   Nosaka K, Sakamoto K, Newton M, Sacco P. How long does              398
+                                                                                        the protective effect on eccentric exercise-induced muscle          399
+                                                                                        damage last? Med Sci Sports Exerc. 2001; 33: 1490-1495.             400
+                                                                                 [17]   Nurenberg P, Giddings CJ, Stray-Gundersen J, Fleckenstein           401
+
+349   References                                                                        JL, Gonyea WJ, Peshock RM. MR imaging-guided muscle                 402
+                                                                                        biopsy for correlation of increased signal intensity with ul-       403
+
+350    [1] Akima H. Evaluation of functional properties of skeletal mus-                trastructural change and delayed-onset muscle soreness after        404
+
+351        cle using functional magnetic resonance imaging (fMRI). The                  exercise. Radiology. 1992; 184: 865-869.                            405
+
+352        Journal of Physical Fitness and Sports Medicine. 2012; 4:             [18]   Ono T, Okuwaki T, Fukubayashi T. Differences in activation          406
+
+353        621-630.                                                                     patterns of knee flexor muscles during concentric and eccen-        407
+
+354    [2] Chapman D, Newton M, Sacco P, Nosaka K. Greater muscle                       tric exercises. Res Sports Med. 2010; 18: 188-198.                  408
+
+355        damage induced by fast versus slow velocity eccentric exer-           [19]   Opar DA, Williams MD, Shield AJ. Hamstring strain injuries:         409
+                                                                                        factors that lead to injury and re-injury. Sports Med. 2012; 42:    410
+356        cise. Int J Sports Med. 2006; 27: 591-598.
+                                                                                        209-226.                                                            411
+357    [3] Chen TC, Chen HL, Lin MJ, Wu CJ, Nosaka K. Muscle dam-
+358        age responses of the elbow flexors to four maximal eccentric          [20]   Peake J, Nosaka K, Suzuki K. Characterization of inflam-            412
+
+359        exercise bouts performed every 4 weeks. Eur J Appl Physiol.                  matory responses to eccentric exercise in humans. Exerc Im-         413
+
+360        2009; 106: 267-275.                                                          munol Rev. 2005; 11: 64-85.                                         414
+
+361    [4] Chen TC, Lin KY, Chen HL, Lin MJ, Nosaka K. Compari-                  [21]   Prior BM, Jayaraman RC, Reid RW, Cooper TG, Foley JM,               415
+
+362        son in eccentric exercise-induced muscle damage among four                   Dudley GA, Meyer RA. Biarticular and monoarticular muscle           416
+
+363        limb muscles. Eur J Appl Physiol. 2011; 2: 211-223.                          activation and injury in human quadriceps muscle. Eur J Appl        417
+                                                                                        Physiol. 2001; 85: 185-190.                                         418
+364    [5] Chen TC, Nosaka K, Sacco P. Intensity of eccentric exercise,
+365        shift of optimum angle, and the magnitude of repeated-bout            [22]   Proske U, Morgan DL. Muscle damage from eccentric ex-               419
+
+366        effect. J Appl Physiol. 2007; 102: 992-999.                                  ercise: mechanism, mechanical signs, adaptation and clinical        420
+
+367    [6] Clarkson PM, Hubal MJ. Exercise-induced muscle damage in                     applications. J Physiol. 2001; 537: 333-345.                        421
+
+368        humans. Am J Phys Med Rehabil. 2002; 81: S52–S69.                     [23]   Song H, Nakazato K, Nakajima H. Effect of increased excur-          422
+
+369    [7] Clarkson PM, Nosaka K, Braun B. Muscle function after                        sion of the ankle on the severity of acute eccentric contraction-   423
+
+370        exercise-induced muscle damage and rapid adaptation. Med                     induced strain injury in the gastrocnemius: An in vivo rat          424
+                                                                                        study. Am J Sports Med. 2004; 32: 1263-1269.                        425
+371        Sci Sports Exerc. 1992; 24: 512–520.
+                                                                                 [24]   Song H, Ochi E, Lee K, Hiranuma K, Nakazato K. Character-           426
+372    [8] Clarkson PM, Sayers SP. Etiology of exercise-induced muscle
+373        damage. Can J Appl Physiol. 1999; 24: 234-248.                               istics of myogenic response and ankle moment recovery af-           427
+
+374    [9] Foley JM, Jayaraman RC, Prior BM, Pivarnik JM, Meyer RA.                     ter lengthening contraction-induced rat gastrocnemius injury.       428
+
+375        MR measurements of muscle damage and adaptation after ec-                    BMC Musculoskelet Disord. 2013; 13: 211.                            429
+
+376        centric exercise. J Appl Physiol. 1999; 87: 2311-2318.                [25]   Takahashi H, Kuno S, Miyamoto T, Yoshioka H, Inaki M,               430
+
+377   [10] Johnson MA, Polgar J, Weightman D, Appleton D. Data on                       Akima H, Katsuta S, Anno I, Itai Y. Changes in magnetic res-        431
+
+378        the distribution of fibre types in thirty-six human muscles. An              onance images in human skeletal muscle after eccentric exer-        432
+                                                                                        cise. Eur J Appl Physiol Occup Physiol. 1994; 69: 408-413.          433
+379        autopsy study. J Neurol Sci. 1973; 18: 111-129.
+                                                                                 [26]   Tsuchiya Y, Sakuraba K, Ochi E. Effect of eccentric contrac-        434
+380   [11] Kinugasa R, Kawakami Y, Sinha S, Fukunaga T. Unique spa-
+381        tial distribution of in vivo human muscle activation. Exp Phys-              tions of elbow flexor on bone formation and resorption mark-        435
+
+382        iol. 2011; 96: 938-948.                                                      ers. J Sports Med Phys Fitness. 2014; 54: 651-657.                  436
+
+383   [12] Kulig K, Powers CM, Shellock FG, Terk M. The effects of               [27]   Tsuchiya Y, Sakuraba K, Ochi E. High force Eccentric Ex-            437
+
+384        eccentric velocity on activation of elbow flexors: Evaluation                ercise Enhances Serum Tartrate-resistant acid phosphatase-5b        438
+
+385        by magnetic resonance imaging. Med Sci Sports Exerc. 2001;                   and Osteocalcin. J Musculoskelet Neuronal Interact. 2014; 14:       439
+
+386        33: 196-200.                                                                 50-57.                                                              440
+
