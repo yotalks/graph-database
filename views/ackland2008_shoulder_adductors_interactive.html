@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -26,8 +26,7 @@
         color: var(--text);
         overflow: hidden;
       }
-      .wrap {
-        height: 100%;
+      .wrap { min-height: 100dvh; height: 100%;
         display: grid;
         grid-template-rows: auto 1fr;
       }
@@ -60,7 +59,7 @@
       .main {
         position: relative;
         display: grid;
-        grid-template-columns: 280px 1fr;
+        grid-template-columns: minmax(220px, 26vw) 1fr;
         min-height: 0;
       }
       .left {
@@ -96,6 +95,8 @@
         position: relative;
         overflow: hidden;
         min-width: 0;
+        height: min(64dvh, calc(100dvh - 180px));
+        min-height: 320px;
       }
       canvas {
         width: 100%;
@@ -138,16 +139,16 @@
         .btn { padding: 6px 9px; font-size: 11px; }
         .status { width: 100%; white-space: normal; }
         .subtitle { display: none; }
-        .main { grid-template-columns: 1fr; grid-template-rows: auto minmax(540px, 78vh); }
+        .main { display: flex; flex-direction: column; }
         .left {
           border-right: none;
           border-bottom: 1px solid var(--border);
-          max-height: 22vh;
+          order: 2; max-height: min(14rem, 20dvh);
           padding-bottom: 8px;
         }
         .hint { display: none; }
         .check { margin: 6px 4px; padding: 7px 8px; }
-        .stage { min-height: 540px; }
+        .stage { order: 1; min-height: clamp(260px, 52dvh, 440px); flex: 0 0 auto; }
         .overlay { display: none; }
       }
     </style>
@@ -723,7 +724,7 @@
 
         if (!best || best.dist > 10) { hideTip(); return; }
         showTip(
-          `<div><strong>${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}Â° | ${best.yy.toFixed(1)} mm</div>`,
+          `<div><strong>${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}° | ${best.yy.toFixed(1)} mm</div>`,
           x, y
         );
       }
@@ -765,4 +766,8 @@
     </script>
   </body>
 </html>
+
+
+
+
 

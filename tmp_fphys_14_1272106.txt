@@ -1,0 +1,472 @@
+                                                                                                                   TYPE Brief Research Report
+                                                                                                                   PUBLISHED 13 December 2023
+                                                                                                                   DOI 10.3389/fphys.2023.1272106
+
+
+
+
+                                              Triceps surae muscle hypertrophy
+OPEN ACCESS                                   is greater after standing versus
+EDITED BY
+Christos Paizis,
+Université de Bourgogne, France
+                                              seated calf-raise training
+REVIEWED BY
+Masatoshi Nakamura,                           Momoka Kinoshita 1†, Sumiaki Maeo 1,2*†, Yuuto Kobayashi 1,
+Nishikyushu University, Japan
+Hugo Cerda-Kohler,
+                                              Yuuri Eihara 1, Munetaka Ono 1, Mauto Sato 1, Takashi Sugiyama 1,2,
+MEDS Clinic, Chile                            Hiroaki Kanehisa 2,3 and Tadao Isaka 1,2
+*CORRESPONDENCE                               1
+                                                Faculty of Sport and Health Science, Ritsumeikan University, Kusatsu, Japan, 2Institute of Advanced
+Sumiaki Maeo,
+                                              Research for Sport and Health Science, Ritsumeikan University, Kusatsu, Japan, 3Department of Physical
+  s-maeo@fc.ritsumei.ac.jp
+                                              Education, National Institute of Fitness and Sports in Kanoya, Kanoya, Japan
+†
+ These authors have contributed equally
+to this work and share ﬁrst authorship
+
+RECEIVED 03 August 2023
+ACCEPTED 29 November 2023                     Background: The triceps surae muscle plays important roles in fundamental
+PUBLISHED 13 December 2023
+                                              human movements. However, this muscle is relatively unresponsive to
+CITATION
+                                              resistance training (difﬁcult to hypertrophy) but prone to atrophy with inactivity
+Kinoshita M, Maeo S, Kobayashi Y,
+Eihara Y, Ono M, Sato M, Sugiyama T,          compared with other muscles. Thus, identifying an effective training modality for
+Kanehisa H and Isaka T (2023), Triceps        the triceps surae is warranted. This study compared triceps surae muscle
+surae muscle hypertrophy is greater after     hypertrophy      after   standing/knee-extended      versus   seated/knee-ﬂexed
+standing versus seated calf-raise training.
+Front. Physiol. 14:1272106.                   plantarﬂexion (calf-raise) training, where the gastrocnemius is lengthened and
+doi: 10.3389/fphys.2023.1272106               shortened, respectively.
+COPYRIGHT
+                                              Methods: Fourteen untrained adults conducted calf-raise training with one leg in a
+© 2023 Kinoshita, Maeo, Kobayashi,
+Eihara, Ono, Sato, Sugiyama, Kanehisa         standing/knee-extended position and the other leg in a seated/knee 90°-ﬂexed
+and Isaka. This is an open-access article     position at 70% of one-repetition maximum. Each leg performed 10 repetitions/
+distributed under the terms of the
+                                              set, 5 sets/session, 2 sessions/week for 12 weeks. Before and after the
+Creative Commons Attribution License
+(CC BY). The use, distribution or             intervention, magnetic resonance imaging scans were obtained to assess
+reproduction in other forums is               muscle volume of each and the whole triceps surae.
+permitted, provided the original author(s)
+and the copyright owner(s) are credited       Results: Muscle volume signiﬁcantly increased in all three muscles and the whole
+and that the original publication in this
+                                              triceps surae for both legs (p ≤ 0.031), except for the gastrocnemius muscles of the
+journal is cited, in accordance with
+accepted academic practice. No use,           seated condition leg (p = 0.147–0.508). The changes in muscle volume were
+distribution or reproduction is permitted     signiﬁcantly greater for the standing than seated condition leg in the lateral
+which does not comply with these terms.
+                                              gastrocnemius (12.4% vs. 1.7%), medial gastrocnemius (9.2% vs. 0.6%), and
+                                              whole triceps surae (5.6% vs. 2.1%) (p ≤ 0.011), but similar between legs in the
+                                              soleus (2.1% vs. 2.9%, p = 0.410).
+                                              Conclusion: Standing calf-raise was by far more effective, therefore
+                                              recommended, than seated calf-raise for inducing muscle hypertrophy of the
+                                              gastrocnemius and consequently the whole triceps surae. This result and similar
+                                              between-condition hypertrophy in the soleus collectively suggest that training at
+                                              long muscle lengths promotes muscle hypertrophy.
+
+                                              KEYWORDS
+
+                                              bi- and monoarticular muscles, muscle length, muscle volume, resistance training,
+                                              selective hypertrophy
+
+
+
+
+Frontiers in Physiology                                              01                                                              frontiersin.org
+Kinoshita et al.                                                                                                                    10.3389/fphys.2023.1272106
+
+
+
+
+Introduction                                                                         was greater after seated (hip-ﬂexed) than prone (hip-extended) leg
+                                                                                     curl training (Maeo et al., 2021). In addition, triceps brachii muscle
+     The triceps surae muscle is the main plantarﬂexor and plays                     hypertrophy was greater after overhead (shoulder-ﬂexed) than push
+important roles in fundamental human movements such as walking                       down (shoulder-extended) cable elbow extension training (Maeo
+(Ericson et al., 1986), running (Willer et al., 2021) and jumping (Hof               et al., 2023). Based on these, triceps surae muscle hypertrophy may
+et al., 2002). Since the triceps surae also functions as a stabilizer of             be greater after standing than seated calf-raise training. Both
+our body (Honeine et al., 2013), the fall risk is related to the size/               standing and seated calf-raise are common exercises to train the
+strength of the triceps surae (Allison et al., 2018; Epro et al., 2018).             triceps surae, and have been often implemented alone (Carson et al.,
+However, this muscle is relatively unresponsive to resistance                        2010; Gavanda et al., 2020; Kudo et al., 2020) or in combination
+training (difﬁcult to hypertrophy) (Weiss et al., 1988; Ferri et al.,                (Schoenfeld et al., 2020; Kataoka et al., 2022; Van Every et al., 2022)
+2003) but prone to atrophy with inactivity (Akima et al., 2001;                      in previous studies. However, no study has compared their
+Alkner and Tesch, 2004) compared with other muscles. Thus,                           hypertrophic effects through training interventions. Thus,
+enhancing our knowledge of effective training modalities for the                     clarifying their comparative hypertrophic effects will provide
+triceps surae will be highly useful in sports and clinical settings, and             simple yet highly practical information for developing evidence-
+will consequently beneﬁt a wide range of population.                                 based training programs for the triceps surae, and consequently
+     The triceps surae consists of the lateral gastrocnemius (LG),                   other muscles as well.
+medial gastrocnemius (MG), and soleus (SOL). The LG and MG are                            The purpose of this study was to compare triceps surae muscle
+biarticular muscles crossing the knee joint, and are lengthened more                 hypertrophy after standing (more stretched) versus seated (less
+in a knee-extended than knee-ﬂexed position (Delp et al., 2007;                      stretched) calf-raise training. To this end, we designed a 12-week
+Wakahara et al., 2007) (Figure 1). Recent studies (Maeo et al., 2021;                training intervention study using a within-person comparison
+Maeo et al., 2023) have shown that, by manipulating an angle of one                  model (Maeo et al., 2021; Maeo et al., 2023). This model is
+of the two joints the associated biarticular muscles cross, training-                powerful when comparing hypertrophic effects of two training
+induced muscle hypertrophy is greater after training at long than                    modalities by largely reducing the potential inﬂuence of between-
+short muscle lengths. For example, hamstring muscle hypertrophy                      person variability in gene expression and other factors (e.g., habitual
+
+
+
+
+    FIGURE 1
+    Postures of the standing and seated calf-raise exercises and operating ranges of each triceps surae muscle on the normalized force–length curve
+    during the exercises. These were obtained using the OpenSim Gait 2392 model (Delp et al., 2007), with the knee joint 0° and 90° for the standing and
+    seated conditions, respectively, and the ankle joint angle ranging from 20° dorsiﬂexed to 30° plantarﬂexed positions for both conditions. It can be clearly
+    seen that the lateral and medial gastrocnemius (LG and MG) operate at longer muscle lengths in the standing than seated condition, while there is no
+    difference between the conditions in the soleus (SOL).
+
+
+
+
+Frontiers in Physiology                                                         02                                                                 frontiersin.org
+Kinoshita et al.                                                                                                      10.3389/fphys.2023.1272106
+
+
+
+
+                                                                           Illinois, United States) calf-raise machines. Participants were
+                                                                           instructed to place/keep their foot in a neutral position (Figure 2)
+                                                                           to avoid potential confounding inﬂuence of foot positioning (Nunes
+                                                                           et al., 2020). Following warm-up repetitions at 50% (x10) and 80%
+                                                                           (x5) of each session’s training load (detailed below), participants
+                                                                           performed the standing or seated calf-raise 10 repetitions per set for
+                                                                           5 sets, taking 2 s for each of the concentric/lifting and eccentric/
+                                                                           lowering phases with the guide of a metronome (60 bpm). This
+                                                                           duration/tempo was chosen so that the exercises were performed in
+                                                                           a controlled manner (Maeo et al., 2021; Maeo et al., 2023). Two-min
+                                                                           rest intervals were taken in between sets. After training one leg
+                                                                           (5 sets), the other leg was trained, the order of which was switched
+                                                                           every session. Training was conducted twice per week on non-
+                                                                           consecutive days for 12 weeks. Training set was gradually increased
+                                                                           from 3, 4, and 5 sets at the ﬁrst, second, and third sessions,
+    FIGURE 2
+                                                                           respectively, using a consistent load of 70% of one-repetition
+    Pictures of standing (A) and seated (B) calf-raise training,
+    targeting the left and right leg, respectively.                        maximum (1RM) measured pre-training. At least one examiner
+                                                                           always supervised the training sessions, provided verbal
+                                                                           encouragement, and corrected the joint positions and/or
+                                                                           movement speed when necessary. The examiner also assisted/
+diet and activity/sleep) on the results obtained (MacInnis et al.,         spotted the participants when they could no longer repeat the
+2017). This study solely focused on muscle hypertrophy because             repetitions up to 10 in each set. If the participants could
+training effects on muscle strength and other functional                   complete all the prescribed protocol at the third session and
+performances may be confounded (e.g., by the cross-education               thereafter without the examiner’s assistance, +5% of 1RM was
+effect) in this comparison model (MacInnis et al., 2017). We               added at the subsequent sessions, with the load of the unloaded
+hypothesized that triceps surae muscle hypertrophy would be                machines considered for the load calculation. The above training
+greater after standing than seated calf-raise training.                    protocol was based on the ACSM guidelines (ACSM, 2009; Garber et
+                                                                           al., 2011) and our previous studies (Maeo et al., 2021; Maeo et al.,
+                                                                           2023) on other muscles that found typical/greater hypertrophy
+Methods                                                                    compared to the values reported in their relevant literature.
+
+Participants and overview
+                                                                           MRI
+    Fourteen untrained healthy adults (7 females/males, age:
+23.3 ± 2.4 years, height: 167.3 ± 7.9 cm, body mass: 56.6 ±                    Longitudinal relaxation time-weighted cross-sectional MRI
+19.7 kg) participated in this study, which was approved by the             scans were obtained for each leg using body array and spine coils
+Ethics Committee of Ritsumeikan University (BKC-LSMH-2019-                 (Body 18 and CP Spine Array Coil, Siemens Healthineers, Erlangen,
+019). We did not control female participants’ menstrual cycle.             Germany) with the following basic parameters: ﬁeld of view, 200 ×
+This was because of 1) no apparent effect of its cycle on training-        200 mm; slice thickness and gap, 5 mm; voxel size, 0.39 × 0.39 ×
+induced muscle hypertrophy (Colenso-Semple et al., 2023) and 2)            5 mm; TR, 700 ms; TE, 10 ms, number of slices, 20 × 2 blocks.
+our within-person comparison approach as explained above                   Participants lay supine with their legs extended and muscles relaxed
+(MacInnis et al., 2017). Written informed consent was                      in a 3-T magnet bore (MAGNETOM Skyra, Siemens Healthineers,
+obtained from each participant. They performed calf-raise                  Germany).
+training with one leg in a standing/knee-extended position                     Images were analyzed by using image analysis software (Horos,
+(Standing-Leg) and the other leg in a seated/knee 90°-ﬂexed                v3.3.6, Horos Project), with the MRI data anonymized and
+position (Seated-Leg). Before and after intervention of                    investigators blinded to the training conditions. Anatomical
+12 weeks, magnetic resonance imaging (MRI) scans were                      cross-sectional areas (ACSAs) of the individual triceps surae were
+obtained to assess muscle volume, the gold-standard muscle                 manually outlined in every other image from the most proximal to
+size measure (Cruz-Jentoft et al., 2010), of each and the whole            the most distal image in which the muscle was visible. ACSAs for the
+triceps surae (Whole-TS).                                                  skipped images and gaps were estimated based on linear
+                                                                           interpolation between the images in which ACSAs were outlined.
+                                                                           The volume of individual muscle was determined by summing all
+Training program                                                           ACSAs for that muscle multiplied by the slice thickness. The Whole-
+                                                                           TS volume was calculated by summing the volumes of the individual
+    Each leg was assigned to Standing-leg or Seated-leg with the           muscles. Intra-rater repeatability for measuring muscle volume of
+dominant and non-dominant legs counterbalanced, and trained                each muscle was assessed on eight legs. The coefﬁcient of variation
+unilaterally using standing (IMH703, Coming Health Tech,                   (CV) was 9.8%, 2.2%, and 1.8% for the LG, MG, and SOL,
+Qingdao, China) and seated (GSCR349, Bodysolid, Forest Park,               respectively.
+
+
+
+Frontiers in Physiology                                               03                                                           frontiersin.org
+Kinoshita et al.                                                                                                                     10.3389/fphys.2023.1272106
+
+
+
+
+    FIGURE 3
+    Muscle volume before and after the training and its change. In each subﬁgure/muscle(s), the raw data is plotted on the upper axes for the standing (A)
+    and seated (B) conditions; each paired set of observations at Pre and Post is connected by a line. On the lower axes, each paired mean difference is plotted
+    as a bootstrap sampling distribution. Mean differences are depicted as dots with horizontal dashed lines; 95% conﬁdence intervals are indicated by the
+    ends of the vertical error bars. ***p < 0.001, **p < 0.01 and *p < 0.05 difference between times (pre vs. post). ##p < 0.01 and #p < 0.05 difference
+    between conditions (legs). LG, lateral gastrocnemius; MG, medial gastrocnemius; SOL, soleus; Whole-TS, whole triceps surae.
+
+
+
+
+Statistical analysis                                                                 scatterplots and Mauchly’s test in ANOVA, respectively, and p
+                                                                                     values were modiﬁed with Greenhouse–Geisser correction when
+    Descriptive data are presented as mean ± SD. All data were                       necessary. When a signiﬁcant interaction was found, then post hoc
+analyzed using SPSS software (version 28.0, IBM, Armonk, New                         tests were conducted. Speciﬁcally, a paired t-test was used to test the
+York, United States). Statistical signiﬁcance was set at p < 0.05.                   difference between the pre- and post-training values within each leg.
+Males and females were analyzed together because training-induced                    Additionally, absolute change values were also calculated and
+muscle hypertrophy is known to be similar between sexes (Roberts                     compared between legs by using an unpaired t-test. Effect sizes
+et al., 2020) and separate analyses largely reduce statistical power                 of between-condition differences were calculated as Cohen’s d
+(MacInnis et al., 2017). We ensured independence of observations                     values based on absolute change values, and were interpreted as
+(each participant was only counted as one observation in each                        trivial <0.2; small 0.2–0.49; moderate 0.5-0.79; and large ≥0.8
+condition). Normality was conﬁrmed for all dataset by the Shapiro-                   (Cohen, 1988). Finally, their bootstrap 95% conﬁdence interval
+Wilk test. A two-way repeated-measures ANOVA (time×leg) was                          (5,000 samples, bias-corrected and accelerated) was assessed for
+used for a comparison of muscle volume for each muscle and the                       each leg by using estimation statistics (Ho et al., 2019) to improve
+Whole-TS. Homoscedasticity and sphericity was checked by                             statistical inference.
+
+
+
+Frontiers in Physiology                                                         04                                                                  frontiersin.org
+Kinoshita et al.                                                                                                                  10.3389/fphys.2023.1272106
+
+
+
+
+                                                                                   et al., 2014), and muscle damage (Allen et al., 2018). These alone or in
+                                                                                   combination could promote muscle hypertrophy/regeneration
+                                                                                   (Wackerhage et al., 2018). Additionally, other studies using
+                                                                                   electromyography (Price et al., 2003; Arampatzis et al., 2006;
+                                                                                   Wakahara et al., 2007), ultrasonography (Kassiano et al., 2023a), and
+                                                                                   functional MRI (Price et al., 2003) showed that the LG and/or MG are
+                                                                                   more activated when isometric or traditional plantarﬂexion/calf-raise
+                                                                                   exercise is performed in a knee-extended position. These would
+                                                                                   collectively explain why standing calf-raise training produced greater
+                                                                                   hypertrophy of the gastrocnemius and consequently the Whole-TS,
+                                                                                   compared to seated calf-raise training.
+                                                                                        Interestingly, there were no signiﬁcant changes in the gastrocnemius
+                                                                                   muscle volumes after seated calf-raise training. Among the studies that
+    FIGURE 4                                                                       conducted training at short muscle lengths, some reported small yet
+    The summary in percentage change based on the mean changes                     signiﬁcant hypertrophy (McMahon et al., 2014; Maeo et al., 2021; Maeo
+    for each muscle and the whole triceps surae. ***p < 0.001, **p <
+    0.01 and *p < 0.05 difference between times (pre vs. post). ##p <              et al., 2023), but others found no signiﬁcant changes in muscle size
+    0.01 and #p < 0.05 difference between conditions (legs). LG,                   (Noorkoiv et al., 2014; Kassiano et al., 2023b). No signiﬁcant hypertrophy
+    lateral gastrocnemius; MG, medial gastrocnemius; SOL, soleus;                  in the previous two studies (Noorkoiv et al., 2014; Kassiano et al., 2023b)
+    Whole-TS, whole triceps surae.
+                                                                                   could be at least partly due to their relatively short training periods
+                                                                                   (6–8 weeks). However, this study adopted a training period of 12 weeks,
+                                                                                   and therefore our result is less likely attributed to the lack/shortness of
+Results                                                                            training period. Rather, no signiﬁcant hypertrophy in the previous studies
+                                                                                   (Noorkoiv et al., 2014; Kassiano et al., 2023b) and this study may be partly
+     Signiﬁcant time×leg interactions were found in the muscle volume              attributable to the fact that all studies targeted antigravity muscles of the
+of the LG (p = 0.001), MG (p = 0.002), and Whole-TS (p = 0.011), but               legs (the triceps surae or quadriceps), which are known to be less prone to
+not in the SOL (p = 0.411) which albeit had a main effect of time (p =             hypertrophy (Usui et al., 2016; Maeo et al., 2018) than other muscles
+0.031). Paired t-tests within each leg for the LG, MG, and Whole-TS, as            (Kohiruimaki et al., 2019; Maeo et al., 2021; Maeo et al., 2023), likely due
+well as the main effect of time for the SOL, revealed that muscle volume           to being habitually activated in daily activities (Folland and Williams,
+signiﬁcantly increased in all three muscles and the Whole-TS for both              2007). Thus, while there are some differences among studies in the
+legs (p ≤ 0.031), except for the LG and MG of the Seated-Leg (p =                  methodologies adopted, this study provides the ﬁrst convincing evidence
+0.147–0.508) (Figure 3). The changes in muscle volume were                         that training at short muscle lengths could lead to no/negligible
+signiﬁcantly greater for the Standing-Leg than Seated-Leg in the LG                hypertrophy even after 12 weeks of training, in other words could
+(12.4% vs. 1.7%, p = 0.001, Cohen’s d = 1.53 [large]), MG (9.2% vs. 0.6%,          “minimize” muscle hypertrophy.
+p = 0.002, d = 1.58 [large]) and Whole-TS (5.6% vs. 2.1%, p = 0.011, d =                This study has some limitations. First, we did not set a control
+0.88 [large]), but similar between legs in the SOL (2.1% vs. 2.9%, p =             group. However, the CV of intra-rater repeatability for measuring
+0.410, d = 0.2 [trivial]) (Figures 3, 4).                                          muscle volume was 9.8%, 2.2%, and 1.8% for the LG, MG, and SOL,
+                                                                                   respectively. The ﬁrst two values, especially for the MG, were smaller
+                                                                                   than the signiﬁcant between-condition differences in the LG (12.4%
+Discussion                                                                         vs. 1.7%) and MG (9.2% vs. 0.6%). Furthermore, the CV for the SOL
+                                                                                   was smaller than the signiﬁcant hypertrophy of both conditions
+     The main ﬁnding of this study was that muscle hypertrophy of                  (2.1% vs. 2.9%). Given that we analyzed the data in a blinded/
+the gastrocnemius, and consequently the Whole-TS, was                              anonymized manner, the ﬁndings obtained here would be robust/
+signiﬁcantly greater after standing than seated calf-raise training,               unchanged even if we had a control group. The somewhat higher CV
+indicating that training at long muscle lengths promotes muscle                    for the LG than the other two muscles may be due to its small size
+hypertrophy. Furthermore, no signiﬁcant hypertrophy was found in                   (Figure 3). Such information may be useful when selecting which
+the gastrocnemius after seated calf-raise training. This suggests that             muscle to analyze within the triceps surae (i.e., MG or SOL may be
+training at short muscle lengths could result in no/negligible                     better) when any muscle can be analyzed depending on a research
+hypertrophy of the otherwise trained/hypertrophied muscles.                        purpose. Additionally, no functional data is available in this study.
+     To the authors’ knowledge, this is the ﬁrst study to reveal changes in        As mentioned earlier, this study prioritized muscle size
+MRI-measured muscle volume for each and the Whole-TS after calf-                   measurement/comparison. Therefore, we used the within-person
+raise training. Importantly, the results clearly showed that muscle                comparison model, which may not be best suited for comparisons of
+hypertrophy was greater after standing than seated calf-raise                      functional performances (MacInnis et al., 2017). Because muscle
+training, indicating greater hypertrophic effects of training at long              strength and power are strongly related to muscle size (Kordi et al.,
+muscle lengths. While beyond the scope of this study, potential                    2020; Maden-Wilkinson et al., 2020; Balshaw et al., 2021),
+mechanisms for greater hypertrophy after training at long muscle                   improvements in functional performances would have been also
+lengths, examined using isometric or traditional (involving both                   better for the standing vs. seated calf-raise training. Nevertheless,
+concentric/eccentric) exercises, include greater muscle hypoxia/                   more studies are needed to directly investigate the effect of standing
+metabolic stress (Kooistra et al., 2008), IGF-1 expression (McMahon                vs. seated calf-raise training on various functional performances.
+
+
+
+Frontiers in Physiology                                                       05                                                                 frontiersin.org
+Kinoshita et al.                                                                                                                                                  10.3389/fphys.2023.1272106
+
+
+
+
+Conclusion                                                                                        Resources, Software, Supervision, Validation, Visualization,
+                                                                                                  Writing–original draft, Writing–review and editing. YK: Data
+    The degrees of muscle hypertrophy of the triceps surae were                                   curation, Formal Analysis, Investigation, Methodology,
+relatively small (~2–6%), as previously reported, compared to other                               Supervision, Writing–review and editing. YE: Data curation,
+muscle groups (e.g., +9–20% in the hamstrings and triceps brachii,                                Investigation, Writing–review and editing. MO: Data curation,
+Maeo et al., 2021; Maeo et al., 2023) after 12 weeks of training.                                 Investigation, Writing–review and editing. MS: Writing–review
+However, we found a clear difference in the hypertrophic responses                                and editing. TS: Data curation, Investigation, Supervision,
+after standing vs. seated calf-raise training. Speciﬁcally, standing                              Writing–review and editing. HK: Methodology, Supervision,
+calf-raise was by far more effective than seated calf-raise for inducing                          Writing–review and editing. TI: Methodology, Supervision,
+muscle hypertrophy of the gastrocnemius and consequently the                                      Writing–review and editing.
+whole triceps surae (Cohen’s d = 0.88–1.58 [large]). Considering the
+limited hypertrophic response of the triceps surae and its proneness
+to atrophy with inactivity, the ﬁnding of this study will be readily                              Funding
+useful in sports and clinical settings in maximizing hypertrophy and
+minimizing atrophy of the triceps surae.                                                              The author(s) declare ﬁnancial support was received for the
+                                                                                                  research, authorship, and/or publication of this article. This work
+                                                                                                  was supported by a JSPS Grant-in-Aid for Scientiﬁc Research to SM
+Data availability statement                                                                       (21H03335).
+
+    The original contributions presented in the study are included in
+the article/Supplementary Material, further inquiries can be directed                             Acknowledgments
+to the corresponding author.
+                                                                                                     The authors would like to thank all the participants for their
+                                                                                                  time and effort.
+Ethics statement
+     This study was approved by Ethics Committee of Ritsumeikan                                   Conﬂict of interest
+University. This study was conducted in accordance with the local
+legislation and institutional requirements. The participants provided                                 The authors declare that the research was conducted in the
+their written informed consent to participate in this study. Written                              absence of any commercial or ﬁnancial relationships that could be
+informed consent was obtained from the individual(s) for the                                      construed as a potential conﬂict of interest.
+publication of any potentially identiﬁable images or data included in
+this article.
+                                                                                                  Publisher’s note
+Author contributions                                                                                  All claims expressed in this article are solely those of the authors
+                                                                                                  and do not necessarily represent those of their afﬁliated
+   MK: Data curation, Formal Analysis, Investigation,                                             organizations, or those of the publisher, the editors and the
+Writing–original draft, Writing–review and editing. SM:                                           reviewers. Any product that may be evaluated in this article, or
+Conceptualization, Data curation, Formal Analysis, Funding                                        claim that may be made by its manufacturer, is not guaranteed or
+acquisition, Investigation, Methodology, Project administration,                                  endorsed by the publisher.
+
+
+
+References
+  Acsm (2009). American College of Sports Medicine position stand. Progression                    on gastrocnemius medialis fascicle length and EMG activity during isometric
+models in resistance training for healthy adults. Med. Sci. Sports Exerc 41, 687–708.             plantar ﬂexion. J. Biomech. 39, 1891–1902. doi:10.1016/j.jbiomech.2005.05.010
+doi:10.1249/MSS.0b013e3181915670
+                                                                                                    Balshaw, T. G., Maden-Wilkinson, T. M., Massey, G. J., and Folland, J. P. (2021). The human
+  Akima, H., Kubo, K., Imai, M., Kanehisa, H., Suzuki, Y., Gunji, A., et al. (2001).              muscle size and strength relationship: effects of architecture, muscle force, and measurement
+Inactivity and muscle: effect of resistance training during bed rest on muscle size in the        location. Med. Sci. Sports Exerc 53, 2140–2151. doi:10.1249/MSS.0000000000002691
+lower limb. Acta Physiol. Scand. 172, 269–278. doi:10.1046/j.1365-201x.2001.00869.x
+                                                                                                     Carson, R. G., Popple, A. E., Verschueren, S. M., and Riek, S. (2010). Superimposed
+   Alkner, B. A., and Tesch, P. A. (2004). Knee extensor and plantar ﬂexor muscle size            vibration confers no additional beneﬁt compared with resistance training alone. Scand.
+and function following 90 days of bed rest with or without resistance exercise. Eur.              J. Med. Sci. Sports 20, 827–833. doi:10.1111/j.1600-0838.2009.00999.x
+J. Appl. Physiol. 93, 294–305. doi:10.1007/s00421-004-1172-8
+                                                                                                    Cohen, J. (1988). Statistical power analysis for the behavioral sciences. Hillsdale, N.J.:
+  Allen, T. J., Jones, T., Tsay, A., Morgan, D. L., and Proske, U. (2018). Muscle damage          L. Erlbaum Associates.
+produced by isometric contractions in human elbow ﬂexors. J. Appl. Physiol. 124,
+                                                                                                     Colenso-Semple, L. M., D’souza, A. C., Elliott-Sale, K. J., and Phillips, S. M. (2023).
+388–399. doi:10.1152/japplphysiol.00535.2017
+                                                                                                  Current evidence shows no inﬂuence of women’s menstrual cycle phase on acute
+  Allison, S. J., Brooke-Wavell, K., and Folland, J. (2018). High and odd impact exercise         strength performance or adaptations to resistance exercise training. Front. Sports Act.
+training improved physical function and fall risk factors in community-dwelling older             Living 5, 1054542. doi:10.3389/fspor.2023.1054542
+men. J. Musculoskelet. Neuronal Interact. 18, 100–107.
+                                                                                                    Cruz-Jentoft, A. J., Baeyens, J. P., Bauer, J. M., Boirie, Y., Cederholm, T., Landi, F., et al. (2010).
+  Arampatzis, A., Karamanidis, K., Staﬁlidis, S., Morey-Klapsing, G., Demonte, G.,                Sarcopenia: European consensus on deﬁnition and diagnosis: report of the European working
+and Brüggemann, G. P. (2006). Effect of different ankle- and knee-joint positions                 group on sarcopenia in older people. Age Ageing 39, 412–423. doi:10.1093/ageing/afq034
+
+
+
+
+Frontiers in Physiology                                                                      06                                                                                        frontiersin.org
+Kinoshita et al.                                                                                                                                                   10.3389/fphys.2023.1272106
+
+
+
+
+  Delp, S. L., Anderson, F. C., Arnold, A. S., Loan, P., Habib, A., John, C. T., et al.                   Kudo, S., Sato, T., and Miyashita, T. (2020). Effect of plyometric training on the
+(2007). OpenSim: open-source software to create and analyze dynamic simulations of                      fascicle length of the gastrocnemius medialis muscle. J. Phys. Ther. Sci. 32, 277–280.
+movement. IEEE Trans. Biomed. Eng. 54, 1940–1950. doi:10.1109/TBME.2007.                                doi:10.1589/jpts.32.277
+901024
+                                                                                                          Macinnis, M. J., Mcglory, C., Gibala, M. J., and Phillips, S. M. (2017). Investigating
+  Epro, G., Mccrum, C., Mierau, A., Leyendecker, M., Brüggemann, G. P., and                             human skeletal muscle physiology with unilateral exercise models: when one limb is more
+Karamanidis, K. (2018). Effects of triceps surae muscle strength and tendon stiffness                   powerful than two. Appl. Physiol. Nutr. Metab. 42, 563–570. doi:10.1139/apnm-2016-0645
+on the reactive dynamic stability and adaptability of older female adults during
+                                                                                                          Maden-Wilkinson, T. M., Balshaw, T. G., Massey, G. J., and Folland, J. P. (2020).
+perturbed walking. J. Appl. Physiol. 124, 1541–1549. doi:10.1152/japplphysiol.00545.
+                                                                                                        What makes long-term resistance-trained individuals so strong? A comparison of
+2017
+                                                                                                        skeletal muscle morphology, architecture, and joint mechanics. J. Appl. Physiol. 128,
+  Ericson, M. O., Nisell, R., and Ekholm, J. (1986). Quantiﬁed electromyography of                      1000–1011. doi:10.1152/japplphysiol.00224.2019
+lower-limb muscles during level walking. Scand. J. Rehabil. Med. 18, 159–163.
+                                                                                                          Maeo, S., Huang, M., Wu, Y., Sakurai, H., Kusagawa, Y., Sugiyama, T., et al. (2021).
+  Ferri, A., Scaglioni, G., Pousson, M., Capodaglio, P., Van Hoecke, J., and Narici, M. V.              Greater hamstrings muscle hypertrophy but similar damage protection after training at
+(2003). Strength and power changes of the human plantar ﬂexors and knee extensors in                    long versus short muscle lengths. Med. Sci. Sports Exerc 53, 825–837. doi:10.1249/MSS.
+response to resistance training in old age. Acta Physiol. Scand. 177, 69–78. doi:10.1046/j.             0000000000002523
+1365-201X.2003.01050.x
+                                                                                                          Maeo, S., Shan, X., Otsuka, S., Kanehisa, H., and Kawakami, Y. (2018).
+  Folland, J. P., and Williams, A. G. (2007). The adaptations to strength training:                     Neuromuscular adaptations to work-matched maximal eccentric versus concentric
+morphological and neurological contributions to increased strength. Sports Med. 37,                     training. Med. Sci. Sports Exerc 50, 1629–1640. doi:10.1249/MSS.0000000000001611
+145–168. doi:10.2165/00007256-200737020-00004
+                                                                                                          Maeo, S., Wu, Y., Huang, M., Sakurai, H., Kusagawa, Y., Sugiyama, T., et al. (2023).
+  Garber, C. E., Blissmer, B., Deschenes, M. R., Franklin, B. A., Lamonte, M. J.;                       Triceps brachii hypertrophy is substantially greater after elbow extension training
+American College of Sports Medicine, et al. (2011). American College of Sports                          performed in the overhead versus neutral arm position. Eur. J. Sport Sci. 23, 1240–1250.
+Medicine position stand. Quantity and quality of exercise for developing and                            doi:10.1080/17461391.2022.2100279
+maintaining cardiorespiratory, musculoskeletal, and neuromotor ﬁtness in
+                                                                                                          Mcmahon, G., Morse, C. I., Burden, A., Winwood, K., and Onambele, G. L. (2014).
+apparently healthy adults: guidance for prescribing exercise. Med. Sci. Sports Exerc
+                                                                                                        Muscular adaptations and insulin-like growth factor-1 responses to resistance training
+43, 1334–1359. doi:10.1249/MSS.0b013e318213fefb
+                                                                                                        are stretch-mediated. Muscle Nerve 49, 108–119. doi:10.1002/mus.23884
+   Gavanda, S., Isenmann, E., Schlöder, Y., Roth, R., Freiwald, J., Schiffer, T., et al. (2020).
+                                                                                                          Noorkoiv, M., Nosaka, K., and Blazevich, A. J. (2014). Neuromuscular adaptations
+Low-intensity blood ﬂow restriction calf muscle training leads to similar functional and
+                                                                                                        associated with knee joint angle-speciﬁc force change. Med. Sci. Sports Exerc 46,
+structural adaptations than conventional low-load strength training: a randomized
+                                                                                                        1525–1537. doi:10.1249/MSS.0000000000000269
+controlled trial. PLoS One 15, e0235377. doi:10.1371/journal.pone.0235377
+                                                                                                          Nunes, J. P., Costa, B. D. V., Kassiano, W., Kunevaliki, G., Castro, E. S. P., Rodacki, A.
+  Ho, J., Tumkaya, T., Aryal, S., Choi, H., and Claridge-Chang, A. (2019). Moving
+                                                                                                        L. F., et al. (2020). Different foot positioning during calf training to induce portion-
+beyond P values: data analysis with estimation graphics. Nat. Methods 16, 565–566.
+                                                                                                        speciﬁc gastrocnemius muscle hypertrophy. J. Strength Cond. Res. 34, 2347–2351.
+doi:10.1038/s41592-019-0470-3
+                                                                                                        doi:10.1519/JSC.0000000000003674
+   Hof, A. L., Van Zandwijk, J. P., and Bobbert, M. F. (2002). Mechanics of human
+                                                                                                          Price, T. B., Kamen, G., Damon, B. M., Knight, C. A., Applegate, B., Gore, J. C., et al.
+triceps surae muscle in walking, running and jumping. Acta Physiol. Scand. 174, 17–30.
+                                                                                                        (2003). Comparison of MRI with EMG to study muscle activity associated with dynamic
+doi:10.1046/j.1365-201x.2002.00917.x
+                                                                                                        plantar ﬂexion. Magn. Reson Imaging 21, 853–861. doi:10.1016/s0730-725x(03)00183-8
+  Honeine, J. L., Schieppati, M., Gagey, O., and Do, M. C. (2013). The functional role of
+                                                                                                          Roberts, B. M., Nuckols, G., and Krieger, J. W. (2020). Sex differences in resistance
+the triceps surae muscle during human locomotion. PLoS One 8, e52943. doi:10.1371/
+                                                                                                        training: a systematic review and meta-analysis. J. Strength Cond. Res. 34, 1448–1460.
+journal.pone.0052943
+                                                                                                        doi:10.1519/JSC.0000000000003521
+  Kassiano, W., Costa, B., Kunevaliki, G., Soares, D., Stavinski, N., Francsuel, J., et al.
+                                                                                                          Schoenfeld, B. J., Vigotsky, A. D., Grgic, J., Haun, C., Contreras, B., Delcastillo, K., et al.
+(2023a). Muscle swelling of the triceps surae in response to straight-leg and bent-leg calf
+                                                                                                        (2020). Do the anatomical and physiological properties of a muscle determine its adaptive
+raise exercises in young women. J. Strength Cond. Res. 37, e438–e443. doi:10.1519/JSC.
+                                                                                                        response to different loading protocols? Physiol. Rep. 8, e14427. doi:10.14814/phy2.14427
+0000000000004491
+                                                                                                           Usui, S., Maeo, S., Tayashiki, K., Nakatani, M., and Kanehisa, H. (2016). Low-load
+  Kassiano, W., Costa, B., Kunevaliki, G., Soares, D., Zacarias, G., Manske, I., et al.
+                                                                                                        slow movement squat training increases muscle size and strength but not power. Int.
+(2023b). Greater gastrocnemius muscle hypertrophy after partial range of motion
+                                                                                                        J. Sports Med. 37, 305–312. doi:10.1055/s-0035-1564255
+training performed at long muscle lengths. J. Strength Cond. Res. 37, 1746–1753. doi:10.
+1519/JSC.0000000000004460                                                                                 Van Every, D. W., Coleman, M., Rosa, A., Zambrano, H., Plotkin, D., Torres, X., et al.
+                                                                                                        (2022). Loaded inter-set stretch may selectively enhance muscular adaptations of the
+  Kataoka, R., Vasenina, E., Hammert, W. B., Ibrahim, A. H., Dankel, S. J., and Buckner,
+                                                                                                        plantar ﬂexors. PLoS One 17, e0273451. doi:10.1371/journal.pone.0273451
+S. L. (2022). Muscle growth adaptations to high-load training and low-load training
+with blood ﬂow restriction in calf muscles. Eur. J. Appl. Physiol. 122, 623–634. doi:10.                  Wackerhage, H., Schoenfeld, B. J., Hamilton, D. L., Lehti, M., and Hulmi, J. J. (2018).
+1007/s00421-021-04862-7                                                                                 Stimuli and sensors that initiate skeletal muscle hypertrophy following resistance
+                                                                                                        exercise. J. Appl. Physiol. 126, 30–43. doi:10.1152/japplphysiol.00685.2018
+  Kohiruimaki, R., Maeo, S., and Kanehisa, H. (2019). Suspended push-up training
+augments size of not only upper limb but also abdominal muscles. Int. J. Sports Med. 40,                   Wakahara, T., Kanehisa, H., Kawakami, Y., and Fukunaga, T. (2007). Fascicle
+789–795. doi:10.1055/a-0989-2482                                                                        behavior of medial gastrocnemius muscle in extended and ﬂexed knee positions.
+                                                                                                        J. Biomech. 40, 2291–2298. doi:10.1016/j.jbiomech.2006.10.006
+  Kooistra, R. D., De Ruiter, C. J., and De Haan, A. (2008). Knee angle-dependent
+oxygen consumption of human quadriceps muscles during maximal voluntary and                                Weiss, L. W., Clark, F. C., and Howard, D. G. (1988). Effects of heavy-resistance
+electrically evoked contractions. Eur. J. Appl. Physiol. 102, 233–242. doi:10.1007/s00421-              triceps surae muscle training on strength and muscularity of men and women. Phys.
+007-0573-x                                                                                              Ther. 68, 208–213. doi:10.1093/ptj/68.2.208
+   Kordi, M., Folland, J., Goodall, S., Haralabidis, N., Maden-Wilkinson, T., Sarika Patel,               Willer, J., Allen, S. J., Burden, R. J., and Folland, J. P. (2021). Neuromechanics of
+T., et al. (2020). Mechanical and morphological determinants of peak power output in                    middle-distance running fatigue: a key role of the plantarﬂexors? Med. Sci. Sports Exerc
+elite cyclists. Scand. J. Med. Sci. Sports 30, 227–237. doi:10.1111/sms.13570                           53, 2119–2130. doi:10.1249/MSS.0000000000002695
+
+
+
+
+Frontiers in Physiology                                                                            07                                                                                 frontiersin.org
+

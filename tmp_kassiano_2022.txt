@@ -1,0 +1,865 @@
+1    Muscle swelling of the triceps surae in response to straight-leg and bent-leg calf raise
+
+2    exercises in young women
+
+3    Short title: Different calf raise exercises and muscle swelling
+
+4    Authors: Witalo Kassiano1, Bruna Costa1, Gabriel Kunevaliki1, Danrlei Soares1, Natã Stavinski1,
+
+5    Jarlisson Francsuel1, Marcelo A. S. Carneiro1, Ian Tricoli1, João Pedro Nunes1,3, Alex S. Ribeiro2,
+
+6    Edilson S. Cyrino1
+
+7    Affiliations: 1Metabolism, Nutrition and Exercise Laboratory, Physical Education and Sport
+
+8    Center, State University of Londrina, Londrina, PR, Brazil; 2University Pitágoras UNOPAR. Lon-
+
+9    drina, PR, Brazil; 3Centre for Human Performance, School of Medical and Health Sciences, Edith
+
+10   Cowan University, Perth, Australia.
+
+11
+
+12   *Correspondence author: Witalo Kassiano. e-mail: acc.witalo@gmail.com | ORCID number:
+
+13   0000-0002-0868-8634. Metabolism, Nutrition, and Exercise Laboratory. Physical Education and
+
+14   Sport Center, State University of Londrina, Rodovia Celso Garcia, km 380, 86057-970, Londrina,
+
+15   PR, Brazil.
+
+16
+
+17   Affiliation where the research was conducted: Physical Education and Sport Center. State
+
+18   University of Londrina, Brazil.
+19   ABSTRACT
+
+20   Triceps surae muscle swelling in response to different resistance exercises remain to be deter-
+
+21   mined. The present study compared the effects of straight-leg (STRA-leg) calf raise versus bent-
+
+22   leg (BENT-leg) calf raise exercises on triceps surae muscle swelling. Seventeen young women
+
+23   (23.7 ± 4.0 yrs; 67.4 ± 16.0 kg; 163.5 ± 7.2 cm) performed two resistance training sessions; in one
+
+24   they performed the STRA-leg calf raise and in another, they performed the BENT-leg calf raise.
+
+25   A randomized, crossover, and counterbalanced design was adopted for this investigation. The sub-
+
+26   jects performed 4 sets of 20 repetitions maximum until concentric muscular failure. The muscle
+
+27   thickness of gastrocnemius medial (GM), gastrocnemius lateral (GL), and soleus (SOL) were taken
+
+28   via B-mode ultrasound pre and immediately post the calf raise exercises. STRA-leg calf raise elic-
+
+29   ited greater increases in muscle thickness of GM (+8.8% vs. -0.9%, P < 0.001) and GL (+14.5%
+
+30   vs. +7.0%, P < 0.001) than BENT-leg calf raise. Conversely, BENT-leg calf raise elicited greater
+
+31   increases in SOL muscle thickness than STRA-leg calf raise (+15.4% vs. +7.7%, P < 0.001). From
+
+32   a practical perspective, the STRA-leg calf raise should be preferred if the aim is stimulating the
+
+33   three muscles that comprise the triceps surae, whereas the BENT-leg calf raise should be priori-
+
+34   tized if the target muscle is the SOL.
+
+35   Keywords: resistance exercise, muscle thickness, ultrasound, exercise selection, ankle flexors,
+
+36   active insufficiency.
+37   INTRODUCTION
+
+38          Resistance exercises induce inhomogeneous stimulus along the length of a muscle and be-
+
+39   tween muscles of a muscle group (16, 19, 30). For instance, immediately after performing the
+
+40   barbell back squat, there is an increase in the cross-sectional area of the vastii and adductor but not
+
+41   in the rectus femoris (19). This transient augment in muscle size has been termed muscle swelling
+
+42   and appears to occur due to a fluid shift to exercised muscles due to metabolic demand in response
+
+43   to repeated muscle contractions (5, 21). Based on this, muscle swelling has been considered a valid
+
+44   proxy to identify which muscles are most stimulated in response to resistance exercise (5). Inter-
+
+45   estingly, there appears to be a relationship between muscle swelling measures and muscle hyper-
+
+46   trophy (12). Ultrasound imaging has been used to detect changes in muscle size after exercise (12,
+
+47   26, 27). However, most studies investigating resistance exercise-induced muscle swelling have
+
+48   focused on the quadriceps (12, 26, 27). Therefore, findings characterizing swelling effects of dif-
+
+49   ferent resistance exercises for other muscles such as triceps surae are limited or non-existent.
+
+50          The triceps surae is a muscle group that arouses the interest of strength and conditioning
+
+51   scientists and practitioners, in part, because it is deemed as difficult to respond to hypertrophy-
+
+52   oriented resistance training programs (3, 17). This large muscle group consists of the gastrocnem-
+
+53   ius medial (GM), gastrocnemius lateral (GL), and soleus (SOL) (2, 14). The SOL is a single-joint
+
+54   plantar flexor muscle that crosses the ankle exclusively. In contrast, the gastrocnemius heads are
+
+55   two-joint muscles that cross the knee and ankle joints (14). Based on this anatomical feature, gas-
+
+56   trocnemius heads may experience active insufficiency at greater knee flexion angles (14). There-
+
+57   fore, reducing its contribution, for example, during a calf raise exercise performed with the bent-
+
+58   leg. Theoretically, this would result in a greater contribution of the SOL in a bent-leg (BENT-leg)
+
+59   calf raise (22). On the other hand, the calf raise performed with the straight-leg (STRA-leg) could
+60   favor a greater contribution—therefore, superior stimulus—for the GM and GL, as it is in a favor-
+
+61   able force-tension relationship, consequently, more favorable force-generating capacity (14).
+
+62          Despite the plausibility of the arguments presented above, the evidence is inconclusive.
+
+63   For instance, a previous study (24) reported greater SOL activation (measured via surface electro-
+
+64   myography [sEMG]) with the knees bent at 90º than at 0º (i.e., fully extended). On the other hand,
+
+65   another investigation detected similar sEMG amplitude in the SOL with knees at 90º and 0º (7).
+
+66   Moreover, sEMG amplitude in the GL was not impaired in function of knee angle (24). In contrast,
+
+67   another report (7) detected lower sEMG amplitude in the GL at 90º of knee flexion. These diver-
+
+68   gences may occur due to inconsistencies related to the measurement method (i.e., sEMG), partic-
+
+69   ularly when comparing different muscle lengths (28, 29). In this context, muscle swelling may be
+
+70   an alternative method to be used to represent muscle stimulation. Thus, this study compared swell-
+
+71   ing of the triceps surae muscles immediately after STRA-leg and BENT-leg calf raise exercises.
+
+72   We hypothesized that the gastrocnemius heads muscle swelling would be greater in the STRA-leg
+
+73   calf raise, whereas SOL muscle swelling would be greater in the BENT-leg calf raise exercise.
+
+74
+
+75   METHODS
+
+76   Experimental approach to the problem
+
+77   A randomized, crossover, and counterbalanced design was adopted for this investigation. The total
+
+78   duration of the study was 4 weeks. Weeks 1 and 2 were used for anthropometry measurements and
+
+79   repetitions maximum (RM) testing on straight-leg and bent-leg calf raise exercises. Weeks 3 and
+
+80   4 were used for the application of the experimental training sessions. Subjects performed the train-
+
+81   ing sessions with straight-leg (STRA-leg) or bent-leg calf raise (BENT-leg) exercises following a
+
+82   randomized, counterbalanced order; 9 performed the STRA-leg calf raise in the first training
+83    session and 8 performed the BENT-leg calf raise in the first training session. In the 2 experimental
+
+84    training sessions, we measured the muscle thickness of GM, GL, and SOL before and immediately
+
+85    after the last set via ultrasonography. We recorded the load used and the number of repetitions and
+
+86    repetitions in reserve following each set. A 1-week washout period was given between experi-
+
+87    mental training sessions. All subjects performed their RM tests and training sessions at the same
+
+88    time of the day (2 p.m. to 6 p.m.) to minimize the possible effects of the circadian cycle on strength
+
+89    performance. Subjects were instructed to maintain their nutritional habits and hydration and did
+
+90    not engage in resistance exercise during their participation in the present study.
+
+91    Subjects
+
+92    Seventeen recreationally active young women (23.7 ± 4.0 yrs, 67.4 ± 16.0 kg, 163.5 ± 7.2 cm)
+
+93    participated in the present study. The sample size was determined a priori using G*Power software
+
+94    (version 3.1.9.6) with the significance level set at 0.05 and power of 0.90 to detect a moderate
+
+95    effect size (F = 0.29) (26). The analysis indicated at least 16 subjects were needed to achieve
+
+96    adequate statistical power. Volunteers were recruited through dissemination on social media and
+
+97    folders distributed in points of greater circulation within the campus of the local University. All
+
+98    subjects had experience with resistance training but had not trained for 2 months before the start
+
+99    of the present study. Notably, the participants had familiarization with the straight-leg and bent-
+
+100   leg calf raise exercises. Before the inclusion, they completed a detailed health history questionnaire
+
+101   and were included in the study if they had no signs or symptoms of disease, were not using medi-
+
+102   cations or supplements, and had no orthopedic injuries. Written informed consent was obtained
+
+103   from the subjects after a detailed description of all procedures. This investigation was conducted
+
+104   according to the Declaration of Helsinki and was approved by the local University Ethics Com-
+
+105   mittee (protocol number: 3.930.966).
+106   Procedures
+
+107   Triceps Surae Muscle Thickness Measurement. Muscle thickness measurements of the GM, GL,
+
+108   and SOL were assessed using a B-mode ultrasound imaging device (FIGLABS, model FP-102,
+
+109   SAEVO, São Paulo, SP, Brazil), with a 53 mm, 7.5-MHz linear probe model L741. The subject
+
+110   was placed in a prone lying position on a stretcher and rested for 10 min before the beginning of
+
+111   the assessment. Images were obtained on the posterior surface of the right leg with the probe per-
+
+112   pendicular to the tissue. Image acquisitions of the GM were taken with the probe positioned in the
+
+113   thickest and more prominent site of the leg from a posteroanterior view (17). Measurements of the
+
+114   GL were taken at the proximal third between the femur lateral epicondyle and the fibula lateral
+
+115   malleolus (Figure 1A). Image acquisitions of the SOL were taken at the middle distance between
+
+116   the femur and the lateral malleolus of the fibula (Figure 1A). Reference lines were drawn on the
+
+117   subject’s skin with a dermatographic pen on the sites at which images were obtained. The lines
+
+118   were reinforced and maintained throughout the study to ensure that the measurement was taken at
+
+119   the same site pre- and post-exercise and in the 2 experimental training sessions. A generous quan-
+
+120   tity of water-soluble transmission gel was applied over the muscle being assessed, without com-
+
+121   pressing the skin. Two assessors participated in measurement procedures. The first handled the
+
+122   probe, and the second was responsible for freezing the images. When the image quality was
+
+123   deemed to be satisfactory, the second assessor, who was blinded to condition allocation, obtained
+
+124   muscle thickness dimensions. Muscle thickness of GM and GL was defined as the distance from
+
+125   the superficial to deep aponeuroses that borders the SOL (Figure 1B). The SOL was defined as the
+
+126   distance from the upper and lower aponeuroses separating the muscle (Figure 1B). The muscle
+
+127   thickness dimensions were obtained on the ultrasound machine’s calculation package through a
+
+128   line drawn at right angles in the center of each ultrasound image. Eleven subjects were randomly
+129   chosen to be evaluated on two days separated by 72 h to determine the reliability of the muscle
+
+130   thickness measurements. The intraclass correlation coefficients for the GM, GL and SOL were
+
+131   0.978, 0.989, and 0.987; the coefficients of variation were 2.1%, 2.5%, and 1.3%; the standard
+
+132   errors of measurement were 0.086 cm, 0.074 cm, and 0.077 cm, respectively. Measurement of
+
+133   muscle thickness after the training session was started less than 1 minute after the end of the last
+
+134   training set. This was possible by taking the ultrasound device and a stretcher to the gym room
+
+135   where the training sessions (described below) were performed.
+
+136
+
+137                        *** PLEASE INSERT FIGURE 1 NEAR HERE ***
+
+138
+
+139   Repetitions Maximum Test. The determination of the weight to be used in STRA-leg and BENT-
+
+140   leg calf raise exercises was performed through RM testing. Initially, the subjects performed a
+
+141   warm-up in the specific exercise with half the weight that would be used on the first set (selected
+
+142   based on researcher and subject experience). After 1 minute of rest, the first set was started. The
+
+143   subjects were asked to perform 20 repetitions in both exercises. This number of repetitions was
+
+144   chosen based on its common inclusion in calf hypertrophy-oriented training programs (13, 17). If
+
+145   the subjects were able to perform 20 repetitions without reaching the task failure, the weight was
+
+146   increased by 2–5% for the next set. On the contrary, if the subject could not perform 20 repetitions,
+
+147   the weight was decreased by the same magnitude. Each subject performed three sets per testing
+
+148   session with a 3-minute rest interval. An interval of 20 min was given between the RM testing in
+
+149   BENT-leg and STRA-leg calf raise. The RM testing was performed on two days, separated by 48
+
+150   h. The weight with which the subject could not exceed 20 repetitions was used in the experimental
+
+151   training sessions. The intraclass correlation coefficients for the RM testing in STRA-leg and
+152   BENT-leg calf raise were 0.988 and 0.980; the coefficients of variation were 1.7% and 2.7%; the
+
+153   standard errors of measurement were 2.41 kg and 1.52 kg, respectively.
+
+154   Experimental Training Sessions. Two experimental training sessions were performed; in one the
+
+155   subjects performed the STRA-leg calf raise exercise and in another, they performed the BENT-leg
+
+156   calf raise exercise. The 2 experimental conditions were carried out in a randomized and counter-
+
+157   balanced order with a 1-week washout between each one. STRA-leg calf raise exercise was per-
+
+158   formed with the knees at 0º (i.e., fully extended), in a pin-loaded horizontal leg-press machine
+
+159   (Ipiranga®, Presidente Prudente, Brazil) (Figure 2A). BENT-leg calf raise exercise was performed
+
+160   with the knees at 90º, in a specific device (Ipiranga®, Presidente Prudente, SP, Brazil) with weight
+
+161   plates (Figure 2B). The subjects performed a warm-up set of 20 repetitions with 50% 20RM, and
+
+162   after 1-min of rest, the subjects performed 4 sets with 20RM load. Subjects were verbally encour-
+
+163   aged to achieve task failure in each set—i.e., the point at which, despite trying to do so, they cannot
+
+164   complete the concentric muscle action of their current repetition (25). A 2-min of rest interval was
+
+165   given between sets. Exercises were performed in the full range of motion, in a tempo of 1/0/2/1
+
+166   (concentric, concentric-eccentric transition, eccentric, and eccentric-concentric phases, respec-
+
+167   tively). The foot was positioned on the platform supported by metatarsals. The number of repeti-
+
+168   tions in each set was recorded. After each set, the number of repetitions in reserve (RIR) was
+
+169   quantified. After each exercise set, subjects answered the following question: “How many addi-
+
+170   tional repetitions could you have performed?” (11). An estimated repetition to failure score of “0”
+
+171   indicated that the subject estimated that no additional repetitions could be completed (0 RIR; task
+
+172   failure reached), “1” = 1 RIR; “2” = 2 RIR, and so forth.
+
+173
+
+174                        *** PLEASE INSERT FIGURE 2 NEAR HERE ***
+175
+
+176   Statistical analysis
+
+177   The normality of the data was tested using the Shapiro-Wilk. The number of repetitions and RIR
+
+178   were compared using a repeated-measures analysis of variance (ANOVA) with condition (STRA-
+
+179   leg calf raise vs. BENT-leg calf raise) × time (1st, 2nd, 3rd, and 4th sets) as fixed factors. When
+
+180   sphericity was violated, the Greenhouse-Geisser correction factor was applied. The absolute load
+
+181   used in the exercises was compared using an independent t-test. Muscle thickness of the GM, GL,
+
+182   and SOL were compared using a repeated-measures ANOVA with the condition (STRA-leg calf
+
+183   raise vs. BENT-leg calf raise) × time (pre- vs. post-session) as fixed factors. When the F was
+
+184   significant, a Bonferroni post-hoc test was used to identify possible statistical differences. The
+
+185   effect size (ES) was calculated as post-mean minus pre-values mean, divided by pooled pre-values
+
+186   standard deviation (6). The data were presented in mean, standard deviation, and 95% confidence
+
+187   interval. The accepted level of significance was P < 0.05. The data were analyzed using the JASP
+
+188   software (version 0.15, Amsterdam, NL).
+
+189
+
+190   RESULTS
+
+191          The absolute load was significantly greater in the STRA-leg than in the BENT-leg calf
+
+192   raise (51.0 ± 12.0 kg vs. 23.5 ± 5.0 kg; t = 11.317, P < 0.001). The number of repetitions and RIR
+
+193   are presented in Table 1. There was a significant time effect (F = 116.800, P < 0.001), but no
+
+194   condition (F = 0.936, P = 0.348) or time × condition interaction (F = 0.439, P = 0.726) for the
+
+195   number of repetitions. The number of repetitions was lower in the 3rd and 4th sets than in the 1st
+
+196   and 2nd sets in both training sessions. There was a significant main effect of time (F = 4.745, P =
+
+197   0.006), but no condition (F = 0.314, P = 0.583) or time × condition interaction (F = 0.584, P =
+198   0.628) for the number of RIR. The number of RIR was lower in the 2nd, 3rd, and 4th sets than in the
+
+199   1st set in both training sessions.
+
+200
+
+201                          *** PLEASE INSERT TABLE 1 NEAR HERE ***
+
+202
+
+203           Table 2 displays the pre- and post-session values of the GM, GL, and SOL muscle thick-
+
+204   ness. There was no significant difference in the pre-sessions muscle thickness between the exper-
+
+205   imental conditions (all P > 0.05). Figure 3 shows the individual changes in muscle thickness of the
+
+206   GM, GL, and SOL.
+
+207
+
+208                          *** PLEASE INSERT TABLE 2 NEAR HERE ***
+
+209                         *** PLEASE INSERT FIGURE 3 NEAR HERE ***
+
+210
+
+211           For the GM, there was a significant main effect of time (F = 27.898, P < 0.001), condition
+
+212   (F = 45.629, P < 0.001), and time × condition interaction (F = 61.795, P < 0.001). There was
+
+213   increase in GM muscle thickness pre-to-post STRA-leg calf raise (∆ = +8.8%, P < 0.001), but not
+
+214   pre-to-post BENT-leg calf raise (∆ = -0.9%, P = 0.999). GM muscle thickness was significantly
+
+215   greater at post STRA-leg than post BENT-leg calf raise (Meandiff = 0.21 cm, 95% CI: 0.15, 0.27;
+
+216   P < 0.001).
+
+217           For GL, there was a significant main effect of time (F = 42.000, P < 0.001), condition (F
+
+218   = 11.755, P = 0.003), and time × condition interaction (F = 12.919, P = 0.002). There was increase
+
+219   in GL muscle thickness pre-to-post STRA-leg calf raise (∆ = +14.5%, P < 0.001), and pre-to-post
+220   BENT-leg calf raise (∆ = +7.0%, P = 0.013). GL muscle thickness was significantly greater at post
+
+221   STRA-leg than post BENT-leg calf raise (Meandiff = 0.13 cm, 95% CI: 0.05, 0.21, P < 0.001).
+
+222             For SOL, there was a significant main effect of time (F = 273.432, P < 0.001), condition
+
+223   (F = 5.559, P = 0.031), and time × condition interaction (F = 31.348, P < 0.001). There was an
+
+224   increase in SOL muscle thickness pre-to-post STRA-leg calf raise (∆ = +7.7%, P < 0.001), and
+
+225   pre-to-post BENT-leg calf raise (∆ = +15.4%, P < 0.001). SOL muscle thickness was significantly
+
+226   greater at post BENT-leg than post STRA-leg calf raise (Meandiff = 0.14 cm, 95% CI: 0.06, 0.22,
+
+227   P < 0.001).
+
+228
+
+229   DISCUSSION
+
+230             The purpose of the present study was to compare the acute effects of performing STRA-
+
+231   leg and BENT-leg calf raise on muscle thickness of the triceps surae muscles. The main findings
+
+232   of this study were that exercise selection influences the muscles that experience muscle swelling
+
+233   and the magnitude of this transient increase in muscle size. Specifically, STRA-leg calf raise elic-
+
+234   ited muscle swelling in the three triceps surae muscles, whereas BENT-leg calf raise induced mus-
+
+235   cle swelling in the GL and SOL, but not in GM. Notably, the magnitude of muscle swelling on
+
+236   gastrocnemius muscles was greater after the STRA-leg than the BENT-leg calf raise. In contrast,
+
+237   the magnitude of muscle swelling on the SOL was greater after the BENT-leg than after the STRA-
+
+238   leg calf raise. It is important to highlight that such effects occurred with the calf raise exercises
+
+239   being performed with the same relative load (i.e., 15-20RM) and similar proximity to task failure
+
+240   (i.e., 0 RIR). Our initial hypothesis that STRA-leg calf raise would be induced superior gas-
+
+241   trocnemius muscle swelling but inferior SOL muscle swelling than BENT-leg calf raise was con-
+
+242   firmed.
+243          In the present study, we observed that the magnitude of swelling of the triceps surae mus-
+
+244   cles differs depending on the specific calf raise exercise. Our findings are in line with previous
+
+245   investigations that observed differential muscle swelling and fluid shift in other muscles (e.g.,
+
+246   quadriceps and pectoralis major) when performing different resistance exercises (1, 19, 27). The
+
+247   first major finding of this study was the greater gastrocnemius muscle swelling observed after
+
+248   STRA-leg than BENT-leg calf raise. Muscle swelling occurs with the shift in a fluid to the exer-
+
+249   cised muscle (21, 23). That said, greater gastrocnemius muscle swelling in the STRA-leg calf raise
+
+250   observed in the present study may be explained, at least in part, by the length of the gastrocnemius
+
+251   muscles in the calf raise exercises and the associated consequences. Given the biarticular feature
+
+252   of the gastrocnemius muscles, in the STRA-leg calf raise, both heads are likely to have a better
+
+253   length-tension relationship. This factor may have favored the formation of an optimal number of
+
+254   actin and myosin cross-bridges (14). Thus, the higher metabolic activity would create an aug-
+
+255   mented demand for ATP and a greater accumulation of byproducts in active muscles (21, 23). This
+
+256   greater byproduct accumulation might favor fluid shifts, then muscle swelling. On the other hand,
+
+257   in the BENT-leg calf raise exercise, gastrocnemius probably experienced active insufficiency at
+
+258   which there was little opportunity for cross-bridge cycling (14), potentially reducing the accumu-
+
+259   lation of byproducts and, consequently, a reduced muscle swelling in gastrocnemius muscles.
+
+260          Intriguingly, we observed a significant change in GL swelling after the BENT-leg calf
+
+261   raise, but not in the GM head. Theoretically, GM and GL experience active insufficiency at higher
+
+262   knee flexion angles, but our results suggest that this was not necessarily the case. Given the muscle
+
+263   swelling observed in the lateral head, this belly likely contributed relevantly to the plantar flexion
+
+264   task in the BENT-leg calf raise. Our results corroborate a previous study (24) in which the GL
+
+265   does not reduce its activation during the plantar flexion task performed at 90º of knee flexion. On
+266   the other hand, our findings contradict the results of another report (20) that observed no pre-to-
+
+267   post training session changes in the transverse relaxation time of the GL at 90º of knee flexion,
+
+268   suggesting no relevant contribution of GL at this knee angle. In regarding our results, a potential
+
+269   explanation for muscle swelling in the GL but not in the GM may be at the origin of these muscles
+
+270   (8, 24); the GM origin is attached closer to the midline of the knee joint and more dorsal than the
+
+271   origin of the GL head (8). This might favor the GM to experience greater active insufficiency than
+
+272   the GL head in BENT-leg calf raise exercise. In fact, results suggesting that the GM experience
+
+273   active insufficiency are more consistent (4, 20, 24).
+
+274           The second major finding of this study was greater SOL muscle swelling after BENT-leg
+
+275   than STRA-leg calf raise. Interestingly, this greater SOL muscle swelling occurred with the abso-
+
+276   lute load in BENT-leg being lower than in STRA-leg calf raise. A potential explanation for this
+
+277   result may be the reduction in the participation of gastrocnemius heads with the knees bent that
+
+278   occurred in the BENT-leg calf raise. Indeed, in the present study, the GM did not show any changes
+
+279   in muscle thickness immediately post the BENT-leg calf raise. Although the GL showed substan-
+
+280   tial muscle swelling, this increase was about half the swelling that occurred after the straight-legcalf
+
+281   raise (7.0% vs. 14.5%, BENT-leg, and STRA-leg calf raise, respectively). Due to this lower partic-
+
+
+282   ipation of the gastrocnemius, the plantar flexion task was performed mainly by the SOL. SOL
+
+283   muscle originates on the soleal line of the tibia and posterior head and the upper shaft of the fibula
+
+284   (8). Thus, changes in knee angle do not influence its length and force-generating capacity. In this
+
+285   sense, the SOL likely exerted a greater role in the plantar flexion task in BENT-leg calf raise. As
+
+286   a result, the higher metabolic activity would create an augmented demand for ATP, which probably
+
+287   elicited a greater accumulation of byproducts and superior SOL muscle swelling in the BENT-leg
+
+288   than in the STRA-leg calf raise.
+289          Despite the plausibility of the argumentation proposed above, it is important to note that
+
+290   findings on muscular activation (measured by sEMG) are inconclusive in demonstrating whether
+
+291   there is or not greater excitation of the SOL muscle during BENT-leg calf raise task (4, 7, 24). For
+
+292   instance, SOL sEMG amplitude during the BENT-leg was not superior to the STRA-leg exercise,
+
+293   despite the reduction in the activation of the gastrocnemius with increased knee flexion (7). A
+
+294   possible explanation for discordant findings on the magnitude of SOL activation (measured via
+
+295   sEMG) and muscle swelling may be the occurrence of motor unit cycling (18, 28). During fatigu-
+
+296   ing contractions, some motor units may shut off their firing frequencies to allow for recovery from
+
+297   fatigue (18, 31). As a certain force is still needed to maintain the adequate force output to continue
+
+298   exercising, these fatigued motor units will transfer their force production duties onto other motor
+
+299   units—thus activating further muscle fibers (9, 18). This would not necessarily elicit greater sEMG
+
+300   amplitude but would result in greater muscle swelling by activating further SOL muscle fibers;
+
+301   particularly due to the lower gastrocnemius participation in BENT-leg calf raise. This hypothesis
+
+302   conceivably helps to explain why there was greater SOL muscle swelling in the BENT-leg, even
+
+303   with a lower absolute load than in STRA-leg calf raise. Importantly, in the present investigation,
+
+304   we exclusively quantified muscle swelling, thus studies measuring motor unit recruitment, muscle
+
+305   fiber activation (via alternative methods such as fiber glycogen depletion) and muscle swelling are
+
+306   needed to test these hypotheses.
+
+307          Our study has some limitations that must be acknowledged. First, we measured the change
+
+308   in muscle thickness in one site of each muscle to express the muscle swelling; a more valid proxy
+
+309   would be the change in whole muscle volume. Also, measures at different regions could indicate
+
+310   whether swelling could be regional, similar to what was demonstrated with transverse relaxation
+
+311   time after STRA-leg calf raise (15). Second, although subjects were instructed to perform the
+312   exercises at the same execution velocity and range of motion, no device was used to monitor these
+
+313   factors strictly. Third, we verified the effects of calf raise in only two knee flexion angles; future
+
+314   investigations analyzing other knee angles may provide additional insights. Nonetheless, the two
+
+315   exercises investigated in the present study are frequently included in resistance training routines
+
+316   (10). In this sense, our results are of high external validity and practical relevance. Finally, we
+
+317   measured only young women; future studies may consider testing subjects of different ages, to see
+
+318   if this muscle ability to shift the focus of activation between muscles is preserved or altered with
+
+319   aging, sex, or training status.
+
+320
+
+321   PRACTICAL APPLICATION
+
+322           STRA-leg calf raise elicited substantial muscle swelling in the three muscles of the triceps
+
+323   surae, while BENT-leg calf raise elicited muscle swelling in the GL and SOL, but not in the GM.
+
+324   Notably, muscle swelling in the GM and GL was greater when performing the STRA-leg than
+
+325   BENT-leg calf raise exercise. Conversely, SOL muscle swelling was greater when performing the
+
+326   BENT-leg than STRA-leg calf raise. From a practical perspective, if the aim is to provide stimulus
+
+327   to the three triceps surae muscles, the STRA-leg calf raise exercise should be preferred. If the
+
+328   target muscle is the SOL, BENT-leg calf raise should be prioritized. Importantly, if the objective
+
+329   is to optimally stimulate all three muscles, strength and conditioning professionals and practition-
+
+330   ers should consider performing both calf resistance exercises. Notably, whether this pattern of
+
+331   acute changes corresponds to hypertrophic adaptations in the gastrocnemius heads and SOL re-
+
+332   mains to be determined.
+333   REFERENCE
+
+334   1.   Albarello JCS, Cabral HV, Leitão BFM, Halmenschlager GH, Lulic-Kuryllo T, and Matta
+
+335        TT. Non-uniform excitation of pectoralis major induced by changes in bench press
+
+336        inclination leads to uneven variations in the cross-sectional area measured by panoramic
+
+337        ultrasonography. J Electromyogr Kinesiol 67: 102722, 2022.
+
+338   2.   Albracht K, Arampatzis A, and Baltzopoulos V. Assessment of muscle volume and
+
+339        physiological cross-sectional area of the human triceps surae muscle in vivo. J Biomech
+
+340        41: 2211-2218, 2008.
+
+341   3.   Antonio J. Nonuniform response of skeletal muscle to heavy resistance training: Can
+
+342        bodybuilders induce regional muscle hypertrophy? J Strength Cond Res 14: 102-113, 2000.
+
+343   4.   Arampatzis A, Karamanidis K, Stafilidis S, Morey-Klapsing G, DeMonte G, and
+
+344        Brüggemann GP. Effect of different ankle- and knee-joint positions on gastrocnemius
+
+345        medialis fascicle length and EMG activity during isometric plantar flexion. J Biomech 39:
+
+346        1891-1902, 2006.
+
+347   5.   Cagnie B, Elliott JM, O'Leary S, D'Hooge R, Dickx N, and Danneels LA. Muscle
+
+348        functional MRI as an imaging tool to evaluate muscle activity. J Orthop Sports Phys Ther
+
+349        41: 896-903, 2011.
+
+350   6.   Cohen J. A power primer. Psychol Bull 112: 155-159, 1992.
+
+351   7.   Cresswell AG, Löscher WN, and Thorstensson A. Influence of gastrocnemius muscle
+
+352        length on triceps surae torque development and electromyographic activity in man. Exp
+
+353        Brain Res 105: 283-290, 1995.
+
+354   8.   Dalmau-Pastor M, Fargues-Polo B, Jr., Casanova-Martínez D, Jr., Vega J, and Golanó P.
+
+355        Anatomy of the triceps surae: a pictorial essay. Foot Ankle Clin 19: 603-635, 2014.
+356   9.    Dankel SJ, Mattocks KT, Jessee MB, Buckner SL, Mouser JG, and Loenneke JP. Do
+
+357         metabolites that are produced during resistance exercise enhance muscle hypertrophy? Eur
+
+358         J Appl Physiol 117: 2125-2135, 2017.
+
+359   10.   Hackett DA. Training, supplementation, and pharmacological practices of competitive
+
+360         male bodybuilders across training phases. J Strength Cond Res 36: 963-970, 2022.
+
+361   11.   Hackett DA, Johnson NA, Halaki M, and Chow CM. A novel scale to assess resistance-
+
+362         exercise effort. J Sports Sci 30: 1405-1413, 2012.
+
+363   12.   Hirono T, Ikezoe T, Taniguchi M, Tanaka H, Saeki J, Yagi M, Umehara J, and Ichihashi
+
+364         N. Relationship between muscle swelling and hypertrophy induced by resistance training.
+
+365         J Strength Cond Res 36: 359-364, 2022.
+
+366   13.   Kassiano W, Costa B, Kunevaliki G, Soares D, Zacarias G, Manske I, Takaki Y, Ruggiero
+
+367         MF, Stavinski N, Francsuel J, Tricoli I, Carneiro MAS, and Cyrino ES. Greater
+
+368         gastrocnemius muscle hypertrophy after partial range of motion training performed at long
+
+369         muscle lengths. J Strength Cond Res Epub ahead of print, 2022.
+
+370   14.   Kawakami Y, Ichinose Y, and Fukunaga T. Architectural and functional features of human
+
+371         triceps surae muscles during contraction. J Appl Physiol (1985) 85: 398-404, 1998.
+
+372   15.   Kinugasa R, Kawakami Y, and Fukunaga T. Muscle activation and its distribution within
+
+373         human triceps surae muscles. J Appl Physiol 99: 1149-1156, 2005.
+
+374   16.   Maeo S, Saito A, Otsuka S, Shan X, Kanehisa H, and Kawakami Y. Localization of muscle
+
+375         damage within the quadriceps femoris induced by different types of eccentric exercises.
+
+376         Scand J Med Sci Sports 28: 95-106, 2018.
+377   17.   Nunes JP, Costa BDV, Kassiano W, Kunevaliki G, Castro-e-Souza P, Rodacki ALF, Fortes
+
+378         LS, and Cyrino ES. Different foot positioning during calf training to induce portion-
+
+379         specific gastrocnemius muscle hypertrophy. J Strength Cond Res 34: 2347-2351, 2020.
+
+380   18.   Person RS. Rhythmic activity of a group of human motoneurones during voluntary
+
+381         contraction of a muscle. Electroencephalogr Clin Neurophysiol 36: 585-595, 1974.
+
+382   19.   Ploutz-Snyder LL, Convertino VA, and Dudley GA. Resistance exercise-induced fluid
+
+383         shifts: change in active muscle size and plasma volume. Am J Physiol 269: R536-543,
+
+384         1995.
+
+385   20.   Price TB, Kamen G, Damon BM, Knight CA, Applegate B, Gore JC, Eward K, and
+
+386         Signorile JF. Comparison of MRI with EMG to study muscle activity associated with
+
+387         dynamic plantar flexion. Magn Reson Imaging 21: 853-861, 2003.
+
+388   21.   Raja MK, Raymer GH, Moran GR, Marsh G, and Thompson RT. Changes in tissue water
+
+389         content measured with multiple-frequency bioimpedance and metabolism measured with
+
+390         31P-MRS during progressive forearm exercise. J Appl Physiol (1985) 101: 1070-1075,
+
+391         2006.
+
+392   22.   Schoenfeld BJ. Accentuating muscular development through active insufficiency and
+
+393         passive tension. Strength Cond J 24: 20-22, 2002.
+
+394   23.   Schoenfeld BJ. Potential mechanisms for a role of metabolic stress in hypertrophic
+
+395         adaptations to resistance training. Sports Med 43: 179-194, 2013.
+
+396   24.   Signorile JF, Applegate B, Duque M, Cole N, and Zink A. Selective recruitment of the
+
+397         triceps surae muscles with changes in knee angle. J Strength Cond Res 16: 433-439, 2002.
+
+398   25.   Steele J, Fisher J, Giessing J, and Gentil P. Clarity in reporting terminology and definitions
+
+399         of set endpoints in resistance training. Muscle Nerve 56: 368-374, 2017.
+400   26.   Vieira A, Blazevich A, Souza N, Celes R, Alex S, Tufano JJ, and Bottaro M. Acute changes
+
+401         in muscle thickness and pennation angle in response to work-matched concentric and
+
+402         eccentric isokinetic exercise. Appl Physiol Nutr Metab 43: 1069-1074, 2018.
+
+403   27.   Vieira DCL, Dourado MAA, Ugliara L, Durigan JLQ, Schoenfeld BJ, and Bottaro M. Can
+
+404         hip joint position affect quadriceps muscle responses during knee extension exercise? Int
+
+405         J Sports Med 41: 929-935, 2020.
+
+406   28.   Vigotsky AD, Beardsley C, Contreras B, Steele J, Ogborn D, and Phillips SM. Greater
+
+407         electromyographic responses do not imply greater motor unit recruitment and 'hypertrophic
+
+408         potential' cannot be inferred. J Strength Cond Res 31: e1-e4, 2017.
+
+409   29.   Vigotsky AD, Halperin I, Trajano GS, and Vieira TM. Longing for a longitudinal proxy:
+
+410         acutely measured surface EMG amplitude is not a validated predictor of muscle
+
+411         hypertrophy. Sports Med 52: 193-199, 2022.
+
+412   30.   Wakahara T, Fukutani A, Kawakami Y, and Yanai T. Nonuniform muscle hypertrophy: its
+
+413         relation to muscle activation in training session. Med Sci Sports Exerc 45: 2158-2165,
+
+414         2013.
+
+415   31.   Westad C, Westgaard RH, and De Luca CJ. Motor unit recruitment and derecruitment
+
+416         induced by brief increase in contraction amplitude of the human trapezius muscle. J Physiol
+
+417         552: 645-656, 2003.
+
+418
+419
+
+420   Figure 1. Representation of the ultrasound sites in the GM, GL, and SOL muscles (A). The ultra-
+
+421   sonography images show GM, GL, and SOL muscles (B). For each muscle, superficial and deep
+
+422   aponeuroses are visualized, between which the muscle thickness was measured. GM = gas-
+
+423   trocnemius medial; GL = gastrocnemius lateral; SOL = soleus.
+Figure 2. STRA-leg (A) and BENT-leg calf raise (B) exercises. STRA-leg = straight-leg calf raise,
+
+BENT-leg = bent-leg calf raise.
+Table 1. Repetitions performance and RIR in the two experimental training sessions (n = 17).
+                                             STRA-leg                                                             BENT-leg
+                       1st set        2nd set          3rt set         4th set             1st set         2nd set          3rt set         4th set
+Repetitions (n°)     19.8 ± 0.7      18.6 ± 1.7     15.7 ± 1.9*‡     14.6 ± 1.6*‡        19.8 ± 0.5       18.2 ± 1.9     15.0 ± 3.3*‡    13.8 ± 2.9*‡
+RIR (n°)              0.7 ± 0.5      0.1 ± 0.3*      0.0 ± 0.2*       0.0 ± 0.2*          0.7 ± 1.1       0.1 ± 0.3*      0.0 ± 0.0*      0.0 ± 0.0*
+Note. †P < 0.05 vs. BENT-leg; *P < 0.05 vs. 1st set; ‡P < 0.05 vs. 2nd set. RIR = repetitions in reserve; STRA-leg = straight-leg calf raise; BENT-leg
+= bent-leg calf raise.
+Table 2. Muscle thickness (cm) of the GM, GL, and SOL before and im-
+mediately after STRA-leg and BENT-leg calf raise exercises (n = 17).
+Muscle thickness           STRA-leg                   BENT-leg
+GM
+  Pre                      1.90 ± 0.33                1.90 ± 0.33
+  Post                    2.06 ± 0.35*†               1.85 ± 0.32
+  Meandiff              0.16 (0.12, 0.21)         -0.02 (-0.05, 0.01)
+  ES                          0.48                       -0.15
+GL
+  Pre                      1.40 ± 0.31               1.38 ± 0.32
+  Post                    1.59 ± 0.32*†             1.46 ± 0.31*
+  Meandiff              0.19 (0.13, 0.26)         0.09 (0.05, 0.12)
+  ES                          0.60                      0.25
+SOL
+  Pre                      2.20 ± 0.31               2.18 ± 0.31
+  Post                    2.37 ± 0.33*†             2.51 ± 0.32*
+  Meandiff              0.17 (0.13, 0.21)         0.33 (0.28, 0.37)
+  ES                          0.55                      1.06
+Notes. Pre- and post-training sessions data are presented as mean and
+standard deviation, while meandiff as mean and 95% confidence intervals.
+ES = effect size; *P < 0.05 vs. pre; †P < 0.05 vs. BENT-leg. STRA-leg =
+straight-leg calf raise; BENT-leg = bent-leg calf raise.
+Figure 3. Pre-to-post changes in muscle thickness of GM, GL, and SOL in response to STRA-leg and BENT-leg calf raise exercises. Bars are
+
+means, and circles are individual values. *P < 0.05 vs. pre; †P < 0.05 vs. BENT-leg calf raise. GM = gastrocnemius medial; GL = gastrocnem-
+
+ius lateral; SOL = soleus; STRA-leg = straight-leg calf raise; BENT-leg = bent-leg calf raise.
+

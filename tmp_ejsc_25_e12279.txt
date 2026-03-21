@@ -1,0 +1,554 @@
+European Journal of Sport Science
+
+
+
+
+-   ORIGINAL PAPER                        OPEN ACCESS
+
+
+
+
+Comparison Between Shoulder Flexed and Extended
+Positions in Elbow Flexion Resistance Training on
+Regional Hypertrophy and Maximum Strength: Preacher
+versus Bayesian Cable Curls
+Parsa Attarieh1 | João Pedro Nunes2,3   | Saeed Khani1 | Saman Negahdar1 | Amirali Goli4 | Hamed Nazarirad1 |
+Shahriar Nazarirad | Shima Mojtahedi | Kazunori Nosaka3 | Rahman Soori1
+                   5                  1
+
+
+1
+ Department of Exercise Physiology, Faculty of Sport Sciences and Health, University of Tehran, Tehran, Iran | 2Physical Education and Sport Center,
+Londrina State University, Londrina, Brazil | 3School of Medical and Health Sciences, Edith Cowan University, Joondalup, Australia | 4Department of
+Biological Sciences in Sport, Faculty of Sport Sciences and Health, Shahid Beheshti University, Tehran, Iran | 5Department of Physiology, Division of Sports
+Physiology, Faculty of Medicine, Çukurova University, Adana, Turkey
+
+Correspondence: Parsa Attarieh (parsa.attarieh@gmail.com) | Rahman Soori (soori@ut.ac.ir)
+
+Received: 15 July 2024 | Revised: 18 February 2025 | Accepted: 25 February 2025
+
+Funding: The authors received no specific funding for this work.
+
+Keywords: exercise selection | inhomogeneous hypertrophy | muscle architecture | strength training
+
+
+    ABSTRACT
+    In the present study, the effects of resistance training on regional hypertrophy and maximum strength of the elbow flexor
+    muscles were compared between elbow flexion exercises performed with different shoulder joint angles (~50° of flexion vs.
+    extension) while matched for resistance profiles. In a within‐subject design, 15 young men (25.6 � 2.1 y; 77.3 � 6.8 kg;
+    175.1 � 5.7 cm) underwent a resistance training program twice a week for 10 weeks (3–5 sets, 8–12RM), and their arms were
+    dominant‐side balanced, randomly assigned to one of the two conditions according to elbow flexion exercises: unilateral cable
+    curl with shoulder flexed (Preacher curl; PREA) or unilateral cable curl with shoulder extended (Bayesian curl; BAYE). B‐mode
+    ultrasound imaging was used to measure changes in muscle thickness of the biceps brachii and brachialis at proximal, mid, and
+    distal arm regions, and one‐repetition maximum tests were completed in each respective trained exercise before and after
+    training. Both conditions showed significant increases in muscle thickness (p < 0.05) with no significant differences between
+    them (p > 0.05) across the biceps brachii proximal, mid, and distal regions (relative change [Hedges' g effect size]; PREA:
+    6%[0.51], 7%[0.49], 7%[0.53]; BAYE: 9%[0.73], 9%[0.62], 9%[0.62]) and brachialis (PREA: 10%[0.72]; BAYE: 8%[0.65]). Similarly,
+    significant improvements in maximum strength were observed (p < 0.05), with equivalent results between conditions (PREA:
+    28%[0.85], BAYE: 37%[1.22]; equivalence testing, p‐values = 0.061, 0.637). In conclusion, the shoulder joint angle does not seem
+    to affect muscle hypertrophy and maximum strength gains after different elbow flexion exercises matched for resistance profiles.
+
+
+1        | Introduction                                                                             training intensity, volume, and frequency (B. Schoenfeld
+                                                                                                    et al. 2021), as well as exercise selection, which is often over-
+Neuromuscular adaptations to resistance training (RT) pro-                                          looked (Kassiano et al. 2022). Exercises can be characterized
+grams are influenced by the manipulation of variables such as                                       according to several features (e.g., number of joints involved,
+
+
+
+
+This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly
+cited.
+© 2025 The Author(s). European Journal of Sport Science published by Wiley‐VCH GmbH on behalf of European College of Sport Science.
+
+
+European Journal of Sport Science, 2025; 25:e12279                                                                                                                                       1 of 9
+https://doi.org/10.1002/ejsc.12279
+                                                                       limited generalizability. In studies where the effect of varying
+  Summary                                                              shoulder positions was analyzed, the compared exercises also
+   � Training biceps curl with the shoulder flexed (PREA) or           differed in their resistance profiles (Costa et al. 2021; Kassiano
+     extended (BAYE) resulted in similar moderate‐to‐large             et al. 2025; Korta et al. 2023; Vendruscolo et al. 2024); conse-
+     increases in elbow flexor muscle thickness and                    quently, muscle length was not isolated as a factor, making it
+     maximum strength.                                                 difficult to determine its specific impact on hypertrophy and
+   � Similar increases in muscle thickness were observed for           strength adaptations. Moreover, in many cases, other compound
+     all analyzed sites in both conditions, that is, no regional       exercises involving elbow flexion were included in the training
+     hypertrophy was observed.                                         program (Costa et al. 2021; Nunes et al. 2020; Vendruscolo
+                                                                       et al. 2024), further introducing confounding factors. Finally,
+   � The biceps brachii do not seem to benefit from longer‐
+                                                                       hypertrophy was often assessed considering changes in overall
+     length resistance training nor exhibit inhomogeneous
+     regional hypertrophy.                                             elbow flexor muscle thickness (measured as the distance be-
+                                                                       tween the most superficial muscular arm region and the bone)
+                                                                       without distinguishing between the biceps brachii and bra-
+apparatus used, and resistance profile), and recent findings           chialis (Costa et al. 2021; Kassiano et al. 2025; Korta et al. 2023;
+indicate that improvements in muscle size and strength are             Sato et al. 2021; Vendruscolo et al. 2024). In such situations, it is
+affected by the exercised muscle length (Kassiano et al. 2023;         not possible to determine whether the training effects on hy-
+Oranchuk et al. 2019).                                                 pertrophy stem from the biceps or the brachialis. Isolating the
+                                                                       biceps in measurements is essential for determining the effects
+Resistance exercises that stimulate the muscles at longer muscle       of training it at different lengths, as well as exploring whether it
+lengths seem to evoke greater hypertrophy (Kassiano et al. 2023;       exhibits inhomogeneous regional hypertrophy, as observed in
+Oranchuk et al. 2019; Ottinger et al. 2023). This can be easily        other muscles. For instance, performing leg extensions with
+accomplished by training in lengthened muscle positions either         greater hip flexion has been shown to impair both acute and
+with partial range of motion exercises or isometric contractions       long‐term proxies of proximal rectus femoris hypertrophy
+(Kassiano et al. 2023; Oranchuk et al. 2019). However, the tradi-      (Mitsuya et al. 2023; Larsen et al. 2024). It remains to be
+tional dynamic full range of motion exercises is the basis of the RT   investigated whether altering joint position affects the regional
+prescription (B. Schoenfeld et al. 2021). In this sense, among the     hypertrophy of other muscles.
+variety of exercises that can be done while training in the tradi-
+tional form, opting for exercises that focus on longer muscle          Therefore, the objective of the present study was to compare the
+lengths is a practicable option. For bi‐articular muscles, this in-    effects of elbow‐flexion exercise training on regional hypertro-
+volves selecting exercises where the proximal joint of the target      phy of biceps brachii and brachialis, and elbow flexion
+muscle remains in an anatomical or neutral position rather than a      maximum strength gains after two exercise conditions matched
+muscle‐shortened position—for example, plantar flexion with            for resistance profiles: unilateral Preacher cable curl (PREA),
+extended knee versus flexed knee (Kinoshita et al. 2023), or knee      performed with the arms supported on an angled bench, keep-
+extension with extended hip versus flexed hip (Larsen et al. 2024)     ing the shoulder in a flexed position; and unilateral Bayesian
+—or training in pre‐stretched positions rather than neutral            cable curl (BAYE), similar to the commonly known incline curl,
+(shorter) positions (Maeo et al. 2021, 2023; Stasinaki et al. 2018).   performed with the shoulder in an extended position. Figure 1
+                                                                       illustrates how exercises were performed. It was hypothesized
+Although the literature on this topic is still limited, the benefits   that BAYE would present advantages over PREA at increasing
+of longer‐length training appear to depend on the muscle               biceps brachii size (Kinoshita et al. 2023; Larsen et al. 2024;
+analyzed. While the triceps surae, hamstrings, and quadriceps          Maeo et al. 2021, 2023), whereas changes in strength would be
+seem to experience greater growth with training at longer              equivalent between conditions (Maeo et al. 2021, 2023).
+lengths, evidence regarding the biceps brachii remains con-
+flicting (Kassiano et al. 2023; Ottinger et al. 2023). Shoulder
+extension lengthens the biceps brachii (Iwane et al. 2023), and
+training an elbow‐flexion exercise with the shoulder extended          2     | Methods
+probably favors the hypertrophic response in comparison to
+training in a pre‐shortened position. Alternative hypotheses           2.1    | Experimental Design
+suggest that the biceps may not experience greater hypertrophy
+when training at longer muscle lengths because it cannot reach         A within‐subject design was carried out to compare the effects
+the very descending portion of the force–length curve (Ottinger        of training the biceps brachii in different shoulder positions on
+et al. 2023). Another possibility is that after pre‐lengthening or     regional hypertrophy and strength gains. This design was cho-
+pre‐shortening the biceps brachii (Murray et al. 2000), the bra-       sen to eliminate any potential inter‐individual variations on
+chialis may take on a greater role in the exercise, receiving a        training effects such as dietary intake, responsiveness, and
+larger stimulus (Kawakami et al. 1994; Nosaka and Saka-                training tolerance. This study is part of a larger research project
+moto 2001), and this shift could reduce potential differences in       designed to analyze the effects of RT in young male adults, but
+biceps growth between exercises. However, these hypotheses             the only elbow flexion exercise was the biceps curl. The subjects'
+remain to be tested.                                                   dominant arms (preferred hand for writing) were randomly
+                                                                       assigned to one of the two conditions based on elbow flexor
+Previous studies in which researchers sought to explore the            exercises, whereas the nondominant arms were assigned to the
+influence of training the biceps brachii in different lengths have     other: PREA or BAYE. Therefore, a balanced distribution of
+
+
+2 of 9                                                                                                    European Journal of Sport Science, 2025
+FIGURE 1 | Top left: Biceps brachii normalized force–length curve and operating length for Preacher (PREA; shoulder flexed 50°) and Bayesian
+(BAYE; shoulder extended 50°) biceps curls during the 10°–140° range of motion. These were obtained using OpenSim Arm26 model (Holzbaur
+et al. 2005), considering biceps brachii as a single unit (sum of short and long heads) while maintaining relative contributions of each head to the
+length and active force and using muscle–tendon default parameters. Top right: Resistance profiles (relative torque to elbow angle) of the trained
+exercises. Bottom left and right: Example of how PREA (top) and BAYE (bottom) exercises were conducted during testing and training sessions.
+Note the same hand‐pulley distance at the start of the exercises and the same arm‐cable angles between exercises at the start and end of the
+range of motion. Estimated peak torques (arm‐cable angle: 90°) were at 61.5° elbow flexion.
+
+
+dominant and nondominant arms was achieved across the ex-                   protein intake and maximize the training responses (Morton
+ercise conditions.                                                          et al. 2018). This investigation was conducted according to the
+                                                                            Declaration of Helsinki and was approved by the University
+The current investigation was executed as follows: 1 week was               Ethics Committee.
+used for pre‐training outcome assessments, 10 weeks for the
+progressive training program, and one more week for post‐
+training testing (at least 72 h after the last training session).           2.2   | Subjects
+Muscle hypertrophy was defined as changes in muscle thickness
+(MT) via ultrasonography, and muscular strength was assessed                Recruitment was carried out through social media and home
+via one‐repetition maximum (1RM) tests in the respective                    delivery of flyers in the university area. Interested subjects
+trained exercises. Testing and training sessions were supervised            completed detailed health history and physical activity ques-
+by at least two researchers with international personal trainer             tionnaires, and were subsequently admitted if they met the
+certifications (1:2 participant:professional ratio) to standardize          following inclusion criteria: men, 18–35 years old, free from
+exercise techniques and help ensure the safety of the subjects. A           cardiac, orthopedic, or musculoskeletal disorders that could
+40‐g dose of concentrated protein powder (Milk Protein Pro                  impede exercise practice, not consume drug or supplement er-
+Milk, Kalleh, Iran) was provided to the subjects after every                gogenic aids, and not be involved in the practice of RT over the
+training session as a strategy to increase their average daily              6 months before the start of the study. Of the 38 volunteers, 21
+
+
+
+                                                                                                                                             3 of 9
+met the criteria, were evaluated at baseline, and began the          successful or unsuccessful, weight was added or reduced,
+training program. An attendance rate of less than 80% was set as     respectively, for the next attempts by 3%–10% to the nearest
+an exclusion criterion, resulting in the exclusion of six partici-   0.5 kg. Subjects were afforded 3–5 min of rest between attempts
+pants. Fifteen individuals completed the study and were              and 5 min between exercises. Tests were performed with sub-
+included in final analyses (age = 25.6 � 2.1 years; body             jects holding the cable handle with their hands supinated, and
+mass = 77.3 � 6.8 kg; stature = 175.1 � 5.7 cm; BMI =                the shoulder was positioned at about 50° in flexion or extension
+25.2 � 3.8 kg/m2), attending the necessary sample size defined a     for PREA and BAYE, respectively. Testing started with the
+priori (n ≥ 15 per group) to achieve a power of 0.8 and an α of      elbow almost fully extended (10°), and subjects were instructed
+0.05 for a moderate effect size of 0.55 in a two‐group, two‐time     to fully flex it (140°) to complete a valid 1RM attempt. Exercises
+point design, for improving muscle size (B. J. Schoenfeld            were performed with the same resistance profiles (Figure 1); the
+et al. 2017). Subjects were instructed to avoid changes in their     PREA bench and BAYE chair, as well as the pulley height of the
+habitual recreational physical activities and dietary intake and     training machine, were adjusted individually to ensure simi-
+not to start taking any other nutritional supplements that could     larity between exercises for the arm‐cable starting, right, and
+alter their performance during the study period. Written             ending angles during execution, and the starting hand‐to‐pulley
+informed consent was obtained from all subjects after a detailed     cable distance.
+description of study procedures was provided.
+
+
+                                                                     2.5   | RT Program
+2.3   | MT Assessment
+                                                                     Training was performed twice weekly on nonconsecutive days
+Measures of biceps brachii and brachialis MT were obtained           (≥ 48 h apart) in the afternoon hours for 10 weeks, with pro-
+using a B‐mode ultrasound machine with an 8–12 MHz linear            gression in the number of sets over the weeks (weeks 1–3: 3 sets;
+probe (L741; SonoScape E1 EXP, China) by the same experi-            4–7: 4 sets, weeks 8–10: 5 sets). Training intensities of load were
+menter, blinded to condition allocation. Subjects were instruc-      initially set relative to 70% 1RM and were adjusted over the
+ted to show up to the laboratory in the morning hours fasting for    sessions so that the subjects could perform the sets in 8–12 RM
+at least 8 h and not perform vigorous exercise for the previous      to (or very close to) failure. The rest between sets was set to
+48 h. Ultrasound measurements started after subjects were lying      120 s. The PREA and BAYE biceps curls were performed
+supine on a medical plinth for 10 min. Images were acquired at       unilaterally, at a tempo of 1:1 s (concentric and eccentric phases,
+55%, 65%, and 75% of the distance between the acromion pro-          respectively), with shoulder and arm positions and ranges of
+cess of the scapula and the cubital fossa. For image acquisition,    motion the same as defined for the 1RM tests (Figure 1). The
+the probe was placed perpendicular to the tissue interface,          exercise to be trained first was alternated between sessions.
+water‐soluble transmission gel was applied over the skin on the      Loads were adjusted set by set when concentric failure occurred
+region of interest, so measurements were done with caution not       outside the repetition maximum zone and progressed individ-
+to depress the muscle tissue, and images were recorded at            ually over the weeks to the nearest 0.5 kg. The number of rep-
+individualized field‐of‐view depths. Two experimenters partici-      etitions and the weight used in the first set of every session were
+pated in the measurement process so that one handled the             recorded to adjust the training load and represent training
+probe, and the other was responsible for freezing the images         volume.
+once both considered that image quality was satisfactory. Im-
+ages were stored in a flash drive and later analyzed using ImageJ
+software (v. 1.50; NIH, USA). Biceps brachii MT was defined for
+                                                                     2.6   | Statistical Analyses
+the three imaged regions (55%, 65%, and 75%; proximal‐distal)
+as the distance between its superficial and deep aponeuroses.
+                                                                     Data normality was assessed using the Shapiro–Wilk test, and
+Brachialis was apparent at more distal regions only (65%, 75%),
+                                                                     homogeneity of variances was evaluated with Levene's test.
+and its MT was defined as the distance between its superficial
+                                                                     Analyses of variance were used to compare the groups for
+aponeurosis and the humerus. Inter‐day test‐rest reliability
+                                                                     training measures. For both MT and 1RM, analyses of covari-
+scores were satisfactory (ICC [3,1] = 0.99; relative typical er-
+                                                                     ance were performed, with the pre‐to‐post training difference as
+ror = 1.2%). Examples of ultrasound images of each region can
+                                                                     dependent variables, baseline values as covariates, and group as
+be seen in the Figure S1.
+                                                                     fixed factors, with adjusted marginal pre‐post mean differences
+                                                                     tested against zero to determine training effects relative to
+                                                                     baseline. For MT changes, analyses of covariance were per-
+2.4   | 1RM Strength                                                 formed to compare the groups, whereas analyses of variance
+                                                                     were performed to compare percentage changes in MT between
+Maximum strength was assessed via 1RM test on the respective         muscle regions to examine whether each exercise elicited
+trained exercise for each arm, as previously done (Maeo              regional hypertrophy. Bonferroni correction was applied to
+et al. 2021, 2023; Stasinaki et al. 2018). For the pre‐training      multiple‐comparison tests. For 1RM changes, given it was hy-
+testing session, subjects were randomly selected to start            pothesized that improvements would be equivalent between
+testing for PREA or BAYE, and this was kept the same post‐           conditions, two one‐sided tests (TOST) for equivalence were
+training individually. Subjects performed a warm‐up of 15 rep-       performed to compare the groups, standardizing with Hedges' g
+etitions with approximately 50% of their estimated load to the       effect size (ES). The standardized equivalence bounds were set
+first attempt, followed by five 1RM attempts. If an attempt was      at � 0.20. ESs were calculated as post‐training mean minus
+
+
+4 of 9                                                                                                 European Journal of Sport Science, 2025
+pre‐training mean, divided by pooled pre‐training standard de-        0.73]; p = 0.205), and overall middle (PREA: 8% [ES: 0.65],
+viation, with Hedges' g correction factor for small samples           BAYE: 10% [ES: 0.79]; p = 0.374) and distal (PREA: 7% [ES:
+(Borenstein et al. 2009). An ES of 0.00–0.19 was considered as        0.65], BAYE: 8% [ES: 0.67]; p = 0.946) regions, or the sum of all
+trivial, 0.20–0.49 as small, 0.50–0.79 as moderate, and ≥ 0.80 as     measured regions (PREA: 8% [ES: 0.66], BAYE: 9% [ES: 0.77];
+large (Borenstein et al. 2009). A p < 0.05 was accepted as sta-       p = 0.416). While comparing relative changes between muscles,
+tistically significant. The data were expressed as mean, standard     no significant difference was detected between biceps brachii
+deviation, 95% confidence intervals (CIs), average percentage         and brachialis for PREA (7% [ES: 0.53] vs. 10% [ES: 0.72];
+changes, and ESs. Analyses were conducted using JASP v.0.16.2         p = 0.325) or BAYE (9% [ES: 0.68] vs. 8% [ES: 0.65]; p = 0.895).
+(JASP Team, Netherlands).                                             Table 1 displays the results of pre‐ and post‐training data and
+                                                                      Figure 3 presents the individual relative changes, according to
+                                                                      conditions, muscles, and regions.
+3   | Results
+Subjects completed all the training sessions. No injuries             4   | Discussion
+occurred during the intervention. Training stimuli were
+matched between conditions, as reflected by the similar average       In the present study, the effects of RT on regional hypertrophy
+repetitions per set (PREA: 9.5 � 0.5 repetitions; BAYE: 9.6 � 0.5     and maximum strength of the elbow flexor muscles were
+repetitions; p = 0.392), the average load (PREA: 18.2 � 5.0 kg;       compared between elbow flexion exercises performed with
+BAYE: 18.3 � 4.5 kg; p = 0.970), and the weekly progression in        different shoulder positions (flexion [PREA] vs. extension
+load (PREA: 0.5 � 0.3 kg/wk; BAYE: 0.7 � 0.4 kg/wk; p =               [BAYE]). It was hypothesized that biceps brachii hypertrophy
+0.252). For 1RM strength, significant (p < 0.05) large increases      would be greater for BAYE than PREA, but changes in strength
+were observed for both conditions (PREA: pre = 21.9 � 6.7 kg,         would be equivalent between conditions. After the intervention,
+post = 27.1 � 6.6 kg; BAYE: pre = 20.7 � 5.0 kg, post =               similar adaptations were observed following PREA and BAYE
+28.1 � 5.9 kg), with equivalent improvements observed between         biceps curls, rejecting the hypothesis for hypertrophy, but sup-
+them (PREA: 28% [ES: 0.85], BAYE: 37% [ES: 1.22]; ES differ-          porting the hypothesis on the strength gains.
+ence: 0.37 [95%CIs = −0.33, 1.08]; TOST for equivalence, p‐
+values = 0.061, 0.637). Figure 2 presents the progression in          Altering shoulder position may have shortened the biceps bra-
+training load by the exercise condition.                              chii fibers in PREA and lengthened them in BAYE, potentially
+                                                                      shifting the sarcomere operating length along the force–length
+For muscle thickness (MT), significant (p < 0.05) moderate‐to‐        curve, with BAYE operating more on optimal lengths for force
+large increases were observed at all sites analyzed for both          production (Koo et al. 2002; Murray et al. 2000; Newham
+conditions. No significant difference was observed between            et al. 1988). However, it seems that such an advantage for BAYE
+PREA and BAYE in any muscle regions (p values = 0.205–                did not occur since the exercises were performed with similar
+0.662), nor between regions of the biceps brachii for either          weights throughout the intervention (Figure 2), resulting in
+PREA (p = 0.908) or BAYE (p = 0.964). Similar responses were          similar torques between conditions (assuming: (i) the exercises
+observed between conditions for the overall response (sum of          were matched in torque‐angle profiles, as shown in Figure 1; and
+the three regions) of the biceps brachii (PREA: 7% [ES: 0.53],        (ii) the exercises were performed at similar execution velocities).
+BAYE: 9% [ES: 0.68]; p = 0.314), and brachialis (PREA: 10% [ES:       The post hoc elaboration of the force–length relationship model
+0.72], BAYE: 8% [ES: 0.65]; p = 0.911), as well as the proximal       (Figure 1) supports the idea that such a variation in shoulder
+region (only biceps brachii; PREA: 6% [ES: 0.51], BAYE: 9% [ES:       position likely elicited only small changes in biceps fiber
+
+
+
+
+FIGURE 2 | Progression in training load during Preacher (PREA) and Bayesian (BAYE) curl conditions. The horizontal lines are mean and 95%
+CIs. No difference was detected between groups (comparison of slopes; p = 0.252).
+
+
+                                                                                                                                  5 of 9
+operating lengths during training, and this may explain the lack                muscle‐length training position (Lambrianides et al. 2024),
+of differential biceps growth between exercises. Moreover,                      thereby affecting muscle–tendon behavior during exercise,
+changes in tendon properties after a few training sessions may                  deviating from the predicted models. Additionally, there was no
+impact tendon slack length, an effect that is influenced by the                 emphasis on the lengthening phase of the contraction. Per-
+                                                                                forming the eccentric phase at a slower tempo (e.g., 4 s) could
+                                                                                have allowed BAYE to experience more time under higher loads
+TABLE 1 | Training effects on regional muscle thickness (mm) after
+                                                                                in longer lengths, potentially providing an advantage over PREA.
+Preacher (PREA) and Bayesian (BAYE) biceps cable curls.
+                                                                                It remains to be explored whether manipulating execution tempo
+                       PREA (n = 15)                      BAYE (n = 15)         influences the effects of longer‐length RT on muscle growth.
+ Proximal—Biceps brachii
+                                                                                Korta et al. (2023) and others (Kassiano et al. 2025; Kobayashi
+    Pre                    28.2 � 3.2                        28.5 � 3.7         et al. 2024; Vendruscolo et al. 2024) have recently compared
+    Post                  30.0 � 3.2*                        31.0 � 3.3*        exercises similar to the ones used herein, where they used bi-
+    ES                 0.51 (0.14, 0.88)                  0.73 (0.34, 1.13)     ceps dumbbell curls that have opposite resistance profiles: one
+                                                                                emphasizing torque at the end of the eccentric phase but pre‐
+ Middle—Biceps brachii
+                                                                                shortening the biceps by shoulder flexion (a similar version of
+    Pre                    24.5 � 3.6                        24.2 � 3.3         “PREA” used here, but done with dumbbells), and the other
+    Post                  26.2 � 3.2    *
+                                                             26.4 � 2.9*        emphasizing torque at the end of the concentric phase but pre‐
+                                                                                lengthening the biceps by shoulder extension (“BAYE” done
+    ES                 0.49 (0.13, 0.86)                  0.62 (0.24, 1.00)
+                                                                                with dumbbells [incline curl]). Therefore, inferences on the ef-
+ Distal—Biceps brachii                                                          fects of longer versus shorter muscle length training could not
+    Pre                    23.5 � 3.3                        23.0 � 3.0         be made from such comparisons as two factors distinguished
+                                        *                                       their exercises: resistance exercise profiles and shoulder posi-
+    Post                  25.2 � 3.0                         25.0 � 2.8*
+                                                                                tions. Moreover, hypertrophy measures were often taken for the
+    ES                 0.53 (0.16, 0.90)                  0.62 (0.24, 1.00)     “elbow flexors”; whether the observed differential results
+ Middle—Brachialis                                                              stemmed from biceps or brachialis hypertrophy could not be
+    Pre                     5.7 � 0.7                         6.0 � 1.0         established. In addition, Nunes et al. (2020) compared exercises
+                                       *
+                                                                                emphasizing greater torques at shorter or longer muscle lengths
+    Post                   6.5 � 0.8                          6.8 � 1.2*        with the same shoulder position (flexed; cable vs. dumbbell
+    ES                 0.84 (0.44, 1.24)                  0.94 (0.52, 1.36)     PREA) and found that no difference in biceps brachii MT in-
+ Distal—Brachialis                                                              creases; however, the biceps was measured only at the mid‐
+                                                                                segment region. In this regard, the influence of training at
+    Pre                    11.1 � 1.5                        11.5 � 1.6
+                                                                                shorter versus longer biceps brachii lengths on regional changes
+                                        *
+    Post                  11.9 � 1.7                         12.1 � 1.6*        in biceps size was unclear, and the present study is the first
+    ES                 0.57 (0.19, 0.94)                  0.42 (0.06, 0.78)     where biceps brachii MT changes were measured regionally
+                                                                                while isolating differences in muscle length as a factor to be
+Notes: Data are mean � standard deviation. Effect sizes (ES) are presented as
+mean and 95% confidence intervals (upper, lower bounds).                        compared between exercises, revealing no significant difference
+*
+  p < 0.05 versus Pre. No significant difference was detected between groups.   between conditions.
+
+
+
+
+FIGURE 3 | Individual percentage changes from pre‐ to post‐training in muscle thickness (MT) of biceps brachii (BB) and brachialis (Br) for more
+proximal (55%), middle (65%), and more distal (75%) regions after Preacher (PREA) and Bayesian (BAYE) biceps curls. The horizontal lines are mean
+and 95% CIs. All measures increased pre‐ to post‐training, but no significant difference was detected between regions or conditions (p values = 0.205–
+0.662).
+
+
+6 of 9                                                                                                            European Journal of Sport Science, 2025
+Interestingly, other studies have reported greater distal arm           modes) with longer‐length training. Further investigations are
+muscle growth after dumbbell PREA curls but did not measure             warranted exploring these aspects as well as the neuroplasticity
+biceps brachii size isolated from the brachialis (Kassiano              of the strength adaptation (Škarabot et al. 2021). Of additional
+et al. 2025; Korta et al. 2023; Sato et al. 2021). Therefore, the       note, any potential cross‐education interference effect on
+increased growth in more distal regions might be attributed to          maximum strength (i.e., improvements in the contralateral,
+enhanced brachialis development, not to a biceps regional hy-           traditionally nontrained, and arm) appears negligible in this
+pertrophy. In the present study, a post hoc analysis of the biceps      context, as it is unlikely to occur when both limbs are trained,
+brachii “net hypertrophy”, calculated as the biceps relative            particularly with similar loads (Song et al. 2024).
+change minus brachialis relative changes, revealed a small dif-
+ference (ES = 0.38) favoring BAYE (biceps–brachialis; PREA:             The present study has some limitations. Although muscle
+7%–10%, BAYE: 9%–8%), suggesting a shift in muscle recruit-             thickness was assessed in two distinct regions of the limb, as
+ment preference for the biceps in BAYE compared to PREA.                recommended (Nunes et al. 2024), measuring cross‐sectional
+Supporting this idea, BAYE resulted in next to no negative              area at sites closer to the arm extremities (Drummond
+changes in MT across all three biceps regions, as can be seen in        et al. 2016) or evaluating each biceps brachii head separately
+individual results presented in Figure 3. Moreover, in a recent         could have provided additional insights, particularly given their
+nonpeer‐reviewed work presented as a conference abstract                distinct force–length relationships (Koo et al. 2002). Addition-
+(Kobayashi et al. 2024), authors reported that dumbbell PREA            ally, although participants were carefully instructed and su-
+induced greater increases in brachialis size, whereas dumbbell          pervised to maintain the specified shoulder positions (visually
+BAYE induced greater increases in biceps brachii size.                  verified after extensive piloting using mobile device‐based go-
+                                                                        niometers) and to perform exercises with consistent ranges of
+In addition, no study has reported that the biceps brachii exhibit      motion and tempos, continuous monitoring with specialized
+inhomogeneous regional hypertrophy, despite presenting                  devices (e.g., electrogoniometers and metronomes) was not
+regional strains during shortening (Blemker et al. 2005; Pappas         implemented.
+et al. 2002). Different strains across regions of the fascicles could
+cause different regions of the muscle to experience varying
+mechanical work and, thus, receive different stimuli for growth         5   | Conclusion
+(Jorgenson et al. 2020). However, different strains alone may not
+explain potential inhomogeneous regional hypertrophy. It is             In conclusion, biceps cable curl training with the shoulder
+known that skeletal muscles exhibit regional variations in              flexed (PREA) or extended (BAYE) resulted in similar increases
+resting sarcomere lengths across muscle regions and even                in muscle size and strength. Altering shoulder position does not
+within the same fiber, and sarcomeres in different muscle re-           appear to influence the effects of biceps cable curls after
+gions have their own operating lengths (Jorgenson et al. 2020;          10 weeks of RT in untrained young men. There is no evidence
+Pappas et al. 2002; Purslow 2010). Of note, sarcomeres experi-          that the biceps brachii benefit from longer‐length RT or exhibit
+encing greater strain but operating in regions of lower tension         regional hypertrophy.
+on the force–length curve might experience reduced stimuli for
+growth. Due to the pre‐shortening state in PREA, the more
+proximal regions of the biceps were expected to be insufficiently
+active and then receive less tension stimulus for growth than the
+                                                                        Author Contributions
+distal regions, and then BAYE for the same region. However,
+these were not observed herein. It is possible that the biceps          P.A. was involved with conceptualization, methodology, and data
+                                                                        collection. J.P.N. analyzed the data, generated the figures, and drafted
+brachii architecture permits homogeneous force production and
+                                                                        the first version of the manuscript. S.K., S.N., A.G., H.N., S.N., S.M., and
+transmission across its fiber bundles, and altering shoulder            R.S. participated in the data collection and provided critical revisions to
+position does not affect how stimuli are set to it during               the writing. K.N. provided critical revisions to the manuscript. All au-
+maximum elbow flexion exercises. It is important to note that           thors read, revised critically, and approved the final version of the
+the present study lasted 10 weeks, and a potential difference           manuscript.
+might emerge over a longer timeframe, warranting further
+investigation.                                                          Acknowledgments
+                                                                        The authors thank all subjects for their engagement in the study.
+Similar results between conditions were also observed for 1RM
+strength gains. These findings can be attributed to the compa-
+                                                                        Ethics Statement
+rable loads used and their relatively similar progression across
+sessions. Since 1RM testing was conducted only for the specific         The present study was conducted according to the Declaration of Hel-
+exercise each arm performed, the influence of training‐test             sinki. The present study was approved by the University of Tehran
+                                                                        Ethics Review Board Committee.
+specificity limits inferences about the muscle's overall force
+production capacity (Buckner et al. 2017). Nonetheless, this
+testing design followed previous works, which also showed               Conflicts of Interest
+similar relative increases in strength between different exercises      The authors declare no conflicts of interest.
+trained at shorter versus longer lengths (Maeo et al. 2021, 2023;
+Stasinaki et al. 2018). The effects on nonspecific strength tests       References
+remain unknown. Results from Sato et al. (2021) suggest greater         Blemker, S. S., P. M. Pinsky, and S. L. Delp. 2005. “A 3D Model of
+“global” strength increases (as evaluated by varied testing             Muscle Reveals the Causes of Nonuniform Strains in the Biceps
+
+
+                                                                                                                                             7 of 9
+Brachii.” Journal of Biomechanics 38, no. 4: 657–665. https://doi.org/10.    Lambrianides, Y., G. Epro, A. Arampatzis, and K. Karamanidis. 2024.
+1016/j.jbiomech.2004.04.009.                                                 “Evidence of Different Sensitivity of Muscle and Tendon to Mechano‐
+                                                                             Metabolic Stimuli.” Scandinavian Journal of Medicine and Science in
+Borenstein, M., L. V. Hedges, J. P. T. Higgins, and H. R. Rothstein. 2009.
+                                                                             Sports 34, no. 5: e14638. https://doi.org/10.1111/sms.14638.
+Introduction to Meta‐Analysis. Wiley.
+                                                                             Larsen, S., B. Sandvik Kristiansen, P. A. Swinton, et al. 2024. “The Ef-
+Buckner, S. L., M. B. Jessee, K. T. Mattocks, et al. 2017. “Determining
+                                                                             fects of Hip Flexion Angle on Quadriceps Femoris Muscle Hypertrophy
+Strength: A Case for Multiple Methods of Measurement.” Sports Medi-
+                                                                             in the Leg Extension Exercise.” Journal of Sports Sciences: 1–12, ahead of
+cine 47, no. 2: 193–195. https://doi.org/10.1007/s40279‐016‐0580‐3.
+                                                                             print. https://doi.org/10.1080/02640414.2024.2444713.
+Costa, B. D. d. V., W. Kassiano, J. P. Nunes, et al. 2021. “Does Per-
+                                                                             Maeo, S., H. Meng, W. Yuhang, et al. 2021. “Greater Hamstrings Muscle
+forming Different Resistance Exercises Induce Non‐Homogeneous Hy-
+                                                                             Hypertrophy but Similar Damage Protection After Training at Long
+pertrophy?” International Journal of Sports Medicine 42, no. 9: 803–811.
+                                                                             Versus Short Muscle Lengths.” Medicine and Science in Sports and Ex-
+https://doi.org/10.1055/a‐1308‐3674.
+                                                                             ercise 53, no. 4: 825–837.
+Drummond, M. D. M., L. A. Szmuchrowski, K. N. O. Goulart, and B. P.
+                                                                             Maeo, S., Y. Wu, M. Huang, et al. 2023. “Triceps Brachii Hypertrophy Is
+Couto. 2016. “Effect of Strength Training on Regional Hypertrophy of
+                                                                             Substantially Greater After Elbow Extension Training Performed in the
+the Elbow Flexor Muscles.” Muscle and Nerve 54, no. 4: 750–755. https://
+                                                                             Overhead Versus Neutral Arm Position.” European Journal of Sport
+doi.org/10.1002/mus.25088.
+                                                                             Science 23, no. 7: 1240–1250. https://doi.org/10.1080/17461391.2022.
+Holzbaur, K. R. S., W. M. Murray, and S. L. Delp. 2005. “A Model of the      2100279.
+Upper Extremity for Simulating Musculoskeletal Surgery and Analyzing
+                                                                             Mitsuya, H., K. Nakazato, T. Hakkaku, and T. Okada. 2023. “Hip
+Neuromuscular Control.” Annals of Biomedical Engineering 33, no. 6:
+                                                                             Flexion Angle Affects Longitudinal Muscle Activity of the Rectus
+829–840. https://doi.org/10.1007/s10439‐005‐3320‐7.
+                                                                             Femoris in Leg Extension Exercise.” European Journal of Applied
+Iwane, K., Ko Yanase, T. Ikezoe, and N. Ichihashi. 2023. “Effects of         Physiology 123, no. 6: 1299–1309. https://doi.org/10.1007/s00421‐023‐
+Shoulder Position During Static Stretching on Shear Elastic Modulus of       05156‐w.
+Biceps Brachii Muscle.” Journal of Biomechanics 156: 111698. https://
+                                                                             Morton, R. W., K. T. Murphy, S. R. McKellar, et al. 2018. “A Systematic
+doi.org/10.1016/j.jbiomech.2023.111698.
+                                                                             Review, Meta‐Analysis and Meta‐Regression of the Effect of Protein
+Jorgenson, K. W., S. M. Phillips, and T. A. Hornberger. 2020. “Identi-       Supplementation on Resistance Training‐Induced Gains in Muscle Mass
+fying the Structural Adaptations That Drive the Mechanical Load‐             and Strength in Healthy Adults.” British Journal of Sports Medicine 52,
+Induced Growth of Skeletal Muscle: A Scoping Review.” Cells 9, no. 7:        no. 6: 376–384. https://doi.org/10.1136/bjsports‐2017‐097608.
+1658. https://doi.org/10.3390/cells9071658.
+                                                                             Murray, W. M., T. S. Buchanan, and S. L. Delp. 2000. “The Isometric
+Kassiano, W., B. Costa, J. P. Nunes, A. S. Ribeiro, B. J. Schoenfeld, and    Functional Capacity of Muscles That Cross the Elbow.” Journal of
+E. S. Cyrino. 2023. “Which ROMs Lead to Rome? A Systematic Review            Biomechanics 33, no. 8: 943–952. https://doi.org/10.1016/s0021‐9290(00)
+of the Effects of Range of Motion on Muscle Hypertrophy.” Journal of         00051‐8.
+Strength and Conditioning Research 37, no. 5: 1135–1144. https://doi.
+                                                                             Newham, D. J., D. A. Jones, G. Ghosh, and P. Aurora. 1988. “Muscle Fa-
+org/10.1519/jsc.0000000000004415.
+                                                                             tigue and Pain After Eccentric Contractions at Long and Short Length.”
+Kassiano, W., B. D. d. V. Costa, G. Kunevaliki, et al. 2025. “Distinct       Clinical Science 74, no. 5: 553–557. https://doi.org/10.1042/cs0740553.
+Muscle Growth and Strength Adaptations After Preacher and Incline
+                                                                             Nosaka, K., and K. Sakamoto. 2001. “Effect of Elbow Joint Angle on the
+Biceps Curl.” International Journal of Sports Medicine 45, no. 10: 739–
+                                                                             Magnitude of Muscle Damage to the Elbow Flexors.” Medicine and
+747, ahead of print. https://doi.org/10.1055/a‐2316‐7885.
+                                                                             Science in Sports and Exercise 33, no. 1: 22–29. https://doi.org/10.1097/
+Kassiano, W., J. P. Nunes, B. Costa, A. S. Ribeiro, B. J. Schoenfeld, and    00005768‐200101000‐00005.
+E. S. Cyrino. 2022. “Does Varying Resistance Exercises Promote Supe-
+                                                                             Nunes, J. P., A. J. Blazevich, B. J. Schoenfeld, et al. 2024. “Determining
+rior Muscle Hypertrophy and Strength Gains? A Systematic Review.”
+                                                                             Changes in Muscle Size and Architecture Following Exercise Training:
+Journal of Strength and Conditioning Research 36, no. 6: 1753–1762.
+                                                                             One Site Does Not Fit All.” Journal of Strength and Conditioning Research
+https://doi.org/10.1519/jsc.0000000000004258.
+                                                                             38, no. 4: 787–790. https://doi.org/10.1519/jsc.0000000000004722.
+Kawakami, Y., K. Nakazawa, T. Fujimoto, D. Nozaki, M. Miyashita, and
+                                                                             Nunes, J. P., J. L. Jacinto, A. S. Ribeiro, et al. 2020. “Placing Greater
+T. Fukunaga. 1994. “Specific Tension of Elbow Flexor and Extensor
+                                                                             Torque at Shorter or Longer Muscle Lengths? Effects of Cable vs. Barbell
+Muscles Based on Magnetic Resonance Imaging.” European Journal of
+                                                                             Preacher Curl Training on Muscular Strength and Hypertrophy in
+Applied Physiology and Occupational Physiology 68, no. 2: 139–147.
+                                                                             Young Adults.” International Journal of Environmental Research and
+https://doi.org/10.1007/bf00244027.
+                                                                             Public Health 17, no. 16: 5859. https://doi.org/10.3390/ijerph17165859.
+Kinoshita, M., S. Maeo, Y. Kobayashi, et al. 2023. “Triceps Surae Muscle     Oranchuk, D. J., A. G. Storey, A. R. Nelson, and J. B. Cronin. 2019.
+Hypertrophy Is Greater After Standing Versus Seated Calf‐Raise               “Isometric Training and Long‐Term Adaptations: Effects of Muscle
+Training.” Frontiers in Physiology 14: 1272106. https://doi.org/10.3389/     Length, Intensity, and Intent: A Systematic Review.” Scandinavian
+fphys.2023.1272106.                                                          Journal of Medicine and Science in Sports 29, no. 4: 484–503. https://doi.
+Kobayashi, Y., S. Maeo, Y. Eihara, et al. 2024. “Distinct Hypertrophy of     org/10.1111/sms.13375.
+the Elbow Flexors After Incline Versus Preacher Dumbbell Curl                Ottinger, C. R., M. H. Sharp, M. W. Stefan, R. H. Gheith, F. Espriella,
+Training.” In 29th ECSS Congress.                                            and J. M. Wilson. 2023. “Muscle Hypertrophy Response to Range of
+Koo, T. K. K., A. F. T. Mak, and L. K. Hung. 2002. “In Vivo Determi-         Motion in Strength Training: A Novel Approach to Understanding the
+nation of Subject‐Specific Musculotendon Parameters: Applications to         Findings.” Strength and Conditioning Journal 45, no. 2: 162–176.
+the Prime Elbow Flexors in Normal and Hemiparetic Subjects.” Clinical        Pappas, G. P., D. S. Asakawa, S. L. Delp, F. E. Zajac, and J. E. Drace.
+Biomechanics 17, no. 5: 390–399. https://doi.org/10.1016/s0268‐0033(02)      2002. “Nonuniform Shortening in the Biceps Brachii During Elbow
+00031‐1.                                                                     Flexion.” Journal of Applied Physiology 92, no. 6: 2381–2389. https://doi.
+                                                                             org/10.1152/japplphysiol.00843.2001.
+Korta, A. Z., E. Fernández‐Peña, J. Torres‐Unda, M. Francés, A.
+Zubillaga, and J. Santos‐Concejero. 2023. “Regional Hypertrophy: The         Purslow, P. P. 2010. “Muscle Fascia and Force Transmission.” Journal of
+Effect of Exercises at Long and Short Muscle Lengths in Recreationally       Bodywork and Movement Therapies 14, no. 4: 411–417. https://doi.org/
+Trained Women.” Journal of Human Kinetics 88: 259–270.                       10.1016/j.jbmt.2010.01.005.
+
+
+8 of 9                                                                                                            European Journal of Sport Science, 2025
+Sato, S., R. Yoshida, R. Kiyono, et al. 2021. “Elbow Joint Angles in
+Elbow Flexor Unilateral Resistance Exercise Training Determine its
+Effects on Muscle Strength and Thickness of Trained and Non‐Trained
+Arms.” Frontiers in Physiology 12: 734509. https://doi.org/10.3389/fphys.
+2021.734509.
+Schoenfeld, B., J. Fisher, J. Grgic, et al. 2021. “Resistance Training
+Recommendations to Maximize Muscle Hypertrophy in an Athletic
+Population: Position Stand of the IUSCA.” International Journal of
+Strength and Conditioning 1: 1. https://doi.org/10.47206/ijsc.v1i1.81.
+Schoenfeld, B. J., D. Ogborn, and J. W. Krieger. 2017. “Dose‐response
+Relationship Between Weekly Resistance Training Volume and In-
+creases in Muscle Mass: A Systematic Review and Meta‐Analysis.”
+Journal of Sports Sciences 35, no. 11: 1073–1082. https://doi.org/10.1080/
+02640414.2016.1210197.
+Škarabot, J., C. G. Brownstein, A. Casolo, A. Del Vecchio, and P. Ans-
+dell. 2021. “The Knowns and Unknowns of Neural Adaptations to
+Resistance Training.” European Journal of Applied Physiology 121, no. 3:
+675–685. https://doi.org/10.1007/s00421‐020‐04567‐3.
+Song, J. S., Y. Yamada, R. Kataoka, et al. 2024. “Does Unilateral High‐
+Load Resistance Training Influence Strength Change in the Contralat-
+eral Arm Also Undergoing High‐Load Training?” Scandinavian Journal
+of Medicine and Science in Sports 34, no. 12: e14772. https://doi.org/10.
+1111/sms.14772.
+Stasinaki, A.‐N., N. Zaras, S. Methenitis, et al. 2018. “Triceps Brachii
+Muscle Strength and Architectural Adaptations With Resistance
+Training Exercises at Short or Long Fascicle Length.” Journal of Func-
+tional Morphology and Kinesiology 3, no. 2: 28. https://doi.org/10.3390/
+jfmk3020028.
+Vendruscolo, L., H. Brendon, V. Hevia‐Larraín, A. Y. Aihara, and V. de
+Salles Painelli. 2024. “Similar Regional Hypertrophy of the Elbow Flexor
+Muscles in Response to Low‐Load Training With Vascular Occlusion at
+Short versus Long Muscle Lengths.” Sports Health, ahead of print.
+
+
+Supporting Information
+Additional supporting information can be found online in the Sup-
+porting Information section.
+
+
+
+
+                                                                             9 of 9
+

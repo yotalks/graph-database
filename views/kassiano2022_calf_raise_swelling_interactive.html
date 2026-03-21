@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kassiano 2022 calf raise swelling</title>
+    <style>
+      :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
+      *{box-sizing:border-box} html,body{height:100%;margin:0}
+      body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
+      .wrap{min-height:100dvh;height:100%;display:grid;grid-template-rows:auto 1fr}
+      .top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}
+      .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+      .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px}.btn{cursor:pointer}.btn:hover{background:var(--btnHover)} select,option,optgroup{background:var(--panel);color:var(--text)}
+      .status{color:var(--muted);font-size:12px;white-space:nowrap}
+      .main{display:grid;grid-template-columns:minmax(240px,30vw) 1fr;min-height:0}
+      .left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}
+      .sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}
+      .swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)} .check label{font-size:12px;font-weight:650}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.4}
+      .stage{position:relative;overflow:hidden;min-width:0;height:min(58dvh,calc(100dvh - 210px));min-height:280px;touch-action:none;cursor:grab}
+      .stage.is-dragging{cursor:grabbing}
+      canvas{width:100%;height:100%;display:block}
+      .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
+      .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.82);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{display:flex;flex-direction:column}.left{border-right:none;border-bottom:1px solid var(--border);order:2;max-height:min(14rem,20dvh);padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{order:1;min-height:clamp(250px,50dvh,420px);flex:0 0 auto}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="title">Kassiano et al. (2022) - Calf raise swelling</div>
+          <div id="subtitle" class="subtitle"></div>
+        </div>
+        <div class="controls">
+          <select id="mode"></select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
+          <button id="all" class="btn">Show all</button>
+          <button id="none" class="btn">Hide all</button>
+          <div id="status" class="status"></div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="sectionTitle">Toggle</div>
+          <div id="checks"></div>
+          <div id="hint" class="hint"></div>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="c"></canvas>
+          <div id="overlay" class="overlay"></div>
+          <div id="tip" class="tooltip"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const COLORS={stra:"#60a5fa",bent:"#f97316",pre:"#94a3b8",post:"#22c55e"};
+      const MUSCLES=[
+        {key:"GM",label:"Gastrocnemius medial",straPre:1.90,straPost:2.06,bentPre:1.90,bentPost:1.85},
+        {key:"GL",label:"Gastrocnemius lateral",straPre:1.40,straPost:1.59,bentPre:1.38,bentPost:1.46},
+        {key:"SOL",label:"Soleus",straPre:2.20,straPost:2.37,bentPre:2.18,bentPost:2.51}
+      ];
+      const pct=(pre,post)=>((post-pre)/pre)*100;
+      const MODES={
+        change:{
+          label:"Swelling change (%)",
+          subtitle:"Percent change in muscle thickness immediately after straight-leg and bent-leg calf raise exercise, based on Table 2.",
+          hint:"This view shows the acute swelling response as percent change from pre to post for GM, GL, and soleus.",
+          overlay:"Hover = exact pre, post, and % change",
+          yLabel:"Muscle thickness change (%)",
+          maxY:18,
+          build:()=>MUSCLES.flatMap(m=>[
+            {name:`${m.key} - STRA-leg`,group:m.label,value:pct(m.straPre,m.straPost),color:COLORS.stra,note:`STRA-leg ${m.straPre.toFixed(2)} -> ${m.straPost.toFixed(2)} cm`},
+            {name:`${m.key} - BENT-leg`,group:m.label,value:pct(m.bentPre,m.bentPost),color:COLORS.bent,note:`BENT-leg ${m.bentPre.toFixed(2)} -> ${m.bentPost.toFixed(2)} cm`}
+          ])
+        },
+        values:{
+          label:"Pre/post thickness (cm)",
+          subtitle:"Pre- and immediately post-exercise muscle-thickness means from Table 2 for gastrocnemius medial, gastrocnemius lateral, and soleus.",
+          hint:"Each muscle shows STRA-leg pre/post and BENT-leg pre/post mean thickness in centimeters.",
+          overlay:"Hover = exact Table 2 means",
+          yLabel:"Muscle thickness (cm)",
+          maxY:3,
+          build:()=>MUSCLES.flatMap(m=>[
+            {name:`${m.key} - STRA pre`,group:m.label,value:m.straPre,color:"#9ca3af",note:`STRA-leg pre-exercise mean`},
+            {name:`${m.key} - STRA post`,group:m.label,value:m.straPost,color:COLORS.stra,note:`STRA-leg post-exercise mean`},
+            {name:`${m.key} - BENT pre`,group:m.label,value:m.bentPre,color:"#64748b",note:`BENT-leg pre-exercise mean`},
+            {name:`${m.key} - BENT post`,group:m.label,value:m.bentPost,color:COLORS.bent,note:`BENT-leg post-exercise mean`}
+          ])
+        }
+      };
+
+      const modeEl=document.getElementById("mode"),checksEl=document.getElementById("checks"),subtitleEl=document.getElementById("subtitle"),hintEl=document.getElementById("hint"),overlayEl=document.getElementById("overlay"),statusEl=document.getElementById("status"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),tip=document.getElementById("tip");
+      let modeKey="change",items=[],activeName=null,hits=[],zoomX=1,dragging=false,dragStartX=0,dragStartScrollLeft=0;
+
+      function currentMode(){return MODES[modeKey]}
+      function populateModes(){for(const [key,val] of Object.entries(MODES)){const opt=document.createElement("option");opt.value=key;opt.textContent=val.label;modeEl.appendChild(opt)} modeEl.value=modeKey}
+      function buildItems(){items=currentMode().build().map(item=>({...item,visible:true}))}
+      function syncActiveRows(){for(const row of checksEl.querySelectorAll(".check"))row.classList.toggle("active",row.dataset.name===activeName)}
+      function rebuildChecks(){
+        checksEl.innerHTML="";
+        for(const item of items){
+          const row=document.createElement("div"); row.className="check"; row.dataset.name=item.name;
+          const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=item.visible;
+          cb.addEventListener("click",e=>e.stopPropagation());
+          cb.addEventListener("change",()=>{item.visible=cb.checked;if(!item.visible&&activeName===item.name)activeName=null;syncActiveRows();draw()});
+          const sw=document.createElement("div"); sw.className="swatch"; sw.style.background=item.color;
+          const lab=document.createElement("label"); lab.textContent=item.name;
+          row.addEventListener("click",()=>{activeName=activeName===item.name?null:item.name;syncActiveRows();draw()});
+          row.append(cb,sw,lab); checksEl.appendChild(row);
+        }
+      }
+      function resetViewport(){zoomX=1;stage.scrollLeft=0;draw()}
+      function hideTip(){tip.style.display="none"}
+      function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
+
+      function drawBars(){
+        const baseW=Math.max(320,stage.clientWidth||320),W=Math.max(baseW,Math.round(baseW*zoomX)),H=620,left=110,top=52,right=24,bottom=182;
+        canvas.width=Math.floor(W*(window.devicePixelRatio||1)); canvas.height=Math.floor(H*(window.devicePixelRatio||1)); canvas.style.width=W+"px"; canvas.style.height=H+"px";
+        ctx.setTransform(window.devicePixelRatio||1,0,0,window.devicePixelRatio||1,0,0);
+        ctx.clearRect(0,0,W,H); ctx.fillStyle="#0f172a"; ctx.fillRect(0,0,W,H);
+        const plotW=Math.max(10,W-left-right), maxY=currentMode().maxY, yToPx=v=>top+(1-v/maxY)*(H-top-bottom);
+        const visible=items.filter(item=>item.visible), groups=[...new Set(items.map(item=>item.group))], barsPerGroup=Math.max(...groups.map(g=>items.filter(item=>item.group===g).length));
+        const barW=barsPerGroup===4?30:44, barGap=8, groupGap=30;
+        hits=[];
+        ctx.strokeStyle="rgba(255,255,255,.08)"; ctx.lineWidth=1;
+        const step=maxY<=4?0.5:maxY<=18?2:4;
+        for(let y=0;y<=maxY+1e-6;y+=step){const py=yToPx(y);ctx.beginPath();ctx.moveTo(left,py);ctx.lineTo(W-right,py);ctx.stroke();ctx.fillStyle="rgba(229,231,235,.92)";ctx.font="12px Segoe UI, system-ui";ctx.textAlign="right";ctx.fillText(modeKey==="change"?`${y}%`:y.toFixed(1),left-10,py+4)}
+        ctx.strokeStyle="rgba(255,255,255,.28)"; ctx.strokeRect(left,top,plotW,H-top-bottom);
+        let x=left+26;
+        for(const group of groups){
+          const allGroupItems=items.filter(item=>item.group===group);
+          const visibleGroupItems=visible.filter(item=>item.group===group);
+          const groupWidth=allGroupItems.length*barW+(allGroupItems.length-1)*barGap;
+          const center=x+groupWidth/2;
+          for(const baseItem of allGroupItems){
+            const isVisible=visibleGroupItems.some(entry=>entry.name===baseItem.name);
+            const isActive=activeName===baseItem.name, hasActive=!!activeName, alpha=isVisible?(hasActive?(isActive?1:.18):1):.07;
+            const value=baseItem.value;
+            const zeroY=yToPx(0);
+            const barTop=value>=0?yToPx(value):zeroY;
+            const barH=Math.abs(zeroY-yToPx(value));
+            ctx.save(); ctx.globalAlpha=alpha; ctx.fillStyle=baseItem.color; if(isActive){ctx.shadowColor=baseItem.color;ctx.shadowBlur=18} ctx.fillRect(x,barTop,barW,Math.max(2,barH)); ctx.restore();
+            if(isVisible) hits.push({x,y:barTop,w:barW,h:Math.max(2,barH),item:baseItem});
+            ctx.save(); ctx.globalAlpha=alpha; ctx.fillStyle="rgba(229,231,235,.92)"; ctx.font="11px Segoe UI, system-ui"; ctx.textAlign="center";
+            let short=baseItem.name;
+            short=short.replace("Gastrocnemius medial","GM").replace("Gastrocnemius lateral","GL").replace("Soleus","SOL");
+            short=short.replace("STRA-leg","STRA").replace("BENT-leg","BENT").replace("pre","pre").replace("post","post");
+            ctx.fillText(short.split(" - ")[1]||short,x+barW/2,H-bottom+30); ctx.restore();
+            x+=barW+barGap;
+          }
+          ctx.fillStyle="rgba(156,163,175,.95)"; ctx.font="12px Segoe UI, system-ui"; ctx.textAlign="center"; ctx.fillText(group,center,H-bottom+82);
+          x+=groupGap;
+        }
+        ctx.fillStyle="rgba(156,163,175,.95)"; ctx.save(); ctx.translate(24,top+(H-top-bottom)/2); ctx.rotate(-Math.PI/2); ctx.textAlign="center"; ctx.fillText(currentMode().yLabel,0,0); ctx.restore();
+        statusEl.textContent=`${visible.length} bars shown • ${Math.round(zoomX*100)}% zoom`;
+      }
+
+      function draw(){
+        subtitleEl.textContent=currentMode().subtitle;
+        hintEl.textContent=currentMode().hint;
+        overlayEl.textContent=currentMode().overlay;
+        drawBars();
+      }
+
+      function applyMode(){activeName=null;buildItems();rebuildChecks();syncActiveRows();draw()}
+      modeEl.addEventListener("change",()=>{modeKey=modeEl.value;applyMode()});
+      document.getElementById("fit").addEventListener("click",resetViewport);
+      document.getElementById("reset").addEventListener("click",()=>{activeName=null;syncActiveRows();resetViewport()});
+      document.getElementById("all").addEventListener("click",()=>{for(const item of items)item.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});
+      document.getElementById("none").addEventListener("click",()=>{for(const item of items)item.visible=false;activeName=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;dragStartX=e.clientX;dragStartScrollLeft=stage.scrollLeft;stage.classList.add("is-dragging");stage.setPointerCapture(e.pointerId);hideTip()});
+      stage.addEventListener("pointermove",e=>{
+        if(dragging){stage.scrollLeft=Math.max(0,dragStartScrollLeft-(e.clientX-dragStartX));return}
+        const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,contentX=x+stage.scrollLeft;
+        const hit=hits.find(h=>contentX>=h.x&&contentX<=h.x+h.w&&y>=h.y&&y<=h.y+h.h);
+        if(!hit){hideTip();return}
+        const suffix=modeKey==="change"?`${hit.item.value.toFixed(1)}% change`:`${hit.item.value.toFixed(2)} cm`;
+        showTip(`<div><strong>${hit.item.name}</strong></div><div class="muted">${suffix}</div><div class="muted">${hit.item.note}</div>`,x,y);
+      });
+      stage.addEventListener("pointerup",()=>{dragging=false;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointercancel",()=>{dragging=false;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip()});
+      stage.addEventListener("wheel",e=>{
+        const r=stage.getBoundingClientRect(),x=e.clientX-r.left;
+        if(x<0||x>r.width)return;
+        e.preventDefault();
+        const prev=zoomX,next=Math.max(1,Math.min(3.5,prev*(e.deltaY>0?1/1.12:1.12)));
+        if(Math.abs(next-prev)<1e-4)return;
+        const anchor=(stage.scrollLeft+x)/Math.max(prev,1e-6);
+        zoomX=next;
+        draw();
+        stage.scrollLeft=Math.max(0,anchor*zoomX-x);
+      },{passive:false});
+      window.addEventListener("resize",draw);
+      populateModes();
+      applyMode();
+    </script>
+  </body>
+</html>

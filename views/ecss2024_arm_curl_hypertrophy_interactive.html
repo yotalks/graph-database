@@ -8,24 +8,25 @@
       :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
       *{box-sizing:border-box} html,body{height:100%;margin:0}
       body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
-      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}
+      .wrap{min-height:100dvh;height:100%;display:grid;grid-template-rows:auto 1fr}
       .top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
       .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}
       .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
       .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px}.btn{cursor:pointer}.btn:hover{background:var(--btnHover)}
       select,option,optgroup{background:var(--panel);color:var(--text)}
       .status{color:var(--muted);font-size:12px;white-space:nowrap}
-      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}
+      .main{display:grid;grid-template-columns: minmax(240px, 30vw) 1fr;min-height:0}
       .left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}
       .sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
       .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}
       .swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)} .check label{font-size:12px;font-weight:650}
       .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.4}
-      .stage{position:relative;overflow:auto;min-width:0}
+      .stage{position:relative;overflow:hidden;min-width:0;height:min(58dvh,calc(100dvh - 210px));min-height:280px;touch-action:none;cursor:grab}
+      .stage.is-dragging{cursor:grabbing}
       canvas{width:100%;height:100%;display:block}
       .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
       .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.82);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
-      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(760px,92vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:28vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:760px}}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{display:flex;flex-direction:column}.left{border-right:none;border-bottom:1px solid var(--border);order: 2; max-height: min(14rem, 20dvh);padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{order:1;min-height:clamp(250px,50dvh,420px);flex:0 0 auto}}
     </style>
   </head>
   <body>
@@ -37,6 +38,8 @@
         </div>
         <div class="controls">
           <select id="mode"></select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
           <button id="all" class="btn">Show all</button>
           <button id="none" class="btn">Hide all</button>
           <div id="status" class="status"></div>
@@ -88,7 +91,7 @@
       };
 
       const modeEl=document.getElementById("mode"),checksEl=document.getElementById("checks"),subtitleEl=document.getElementById("subtitle"),hintEl=document.getElementById("hint"),overlayEl=document.getElementById("overlay"),statusEl=document.getElementById("status"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),tip=document.getElementById("tip");
-      let modeKey="volume",items=[],activeName=null,hits=[];
+      let modeKey="volume",items=[],activeName=null,hits=[],zoomX=1,dragging=false,dragStartX=0,dragStartScrollLeft=0;
 
       function currentMode(){return MODES[modeKey]}
       function populateModes(){for(const [key,val] of Object.entries(MODES)){const opt=document.createElement("option");opt.value=key;opt.textContent=val.label;modeEl.appendChild(opt)} modeEl.value=modeKey}
@@ -107,14 +110,15 @@
           row.append(cb,sw,lab); checksEl.appendChild(row);
         }
       }
+      function resetViewport(){zoomX=1;stage.scrollLeft=0;draw()}
       function hideTip(){tip.style.display="none"}
       function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
       function drawVolume(W){
-        const left=90,top=28,right=24,bottom=70,groupGap=40,barW=36,barGap=10;
+        const left=90,top=28,right=24,bottom=98,groupGap=40,barW=36,barGap=10;
         const groups=["Whole elbow flexors","Biceps brachii","Brachialis","Brachioradialis"];
         const visible=items.filter(item=>item.visible);
-        const plotW=Math.max(600,W-left-right);
-        const H=540;
+        const plotW=Math.max(10,W-left-right);
+        const H=560;
         canvas.style.height=H+"px";
         const dpr=window.devicePixelRatio||1;
         canvas.width=Math.floor(W*dpr); canvas.height=Math.floor(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -153,12 +157,12 @@
         ctx.textAlign="center";
         ctx.fillText("Muscle volume change (%)",0,0);
         ctx.restore();
-        statusEl.textContent=`${visible.length} bars shown`;
+        statusEl.textContent=`${visible.length} items shown • ${Math.round(zoomX*100)}% zoom`;
       }
       function drawRegions(W){
         const left=110,top=46,right=30,bottom=90,rowGap=84,rowH=34,H=460;
         const muscles=["Biceps brachii","Brachialis","Brachioradialis"];
-        const plotW=Math.max(560,W-left-right);
+        const plotW=Math.max(10,W-left-right);
         canvas.style.height=H+"px";
         const dpr=window.devicePixelRatio||1;
         canvas.width=Math.floor(W*dpr); canvas.height=Math.floor(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -195,7 +199,8 @@
         statusEl.textContent=`${visible.length} regional findings shown`;
       }
       function draw(){
-        const W=Math.max(760,stage.clientWidth||760);
+        const baseW=Math.max(320,stage.clientWidth||320);
+        const W=Math.max(baseW,Math.round(baseW*(modeKey==="volume"?zoomX:1)));
         subtitleEl.textContent=currentMode().subtitle;
         hintEl.textContent=currentMode().hint;
         overlayEl.textContent=currentMode().overlay;
@@ -204,13 +209,24 @@
       function applyMode(){activeName=null;buildItems();rebuildChecks();syncActiveRows();draw()}
 
       modeEl.addEventListener("change",()=>{modeKey=modeEl.value;applyMode()});
+      document.getElementById("fit").addEventListener("click",resetViewport);
+      document.getElementById("reset").addEventListener("click",()=>{activeName=null;syncActiveRows();resetViewport()});
       document.getElementById("all").addEventListener("click",()=>{for(const item of items)item.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});
       document.getElementById("none").addEventListener("click",()=>{for(const item of items)item.visible=false;activeName=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});
-      stage.addEventListener("pointermove",e=>{const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;const hit=hits.find(h=>x>=h.x&&x<=h.x+h.w&&y>=h.y&&y<=h.y+h.h);if(!hit){hideTip();return}if(modeKey==="volume"){showTip(`<div><strong>${hit.item.name}</strong></div><div class="muted">${hit.item.value.toFixed(1)}% change</div><div class="muted">${hit.item.note}</div>`,x,y)}else{showTip(`<div><strong>${hit.item.muscle}</strong></div><div class="muted">${hit.item.text}</div>`,x,y)}});
-      stage.addEventListener("pointerleave",hideTip);
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0||modeKey!=="volume")return;dragging=true;dragStartX=e.clientX;dragStartScrollLeft=stage.scrollLeft;stage.classList.add("is-dragging");stage.setPointerCapture(e.pointerId);hideTip()});
+      stage.addEventListener("pointermove",e=>{if(dragging&&modeKey==="volume"){stage.scrollLeft=Math.max(0,dragStartScrollLeft-(e.clientX-dragStartX));return}const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,contentX=x+(modeKey==="volume"?stage.scrollLeft:0);const hit=hits.find(h=>contentX>=h.x&&contentX<=h.x+h.w&&y>=h.y&&y<=h.y+h.h);if(!hit){hideTip();return}if(modeKey==="volume"){showTip(`<div><strong>${hit.item.name}</strong></div><div class="muted">${hit.item.value.toFixed(1)}% change</div><div class="muted">${hit.item.note}</div>`,x,y)}else{showTip(`<div><strong>${hit.item.muscle}</strong></div><div class="muted">${hit.item.text}</div>`,x,y)}});
+      stage.addEventListener("pointerup",()=>{dragging=false;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointercancel",()=>{dragging=false;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip()});
+      stage.addEventListener("wheel",e=>{if(modeKey!=="volume")return;const r=stage.getBoundingClientRect(),x=e.clientX-r.left;if(x<0||x>r.width)return;e.preventDefault();const prev=zoomX,next=Math.max(1,Math.min(3.5,prev*(e.deltaY>0?1/1.12:1.12)));if(Math.abs(next-prev)<1e-4)return;const anchor=(stage.scrollLeft+x)/Math.max(prev,1e-6);zoomX=next;draw();stage.scrollLeft=Math.max(0,anchor*zoomX-x)},{passive:false});
       window.addEventListener("resize",draw);
       populateModes();
       applyMode();
     </script>
   </body>
 </html>
+
+
+
+
+

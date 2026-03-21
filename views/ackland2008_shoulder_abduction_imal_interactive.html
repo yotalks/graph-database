@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -25,7 +25,7 @@
         color: var(--text);
         overflow: hidden;
       }
-      .wrap { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+      .wrap { min-height: 100dvh; height: 100%; display: grid; grid-template-rows: auto 1fr; }
       .top {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -51,7 +51,7 @@
       }
       .btn:hover { background: var(--btnHover); }
       .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
-      .main { position: relative; display: grid; grid-template-columns: 300px 1fr; min-height: 0; }
+      .main { position: relative; display: grid; grid-template-columns: minmax(230px, 28vw) 1fr; min-height: 0; }
       .left {
         border-right: 1px solid var(--border);
         background: var(--panel2);
@@ -81,7 +81,7 @@
       .swatch { width: 12px; height: 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25); }
       .check label { font-size: 12px; font-weight: 650; }
       .hint { margin: 8px 4px 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
-      .stage { position: relative; overflow: hidden; min-width: 0; }
+      .stage { position: relative; overflow: hidden; min-width: 0; height: min(58dvh, calc(100dvh - 210px)); min-height: 280px; }
       canvas { width: 100%; height: 100%; display: block; }
       .overlay {
         position: absolute;
@@ -118,16 +118,16 @@
         .btn { padding: 6px 9px; font-size: 11px; }
         .status { width: 100%; white-space: normal; }
         .subtitle { display: none; }
-        .main { grid-template-columns: 1fr; grid-template-rows: auto minmax(540px, 78vh); }
+        .main { display: flex; flex-direction: column; }
         .left {
           border-right: none;
           border-bottom: 1px solid var(--border);
-          max-height: 22vh;
+          order: 2; max-height: min(14rem, 20dvh);
           padding-bottom: 8px;
         }
         .hint { display: none; }
         .check { margin: 6px 4px; padding: 7px 8px; }
-        .stage { min-height: 540px; }
+        .stage { order: 1; min-height: clamp(260px, 52dvh, 440px); flex: 0 0 auto; }
         .overlay { display: none; }
       }
     </style>
@@ -137,7 +137,7 @@
       <div class="top">
         <div>
           <div class="title">Ackland et al. (PMC2644775) - Shoulder abduction IMALs (black coronal curves)</div>
-          <div class="subtitle">Abduction only: segments with y â‰¤ 0 are hidden (no flat zeros). Solid = 0â€“120Â° (reported). Dashed = extrapolated from -30&#8211;0&#176; and 120&#8211;150&#176;.</div>
+          <div class="subtitle">Abduction only: segments with y ≤ 0 are hidden (no flat zeros). Solid = 0–120° (reported). Dashed = extrapolated from -30&#8211;0&#176; and 120&#8211;150&#176;.</div>
         </div>
         <div class="controls">
           <button id="fit" class="btn">Fit</button>
@@ -418,6 +418,8 @@
         if (!activeMuscle) return null;
         const active = muscles.find(m => m.name === activeMuscle && m.visible);
         if (!active) return null;
+        const visibleOthers = muscles.filter(m => m.visible && m.name !== active.name);
+        if (!visibleOthers.length) return null;
         let best = null;
         const from = Math.max(X_BOUNDS.min, Math.ceil(view.xMin));
         const to = Math.min(X_BOUNDS.max, Math.floor(view.xMax));
@@ -425,13 +427,13 @@
           const activeY = yAtVisible(active, deg);
           if (activeY === null) continue;
           let strongestOther = 0;
-          for (const m of muscles) {
-            if (!m.visible || m.name === active.name) continue;
+          for (const m of visibleOthers) {
             const y = yAtVisible(m, deg);
             if (y === null) continue;
             strongestOther = Math.max(strongestOther, Math.abs(y));
           }
-          const ratio = Math.abs(activeY) / Math.max(strongestOther, 1e-6);
+          if (strongestOther <= 0) continue;
+          const ratio = Math.abs(activeY) / strongestOther;
           if (!best || ratio > best.ratio) {
             best = { deg, ratio };
           }
@@ -685,7 +687,7 @@
 
         if (!best || best.dist > 10) { hideTip(); return; }
         showTip(
-          `<div><strong>Region: ${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}Â° | ${best.yy.toFixed(1)} mm</div>`,
+          `<div><strong>Region: ${best.m.name}</strong></div><div class="muted">${best.deg.toFixed(1)}° | ${best.yy.toFixed(1)} mm</div>`,
           x, y
         );
       });
@@ -721,4 +723,9 @@
     </script>
   </body>
 </html>
+
+
+
+
+
 

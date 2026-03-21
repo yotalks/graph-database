@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -25,7 +25,7 @@
         color: var(--text);
         overflow: hidden;
       }
-      .wrap { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+      .wrap { min-height: 100dvh; height: 100%; display: grid; grid-template-rows: auto 1fr; }
       .top {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -51,7 +51,7 @@
       }
       .btn:hover { background: var(--btnHover); }
       .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
-      .main { position: relative; display: grid; grid-template-columns: 330px 1fr; min-height: 0; }
+      .main { position: relative; display: grid; grid-template-columns: minmax(240px, 30vw) 1fr; min-height: 0; }
       .left {
         border-right: 1px solid var(--border);
         background: var(--panel2);
@@ -75,7 +75,7 @@
       .hint { margin: 8px 4px 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
       .hint a { color: #93c5fd; text-decoration: none; }
       .hint a:hover { text-decoration: underline; }
-      .stage { position: relative; overflow: hidden; min-width: 0; }
+      .stage { position: relative; overflow: hidden; min-width: 0; height: min(58dvh, calc(100dvh - 210px)); min-height: 280px; }
       canvas { width: 100%; height: 100%; display: block; }
       .overlay {
         position: absolute;
@@ -114,8 +114,8 @@
     <div class="wrap">
       <div class="top">
         <div>
-          <div class="title">Kuechle et al. (1997) - Horizontal flexion IMALs (humerus at 90Â° elevation)</div>
-          <div class="subtitle">Moment arms digitized (approx) from Fig. 9. Flexion is shown as positive (paper uses flexors as negative). Segments with y â‰¤ 0 are hidden.</div>
+          <div class="title">Kuechle et al. (1997) - Horizontal flexion IMALs (humerus at 90° elevation)</div>
+          <div class="subtitle">Moment arms digitized (approx) from Fig. 9. Flexion is shown as positive (paper uses flexors as negative). Segments with y ≤ 0 are hidden.</div>
         </div>
         <div class="controls">
           <button id="fit" class="btn">Fit</button>
@@ -130,7 +130,7 @@
           <div class="sectionTitle">Toggle lines</div>
           <div id="checks"></div>
           <div class="hint">
-            Vertical markers: <strong>0Â°</strong> (arms out to sides / coronal) and <strong>90Â°</strong> (straight in front / sagittal).
+            Vertical markers: <strong>0°</strong> (arms out to sides / coronal) and <strong>90°</strong> (straight in front / sagittal).
             <div style="margin-top:8px;">Want more precision? Use the <a href="digitizer.html">Digitizer</a> with Fig. 9.</div>
           </div>
         </div>
@@ -295,10 +295,10 @@
         ctx.strokeStyle = "rgba(255,255,255,0.28)";
         ctx.beginPath(); ctx.rect(padL, padT, w, h); ctx.stroke();
 
-        // Markers at 0Â° and 90Â°
+        // Markers at 0° and 90°
         const markers = [
-          { x: 0, label: "Out to sides (0Â°)" },
-          { x: 90, label: "Straight ahead (90Â°)" },
+          { x: 0, label: "Out to sides (0°)" },
+          { x: 90, label: "Straight ahead (90°)" },
         ];
         for (const m of markers) {
           if (m.x < view.xMin || m.x > view.xMax) continue;
@@ -474,7 +474,7 @@
         const deg = pxToX(best.cx, w, padL);
         const val = pxToY(best.cy, h, padT);
         showTip(
-          `<div><strong>Region: ${best.s.name}</strong></div><div class="muted">${deg.toFixed(1)}Â° | ${val.toFixed(2)} cm</div>`,
+          `<div><strong>Region: ${best.s.name}</strong></div><div class="muted">${deg.toFixed(1)}° | ${val.toFixed(2)} cm</div>`,
           x, y
         );
       });
@@ -508,4 +508,7 @@
     </script>
   </body>
 </html>
+
+
+
 

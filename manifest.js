@@ -6,128 +6,149 @@ window.GRAPH_MANIFEST = {
                        "title":  "Adduction IMALs",
                        "file":  "views/ackland2008_shoulder_adductors_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:20:37.6236377-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.6855869-04:00"
                    },
                    {
                        "id":  "ackland2008_shoulder_abduction_imal_interactive",
                        "title":  "Abduction IMALs",
                        "file":  "views/ackland2008_shoulder_abduction_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:20:37.6221293-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.6845849-04:00"
                    },
                    {
                        "id":  "kuechle1997_shoulder_imal_interactive",
                        "title":  "Kuechle Shoulder IMALs",
                        "file":  "views/kuechle1997_shoulder_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:37:10.8143321-04:00"
+                       "updatedAt":  "2026-03-20T01:51:08.2449212-04:00"
                    },
                    {
                        "id":  "ackland2008_shoulder_flexion_imal_interactive",
                        "title":  "Flexion IMALs",
                        "file":  "views/ackland2008_shoulder_flexion_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:20:37.6256410-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.6885842-04:00"
                    },
                    {
                        "id":  "ackland2008_shoulder_extension_imal_interactive",
                        "title":  "Extension IMALs",
                        "file":  "views/ackland2008_shoulder_extension_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:20:37.6246404-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.6875841-04:00"
                    },
                    {
                        "id":  "murray1995_elbow_flexor_imal_interactive",
                        "title":  "Elbow flexor IMAL",
                        "file":  "views/murray1995_elbow_flexor_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:20:37.6286391-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.7035847-04:00"
                    },
                    {
                        "id":  "ettema1998_upper_limb_imal_interactive",
                        "title":  "Ettema IMALs",
                        "file":  "views/ettema1998_upper_limb_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:37:10.8103324-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.6955859-04:00"
                    },
                    {
                        "id":  "buford1997_knee_extension_imal_interactive",
                        "title":  "Knee extension IMAL",
                        "file":  "views/buford1997_knee_extension_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:16:56.9599567-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.6945847-04:00"
                    },
                    {
                        "id":  "nemeth1985_hip_extension_imal_interactive",
                        "title":  "Hip extension IMAL",
                        "file":  "views/nemeth1985_hip_extension_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:37:10.8173326-04:00"
+                       "updatedAt":  "2026-03-20T01:50:18.7015845-04:00"
                    },
                    {
                        "id":  "song2020_hip_abduction_imal_interactive",
                        "title":  "Hip abduction IMAL",
                        "file":  "views/song2020_hip_abduction_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:37:10.8193363-04:00"
+                       "updatedAt":  "2026-03-19T21:35:38.1938227-04:00"
                    },
                    {
                        "id":  "kleinhorsman2007_hip_adduction_imal_interactive",
                        "title":  "Hip adduction IMAL",
                        "file":  "views/kleinhorsman2007_hip_adduction_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:16:11.3895479-04:00"
+                       "updatedAt":  "2026-03-19T00:50:39.5534821-04:00"
                    },
                    {
                        "id":  "ackland2011_neck_imal_interactive",
                        "title":  "Neck IMAL",
                        "file":  "views/ackland2011_neck_imal_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:37:10.8073318-04:00"
+                       "updatedAt":  "2026-03-19T00:50:39.5419678-04:00"
                    },
                    {
                        "id":  "lube2015_muscle_sizes_interactive",
                        "title":  "Muscle sizes",
                        "file":  "views/lube2015_muscle_sizes_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:44:28.4909482-04:00"
+                       "updatedAt":  "2026-03-19T00:50:39.5953724-04:00"
                    },
                    {
                        "id":  "ochi2016_elbow_flexor_swelling_chart",
                        "title":  "Ochi 2016 swelling",
                        "file":  "views/ochi2016_elbow_flexor_swelling_chart.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T15:27:52.0039769-04:00"
+                       "updatedAt":  "2026-03-19T01:09:34.1379985-04:00"
                    },
                    {
                        "id":  "landin2015_gastrocnemius_torque_interactive",
                        "title":  "Gastrocnemius plantarflexion torque",
                        "file":  "views/landin2015_gastrocnemius_torque_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T15:47:19.1301807-04:00"
+                       "updatedAt":  "2026-03-19T00:50:39.5913675-04:00"
                    },
                    {
                        "id":  "ecss2024_arm_curl_hypertrophy_interactive",
                        "title":  "Incline vs preacher curl hypertrophy",
                        "file":  "views/ecss2024_arm_curl_hypertrophy_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T16:11:35.5733822-04:00"
+                       "updatedAt":  "2026-03-19T21:32:30.4264506-04:00"
                    },
                    {
                        "id":  "tsuchiya2015_elbow_flexor_csa_interactive",
                        "title":  "Elbow flexor ECC CSA",
                        "file":  "views/tsuchiya2015_elbow_flexor_csa_interactive.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T23:39:47.8672495-04:00"
+                       "updatedAt":  "2026-03-19T00:50:39.6138810-04:00"
+                   },
+                   {
+                       "id":  "ejsc2025_preacher_vs_bayesian_curl_interactive",
+                       "title":  "Preacher vs Bayesian curls",
+                       "file":  "views/ejsc2025_preacher_vs_bayesian_curl_interactive.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-19T21:32:52.4105094-04:00"
+                   },
+                   {
+                       "id":  "kassiano2022_calf_raise_swelling_interactive",
+                       "title":  "Calf raise swelling",
+                       "file":  "views/kassiano2022_calf_raise_swelling_interactive.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-19T21:43:06.2724378-04:00"
+                   },
+                   {
+                       "id":  "kinoshita2023_triceps_surae_hypertrophy_interactive",
+                       "title":  "Standing vs seated calf hypertrophy",
+                       "file":  "views/kinoshita2023_triceps_surae_hypertrophy_interactive.html",
+                       "kind":  "interactive",
+                       "updatedAt":  "2026-03-19T21:32:10.7753176-04:00"
                    },
                    {
                        "id":  "digitizer",
                        "title":  "Digitizer",
                        "file":  "views/digitizer.html",
                        "kind":  "interactive",
-                       "updatedAt":  "2026-03-18T14:37:10.8083317-04:00"
+                       "updatedAt":  "2026-03-19T00:50:39.5439693-04:00"
                    }
                ],
-    "generatedAt":  "2026-03-18T23:40:09.3074948-04:00"
+    "generatedAt":  "2026-03-20T01:51:18.4415711-04:00"
 };
 

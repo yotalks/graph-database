@@ -20,6 +20,7 @@ body {
               radial-gradient(900px 700px at 80% 15%, rgba(34,197,94,0.12), transparent 45%),
               var(--bg);
   color: var(--text);
+  overflow: hidden;
 }
 
 code {
@@ -32,7 +33,8 @@ code {
   height: 100%;
   min-height: 100dvh;
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: clamp(260px, 28vw, 340px) 1fr;
+  overflow: hidden;
 }
 
 .sidebar {
@@ -41,7 +43,9 @@ code {
   backdrop-filter: blur(12px);
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-width: 320px;
+  min-width: 240px;
+  min-height: 0;
+  height: 100dvh;
 }
 
 .sidebar__header { padding: 16px 16px 10px; }
@@ -59,7 +63,7 @@ code {
 }
 .search:focus { border-color: rgba(96,165,250,0.45); box-shadow: 0 0 0 3px rgba(96,165,250,0.15); }
 
-.sidebar__content { overflow: auto; padding: 6px 10px 10px; }
+.sidebar__content { overflow: auto; min-height: 0; padding: 6px 10px 10px; overscroll-behavior: contain; }
 .empty { padding: 12px 8px; color: var(--muted); font-size: 13px; line-height: 1.4; }
 .graph-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .graph-item {
@@ -84,6 +88,8 @@ code {
   grid-template-rows: auto 1fr;
   min-width: 0;
   min-height: 0;
+  overflow: hidden;
+  height: 100dvh;
 }
 
 .toolbar {
@@ -116,7 +122,7 @@ code {
   position: relative;
   overflow: hidden;
   outline: none;
-  min-height: 320px;
+  min-height: min(50dvh, 360px);
 }
 
 .hint {
@@ -296,6 +302,15 @@ code {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .viewer {
+    order: 1;
+  }
+
+  .sidebar {
+    order: 2;
   }
 
   .sidebar {
@@ -305,15 +320,15 @@ code {
   }
 
   .sidebar__content {
-    max-height: 30dvh;
+    max-height: 20dvh;
   }
 
   .viewer {
-    min-height: 76dvh;
+    min-height: 62dvh;
   }
 
   .stage {
-    min-height: 72dvh;
+    min-height: 52dvh;
   }
 
   .toolbar {
@@ -338,3 +353,6 @@ code {
     bottom: 3px;
   }
 }
+
+
+

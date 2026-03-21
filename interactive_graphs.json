@@ -111,6 +111,24 @@
         "kind":  "interactive"
     },
     {
+        "id":  "ejsc2025_preacher_vs_bayesian_curl_interactive",
+        "title":  "Preacher vs Bayesian curls",
+        "file":  "views/ejsc2025_preacher_vs_bayesian_curl_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "kassiano2022_calf_raise_swelling_interactive",
+        "title":  "Calf raise swelling",
+        "file":  "views/kassiano2022_calf_raise_swelling_interactive.html",
+        "kind":  "interactive"
+    },
+    {
+        "id":  "kinoshita2023_triceps_surae_hypertrophy_interactive",
+        "title":  "Standing vs seated calf hypertrophy",
+        "file":  "views/kinoshita2023_triceps_surae_hypertrophy_interactive.html",
+        "kind":  "interactive"
+    },
+    {
         "id":  "digitizer",
         "title":  "Digitizer",
         "file":  "views/digitizer.html",

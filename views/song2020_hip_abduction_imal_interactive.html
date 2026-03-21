@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -8,15 +8,15 @@
       :root{--bg:#0b0f17;--panel:rgba(17,24,39,.55);--panel2:rgba(15,23,42,.65);--text:#e5e7eb;--muted:#9ca3af;--border:rgba(255,255,255,.08);--btn:rgba(255,255,255,.08);--btnHover:rgba(255,255,255,.12)}
       *{box-sizing:border-box} html,body{height:100%;margin:0}
       body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% 10%,rgba(96,165,250,.15),transparent 45%),radial-gradient(900px 700px at 80% 15%,rgba(34,197,94,.12),transparent 45%),var(--bg);color:var(--text);overflow:hidden}
-      .wrap{height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
+      .wrap{min-height:100dvh;height:100%;display:grid;grid-template-rows:auto 1fr}.top{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);background:var(--panel);backdrop-filter:blur(12px);align-items:center}
       .title{font-weight:750;font-size:13px}.subtitle{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
       .btn,select{border:1px solid var(--border);background:var(--btn);color:var(--text);padding:7px 10px;border-radius:12px;font-weight:650;font-size:12px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.btn{cursor:pointer} select,option,optgroup{background:var(--panel);color:var(--text)}.btn:hover{background:var(--btnHover)}.status{color:var(--muted);font-size:12px;white-space:nowrap}
-      .main{display:grid;grid-template-columns:320px 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
+      .main{display:grid;grid-template-columns: minmax(240px, 30vw) 1fr;min-height:0}.left{border-right:1px solid var(--border);background:var(--panel2);backdrop-filter:blur(12px);padding:10px 10px 12px;overflow:auto}.sectionTitle{font-weight:750;font-size:12px;margin:4px 4px 10px;color:var(--muted)}
       .check{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--border);border-radius:14px;margin:8px 4px;background:rgba(0,0,0,.14);cursor:pointer;transition:background 120ms ease,border-color 120ms ease,box-shadow 120ms ease}.check:hover{background:rgba(255,255,255,.05)}.check.active{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}.swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}.check label{font-size:12px;font-weight:650}
-      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.35}.stage{position:relative;overflow:hidden;min-width:0} canvas{width:100%;height:100%;display:block}
+      .hint{margin:8px 4px 0;font-size:12px;color:var(--muted);line-height:1.35}.stage{position:relative;overflow:hidden;min-width:0;height:min(58dvh,calc(100dvh - 210px));min-height:280px;touch-action:none;cursor:grab}.stage.is-dragging{cursor:grabbing} canvas{width:100%;height:100%;display:block}
       .overlay{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:14px;padding:8px 10px;color:var(--muted);font-size:12px;backdrop-filter:blur(8px)}
       .tooltip{position:absolute;pointer-events:none;background:rgba(0,0,0,.8);border:1px solid var(--border);border-radius:12px;padding:8px 10px;color:var(--text);font-size:12px;display:none;z-index:20;backdrop-filter:blur(8px)} .tooltip .muted{color:var(--muted);font-weight:650}
-      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(620px,84vh)}.left{border-right:none;border-bottom:1px solid var(--border);max-height:24vh;padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:620px}}
+      @media (max-width:860px){html,body{height:auto;overflow:auto}body{overflow:auto}.wrap{height:auto;min-height:100vh;grid-template-rows:auto auto}.top{grid-template-columns:1fr}.controls{justify-content:flex-start;gap:6px}.btn,select{padding:6px 9px;font-size:11px} option,optgroup{background:var(--panel2, var(--panel));color:var(--text)}.status{width:100%;white-space:normal}.subtitle,.hint,.overlay{display:none}.main{grid-template-columns:1fr;grid-template-rows:auto minmax(620px,84vh)}.left{border-right:none;border-bottom:1px solid var(--border);order: 2; max-height: min(14rem, 20dvh);padding-bottom:8px}.check{margin:6px 4px;padding:7px 8px}.stage{min-height:620px}}
     </style>
   </head>
   <body>
@@ -28,6 +28,8 @@
         </div>
         <div class="controls">
           <select id="dataset"></select>
+          <button id="fit" class="btn">Fit</button>
+          <button id="reset" class="btn">Reset</button>
           <button id="all" class="btn">Show all</button>
           <button id="none" class="btn">Hide all</button>
           <div id="status" class="status"></div>
@@ -37,7 +39,7 @@
         <div class="left">
           <div class="sectionTitle">Toggle muscles</div>
           <div id="checks"></div>
-          <div class="hint">This page has both exact Table 3 values and a larger figure-based reconstruction. Negative values are abduction and positive values are adduction, matching the paperâ€™s sign convention.</div>
+          <div class="hint">This page has both exact Table 3 values and a larger figure-based reconstruction. Negative values are abduction and positive values are adduction, matching the paper’s sign convention.</div>
         </div>
         <div id="stage" class="stage">
           <canvas id="c"></canvas>
@@ -101,14 +103,15 @@
       };
 
       const datasetEl=document.getElementById("dataset"),checksEl=document.getElementById("checks"),subtitleEl=document.getElementById("subtitle"),stage=document.getElementById("stage"),canvas=document.getElementById("c"),ctx=canvas.getContext("2d"),status=document.getElementById("status"),tip=document.getElementById("tip");
-      let key="expanded_reconstruction",muscles=[],activeSeries=null,barHits=[];
+      let key="expanded_reconstruction",muscles=[],activeSeries=null,barHits=[],zoomX=1,dragging=false,dragStartX=0,dragStartScrollLeft=0;
       const mode=()=>DATA[key];
       function populate(){for(const [k,v] of Object.entries(DATA)){const opt=document.createElement("option");opt.value=k;opt.textContent=v.label;datasetEl.appendChild(opt)}datasetEl.value=key}
       function buildMuscles(){muscles=Object.entries(mode().muscles).map(([name,vals])=>({name,color:COLORS[name]||"#cbd5e1",visible:true,vals}))}
       function syncActiveRows(){for(const row of checksEl.querySelectorAll(".check"))row.classList.toggle("active",row.dataset.name===activeSeries)}
       function rebuildChecks(){checksEl.innerHTML="";for(const m of muscles){const row=document.createElement("div");row.className="check";row.dataset.name=m.name;const cb=document.createElement("input");cb.type="checkbox";cb.checked=m.visible;cb.addEventListener("click",e=>e.stopPropagation());cb.addEventListener("change",()=>{m.visible=cb.checked;if(!m.visible&&activeSeries===m.name)activeSeries=null;syncActiveRows();draw()});const sw=document.createElement("div");sw.className="swatch";sw.style.background=m.color;const lab=document.createElement("label");lab.textContent=m.name;row.addEventListener("click",()=>{activeSeries=activeSeries===m.name?null:m.name;syncActiveRows();draw()});row.append(cb,sw,lab);checksEl.appendChild(row)}}
       function applyMode(){activeSeries=null;subtitleEl.textContent=mode().subtitle;buildMuscles();rebuildChecks();draw()}
-      function resize(){const r=stage.getBoundingClientRect(),dpr=window.devicePixelRatio||1;canvas.width=Math.max(1,Math.floor(r.width*dpr));canvas.height=Math.max(1,Math.floor(r.height*dpr));canvas.style.width=r.width+"px";canvas.style.height=r.height+"px";ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+      function resize(){draw()}
+      function resetViewport(){zoomX=1;stage.scrollLeft=0;draw()}
       function hideTip(){tip.style.display="none"} function showTip(html,x,y){tip.innerHTML=html;tip.style.display="block";const r=stage.getBoundingClientRect(),tr=tip.getBoundingClientRect(),pad=14;tip.style.left=Math.max(pad,Math.min(r.width-tr.width-pad,x+pad))+"px";tip.style.top=Math.max(pad,Math.min(r.height-tr.height-pad,y+pad))+"px"}
       function yRange(){const visible=muscles.filter(m=>m.visible);let min=-60,max=10;for(const m of visible){for(const phase of ["jrf1","jrf2"]){const v=m.vals[phase];min=Math.min(min,(v.mean-(v.sd??0))-3);max=Math.max(max,(v.mean+(v.sd??0))+3)}}if(max<8)max=8;if(min>-55)min=-55;return{min,max}}
       function yToPx(y,top,h,range){return top+(range.max-y)*(h/Math.max(1e-6,range.max-range.min))}
@@ -116,15 +119,26 @@
       function drawAxes(left,top,w,h,range){const yStep=niceStep(range.max-range.min);ctx.save();ctx.strokeStyle="rgba(255,255,255,.08)";ctx.lineWidth=1;for(let y=Math.ceil(range.min/yStep)*yStep;y<=range.max+1e-6;y+=yStep){const py=yToPx(y,top,h,range);ctx.beginPath();ctx.moveTo(left,py);ctx.lineTo(left+w,py);ctx.stroke()}ctx.strokeStyle="rgba(255,255,255,.28)";ctx.strokeRect(left,top,w,h);const zeroY=yToPx(0,top,h,range);ctx.strokeStyle="rgba(255,255,255,.4)";ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(left,zeroY);ctx.lineTo(left+w,zeroY);ctx.stroke();ctx.fillStyle="rgba(229,231,235,.92)";ctx.font="12px Segoe UI, system-ui";ctx.textAlign="right";for(let y=Math.ceil(range.min/yStep)*yStep;y<=range.max+1e-6;y+=yStep)ctx.fillText(String(Math.round(y*10)/10),left-8,yToPx(y,top,h,range)+4);ctx.textAlign="center";ctx.fillStyle="rgba(156,163,175,.95)";ctx.fillText("Early stance (JRF1)",left+w*0.25,top+h+24);ctx.fillText("Late stance (JRF2)",left+w*0.75,top+h+24);ctx.fillText("Hip adduction / abduction moment arm (mm)",left+w/2,top+h+50);ctx.save();ctx.translate(18,top+h/2);ctx.rotate(-Math.PI/2);ctx.fillText("Positive = adduction | Negative = abduction",0,0);ctx.restore();ctx.restore()}
       function drawErrorBar(x,mean,sd,top,h,range,color,alpha){if(sd===undefined||sd===null)return;const y1=yToPx(mean-sd,top,h,range),y2=yToPx(mean+sd,top,h,range);ctx.save();ctx.strokeStyle=color;ctx.globalAlpha=alpha;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,y1);ctx.lineTo(x,y2);ctx.stroke();ctx.beginPath();ctx.moveTo(x-6,y1);ctx.lineTo(x+6,y1);ctx.moveTo(x-6,y2);ctx.lineTo(x+6,y2);ctx.stroke();ctx.restore()}
       function shortLabel(name){return({"Anterior gluteus medius":"Ant GMed","Tensor fasciae latae":"TFL","Gluteus maximus (anterior)":"GMax ant","Gluteus maximus (middle)":"GMax mid","Gluteus medius (middle)":"GMed mid","Gluteus medius (posterior)":"GMed post","Gluteus minimus (anterior)":"GMin ant","Gluteus minimus (middle)":"GMin mid","Gluteus minimus (posterior)":"GMin post","Piriformis":"Piri"}[name])||name}
-      function draw(){const r=stage.getBoundingClientRect(),W=r.width,H=r.height,left=84,top=24,right=24,bottom=108,w=Math.max(10,W-left-right),h=Math.max(10,H-top-bottom),range=yRange();ctx.clearRect(0,0,W,H);drawAxes(left,top,w,h,range);barHits=[];const visible=muscles.filter(m=>m.visible),phases=["jrf1","jrf2"],groupCenters=[left+w*0.25,left+w*0.75],groupWidth=w*0.39,maxBars=Math.max(1,visible.length),gap=maxBars>7?5:8,barW=Math.min(44,groupWidth/(maxBars+0.5));for(let g=0;g<phases.length;g++){const center=groupCenters[g],totalWidth=maxBars*barW+(maxBars-1)*gap,start=center-totalWidth/2;visible.forEach((m,i)=>{const val=m.vals[phases[g]],x=start+i*(barW+gap),y0=yToPx(0,top,h,range),y1=yToPx(val.mean,top,h,range),barTop=Math.min(y0,y1),barH=Math.max(2,Math.abs(y1-y0)),isActive=activeSeries===m.name,hasActive=!!activeSeries,alpha=hasActive?(isActive?1:.18):1;ctx.save();ctx.fillStyle=m.color;ctx.globalAlpha=alpha;ctx.shadowColor=isActive?m.color:"transparent";ctx.shadowBlur=isActive?18:0;ctx.fillRect(x,barTop,barW,barH);ctx.restore();drawErrorBar(x+barW/2,val.mean,val.sd,top,h,range,m.color,alpha);ctx.fillStyle="rgba(229,231,235,.86)";ctx.globalAlpha=alpha;ctx.save();ctx.translate(x+barW/2,top+h+10);ctx.rotate(-Math.PI/4.6);ctx.textAlign="right";ctx.font="10.5px Segoe UI, system-ui";ctx.fillText(shortLabel(m.name),0,0);ctx.restore();barHits.push({x,y:barTop,w:barW,h:barH,name:m.name,phase:phases[g],mean:val.mean,sd:val.sd})})}status.textContent=`${mode().label} | ${visible.length} muscles shown`}
+      function draw(){const r=stage.getBoundingClientRect(),baseW=r.width,W=Math.max(baseW,Math.round(baseW*zoomX)),H=r.height,dpr=window.devicePixelRatio||1;canvas.width=Math.max(1,Math.floor(W*dpr));canvas.height=Math.max(1,Math.floor(H*dpr));canvas.style.width=W+"px";canvas.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);const left=84,top=24,right=24,bottom=108,w=Math.max(10,W-left-right),h=Math.max(10,H-top-bottom),range=yRange();ctx.clearRect(0,0,W,H);drawAxes(left,top,w,h,range);barHits=[];const visible=muscles.filter(m=>m.visible),phases=["jrf1","jrf2"],groupCenters=[left+w*0.25,left+w*0.75],groupWidth=w*0.39,maxBars=Math.max(1,visible.length),gap=maxBars>7?5:8,barW=Math.min(44,groupWidth/(maxBars+0.5));for(let g=0;g<phases.length;g++){const center=groupCenters[g],totalWidth=maxBars*barW+(maxBars-1)*gap,start=center-totalWidth/2;visible.forEach((m,i)=>{const val=m.vals[phases[g]],x=start+i*(barW+gap),y0=yToPx(0,top,h,range),y1=yToPx(val.mean,top,h,range),barTop=Math.min(y0,y1),barH=Math.max(2,Math.abs(y1-y0)),isActive=activeSeries===m.name,hasActive=!!activeSeries,alpha=hasActive?(isActive?1:.18):1;ctx.save();ctx.fillStyle=m.color;ctx.globalAlpha=alpha;ctx.shadowColor=isActive?m.color:"transparent";ctx.shadowBlur=isActive?18:0;ctx.fillRect(x,barTop,barW,barH);ctx.restore();drawErrorBar(x+barW/2,val.mean,val.sd,top,h,range,m.color,alpha);ctx.fillStyle="rgba(229,231,235,.86)";ctx.globalAlpha=alpha;ctx.save();ctx.translate(x+barW/2,top+h+10);ctx.rotate(-Math.PI/4.6);ctx.textAlign="right";ctx.font="10.5px Segoe UI, system-ui";ctx.fillText(shortLabel(m.name),0,0);ctx.restore();barHits.push({x,y:barTop,w:barW,h:barH,name:m.name,phase:phases[g],mean:val.mean,sd:val.sd})})}status.textContent=`${mode().label} | ${visible.length} muscles shown • ${Math.round(zoomX*100)}% zoom`}
       function hitBar(x,y){for(let i=barHits.length-1;i>=0;i--){const b=barHits[i];if(x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)return b}return null}
       datasetEl.addEventListener("change",()=>{key=datasetEl.value;applyMode()});
+      document.getElementById("fit").addEventListener("click",resetViewport);
+      document.getElementById("reset").addEventListener("click",()=>{activeSeries=null;syncActiveRows();resetViewport()});
       document.getElementById("all").addEventListener("click",()=>{for(const m of muscles)m.visible=true;for(const cb of checksEl.querySelectorAll("input"))cb.checked=true;syncActiveRows();draw()});
       document.getElementById("none").addEventListener("click",()=>{for(const m of muscles)m.visible=false;activeSeries=null;for(const cb of checksEl.querySelectorAll("input"))cb.checked=false;syncActiveRows();draw()});
       window.addEventListener("resize",resize);
-      stage.addEventListener("pointermove",e=>{const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,hit=hitBar(x,y);if(!hit){hideTip();return}const sdText=hit.sd===undefined||hit.sd===null?`<span class="muted">figure reconstruction</span>`:`<span class="muted">Â± ${hit.sd.toFixed(1)} SD</span>`;showTip(`<div><strong>${hit.name}</strong></div><div class="muted">${hit.phase==="jrf1"?"Early stance (JRF1)":"Late stance (JRF2)"}</div><div>${hit.mean.toFixed(1)} mm ${sdText}</div>`,x,y)});
-      stage.addEventListener("pointerleave",hideTip);
+      stage.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragging=true;dragStartX=e.clientX;dragStartScrollLeft=stage.scrollLeft;stage.classList.add("is-dragging");stage.setPointerCapture(e.pointerId);hideTip()});
+      stage.addEventListener("pointermove",e=>{if(dragging){stage.scrollLeft=Math.max(0,dragStartScrollLeft-(e.clientX-dragStartX));return}const r=stage.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,hit=hitBar(x+stage.scrollLeft,y);if(!hit){hideTip();return}const sdText=hit.sd===undefined||hit.sd===null?`<span class="muted">figure reconstruction</span>`:`<span class="muted">� ${hit.sd.toFixed(1)} SD</span>`;showTip(`<div><strong>${hit.name}</strong></div><div class="muted">${hit.phase==="jrf1"?"Early stance (JRF1)":"Late stance (JRF2)"}</div><div>${hit.mean.toFixed(1)} mm ${sdText}</div>`,x,y)});
+      stage.addEventListener("pointerup",()=>{dragging=false;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointercancel",()=>{dragging=false;stage.classList.remove("is-dragging")});
+      stage.addEventListener("pointerleave",()=>{if(!dragging)hideTip()});
+      stage.addEventListener("wheel",e=>{const r=stage.getBoundingClientRect(),x=e.clientX-r.left;if(x<0||x>r.width)return;e.preventDefault();const prev=zoomX,next=Math.max(1,Math.min(3.5,prev*(e.deltaY>0?1/1.12:1.12)));if(Math.abs(next-prev)<1e-4)return;const anchor=(stage.scrollLeft+x)/Math.max(prev,1e-6);zoomX=next;draw();stage.scrollLeft=Math.max(0,anchor*zoomX-x)},{passive:false});
       populate();applyMode();resize();
     </script>
   </body>
 </html>
+
+
+
+
+

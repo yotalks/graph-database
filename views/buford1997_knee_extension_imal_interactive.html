@@ -25,7 +25,7 @@
         color: var(--text);
         overflow: hidden;
       }
-      .wrap { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+      .wrap { min-height: 100dvh; height: 100%; display: grid; grid-template-rows: auto 1fr; }
       .top {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -51,7 +51,7 @@
       }
       .btn:hover { background: var(--btnHover); }
       .status { color: var(--muted); font-size: 12px; white-space: nowrap; }
-      .main { position: relative; display: grid; grid-template-columns: 320px 1fr; min-height: 0; }
+      .main { position: relative; display: grid; grid-template-columns: minmax(240px, 30vw) 1fr; min-height: 0; }
       .left {
         border-right: 1px solid var(--border);
         background: var(--panel2);
@@ -122,15 +122,15 @@
         .btn { padding: 6px 9px; font-size: 11px; }
         .status { width: 100%; white-space: normal; }
         .subtitle, .hint, .overlay { display: none; }
-        .main { grid-template-columns: 1fr; grid-template-rows: auto minmax(540px, 78vh); }
+        .main { display: flex; flex-direction: column; }
         .left {
           border-right: none;
           border-bottom: 1px solid var(--border);
-          max-height: 22vh;
+          order: 2; max-height: min(14rem, 20dvh);
           padding-bottom: 8px;
         }
         .check { margin: 6px 4px; padding: 7px 8px; }
-        .stage { min-height: 540px; }
+        .stage { order: 1; min-height: clamp(260px, 52dvh, 440px); flex: 0 0 auto; }
       }
     </style>
   </head>
@@ -678,5 +678,8 @@
     </script>
   </body>
 </html>
+
+
+
 
 
